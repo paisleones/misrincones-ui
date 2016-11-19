@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="utf-8">
+  <title>Astro - Mobile Template</title>
+
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,700" rel="stylesheet">
+
+
+  <!-- CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/material-kit.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+<script type="text/javascript"> 
+//<![CDATA[ 
+function load_url(div,url)
+{  
+$.ajax({
+    url: url,
+        type:'GET',
+         cache: false,
+    crossDomain: true,
+    crossOrigin: true,
+        success: function(data){
+           $( '#' + div ).html(data);
+        }
+});      
+}
+//]]>
+</script>
+
+</head>
+<body>
+
+  <!-- Toolbar -->
+  <div id="toolbar" class="fondo_menu">
+    <div class="open-left">
+      <button type="button" class="button-collapse navbar-toggle collapsed" data-activates="slide-out">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar black"></span>
+        <span class="icon-bar black"></span>
+        <span class="icon-bar black"></span>
+      </button>
+    </div>
+
+    <h1 class="branding" style="color: #666;"><img src="img/misrincones.png" style="width: 150px;"></h1>
+    <div class="open-right" data-activates="slide-out-right">
+      <img src="img/gps_big.png" style="width: 26px;">
+    </div>
+  </div>
+  <!-- End of Toolbar -->
+
+  <!-- Left Sidebar -->
+  <div id="slide-out" class="side-nav">
+    
+    <div class="card side-nav-card">
+      
+      <div class="content">
+        <div class="footer">
+          <div class="author">
+              <a href="#!">
+                 <img src="img/avatar.png" alt="..." class="avatar img-raised" style="border: 3px solid #fff;">
+                 <span class="info-title white-text">Nombre de usuario</span>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <h1 class="titulo_menu">OPCION NUMERO 1<i class="material-icons">+</i></h1>
+          </a>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <ul>
+              <li><a href="http://www.codnauts.com/themes/astro/index.html">Sub opcion 1</a></li>
+              <li><a href="http://www.codnauts.com/themes/astro/index-wide.html">Sub opcion 2</a></li>
+              <li><a href="index-fullscreen.html">Sub opcion 3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h1 class="titulo_menu"><a href="http://www.codnauts.com/themes/astro/blog.html">OPCION NUMERO 2</a></h1>
+        </div>
+      </div>
+
+
+    
+      <div class="panel">
+        <div class="panel-heading">
+          <h1 class="titulo_menu"><a href="http://www.codnauts.com/themes/astro/contact.html">OPCION NUMERO 3</a></h1>
+        </div>
+      </div>
+    </div>  
+    
+  </div>
+  
+  <!-- Right Sidebar -->
+  <div id="slide-out-right" class="side-nav">
+    <div class="card">
+      <div class="content content-info">
+        <h5 class="category-social">
+          <i class="fa fa-twitter"></i> Twitter
+        </h5>
+        <h4 class="card-title">
+          <a href="#!">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
+        </h4>
+         <div class="footer text-center">
+          <a href="#!" class="btn btn-white btn-round">Read Article</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="content content-success">
+        <h5 class="category-social">
+          <i class="fa fa-newspaper-o"></i> TechCrunch
+        </h5>
+        <h4 class="card-title">
+          <a href="#!">"Focus on Your Employees"</a>
+        </h4>
+        <p class="card-description">
+          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+        </p>
+        <div class="footer text-center">
+          <a href="#!" class="btn btn-white btn-round">Read Article</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content content-danger">
+        <h5 class="category-social">
+          <i class="fa fa-newspaper-o"></i> The Next Web
+        </h5>
+        <h4 class="card-title">
+          <a href="#!">"Focus on Your Employees"</a>
+        </h4>
+        <p class="card-description">
+          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+        </p>
+        <div class="footer text-center">
+          <a href="#!" class="btn btn-white btn-round">Read Article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <!-- The Main container have some space on top, so your toolbar will not cover the page contents -->
+  <div id="main"> 
+  
+    <div class="page-header header-filter clear-filter fullscreen valign-wrapper bg0" data-parallax="active">
+    
+      
+    
+      <div class="container" style="width: 100%;">
+         <div class="centrado-porcentual">
+        <h1 style="font-weight: 100; color: #ffffff;">MIS RINCONES</h1>
+        <h6 style="color: #ffffff;">Otra forma de ver el mundo que te rodea</h6>
+        <br>
+<a href="#" class="btn btn blue btn-round btn-lg">Entrar</a>
+
+    </div>
+      </div>
+    </div>
+    
+    <!-- Features -->
+    <div id="discover" class="section white relative">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="info text-center">
+            <div class="icon">
+              <i class="material-icons">code</i>
+            </div>
+            <h4 class="info-title">For Developers</h4>
+            <p>The moment you use Astro, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="info text-center">
+            <div class="icon">
+              <i class="material-icons">format_paint</i>
+            </div>
+            <h4 class="info-title">For Designers</h4>
+            <p>The moment you use Astro, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="info text-center">
+            <div class="icon">
+              <i class="material-icons">dashboard</i>
+            </div>
+            <h4 class="info-title">Bootstrap Grid</h4>
+            <p>The moment you use Astro, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <div class="content content-info">
+          <h5 class="category-social">
+            <i class="fa fa-twitter"></i> Twitter
+          </h5>
+          <h4 class="card-title">
+            <a href="#!">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
+          </h4>
+          <div class="footer">
+            <div class="author">
+                <a href="#!">
+                   <img src="http://www.codnauts.com/themes/astro/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
+                   <span>Tania Andrew</span>
+                </a>
+            </div>
+            <div class="stats">
+              <i class="material-icons">favorite</i> 2.4K ·
+              <i class="material-icons">share</i> 45
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    
+  </div>
+  <!-- End of Features -->
+  
+ 
+  
+ 
+
+ 
+
+  
+
+  <!-- Footer -->
+    <footer class="footer footer-black footer-big">
+      <div class="container-fluid">
+
+
+        <hr />
+
+        <ul class="pull-left">
+          <li>
+            <a href="#!">Blog</a>
+          </li>
+          <li>
+            <a href="#!">Presentation</a>
+          </li>
+          <li>
+            <a href="#!">Discover</a>
+          </li>
+          <li>
+            <a href="#!">Contact Us</a>
+          </li>
+        </ul>
+
+        <div class="copyright pull-right">
+          Copyright &copy; <script>document.write(new Date().getFullYear())</script> Codnauts All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- End of Main -->
+
+
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/material.min.js"></script>
+  <script src="js/material-kit.js" type="text/javascript"></script>
+  <script src="js/sidenav.js"></script>
+<script src="js/main.js"></script>
+  
+  
+     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/capture.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/geolocation.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+
+</html>
