@@ -32,7 +32,7 @@
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/fastclick.js"></script>
-<script type="text/javascript" src="js/sidenav.js"></script>
+
 
 <script type="text/javascript"> 
 //<![CDATA[ 
@@ -50,39 +50,6 @@ $.ajax({
 });      
 }
 
-// Adding strict mode
-"use strict";
-
-// This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026
-(function(a, b, c) {
-    if (c in b && b[c]) {
-        var d, e = a.location,
-            f = /^(a|html)$/i;
-        a.addEventListener("click", function(a) {
-            d = a.target;
-            while (!f.test(d.nodeName)) d = d.parentNode;
-            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
-        }, !1)
-    }
-})(document, window.navigator, "standalone");
-
-$( document ).ready(function() {
-    $('.button-collapse').sideNav({
-        menuWidth: 250, // Default is 240
-        edge: 'left', // Choose the horizontal origin
-        closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    });
-
-    $('.collapsible').collapsible();
-
-    $('.open-right').sideNav({
-        menuWidth: 250, // Default is 240
-        edge: 'right', // Choose the horizontal origin
-        closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    });
-    $('.collapsible').collapsible();
-});
-
 //]]>
 </script>
 
@@ -90,9 +57,14 @@ $( document ).ready(function() {
 </head>
 <body>
 
+<div id="o-wrapper" class="o-wrapper">
+
 <div class="header">
 
+        <button id="c-button--slide-left" class="c-button">Slide Left</button>
+        <button id="c-button--slide-right" class="c-button">Slide Right</button>
 
+<!--
 <div class="button-collapse navbar-toggle collapsed" data-activates="slide-out" style="width: 50px; height: 50px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu.png); background-position: center center; background-repeat: no-repeat;">
 </div>
   
@@ -100,33 +72,9 @@ $( document ).ready(function() {
 
 <div class="open-right" data-activates="slide-out-right" style="width: 50px; height: 50px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps.png); background-position: center center; background-repeat: no-repeat;"">
 </div>
+-->
  
 </div>
-
- <!-- Left Sidebar -->
-  <div id="slide-out" class="side-nav sidebar-left">
-    
-    <div style="width: 100%; height: 120px; background: url(img/blog3.jpg); background-size: cover;">
- </div>
- 
- <div class="foto_perfil" style="background: url(img/avatar.png); background-size: contain;"></div>
-    <div style="width: 100%; padding: 20px;">
-    
-    Menu izquierdo
-    
-    </div>
-    
-  </div>
-
- <!-- Right Sidebar -->
-  <div id="slide-out-right" class="side-nav sidebar-right">
-   
-   
-   Menu derecho
-   
-   
-  </div>
-
 
 
   <div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
@@ -147,6 +95,72 @@ $( document ).ready(function() {
 </div>
 
 
+</div><!-- /o-wrapper -->
+
+<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+  <button class="c-menu__close">&larr; Close Menu</button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+  </ul>
+</nav><!-- /c-menu slide-left -->
+
+<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+  <button class="c-menu__close">Close Menu &rarr;</button>
+  <ul class="c-menu__items">
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
+    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
+  </ul>
+</nav><!-- /c-menu slide-right -->
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+
+<script type="text/javascript" src="js/menu.js"></script>
+<script>
+  
+  /**
+   * Slide left instantiation and action.
+   */
+  var slideLeft = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideLeftBtn = document.querySelector('#c-button--slide-left');
+  
+  slideLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideLeft.open();
+  });
+
+
+  /**
+   * Slide right instantiation and action.
+   */
+  var slideRight = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-right',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideRightBtn = document.querySelector('#c-button--slide-right');
+  
+  slideRightBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideRight.open();
+  });
+
+</script>
 
 
      <script type="text/javascript" src="cordova.js"></script>
