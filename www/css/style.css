@@ -157,7 +157,7 @@ border: 0px solid rgba(66,66,66,0.3);
     */
     background: rgba(255,255,255,1);
     border-right: 2px solid #0dcdbd;
-    padding: 20px;
+    padding: 0px;
 	width: 250px;
 }
 
@@ -168,6 +168,18 @@ border: 0px solid rgba(66,66,66,0.3);
     */
     background: rgba(255,255,255,1);
     border-left: 2px solid #0dcdbd;
-    padding: 20px;
+    padding: 0px;
 	width: 250px;
+}
+
+.foto_perfil {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    margin-top: -50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    opacity: 1;
+    border: 4px solid #fff;
 }
