@@ -6,185 +6,28 @@
   <meta charset="utf-8">
   <title>Astro - Mobile Template</title>
 
-
-  
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-
-
 <style>
-.side-nav {
-  position: fixed;
-  width: 200px;
-  left: -10px;
-
-  top: 0;
-  margin: 0;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  height: 100%;
-  height: calc(100% + 60px);
-  height: -moz-calc(100%);
-  padding-bottom: 60px;
-  background-color: #fff;
-  z-index: 9999;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  overflow-y: auto;
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: translateX(-105%);
-          transform: translateX(-105%);
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(fonts/roboto-100.woff) format('woff');
 }
-#slide-out-right {
-  width: 220px;
-  right: -10px;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(fonts/roboto-300.woff) format('woff');
 }
-.side-nav.right-aligned {
-    right: 0;
-    -webkit-transform: translateX(105%);
-    transform: translateX(105%);
-    left: auto;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(fonts/roboto-400.woff) format('woff');
 }
-.drag-target {
-  height: 100%;
-  width: 25px;
-  position: fixed;
-  top: 0;
-  z-index: 998;
-}
-#sidenav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  will-change: opacity;
-}
-.side-nav .panel-group .panel+.panel {
-  margin-top: 0;
-}
-.side-nav .panel .panel-heading {
-  padding: 16px 20px;
-  border-bottom: none;
-}
-.side-nav .panel .panel-heading .panel-title {
-  font-family: "Roboto", "Times New Roman", serif;
-}
-.side-nav .panel .panel-body {
-    padding: 0;
-}
-.side-nav .panel .panel-body a {
-    padding: 11px 16px 11px 32px;
-    display: block;
-    font-size: 13px;
-    color: #3C4858;
-    cursor: pointer;
-}
-
-
-h1
-{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    color: #fff;
-    font-size: 35px;
-    line-height: 120%;
-    padding: 10px;
-    margin: 0px;
-}
-
-h6
-{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    color: #fff;
-    font-size: 16px;
-    line-height: 120%;
-     padding: 0px;
-    margin: 0px;
-    text-decoration: none;
-}
-
-.centrado-porcentual {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-	z-index: 10;
-    
-}
-
-.pattern {
-	position: absolute;
-	top:0px;
-	left:0px;
-	height:100%;
-	width:100%;
-	overflow: hidden;
-      background-image: url(img/pattern.png);
-    background-repeat: repeat;
-	z-index: 2;
-}
-
-.boton_full {
-background: #0cbfb0;
-padding: 10px 40px 10px 40px;
-border: 0px solid #ffffff;
-}
-
-.boton_border {
-background: rgba(255,255,255,0.7);
-padding: 10px 40px 10px 40px;
-border: 0px solid rgba(66,66,66,0.3);
-}
-
-.header {
-    -moz-transition: 0.4s ease-in-out all;
-    -webkit-transition: 0.4s ease-in-out all;
-    transition: 0.4s ease-in-out all;
-    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    background: rgba(255,255,255,1);
-    border-bottom: 2px solid #0dcdbd;
-    display: table;
-    width: 100%;
-    z-index: 50;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-	height: 50px;
-	text-align: center;
-}
-
-.sidebar-left
-{
-    box-shadow: 3px 0px 0px 0px rgba(50, 50, 50, 0.2);
-    background: rgba(255,255,255,1);
-    border-right: 2px solid #0dcdbd;
-    padding: 20px;
-	width: 200px;
-}
-
-.sidebar-right
-{
-    box-shadow: -3px 0px 0px 0px rgba(50, 50, 50, 0.2);
-    background: rgba(255,255,255,1);
-    border-left: 2px solid #0dcdbd;
-    padding: 20px;
-	width: 200px;
-}
-
 </style>
 
+<link href="css/style.css" rel="stylesheet">
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -225,7 +68,7 @@ $.ajax({
 
 $( document ).ready(function() {
     $('.button-collapse').sideNav({
-        menuWidth: 200, // Default is 240
+        menuWidth: 250, // Default is 240
         edge: 'left', // Choose the horizontal origin
         closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
@@ -233,7 +76,7 @@ $( document ).ready(function() {
     $('.collapsible').collapsible();
 
     $('.open-right').sideNav({
-        menuWidth: 200, // Default is 240
+        menuWidth: 250, // Default is 240
         edge: 'right', // Choose the horizontal origin
         closeOnClick: false // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
@@ -281,7 +124,7 @@ $( document ).ready(function() {
   <div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
     background-position: top left; background-size: cover; z-index: 1">
 
-<div class="pattern"></div>  
+<div class="pattern" style="background-image: url(img/pattern.png);"></div>  
     
     <div class="centrado-porcentual">
         <h1>Mis Rincones</h1>
