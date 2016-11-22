@@ -25,6 +25,19 @@
   font-weight: 400;
   src: url(fonts/roboto-400.woff2) format('woff');
 }
+
+.boton
+{
+min-width: 150px;
+padding: 10px;
+background: #c0c0c0;
+border-bottom: 2px solid #a0a0a0;
+color: #fff;
+font-size: 13px;
+cursor: pointer;	
+margin: 10px;
+}
+
 </style>
 
 <link href="css/style.css" rel="stylesheet">
@@ -120,6 +133,64 @@ $.ajax({
            </a>
            
 <div id="contenido_menu_derecha" class="contenido_menu_derecha">
+
+ <div style="text-align: center; padding: 20px;">
+
+<div style="width: 100%; height: 50px;"></div>
+            
+            	<a class="boton" onclick="captureAudio();">Audio</a>
+				<a class="boton" onclick="captureImage();">Image</a>
+				<a class="boton" onclick="captureVideo();">Video</a>
+                <p><br>
+				<div class="result-block">
+				Capture Result: <span id="capture-result"></span><br/>
+				<span id="format-data"></span><br/>
+				</div>
+                
+                
+                
+
+				<h4 class="help"><b>Toggle</b> to stop/start
+				geolocation watch. <br/><b>Get Current</b> for one-time geolocation reading.</h4>
+				<a class="boton" onclick="toggleWatchPosition();">Toggle</a>
+   				<a class="boton" onclick="getCurrentPosition();">Get Current</a>
+                <div style="width: 100%; height: 50px;"></div>
+   				<div class="result-block">
+   					<span id="cur_position"></span>
+   				</div>
+   				<img id="map" alt="Location Map"/>								
+
+    </div>
+    
+
+
+    
+      <script>
+         document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log("navigator.geolocation works well");
+    }
+
+// onSuccess Callback 
+    // This method accepts a Position object, which contains the 
+    // current GPS coordinates 
+    // 
+    var onSuccess = function(position) {
+		
+		var latitud = position.coords.latitude;
+		var longitud = position.coords.longitude;
+	}
+ 
+    // onError Callback receives a PositionError object 
+    // 
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+ 
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    </script>
+    
 </div>      
 </nav>
 
