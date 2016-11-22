@@ -54,7 +54,10 @@ function load_url(div,url)
 $.ajax({
     url: url,
          cache: false,
-    crossOrigin: true,
+    	type: 'GET',
+        contentType: "application/json",
+         async: true,
+        crossDomain: true,
         success: function(data){
            $( '#' + div ).html(data);
         }
