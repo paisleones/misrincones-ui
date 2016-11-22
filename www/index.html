@@ -8,22 +8,22 @@
 
 <style>
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Roboto thin';
   font-style: normal;
   font-weight: 100;
-  src: local('Roboto Thin'), local('Roboto-Thin'), url(fonts/roboto-100.woff) format('woff');
+  src: url(fonts/roboto-100.woff2) format('woff');
 }
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Roboto regular';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(fonts/roboto-300.woff) format('woff');
+  src: url(fonts/roboto-300.woff2) format('woff');
 }
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Roboto bold';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(fonts/roboto-400.woff) format('woff');
+  src: url(fonts/roboto-400.woff2) format('woff');
 }
 </style>
 
@@ -57,25 +57,22 @@ $.ajax({
 </head>
 <body>
 
-<div id="o-wrapper" class="o-wrapper">
-
 <div class="header">
 
-        <button id="c-button--slide-left" class="c-button">Slide Left</button>
-        <button id="c-button--slide-right" class="c-button">Slide Right</button>
-
-<!--
-<div class="button-collapse navbar-toggle collapsed" data-activates="slide-out" style="width: 50px; height: 50px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu.png); background-position: center center; background-repeat: no-repeat;">
-</div>
-  
-    <img src="img/misrincones.png" style="width: 170px; margin-top: 8px;">
-
-<div class="open-right" data-activates="slide-out-right" style="width: 50px; height: 50px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps.png); background-position: center center; background-repeat: no-repeat;"">
-</div>
--->
- 
+<div id="c-button--slide-left" class="c-button" style="width: 50px; height: 50px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu.png); background-position: center center; background-repeat: no-repeat;">
 </div>
 
+<img src="img/misrincones.png" style="width: 170px; margin-top: 8px;">
+
+<div id="c-button--slide-right" style="width: 50px; height: 50px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps.png); background-position: center center; background-repeat: no-repeat;"">
+</div>
+
+
+</div>
+
+
+<div id="o-wrapper" class="o-wrapper">
+<div id="contenido">
 
   <div style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
     background-position: top left; background-size: cover; z-index: 1">
@@ -86,7 +83,7 @@ $.ajax({
         <h1>Mis Rincones</h1>
         <h6>Otra forma de ver el mundo que te rodea</h6>
         <br><br>
-        <h6><a href="mapa.php" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px;">ENTRAR</a>
+        <h6><a onclick="load_url('contenido_menu_derecha','http://misrincones.trabajocreativo.com/gps.php')" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
     </div>
     
@@ -95,29 +92,38 @@ $.ajax({
 </div>
 
 
+</div>
 </div><!-- /o-wrapper -->
 
-<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
-  <button class="c-menu__close">&larr; Close Menu</button>
-  <ul class="c-menu__items">
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
-  </ul>
-</nav><!-- /c-menu slide-left -->
 
+
+<!-- /c-menu slide-left -->
+<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+
+<div style="width: 100%; height: 120px; background: url(img/blog3.jpg); background-size: cover;">       
+<a class="c-menu__close" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
+<img src="img/close.png" style="width: 32px;">
+</a>       
+</div>
+          
+   
+            
+<div class="foto_perfil" style="background: url(img/avatar.png); background-size: contain;"></div>         
+</nav>
+<!-- /c-menu slide-left -->
+
+
+<!-- /c-menu slide-right -->
 <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-  <button class="c-menu__close">Close Menu &rarr;</button>
-  <ul class="c-menu__items">
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Work</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link">Contact</a></li>
-  </ul>
-</nav><!-- /c-menu slide-right -->
+         <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px;">
+               <img src="img/close.png" style="width: 32px;">
+           </a>
+           
+<div id="contenido_menu_derecha" class="contenido_menu_derecha">
+</div>      
+</nav>
+
+<!-- /c-menu slide-right -->
 
 <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 
