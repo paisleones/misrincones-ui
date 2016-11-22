@@ -81,7 +81,7 @@ border: 0px solid rgba(66,66,66,0.3);
     box-shadow: 3px 0px 0px 0px rgba(50, 50, 50, 0.2);
     */
     background: rgba(255,255,255,1);
-    border-right: 2px solid #0dcdbd;
+    border-right: 0px solid #0dcdbd;
     padding: 0px;
 	width: 250px;
 }
@@ -258,7 +258,7 @@ border: 0px solid rgba(66,66,66,0.3);
 .c-menu--push-left {
   top: 0;
   left: 0;
-      border-right: 2px solid #0dcdbd;
+      border-right: 0px solid #0dcdbd;
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
