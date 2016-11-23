@@ -21,9 +21,9 @@
 var getCurrentPosition = function() {
     var map = document.getElementById('map');
     var success = function(pos) {                
-        var text = "<div>Latitude: " + pos.coords.latitude + 
-                    "<br/>" + "Longitude: " + pos.coords.longitude + "<br/>" + 
-                    "Accuracy: " + pos.coords.accuracy + "m<br/>" + "</div>";
+        var text = "<div>Latitud: " + pos.coords.latitude + 
+                    "<br/>" + "Longitud: " + pos.coords.longitude + "<br/>" + 
+                    "Exactitud: " + pos.coords.accuracy + "m<br/>" + "</div>";
         document.getElementById('cur_position').innerHTML = text;
         console.log(text);
         map.style.display = 'block';
@@ -35,13 +35,13 @@ var getCurrentPosition = function() {
             pos.coords.latitude + "," + pos.coords.longitude + "&sensor=false";
     };
     var fail = function(error) {
-        document.getElementById('cur_position').innerHTML = "Error getting geolocation: " + error.code;
-        console.log("Error getting geolocation: code=" + error.code + " message=" + error.message);
+        document.getElementById('cur_position').innerHTML = "Error consiguiendo localizacion: " + error.code;
+        console.log("Error consiguiendo geolocalizacion: code=" + error.code + " message=" + error.message);
     };
 
     map.style.display = 'none';
-    document.getElementById('cur_position').innerHTML = "Getting geolocation . . .";
-    console.log("Getting geolocation . . .");
+    document.getElementById('cur_position').innerHTML = "Obteniendo localizacion . . .";
+    console.log("Obteniendo localizacion . . .");
     navigator.geolocation.getCurrentPosition(success, fail);
 };
 
@@ -52,16 +52,16 @@ function clearWatch() {
         navigator.geolocation.clearWatch(watchID);
         watchID = null;
         document.getElementById('cur_position').innerHTML = "";
-        document.getElementById('map').style.display = 'none';
+        document.getElementById('map_peque').style.display = 'none';
     }
 }
 var wsuccess = function(pos) { 
-    var map = document.getElementById('map');
-    document.getElementById('cur_position').innerHTML = "Watching geolocation . . .";
+    var map = document.getElementById('map_peque');
+    document.getElementById('cur_position').innerHTML = "vigilando localizacion . . .";
     map.style.display = 'none';
-    var text = "<div>Latitude: " + pos.coords.latitude + 
-                " (watching)<br/>" + "Longitude: " + pos.coords.longitude + "<br/>" + 
-                "Accuracy: " + pos.coords.accuracy + "m<br/>" + "</div>";
+    var text = "<div>Latitud: " + pos.coords.latitude + 
+                " (vigilando)<br/>" + "Longitud: " + pos.coords.longitude + "<br/>" + 
+                "Exactitud: " + pos.coords.accuracy + "m<br/>" + "</div>";
     document.getElementById('cur_position').innerHTML = text;
     console.log(text);    
     map.style.display = 'block';
@@ -73,17 +73,17 @@ var wsuccess = function(pos) {
         pos.coords.latitude + "," + pos.coords.longitude + "&sensor=false";
 };
 var wfail = function(error) {
-    document.getElementById('cur_position').innerHTML = "Error getting geolocation: " + error.code;
-    console.log("Error getting geolocation: code=" + error.code + " message=" + error.message);
+    document.getElementById('cur_position').innerHTML = "rror consiguiendo geolocalizacion: " + error.code;
+    console.log("rror consiguiendo geolocalizacion: code=" + error.code + " message=" + error.message);
 };
 var toggleWatchPosition = function() {
     if (watchID) {
         console.log("Stopped watching position");
         clearWatch();  // sets watchID = null;
     } else {
-        document.getElementById('map').style.display = 'none';
-        document.getElementById('cur_position').innerHTML = "Watching geolocation . . .";
-        console.log("Watching geolocation . . .");
+        document.getElementById('map_peque').style.display = 'none';
+        document.getElementById('cur_position').innerHTML = "vigilando localizacion . . .";
+        console.log("vigilando localizacion . . .");
         var options = { frequency: 3000, maximumAge: 5000, timeout: 5000, enableHighAccuracy: true };
         watchID = navigator.geolocation.watchPosition(wsuccess, wfail, options);
     }
