@@ -428,7 +428,7 @@
               function quickView(id) {
                   $.ajax({
                       type: 'POST',
-                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal.html?id=' + id,
+                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal.php?id=' + id,
                       data: id,
                       success: function (data) {
                           $('body').append(data);
