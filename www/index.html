@@ -130,7 +130,7 @@
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
                      background-position: top left; background-size: cover; z-index: 10" id="portada">
 
-                    <div class="pattern" style="background-image: url(img/pattern.png);"></div>  
+                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>  
 
                     <div class="centrado-porcentual">
                         <h6 style="font-size: 36px;">Mis Rincones
@@ -156,37 +156,7 @@
                 <div id="page-canvas" style="z-index: 1; margin-top: 60px;">
 
 
-                    <header class="clearfix">
-
-                        <div class="btn-group bootstrap-select framed">
-                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
-                                <span class="filter-option pull-left">Que rincones deseas ver?</span><span><img src="img/arrow_down.png" style="width: 24px; position: relative; right: 14px;"></span>
-                            </button>
-                            <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
-                                <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
-
-                                    <li>
-                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>    
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('para_comprar');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-
-                        </div>
-
-
+                   
 
                         <!--Page Content-->
                         <div id="page-content">
@@ -201,7 +171,37 @@
                                     </div>
 
 
+ <header class="clearfix" style="border: 0px; width: 200px; padding: 0px; position: absolute; left: 56px; top: 4px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
+                        <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
+                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 2px;">
+                                <span class="filter-option pull-left">Elije tus rincones</span><span><img src="img/arrow_down.png" style="width: 20px; position: relative; right: 6px;"></span>
+                            </button>
+                            <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
+                                <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
+
+                                    <li>
+                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                    </li>    
+                                    
+                                    <li>
+                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="crear_mapa_json('para_comprar');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </header>
 
 
                                     <!--/.toggle-navigation-->
@@ -337,16 +337,16 @@
 
 
     <!-- /c-menu slide-right -->
-    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: #f0f0f0;">
+    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: #ffffff;">
         <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
             <img src="img/close.png" style="width: 32px;">
         </a>
 
         <div id="contenido_menu_derecha" class="contenido_menu_derecha">
 
-              <div class="items-list" style="width: 100%; background: #f0f0f0;">
+              <div class="items-list" style="width: 100%; background: #ffffff;">
     
-           <div class="scroller1" style="width: 100%; background: #f0f0f0;">
+           <div class="scroller1" style="width: 100%; background: #ffffff;">
             <ul class="results grid" style="padding-bottom: 50px; padding-top: 40px;">
 
             </ul>
@@ -428,7 +428,7 @@
               function quickView(id) {
                   $.ajax({
                       type: 'POST',
-                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal.php?id=' + id,
+                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal.html?id=' + id,
                       data: id,
                       success: function (data) {
                           $('body').append(data);
@@ -476,12 +476,14 @@
               {
     //var _latitude = 42.599052;
     //var _longitude = -5.5665905;
+
                   var zoom = 15;
                   var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
                   {
                       $.getJSON(jsonPath)
                               .done(function (json) {
                                   createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                          
                               })
 
                               ;
