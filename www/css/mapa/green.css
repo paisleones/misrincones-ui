@@ -4923,7 +4923,7 @@ body.map-fullscreen #map {
   -webkit-border-radius: 0px;
   border-radius: 0px;
   border: none;
-  margin-top: 3px;
+  margin-top: 0px;
   padding: 0;
   padding-left: 0 !important;
 }
@@ -7085,7 +7085,7 @@ border-bottom: 1px solid #ebebeb;
 
 #map, .items-list
 {
-margin-top: 70px;
+margin-top: 0px;
 }
 
 
