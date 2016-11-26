@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <head>
-        <meta charset="utf-8">
-        <title>Astro - Mobile Template</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  
+
+       <title>Astro - Mobile Template</title>
 
         <style>
             @font-face {
@@ -156,24 +160,24 @@
 
                         <div class="btn-group bootstrap-select framed">
                             <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
-                                <span class="filter-option pull-left">Que rincones deseas ver?</span>&nbsp;<span class="caret"></span>
+                                <span class="filter-option pull-left">Que rincones deseas ver?</span><span><img src="img/arrow_down.png" style="width: 24px; position: relative; right: 14px;"></span>
                             </button>
                             <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
                                 <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
 
-                                    <li rel="0">
+                                    <li>
                                         <a tabindex="0" class="" style="" onclick="crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                     </li>    
                                     
-                                    <li rel="0">
-                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindobles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                    <li>
+                                        <a tabindex="0" class="" style="" onclick="crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                     </li>
                                     
-                                    <li rel="0">
+                                    <li>
                                         <a tabindex="0" class="" style="" onclick="crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                     </li>
                                     
-                                    <li rel="0">
+                                    <li>
                                         <a tabindex="0" class="" style="" onclick="crear_mapa_json('para_comprar');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                     </li>
                                     
@@ -326,28 +330,34 @@
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
             </script>
 
-        </div>
+
 
     </nav>
     <!-- /c-menu slide-left -->
 
 
     <!-- /c-menu slide-right -->
-    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
-        <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px;">
+    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: #f0f0f0;">
+        <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
             <img src="img/close.png" style="width: 32px;">
         </a>
 
         <div id="contenido_menu_derecha" class="contenido_menu_derecha">
 
-            <ul class="results grid" style="padding-bottom: 50px;">
+              <div class="items-list" style="width: 100%; background: #f0f0f0;">
+    
+           <div class="scroller1" style="width: 100%; background: #f0f0f0;">
+            <ul class="results grid" style="padding-bottom: 50px; padding-top: 40px;">
 
             </ul>
             <div class="scroller__track">
                 <div class="scroller__bar"></div>
             </div>
 
-        </div>     
+        </div>    
+                        </div></div>
+
+            
 
     </nav>
 
@@ -405,19 +415,13 @@
     <script type="text/javascript" src="js/mapa/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/mapa/richmarker-compiled.js"></script>
     <script type="text/javascript" src="js/mapa/smoothscroll.js"></script>
-    <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
-    <script type="text/javascript" src="js/mapa/js/infobox.js"></script>
+    <script type="text/javascript" src="js/mapa/infobox.js"></script>
+      
 
     <script type="text/javascript" src="js/mapa/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    
+<script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
     <script type="text/javascript" src="js/mapa/custom.js"></script>
-
-
-
-
-    <!--[if lte IE 9]>
-    <script type="text/javascript" src="assets/js/ie-scripts.js"></script>
-    <![endif]-->
 
     <script>
 
@@ -436,26 +440,10 @@
               // var _latitude = 42.599052;
               //var _longitude = -5.5665905;
               var zoom = 16;
-              var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/<?php echo $lugares ?>.json';
+              var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/todos.json';
 
               // Load JSON data and create Google Maps
 
-
-              function crear_mapa()
-              {
-                  //var _latitude = 42.599052;
-                  //var _longitude = -5.5665905;
-                  var zoom = 16;
-                  var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/<?php echo $lugares ?>.json';
-                  {
-                      $.getJSON(jsonPath)
-                              .done(function (json) {
-                                  createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                              })
-
-                              ;
-                  }
-              }
 
               var _latitude, _longitude;
               $(document).ready(function () {
@@ -505,7 +493,7 @@
                   // proceed
               }
 
-              crear_mapa_json('todos');
+          crear_mapa_json('todos'); 
     </script>
 
 
