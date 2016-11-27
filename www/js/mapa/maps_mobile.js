@@ -165,7 +165,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
             };
 
             // Infobox HTML element ----------------------------------------------------------------------------------------
-
+            
             var category = json.data[i].category;
             infoboxContent.innerHTML = drawInfobox(category, infoboxContent, json, i);
 

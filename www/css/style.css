@@ -266,9 +266,9 @@ border: 0px solid rgba(66,66,66,0.3);
 @media all and (min-width: 320px) {
   .c-menu--slide-left,
   .c-menu--push-left {
-    -webkit-transform: translateX(-300px);
-        -ms-transform: translateX(-300px);
-            transform: translateX(-300px);
+    -webkit-transform: translateX(-310px);
+        -ms-transform: translateX(-310px);
+            transform: translateX(-310px);
   }
 }
 
@@ -307,6 +307,86 @@ border: 0px solid rgba(66,66,66,0.3);
 }
 
 
+/**
+ * Top and bottom menus
+ *
+ * Slide and push menus coming in from the top and bottom inherit a lot of
+ * common styles. We'll start each of them off by doing up the common styles
+ * for each version, followed by individual styles.
+ *
+ * The various versions are governed by modifier classes.
+
+/**
+ * Common modifiers for top/bottom menus
+ */
+.c-menu--slide-top,
+.c-menu--slide-bottom,
+.c-menu--push-top,
+.c-menu--push-bottom {
+  vertical-align: middle;
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  overflow-x: scroll;
+}
+
+.c-menu--slide-top .c-menu__items,
+.c-menu--slide-bottom .c-menu__items,
+.c-menu--push-top .c-menu__items,
+.c-menu--push-bottom .c-menu__items {
+  display: inline-block;
+  text-align: center;
+}
+
+.c-menu--slide-top .c-menu__item,
+.c-menu--slide-bottom .c-menu__item,
+.c-menu--push-top .c-menu__item,
+.c-menu--push-bottom .c-menu__item {
+  display: inline-block;
+  line-height: 250px;
+}
+
+.c-menu--slide-top .c-menu__link,
+.c-menu--slide-bottom .c-menu__link,
+.c-menu--push-top .c-menu__link,
+.c-menu--push-bottom .c-menu__link {
+  display: block;
+  padding: 0 4px;
+  color: #fff;
+}
+
+.c-menu--slide-top .c-menu__close,
+.c-menu--slide-bottom .c-menu__close,
+.c-menu--push-top .c-menu__close,
+.c-menu--push-bottom .c-menu__close {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 0 24px;
+  height: 250px;
+  line-height: 250px;
+}
+
+
+/**
+ * Slide/Push Menu Bottom.
+ */
+.c-menu--slide-bottom,
+.c-menu--push-bottom {
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateY(250px);
+      -ms-transform: translateY(250px);
+          transform: translateY(250px);
+}
+
+.c-menu--slide-bottom.is-active,
+.c-menu--push-bottom.is-active {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+
 /* -----------------------------------------------------------------------------
 
   MASK COMPONENT
@@ -329,7 +409,7 @@ border: 0px solid rgba(66,66,66,0.3);
 .c-mask.is-active {
   width: 100%;
   height: 100%;
-  opacity: 0.7;
+  opacity: 0.0;
   -webkit-transition: opacity 0.3s;
           transition: opacity 0.3s;
 }

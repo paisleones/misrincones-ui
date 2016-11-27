@@ -112,7 +112,7 @@
 
         <div class="header">
 
-            <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu.png); background-position: center center; background-repeat: no-repeat;">
+            <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
 
             <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
@@ -123,6 +123,11 @@
 
         </div>
 
+        
+        <div style="width: 100%; position: fixed; left: 0; bottom: 0px; z-index: 10; height: 60px; background: #ffffff; display: none;">
+            <button id="c-button--slide-bottom" class="c-button">Slide Botton</button>
+            <button id="c-button--push-bottom" class="c-button">Push Bottom</button>
+        </div>
 
         <div id="o-wrapper" class="o-wrapper">
             <div id="contenido">
@@ -153,7 +158,7 @@
 
 
 
-                <div id="page-canvas" style="z-index: 1; margin-top: 60px;">
+                <div id="page-canvas" style="z-index: 1; margin-top: 60px; overflow: hidden;">
 
 
                    
@@ -161,7 +166,7 @@
                         <!--Page Content-->
                         <div id="page-content">
                             <!-- Map Canvas-->
-                            <div class="map-canvas list-solid">
+                            <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 60px; left: 0px;">
                                 <!-- Map -->
                                 <div class="map">
 
@@ -205,7 +210,7 @@
 
 
                                     <!--/.toggle-navigation-->
-                                    <div id="map" class="has-parallax"></div>
+                                    <div id="map"></div>
 
 
 
@@ -261,9 +266,8 @@
         </div><!-- /o-wrapper -->
 
 
-
         <!-- /c-menu slide-left -->
-        <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
+        <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="border-right: 2px solid #0dcdbd;">
 
             <div style="width: 100%; height: 150px; background: url(img/blog3.jpg); background-size: cover;">       
                 <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; right: 10px;">
@@ -337,7 +341,7 @@
 
 
     <!-- /c-menu slide-right -->
-    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: #ffffff;">
+    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;"">
         <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
             <img src="img/close.png" style="width: 32px;">
         </a>
@@ -361,6 +365,18 @@
 
     </nav>
 
+   
+
+
+<nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
+  <button class="c-menu__close"><strong>x</strong></button>
+
+  
+  
+  
+</nav><!-- /c-menu push-bottom -->
+    
+    
     <!-- /c-menu slide-right -->
 
     <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
@@ -403,6 +419,25 @@
                   e.preventDefault;
                   slideRight.open();
               });
+              
+              
+  
+   /**
+   * Push bottom instantiation and action.
+   */
+  var pushBottom = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'push-bottom',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var pushBottomBtn = document.querySelector('#c-button--push-bottom');
+  
+  pushBottomBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    pushBottom.open();
+  });
 
     </script>
 
@@ -422,13 +457,16 @@
     
 <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
     <script type="text/javascript" src="js/mapa/custom.js"></script>
+    
+        <script type="text/javascript" src="js/video_player/jquery.cleanvideoplayer.min.js"></script>
+            <script type="text/javascript" src="js/video_player/player.css"></script>
 
     <script>
 
               function quickView(id) {
                   $.ajax({
                       type: 'POST',
-                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal.php?id=' + id,
+                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
                       data: id,
                       success: function (data) {
                           $('body').append(data);
