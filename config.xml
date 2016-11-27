@@ -23,7 +23,6 @@
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="0.1.3" source="npm" />
-    <plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
        <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
