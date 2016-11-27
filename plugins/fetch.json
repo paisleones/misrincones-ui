@@ -162,7 +162,7 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-whitelist@~1.2.1"
+            "id": "cordova-plugin-whitelist@1"
         },
         "is_top_level": true,
         "variables": {}
@@ -182,6 +182,32 @@
             "id": "cordova-plugin-background-fetch"
         },
         "is_top_level": false,
+        "variables": {}
+    },
+    "com.hutchind.cordova.plugins.streamingmedia": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-streaming-media"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.moust.cordova.videoplayer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/moust/cordova-plugin-videoplayer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.dawsonloudon.videoplayer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dawsonloudon/VideoPlayer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
         "variables": {}
     }
 }

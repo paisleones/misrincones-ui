@@ -66,6 +66,15 @@
         },
         "com.transistorsoft.cordova.background-geolocation": {
             "PACKAGE_NAME": "com.phonegap.misrincones"
+        },
+        "com.hutchind.cordova.plugins.streamingmedia": {
+            "PACKAGE_NAME": "com.trabajocreativo.misrincones"
+        },
+        "com.moust.cordova.videoplayer": {
+            "PACKAGE_NAME": "com.trabajocreativo.misrincones"
+        },
+        "com.dawsonloudon.videoplayer": {
+            "PACKAGE_NAME": "com.trabajocreativo.misrincones"
         }
     },
     "dependent_plugins": {
