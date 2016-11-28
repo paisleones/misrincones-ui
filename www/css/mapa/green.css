@@ -4255,7 +4255,7 @@ body.map-fullscreen #map {
 .infobox {
   font-family: 'Arial', sans-serif;
   display: block;
-  width: 295px;
+  width: 250px;
   position: relative;
   
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.26);
@@ -4296,7 +4296,7 @@ body.map-fullscreen #map {
   -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
-  min-width: 259px;
+  width: 250px;
   right: 0;
   padding: 11px;
   padding-bottom: 12px;
