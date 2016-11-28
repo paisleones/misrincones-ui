@@ -84,7 +84,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
             zoomControl: true,
             zoomControlOptions: {
                 style: google.maps.ZoomControlStyle.LARGE,
-                position: google.maps.ControlPosition.RIGHT_TOP
+                position: google.maps.ControlPosition.RIGHT_BOTTOM
             }
         };
         var mapElement = document.getElementById('map');
