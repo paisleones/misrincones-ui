@@ -26,7 +26,14 @@ var styles = [
                 {color: '#ffffff'},
                 {lightness: 0}
             ]
-        }, {
+        },
+        {
+        featureType: "poi.business",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]},
+        {
             featureType: 'road', // set the road
             elementType: 'geometry',
             stylers: [
