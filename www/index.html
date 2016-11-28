@@ -158,7 +158,7 @@
 
 
 
-                <div id="page-canvas" style="z-index: 1; margin-top: 60px; overflow: hidden;">
+                <div id="page-canvas" style="z-index: 1; margin-top: 0px; overflow: hidden;">
 
 
                    
@@ -166,17 +166,17 @@
                         <!--Page Content-->
                         <div id="page-content">
                             <!-- Map Canvas-->
-                            <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 60px; left: 0px;">
+                            <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 50px; left: 0px;">
                                 <!-- Map -->
                                 <div class="map">
 
 
-                                    <div style="width: 40px; heigh: 40px; background: #fff; position: absolute; left: 10px; top: 10px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100" class="sombra" onclick="crear_mapa_json('todos');">
+                                    <div style="width: 40px; heigh: 40px; background: #fff; position: absolute; left: 10px; top: 70px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100" class="sombra" onclick="crear_mapa_json('todos');">
                                         <img src="http://misrincones.trabajocreativo.com/assets/img/gps_big.png" style="width: 40px">
                                     </div>
 
 
- <header class="clearfix" style="border: 0px; width: 200px; padding: 0px; position: absolute; left: 56px; top: 4px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
+ <header class="clearfix" style="border: 0px; width: 200px; padding: 0px; position: absolute; right: 6px; top: 64px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
                         <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
                             <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 2px;">
@@ -210,7 +210,7 @@
 
 
                                     <!--/.toggle-navigation-->
-                                    <div id="map"></div>
+                                    <div id="map" style="height: 100%; margin-top: -50px;"></div>
 
 
 
@@ -542,7 +542,7 @@
     <script type="text/javascript" src="js/capture.js"></script>
     <script type="text/javascript" src="js/camera.js"></script>
     <script type="text/javascript" src="js/geolocation.js"></script>
-    <script type="text/javascript" src="js/videoplayer.js"></script>
+<script type="text/javascript" src="js/StreamingMedia.js"></script>
     <script type="text/javascript">
           app.initialize();
     </script>
