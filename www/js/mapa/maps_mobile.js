@@ -77,10 +77,11 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
     });
     function gMap(){
         var mapCenter = new google.maps.LatLng(_latitude,_longitude);
+        
         var mapOptions = {
             zoom: zoom,
             center: mapCenter,
-            disableDefaultUI: false,
+            disableDefaultUI: true,
             scrollwheel: false,
             styles: styles,
             mapTypeControlOptions: {
