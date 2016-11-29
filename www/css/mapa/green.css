@@ -218,6 +218,7 @@ section header .page-title {
 
 ul {
   padding-left: 13px;
+  list-style:none; 
 }
 ul.bullets {
   list-style: none;

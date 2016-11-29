@@ -102,7 +102,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
         var activeMarker = true;
         var lastClicked = false;
         var latLng = new google.maps.LatLng( _latitude, _longitude);
-        var companyImage = new google.maps.MarkerImage('http://misrincones.trabajocreativo.com/assets/img/marcador.png',
+        var companyImage = new google.maps.MarkerImage('http://misrincones.trabajocreativo.com/assets/img/marcador1.png',
             new google.maps.Size(44, 50),
             new google.maps.Point(0, 0),
             new google.maps.Point(22, 25)
