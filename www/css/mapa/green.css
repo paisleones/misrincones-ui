@@ -1633,7 +1633,7 @@ ul.bullets li a:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
   display: block;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   position: relative;
   height: auto;
 }
@@ -4524,8 +4524,8 @@ body.map-fullscreen #map {
   transition: all 0.4s cubic-bezier(0.42, 0, 0.06, 0.99) 0s;
   background-color: #f4f4f2;
   float: left;
-  width: 35%;
-  padding: 20px 0px 20px 20px;
+  width: 100%;
+  padding: 0px;
   height: 100%;
   overflow: hidden;
 }
@@ -6690,8 +6690,9 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
   }
 }
 .fade_in {
-  -webkit-animation: fade_in_animation .5s forwards;
-  animation: fade_in_animation .5s forwards;
+  -webkit-animation: fade_in_animation .0s forwards;
+  animation: fade_in_animation .0s forwards;
+
 }
 
 @keyframes fade_in_animation {

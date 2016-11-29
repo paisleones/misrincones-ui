@@ -52,7 +52,7 @@
             }
 
         </style>
-
+<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/mapa/bootstrap.css" type="text/css">
 
@@ -349,7 +349,7 @@
             <img src="img/close.png" style="width: 32px;">
         </a>
 
-        <div id="contenido_menu_derecha" class="contenido_menu_derecha">
+        <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="overflow-y: auto; padding: 0px;">
 
               <div class="items-list" style="width: 100%; background: #ffffff;">
     
@@ -362,7 +362,9 @@
             </div>
 
         </div>    
-                        </div></div>
+              </div>
+                            
+        </div>
 
             
 
@@ -469,6 +471,8 @@
               function quickView(id) {
                   $.ajax({
                       type: 'POST',
+                      async: true,
+                    cache: false,
                       url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
                       data: id,
                       success: function (data) {
