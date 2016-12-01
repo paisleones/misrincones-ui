@@ -236,7 +236,7 @@
 
 
 
-                    <div id="loading" class="centrado-porcentual" style="display: block; width: 200px; background: #ffffff;">
+                    <div id="loading" class="centrado-porcentual" style="display: none; width: 200px; background: #ffffff;">
                 
                         <div style="width: 200px; padding: 20px; background: #fff; color: #666; text-align: center;" class="sombra">
                             <img src="img/loading.svg" style="width: 32px; margin-right: 20px;"> Cargando ...
@@ -313,7 +313,6 @@
 
                 <div style="width: 100%; height: 50px;"></div>
 
-                <a class="boton" onclick="nuevo_rincon();">Rincon</a>
                 <a class="boton" onclick="captureImage();">Imagen</a>
                 <a class="boton" onclick="captureVideo();">Video</a>
                 <p><br>
@@ -368,7 +367,7 @@
                 <img src="img/close.png" style="width: 32px;">
             </a>
 
-
+            <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
 
                 <div class="items-list" style="width: 100%; background: #ffffff;">
 
@@ -383,6 +382,7 @@
                     </div>    
                 </div>
 
+            </div>
 
 
 
@@ -483,6 +483,7 @@
 
         <script>
 
+
  function nuevo_rincon() {
                     $.ajax({
                         type: 'POST',
@@ -502,6 +503,7 @@
                         }
                     });
                 }
+
 
                 function quickView(id) {
                     $.ajax({
