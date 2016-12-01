@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-  
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
-       <title>Astro - Mobile Template</title>
+
+        <title>Astro - Mobile Template</title>
 
         <style>
             @font-face {
@@ -36,23 +36,23 @@
                 src: url(fontawesome-webfont.woff) format('woff');
             }
 
-.icono {
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    background-color: #0dcdbd;
-    display: inline-block;
-    height: 26px;
-    margin-left: 5px;
-    text-align: center;
-    width: 26px;
-}
+            .icono {
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background-color: #0dcdbd;
+                display: inline-block;
+                height: 26px;
+                margin-left: 5px;
+                text-align: center;
+                width: 26px;
+            }
 
-.icono i {
-    color: #fff;
-    font-size: 10px;
-    line-height: 27px;
-}
+            .icono i {
+                color: #fff;
+                font-size: 10px;
+                line-height: 27px;
+            }
             .boton
             {
                 min-width: 150px;
@@ -66,7 +66,7 @@
             }
 
         </style>
-<link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/mapa/bootstrap.css" type="text/css">
 
@@ -101,7 +101,7 @@
 
 
         <script type="text/javascript">
-        //<![CDATA[ 
+            //<![CDATA[ 
             function load_url(div, url)
             {
                 $.ajax({
@@ -119,12 +119,12 @@
 
 
 
-function activar_tipo(tipo)
-{
-document.getElementById('tipo_de_rincon').innerHTML = tipo;
-}
+            function activar_tipo(tipo)
+            {
+                document.getElementById('tipo_de_rincon').innerHTML = tipo;
+            }
 
-        //]]>
+            //]]>
         </script>
 
 
@@ -138,17 +138,17 @@ document.getElementById('tipo_de_rincon').innerHTML = tipo;
 
             <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
 
-        
-                
-                 <div id="c-button--slide-right" class="c-button" style="width: 60px; height: 60px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps_big.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
+
+
+            <div id="c-button--slide-right" class="c-button" style="width: 60px; height: 60px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps_big.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
-            
+
 
 
         </div>
 
-        
-  
+
+
 
         <div id="o-wrapper" class="o-wrapper">
             <div id="contenido">
@@ -182,92 +182,80 @@ document.getElementById('tipo_de_rincon').innerHTML = tipo;
                 <div id="page-canvas" style="z-index: 1; margin-top: 0px; overflow: hidden;">
 
 
-                   
-
-                        <!--Page Content-->
-                        <div id="page-content">
-                            <!-- Map Canvas-->
-                            <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 50px; left: 0px;">
-                                <!-- Map -->
-                                <div class="map">
 
 
-                                    <div style="width: 40px; heigh: 40px; background: #fff; position: absolute; left: 10px; top: 70px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100" class="sombra" onclick="crear_mapa_json('todos');">
-                                        <img src="img/icono_gps.png" style="width: 40px">
-                                    </div>
+                    <!--Page Content-->
+                    <div id="page-content">
+                        <!-- Map Canvas-->
+                        <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 50px; left: 0px;">
+                            <!-- Map -->
+                            <div class="map">
 
 
- <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 64px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
-
-                        <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
-                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 2px;">
-                                <span class="filter-option pull-left" id="tipo_de_rincon">Elije tus rincones</span><span><img src="img/arrow_down.png" style="width: 20px; position: relative; right: 6px;"></span>
-                            </button>
-                            <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
-                                <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
-
-                                    <li>
-                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>    
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comer'); crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comprar'); crear_mapa_json('para_comprar');"><span class="text">Rincones para comprar</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                                    <!--/.toggle-navigation-->
-                                    <div id="map" style="height: 100%; margin-top: -50px;"></div>
-
-
-
-
+                                <div style="width: 40px; heigh: 40px; background: #fff; position: absolute; left: 10px; top: 70px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100" class="sombra" onclick="crear_mapa_json('todos');">
+                                    <img src="img/icono_gps.png" style="width: 40px">
                                 </div>
-                                <!-- end Map -->
-                                <!--Items List-->
 
 
+                                <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 64px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
+                                    <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
+                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 2px;">
+                                            <span class="filter-option pull-left" id="tipo_de_rincon">Elije tus rincones</span><span><img src="img/arrow_down.png" style="width: 20px; position: relative; right: 6px;"></span>
+                                        </button>
+                                        <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
+                                            <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
 
-                                <div class="items-list">
+                                                <li>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                </li>    
 
+                                                <li>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                </li>
 
-                                    <div class="inner">
+                                                <li>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comer'); crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                </li>
 
+                                                <li>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comprar'); crear_mapa_json('para_comprar');"><span class="text">Rincones para comprar</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                </li>
 
-                                        <div class="scroller1">
-
-
-
-
+                                            </ul>
                                         </div>
+
                                     </div>
-                                    <!--results-->
-                                </div>
-                                <!--end Items List-->
+
+                                </header>
+
+
+                                <!--/.toggle-navigation-->
+                                <div id="map" style="height: 100%; margin-top: -50px;"></div>
+
+
+
+
+                    <div id="loading" class="centrado-porcentual" style="display: none; background: #fff; width: 200px;">
+                
+                        <div style="width: 200px; padding: 20px; background: #fff; color: #666; text-align: center;" class="sombra">
+                            <img src="img/loading.svg" style="width: 32px; margin-right: 20px;"> Cargando ...
+                        </div>
+                        
+                    </div>
+                                
                             </div>
-                            <!-- end Map Canvas-->
-
-
-
-
+                            <!-- end Map -->
 
                         </div>
-                        <!-- end Page Content-->
+                        <!-- end Map Canvas-->
+
+
+
+
+
+                    </div>
+                    <!-- end Page Content-->
                 </div>
                 <!-- end Page Canvas-->
 
@@ -313,7 +301,7 @@ document.getElementById('tipo_de_rincon').innerHTML = tipo;
                     <span id="format-data"></span><br/>
                 </div>
 
-					
+
 
             </div>
 
@@ -326,7 +314,7 @@ document.getElementById('tipo_de_rincon').innerHTML = tipo;
                     console.log("navigator.geolocation works well");
                 }
 
-      // onSuccess Callback 
+                // onSuccess Callback 
                 // This method accepts a Position object, which contains the 
                 // current GPS coordinates 
                 // 
@@ -348,223 +336,229 @@ document.getElementById('tipo_de_rincon').innerHTML = tipo;
 
 
 
-    </nav>
-    <!-- /c-menu slide-left -->
+        </nav>
+        <!-- /c-menu slide-left -->
 
 
-    <!-- /c-menu slide-right -->
-    <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
+        <!-- /c-menu slide-right -->
+        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd; overflow: hidden;">
+           
+            
+            <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
+                <img src="img/close.png" style="width: 32px;">
+            </a>
+
         
-        <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
-            <img src="img/close.png" style="width: 32px;">
-        </a>
+                <div class="items-list" style="width: 100%; background: #ffffff;">
 
-        <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
+                    <div class="scroller1" style="width: 100%; background: #ffffff;">
+                        <ul class="results grid" style="padding-bottom: 50px; padding-top: 40px;">
 
-              <div class="items-list" style="width: 100%; background: #ffffff;">
-    
-           <div class="scroller1" style="width: 100%; background: #ffffff;">
-            <ul class="results grid" style="padding-bottom: 50px; padding-top: 40px;">
+                        </ul>
+                        <div class="scroller__track">
+                            <div class="scroller__bar"></div>
+                        </div>
 
-            </ul>
-            <div class="scroller__track">
-                <div class="scroller__bar"></div>
-            </div>
-
-        </div>    
-              </div>
-                            
-        </div>
+                    </div>    
+                </div>
 
             
 
-    </nav>
 
-   
-
-
-<nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
-  <button class="c-menu__close"><strong>x</strong></button>
-
-  
-  
-  
-</nav><!-- /c-menu push-bottom -->
-    
-    
-    <!-- /c-menu slide-right -->
-
-    <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
-
-
-    <script type="text/javascript" src="js/menu.js"></script>
-    <script>
-
-              /**
-               * Slide left instantiation and action.
-               */
-              var slideLeft = new Menu({
-                  wrapper: '#o-wrapper',
-                  type: 'slide-left',
-                  menuOpenerClass: '.c-button',
-                  maskId: '#c-mask'
-              });
-
-              var slideLeftBtn = document.querySelector('#c-button--slide-left');
-
-              slideLeftBtn.addEventListener('click', function (e) {
-                  e.preventDefault;
-                  slideLeft.open();
-              });
-
-
-              /**
-               * Slide right instantiation and action.
-               */
-              var slideRight = new Menu({
-                  wrapper: '#o-wrapper',
-                  type: 'slide-right',
-                  menuOpenerClass: '.c-button',
-                  maskId: '#c-mask'
-              });
-
-              var slideRightBtn = document.querySelector('#c-button--slide-right');
-
-              slideRightBtn.addEventListener('click', function (e) {
-                  e.preventDefault;
-                  slideRight.open();
-              });
-              
-              
-  
-   /**
-   * Push bottom instantiation and action.
-   */
-  var pushBottom = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'push-bottom',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var pushBottomBtn = document.querySelector('#c-button--push-bottom');
-  
-  pushBottomBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    pushBottom.open();
-  });
-
-    </script>
-
-
-    <script type="text/javascript" src="js/mapa/before.load.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
-
-    <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
-    <script type="text/javascript" src="js/mapa/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/mapa/richmarker-compiled.js"></script>
-    <script type="text/javascript" src="js/mapa/smoothscroll.js"></script>
-    <script type="text/javascript" src="js/mapa/infobox.js"></script>
-      
-
-    <script type="text/javascript" src="js/mapa/jquery.mCustomScrollbar.concat.min.js"></script>
-    
-<script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
-    <script type="text/javascript" src="js/mapa/custom.js"></script>
-    
-    <script>
+        </nav>
 
 
 
-              function quickView(id) {
-                  $.ajax({
-                      type: 'POST',
-                      async: true,
-                    cache: false,
-                      url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
-                      data: id,
-                      success: function (data) {
-                          $('body').append(data);
-                      }
-                  });
-              }
 
-
-              // var _latitude = 42.599052;
-              //var _longitude = -5.5665905;
-              var zoom = 16;
-              var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/todos.json';
-
-              // Load JSON data and create Google Maps
-
-
-              var _latitude, _longitude;
-              $(document).ready(function () {
-                  if (navigator.geolocation) {
-                      navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
-                  } else {
-                      alert('Device probably not ready.');
-                  }
-              });
-              function handle_errors(error) {
-                  // error handling here
-              }
-              function handle_geolocation_query(position) {
-                  _latitude = (position.coords.latitude);
-                  _longitude = (position.coords.longitude);
-                  onPositionReady();
-              }
-
-
-              function obtener() {
-                  navigator.geolocation.getCurrentPosition(mostrar);
-              }
-              function mostrar(posicion) {
-                  var _latitude = posicion.coords.latitude;
-                  var _longitude = posicion.coords.longitude;
-              }
-
-
-              function crear_mapa_json(categoria)
-              {
-    //var _latitude = 42.599052;
-    //var _longitude = -5.5665905;
-
-                  var zoom = 15;
-                  var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
-                  {
-                      $.getJSON(jsonPath)
-                              .done(function (json) {
-                                  createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                          
-                              })
-
-                              ;
-                  }
-              }
-
-              function onPositionReady() {
-                  crear_mapa_json('todos');
-                  // proceed
-              }
-
-          crear_mapa_json('todos'); 
-    </script>
-    
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/capture.js"></script>
-    <script type="text/javascript" src="js/camera.js"></script>
-    <script type="text/javascript" src="js/geolocation.js"></script>
-
-    <script type="text/javascript">
-          app.initialize();
-    </script>
+        <nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
+            <button class="c-menu__close"><strong>x</strong></button>
 
 
 
-</body>
+
+        </nav><!-- /c-menu push-bottom -->
+
+
+        <!-- /c-menu slide-right -->
+
+        <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+
+        <script type="text/javascript" src="js/menu.js"></script>
+        <script>
+
+                /**
+                 * Slide left instantiation and action.
+                 */
+                var slideLeft = new Menu({
+                    wrapper: '#o-wrapper',
+                    type: 'slide-left',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
+                });
+
+                var slideLeftBtn = document.querySelector('#c-button--slide-left');
+
+                slideLeftBtn.addEventListener('click', function (e) {
+                    e.preventDefault;
+                    slideLeft.open();
+                });
+
+
+                /**
+                 * Slide right instantiation and action.
+                 */
+                var slideRight = new Menu({
+                    wrapper: '#o-wrapper',
+                    type: 'slide-right',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
+                });
+
+                var slideRightBtn = document.querySelector('#c-button--slide-right');
+
+                slideRightBtn.addEventListener('click', function (e) {
+                    e.preventDefault;
+                    slideRight.open();
+                });
+
+
+
+                /**
+                 * Push bottom instantiation and action.
+                 */
+                var pushBottom = new Menu({
+                    wrapper: '#o-wrapper',
+                    type: 'push-bottom',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
+                });
+
+                var pushBottomBtn = document.querySelector('#c-button--push-bottom');
+
+                pushBottomBtn.addEventListener('click', function (e) {
+                    e.preventDefault;
+                    pushBottom.open();
+                });
+
+        </script>
+
+
+        <script type="text/javascript" src="js/mapa/before.load.js"></script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
+
+        <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
+        <script type="text/javascript" src="js/mapa/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mapa/richmarker-compiled.js"></script>
+        <script type="text/javascript" src="js/mapa/smoothscroll.js"></script>
+        <script type="text/javascript" src="js/mapa/infobox.js"></script>
+
+
+        <script type="text/javascript" src="js/mapa/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
+        <script type="text/javascript" src="js/mapa/custom.js"></script>
+
+        <script>
+
+
+
+                function quickView(id) {
+                    $.ajax({
+                        type: 'POST',
+                        async: true,
+                        dataType: 'html',
+                        cache: false,
+                        url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
+                        data: id,
+                        success: function (data) {
+                            $('body').append(data);
+                        },
+                        beforeSend: function () {
+                            $('#loading').show();
+                        },
+                        complete: function () {
+                            $('#loading').hide();
+                        }
+                    });
+                }
+
+
+                // var _latitude = 42.599052;
+                //var _longitude = -5.5665905;
+                var zoom = 16;
+                var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/todos.json';
+
+                // Load JSON data and create Google Maps
+
+
+                var _latitude, _longitude;
+                $(document).ready(function () {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+                    } else {
+                        alert('Device probably not ready.');
+                    }
+                });
+                function handle_errors(error) {
+                    // error handling here
+                }
+                function handle_geolocation_query(position) {
+                    _latitude = (position.coords.latitude);
+                    _longitude = (position.coords.longitude);
+                    onPositionReady();
+                }
+
+
+                function obtener() {
+                    navigator.geolocation.getCurrentPosition(mostrar);
+                }
+                function mostrar(posicion) {
+                    var _latitude = posicion.coords.latitude;
+                    var _longitude = posicion.coords.longitude;
+                }
+
+
+                function crear_mapa_json(categoria)
+                {
+                    //var _latitude = 42.599052;
+                    //var _longitude = -5.5665905;
+
+                    var zoom = 15;
+                    var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                    {
+                        $.getJSON(jsonPath)
+                                .done(function (json) {
+                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+
+                                })
+
+                                ;
+                    }
+                }
+
+                function onPositionReady() {
+                    crear_mapa_json('todos');
+                    // proceed
+                }
+
+                crear_mapa_json('todos');
+        </script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/capture.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
+        <script type="text/javascript" src="js/geolocation.js"></script>
+
+        <script type="text/javascript">
+                app.initialize();
+        </script>
+
+
+
+    </body>
 
 
 
