@@ -292,7 +292,7 @@
             <div style="text-align: center; padding: 20px;">
 
                 <div style="width: 100%; height: 50px;"></div>
-
+                <a class="boton" onclick="nuevo_rincon();">Rincon</a>
                 <a class="boton" onclick="captureImage();">Imagen</a>
                 <a class="boton" onclick="captureVideo();">Video</a>
                 <p><br>
@@ -341,7 +341,7 @@
 
 
         <!-- /c-menu slide-right -->
-        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd; overflow: hidden;">
+        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
            
             
             <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
@@ -362,7 +362,6 @@
                     </div>    
                 </div>
 
-            
 
 
         </nav>
@@ -461,6 +460,27 @@
         <script type="text/javascript" src="js/mapa/custom.js"></script>
 
         <script>
+
+
+ function nuevo_rincon() {
+                    $.ajax({
+                        type: 'POST',
+                        async: true,
+                        dataType: 'html',
+                        cache: false,
+                        url: 'http://misrincones.trabajocreativo.com/nuevo_rincon_app.php',
+                        data: id,
+                        success: function (data) {
+                            $('body').append(data);
+                        },
+                        beforeSend: function () {
+                            $('#loading').show();
+                        },
+                        complete: function () {
+                            $('#loading').hide();
+                        }
+                    });
+                }
 
 
 
