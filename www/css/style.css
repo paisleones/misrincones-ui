@@ -413,3 +413,29 @@ border: 0px solid rgba(66,66,66,0.3);
   -webkit-transition: opacity 0.3s;
           transition: opacity 0.3s;
 }
+
+
+.c-menu__item
+{
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #666;
+    display: block;
+    padding: 6px 24px;
+    margin: 0px;
+
+    list-style: none;
+  
+}
+
+.c-menu__item:hover {
+    display: block;
+    padding: 6px 24px;
+    color: #666;
+}
+
+.titulo_menu {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    color: #666;
+}
