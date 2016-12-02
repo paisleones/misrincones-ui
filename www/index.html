@@ -475,12 +475,11 @@
 
  function nuevo_rincon() {
                     $.ajax({
-                        type: 'POST',
+                        type: 'GET',
                         async: true,
                         dataType: 'html',
                         cache: false,
                         url: 'http://misrincones.trabajocreativo.com/nuevo_rincon_app.php',
-                        data: id,
                         success: function (data) {
                             $('body').append(data);
                         },
