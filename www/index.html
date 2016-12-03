@@ -145,6 +145,9 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
+            
+            <div id="volver_atras" class="modal-close" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
+            </div>
 
             <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
 
@@ -494,10 +497,12 @@ var canceled = !objecto.dispatchEvent(nouEvent);
                             $('body').append(data);
                         },
                         beforeSend: function () {
+                            document.getElementById("volver_atras").style.display = "none";
                             SimularClick('cerrar_izquierda');
                             $('#loading').show();
                         },
                         complete: function () {
+                            document.getElementById("volver_atras").style.display = "block";
                             $('#loading').hide();
                         }
                     });
@@ -516,10 +521,12 @@ var canceled = !objecto.dispatchEvent(nouEvent);
                             $('body').append(data);
                         },
                         beforeSend: function () {
+                            document.getElementById("volver_atras").style.display = "none";
                             SimularClick('cerrar_derecha');
                             $('#loading').show();
                         },
                         complete: function () {
+                            document.getElementById("volver_atras").style.display = "block";
                             $('#loading').hide();
                         }
                     });
