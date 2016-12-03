@@ -102,6 +102,16 @@
 
         <script type="text/javascript">
             //<![CDATA[ 
+            
+            function SimularClick(idObjeto){
+ 
+var nouEvent = document.createEvent("MouseEvents");
+nouEvent.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null);
+ 
+var objecto = document.getElementById(idObjeto);
+var canceled = !objecto.dispatchEvent(nouEvent);
+}
+
             function load_url(div, url)
             {
                 $.ajax({
@@ -284,7 +294,7 @@
         <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="border-right: 2px solid #0dcdbd;">
 
             <div style="width: 100%; height: 150px; background: url(img/blog3.jpg); background-size: cover;">       
-                <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; right: 10px;">
+                <a class="c-menu__close" id="cerrar_izquierda" style="cursor: pointer; position: fixed; top: 10px; right: 10px;">
                     <img src="img/close.png" style="width: 32px;">
                 </a>       
             </div>
@@ -352,7 +362,7 @@
         <!-- /c-menu slide-right -->
         <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
 
-            <a class="c-menu__close" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
+            <a class="c-menu__close" id="cerrar_derecha" style="cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 999">
                 <img src="img/close.png" style="width: 32px;">
             </a>
 
@@ -475,15 +485,16 @@
 
  function nuevo_rincon() {
                     $.ajax({
-                        type: 'GET',
+                        type: 'POST',
                         async: true,
                         dataType: 'html',
                         cache: false,
-                        url: 'http://misrincones.trabajocreativo.com/nuevo_rincon_app.php',
+                        url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app.php?id=',
                         success: function (data) {
                             $('body').append(data);
                         },
                         beforeSend: function () {
+                            SimularClick('cerrar_izquierda');
                             $('#loading').show();
                         },
                         complete: function () {
@@ -505,6 +516,7 @@
                             $('body').append(data);
                         },
                         beforeSend: function () {
+                            SimularClick('cerrar_derecha');
                             $('#loading').show();
                         },
                         complete: function () {
