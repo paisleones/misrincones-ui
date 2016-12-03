@@ -245,6 +245,11 @@ border: 0px solid rgba(66,66,66,0.3);
   .c-menu--push-right {
     width: 300px;
   }
+  
+   .c-menu--slide-left
+ {
+    width: 60px;
+  }
 }
 
 
@@ -266,9 +271,9 @@ border: 0px solid rgba(66,66,66,0.3);
 @media all and (min-width: 320px) {
   .c-menu--slide-left,
   .c-menu--push-left {
-    -webkit-transform: translateX(-310px);
-        -ms-transform: translateX(-310px);
-            transform: translateX(-310px);
+    -webkit-transform: translateX(-70px);
+        -ms-transform: translateX(-70px);
+            transform: translateX(-70px);
   }
 }
 
@@ -438,4 +443,87 @@ border: 0px solid rgba(66,66,66,0.3);
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     color: #666;
+}
+
+
+.main-nav 
+{
+margin-left: -14px;
+}
+
+.ui-link
+{
+width: 60px;
+height: 60px;
+padding: 10px;
+cursor: pointer;
+}
+
+.icono_menu_izquierda
+{
+width: 60px;
+height: 60px;
+padding: 10px;
+cursor: pointer;
+}
+/* Navigation Links */
+.main-nav ul li:nth-child(1){
+background-color:#61c6cc;
+}
+.main-nav ul li:nth-child(2){
+background-color:#59bcc2;
+}
+.main-nav ul li:nth-child(3){
+background-color:#50b5bb;
+}
+.main-nav ul li:nth-child(4){
+background-color:#44a9af;
+}
+.main-nav ul li:nth-child(5){
+background-color:#3da1a7;
+}
+.main-nav ul li:nth-child(6){
+background-color:#37999f;
+}
+.main-nav ul li:nth-child(7){
+background-color:#2f9096;
+}
+.main-nav ul li:nth-child(8){
+background-color:#27858b;
+}
+.main-nav ul li:nth-child(9){
+background-color:#207a80;
+}
+.main-nav ul li:nth-child(10){
+background-color:#1b747a;
+}
+.main-nav ul li:nth-child(11){
+background-color:#176d72;
+}
+.main-nav ul li:nth-child(12){
+background-color:#14656a;
+}
+.main-nav ul li:nth-child(13){
+background-color:#105d62;
+}
+.main-nav ul li:nth-child(14){
+background-color:#0e565b;
+}
+.main-nav ul li:nth-child(15){
+background-color:#0b4f53;
+}
+.main-nav ul li:nth-child(16){
+background-color:#08494d;
+}
+.main-nav ul li:nth-child(17){
+background-color:#064347;
+}
+.main-nav ul li:nth-child(18){
+background-color:#043a3d;
+}
+.main-nav ul li:nth-child(19){
+background-color:#033134;
+}
+.main-nav ul li:nth-child(20){
+background-color:#022628;
 }

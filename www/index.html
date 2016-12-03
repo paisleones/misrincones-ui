@@ -296,38 +296,22 @@ var canceled = !objecto.dispatchEvent(nouEvent);
         <!-- /c-menu slide-left -->
         <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="border-right: 2px solid #0dcdbd;">
 
-            <div style="width: 100%; height: 150px; background: url(img/blog3.jpg); background-size: cover;">       
-                <a class="c-menu__close" id="cerrar_izquierda" style="cursor: pointer; position: fixed; top: 10px; right: 10px;">
-                    <img src="img/close.png" style="width: 32px;">
-                </a>       
-            </div>
-
-
-
-            <div class="foto_perfil" style="background: url(img/avatar.png); background-size: contain;"></div>   
-
-            <br>
             
-            <ul class="c-menu__items">
-    <li class="c-menu__item"><a onclick="captureImage();" class="c-menu__link titulo_menu">CAPTURAR IMAGEN</a></li>
-    <li class="c-menu__item"><a onclick="captureVideo();" class="c-menu__link titulo_menu">CAPTURAR VIDEO</a></li>
-    <li class="c-menu__item"><a onclick="nuevo_rincon();" class="c-menu__link titulo_menu">NUEVO RINCON</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link titulo_menu">MI PERFIL</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link titulo_menu">INICIAR SESION</a></li>
-    <li class="c-menu__item"><a href="#" class="c-menu__link titulo_menu">REGISTRARSE</a></li>
-  </ul>
+             <nav class="main-nav">
+                <ul>
+                    <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
+                  <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
+                  <li class="icono_menu_izquierda"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                  <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                  <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
+                  <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
+                  <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
+                  <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
+                </ul>
+              </nav>
             
-            <div style="text-align: center; padding: 20px;">
-
-                <div class="result-block">
-                    Captura: <span id="capture-result"></span><br/>
-                    <span id="format-data"></span><br/>
-                </div>
-
-
-
-            </div>
-
+            
+   
 
 
 
@@ -449,22 +433,22 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
 
-                /**
-                 * Push bottom instantiation and action.
-                 */
-                var pushBottom = new Menu({
-                    wrapper: '#o-wrapper',
-                    type: 'push-bottom',
-                    menuOpenerClass: '.c-button',
-                    maskId: '#c-mask'
-                });
+                 /**
+   * Push left instantiation and action.
+   */
+  var pushLeft = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'push-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
 
-                var pushBottomBtn = document.querySelector('#c-button--push-bottom');
-
-                pushBottomBtn.addEventListener('click', function (e) {
-                    e.preventDefault;
-                    pushBottom.open();
-                });
+  var pushLeftBtn = document.querySelector('#c-button--push-left');
+  
+  pushLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    pushLeft.open();
+  });
 
         </script>
 
