@@ -588,10 +588,42 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
         <script type="text/javascript">
                 app.initialize();
-        </script>
 
+ 
 
+function ShowExitDialog() {
+        navigator.notification.confirm(
+                ("Quieres salir de la aplicacion?"), // message
+                alertexit, // callback
+                'Mensaje de MISRINCONES', // title
+                'ACEPTAR,CANCELAR' // buttonName
+        );
 
+    }
+	
+	 function alertexit(button){
+
+        if(button=="1" || button==1)
+        {
+
+            navigator.app.exitApp();
+        }
+
+}
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener("backbutton", ShowExitDialog, false); 
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        navigator.splashscreen.show();
+    }
+
+    </script> 
+        
     </body>
 
 
