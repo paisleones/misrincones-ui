@@ -243,7 +243,7 @@ border: 0px solid rgba(66,66,66,0.3);
   .c-menu--slide-right,
   .c-menu--push-left,
   .c-menu--push-right {
-    width: 300px;
+    width: 240px;
   }
   
    .c-menu--slide-left
@@ -298,9 +298,9 @@ border: 0px solid rgba(66,66,66,0.3);
 @media all and (min-width: 320px) {
   .c-menu--slide-right,
   .c-menu--push-right {
-    -webkit-transform: translateX(300px);
-        -ms-transform: translateX(300px);
-            transform: translateX(300px);
+    -webkit-transform: translateX(240px);
+        -ms-transform: translateX(240px);
+            transform: translateX(240px);
   }
 }
 

@@ -65,11 +65,6 @@
                 margin: 10px;
             }
 
-            .contenido_menu_derecha
-            {
--webkit-transform: translateZ(0);
--webkit-backface-visibility: hidden;
-            }
         </style>
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -353,14 +348,14 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
         <!-- /c-menu slide-right -->
-        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: none;">
+        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
 
-            <a class="c-menu__close" id="cerrar_derecha" style="background: #61c6cc; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
+            <a class="c-menu__close" id="cerrar_derecha" style="background: #61c6cc; cursor: pointer; position: fixed; top: 0px; left: -30px; z-index: 999; padding: 10px;">
                 <img src="img/iconos1/cerrar.png" alt="" title="" style="width: 40px;">
             </a>
 
 
-            <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="height: 100%; background: #fff; border-left: 2px solid #0dcdbd; position: absolute; top: 0px; right: 0px; width: 240px; padding: 0px;">
+            <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
 
                 <div class="items-list" style="width: 100%; background: #ffffff;">
  
@@ -473,46 +468,8 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
         <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
         <script type="text/javascript" src="js/mapa/custom.js"></script>
-        
-        <script type="text/javascript" src="js/iscroll.js"></script>
 
-<script type="text/javascript">
-
-var myScroll;
-function loaded() {
-	myScroll = new iScroll('wrapper');
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-/* * * * * * * *
- *
- * Use this for high compatibility (iDevice + Android)
- *
- */
-document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
-/*
- * * * * * * * */
-
-
-/* * * * * * * *
- *
- * Use this for iDevice only
- *
- */
-//document.addEventListener('DOMContentLoaded', loaded, false);
-/*
- * * * * * * * */
-
-
-/* * * * * * * *
- *
- * Use this if nothing else works
- *
- */
-//window.addEventListener('load', setTimeout(function () { loaded(); }, 200), false);
-/*
- * * * * * * * */
+        <script>
 
 
  function nuevo_rincon() {
