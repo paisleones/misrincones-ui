@@ -348,22 +348,24 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
         <!-- /c-menu slide-right -->
-        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right" style="background: none; text-align: right;">
+        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
 
             <a class="c-menu__close" id="cerrar_derecha" style="background: #61c6cc; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
                 <img src="img/iconos1/cerrar.png" alt="" title="" style="width: 40px;">
             </a>
 
 
-            <div id="contenido_menu_derecha" class="contenido_menu_derecha sombra" style="position: absolute; right: 0px; height: 100%; background: #ffffff; padding: 0px; width: 240px; border-left: 2px solid #0dcdbd;">
+            <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
 
                 <div class="items-list" style="width: 100%; background: #ffffff;">
  
-                    <div style="width: 100%; background: #ffffff;">
+                    <div class="scroller1" style="width: 100%; background: #ffffff;">
                         <ul class="results grid" style="padding-bottom: 50px; padding-top: 16px;">
 
                         </ul>
-                       
+                        <div class="scroller__track">
+                            <div class="scroller__bar"></div>
+                        </div>
 
                     </div>    
                 </div>
