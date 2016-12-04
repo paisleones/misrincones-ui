@@ -527,3 +527,10 @@ background-color:#033134;
 .main-nav ul li:nth-child(20){
 background-color:#022628;
 }
+
+*{
+-webkit-user-drag: none;
+-moz-user-drag: none;
+-ms-user-drag: none;
+user-drag: none;
+}
