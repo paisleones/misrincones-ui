@@ -145,7 +145,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
             
-            <div id="volver_atras" class="modal-close" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
+            <div id="volver_atras" class="modal-close" onclick="eliminar_modal();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
             <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
@@ -620,6 +620,17 @@ function ShowExitDialog() {
     //
     function onDeviceReady() {
         navigator.splashscreen.show();
+    }
+    
+    function eliminar_modal()
+    {
+        $('#volver_atras').hide();
+        $('.modal-window .modal-background, .modal-close').live('click',  function(e){
+        $('.modal-window').addClass('fade_out');
+        setTimeout(function() {
+            $('.modal-window').remove();
+        }, 10);
+    });
     }
 
     </script> 
