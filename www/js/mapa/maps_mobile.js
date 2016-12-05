@@ -27,6 +27,13 @@ var styles = [
                 {lightness: 0}
             ]
         },
+         {	//poi stands for point of interest - don't show these lables on the map 
+			featureType: "poi",
+			elementType: "labels",
+			stylers: [
+				{visibility: "off"}
+			]
+		},
         {
         featureType: "poi.business",
     elementType: "labels",
@@ -41,12 +48,11 @@ var styles = [
                 {lightness: 0}
             ]
         }, {
-            featureType: 'road.local', // set the local road
-            elementType: 'all',
-            stylers: [
-                {hue: '#ffffff'},
-                {lightness: 0}
-            ]
+            featureType: 'road.highway', // set the local road
+            elementType: 'labels',
+        stylers: [
+            {visibility: "off"}
+        ]
         }
     ];
     
@@ -116,6 +122,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
 				});
             
      
+              	
               
 
 

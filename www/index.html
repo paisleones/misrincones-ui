@@ -64,6 +64,40 @@
                 margin: 10px;
             }
 
+            
+            #cd-zoom-in, #cd-zoom-out {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgba(211, 104, 104, 0.9);
+  background-repeat: no-repeat;
+  background-size: 32px 64px;
+  background-image: url("../img/cd-icon-controller.svg");
+}
+.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+  background-color: #d36868;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in, #cd-zoom-out {
+    margin-left: 50px;
+  }
+}
+
+#cd-zoom-in {
+  background-position: 50% 0;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in {
+    margin-top: 50px;
+  }
+}
+
+#cd-zoom-out {
+  background-position: 50% -32px;
+}
         </style>
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -244,6 +278,9 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
                                 <!--/.toggle-navigation-->
                                 <div id="map" style="width: 100%; height: 100%; margin-top: -50px;"></div>
+                                
+        <div id="cd-zoom-in"></div>
+	<div id="cd-zoom-out"></div>
 
 
 
@@ -453,7 +490,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
         <script type="text/javascript" src="js/mapa/before.load.js"></script>
-        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&amp;key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
 
         <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
@@ -632,6 +669,7 @@ function ShowExitDialog() {
         }, 10);
     });
     }
+
 
     </script> 
         
