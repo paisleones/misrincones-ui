@@ -84,6 +84,24 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
     function gMap(){
         var mapCenter = new google.maps.LatLng(_latitude,_longitude);
         
+        function HomeControl(controlDiv, map) {
+
+ google.maps.event.addDomListener(zoomout, 'click', function() {
+   var currentZoomLevel = map.getZoom();
+   if(currentZoomLevel != 0){
+     map.setZoom(currentZoomLevel - 1);}
+
+  });
+
+   google.maps.event.addDomListener(zoomin, 'click', function() {
+   var currentZoomLevel = map.getZoom();
+   if(currentZoomLevel != 21){
+     map.setZoom(currentZoomLevel + 1);}
+
+  });
+
+}
+        
         var mapOptions = {
             zoom: zoom,
             center: mapCenter,
@@ -95,7 +113,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
                 position: google.maps.ControlPosition.BOTTOM_CENTER
             },
             panControl: false,
-            zoomControl: true,
+            zoomControl: false,
             zoomControlOptions: {
                 style: google.maps.ZoomControlStyle.LARGE,
                 position: google.maps.ControlPosition.RIGHT_BOTTOM
@@ -113,6 +131,16 @@ function createHomepageGoogleMap(_latitude,_longitude,json,zoom){
             new google.maps.Point(0, 0),
             new google.maps.Point(22, 25)
             );
+    
+     // Create the DIV to hold the control and
+  // call the HomeControl() constructor passing
+  // in this DIV.
+  var homeControlDiv = document.createElement('div');
+  var homeControl = new HomeControl(homeControlDiv, map);
+
+  homeControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(homeControlDiv);
+  
         var marker = new google.maps.Marker({
         	animation: google.maps.Animation.DROP,
 					position: latLng,

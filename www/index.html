@@ -64,40 +64,41 @@
                 margin: 10px;
             }
 
-            
-            #cd-zoom-in, #cd-zoom-out {
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  margin-left: 10px;
-  background-color: rgba(211, 104, 104, 0.9);
-  background-repeat: no-repeat;
-  background-size: 32px 64px;
-  background-image: url("../img/cd-icon-controller.svg");
-}
-.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
-  background-color: #d36868;
-}
-@media only screen and (min-width: 768px) {
-  #cd-zoom-in, #cd-zoom-out {
-    margin-left: 50px;
-  }
-}
 
-#cd-zoom-in {
-  background-position: 50% 0;
-  margin-top: 10px;
-  margin-bottom: 1px;
-}
-@media only screen and (min-width: 768px) {
-  #cd-zoom-in {
-    margin-top: 50px;
-  }
-}
+            .boton_zoom {
+                width: 40px;
+                height: 40px;
+                background: rgba(13,205,189,0.9);
+                position: absolute;
+                cursor: pointer;
+                padding: 9px;
+                border-radius: 0px;
+                z-index: 100;
+            }
 
-#cd-zoom-out {
-  background-position: 50% -32px;
-}
+            .no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+                background-color: #d36868;
+            }
+            @media only screen and (min-width: 768px) {
+                #cd-zoom-in, #cd-zoom-out {
+                    margin-left: 50px;
+                }
+            }
+
+            #cd-zoom-in {
+                background-position: 50% 0;
+                margin-top: 10px;
+                margin-bottom: 1px;
+            }
+            @media only screen and (min-width: 768px) {
+                #cd-zoom-in {
+                    margin-top: 50px;
+                }
+            }
+
+            #cd-zoom-out {
+                background-position: 50% -32px;
+            }
         </style>
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -135,15 +136,15 @@
 
         <script type="text/javascript">
             //<![CDATA[ 
-            
-            function SimularClick(idObjeto){
- 
-var nouEvent = document.createEvent("MouseEvents");
-nouEvent.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null);
- 
-var objecto = document.getElementById(idObjeto);
-var canceled = !objecto.dispatchEvent(nouEvent);
-}
+
+            function SimularClick(idObjeto) {
+
+                var nouEvent = document.createEvent("MouseEvents");
+                nouEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+                var objecto = document.getElementById(idObjeto);
+                var canceled = !objecto.dispatchEvent(nouEvent);
+            }
 
             function load_url(div, url)
             {
@@ -178,7 +179,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
-            
+
             <div id="volver_atras" class="modal-close" onclick="eliminar_modal();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
@@ -238,18 +239,26 @@ var canceled = !objecto.dispatchEvent(nouEvent);
                             <div class="map">
 
 
-                                <div style="width: 40px; heigh: 40px; background: #fff; position: absolute; left: 10px; top: 70px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100" class="sombra" onclick="crear_mapa_json('todos');">
-                                    <img src="img/icono_gps.png" style="width: 40px">
+                                <div class="boton_zoom sombra" style="position: absolute; left: 10px; top: 70px; padding: 6px;" onclick="crear_mapa_json('todos');">
+                                    <img src="img/icono_gps_blanco.png" style="width: 40px">
+                                </div>
+
+                                <div id="zoomin" class="boton_zoom sombra" style="position: absolute; top: 117px; left: 10px;">
+                                    <img src="img/zoom_mas.png" style="width: 22px">
+                                </div>
+
+                                <div id="zoomout" class="boton_zoom sombra" style="position: absolute; top: 164px; left: 10px;">
+                                    <img src="img/zoom_menos.png" style="width: 22px">
                                 </div>
 
 
                                 <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 64px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
                                     <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
-                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 2px;">
+                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px;">
                                             <span class="filter-option pull-left" id="tipo_de_rincon">Elije tus rincones</span><span><img src="img/arrow_down.png" style="width: 20px; position: relative; right: 6px;"></span>
                                         </button>
-                                        <div class="dropdown-menu open animation-fade-in" style="max-height: 530px; overflow: hidden; min-height: 111px;">
+                                        <div class="dropdown-menu open animation-fade-in" style="margin-top: 2px; max-height: 330px; overflow: hidden; min-height: 111px;">
                                             <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
 
                                                 <li>
@@ -277,22 +286,21 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
                                 <!--/.toggle-navigation-->
-                                <div id="map" style="width: 100%; height: 100%; margin-top: -50px;"></div>
-                                
-        <div id="cd-zoom-in"></div>
-	<div id="cd-zoom-out"></div>
+                                <div id="map" style="width: 100%; height: 105%; margin-top: -50px;"></div>
 
 
 
 
-                    <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
-                
-                        <div class="centrado-porcentual" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;" class="sombra">
-                            <img src="img/cargando.svg" style="width: 40px; margin-right: 20px;"> Cargando ...
-                        </div>
-                        
-                    </div>
-                                
+
+
+                                <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
+
+                                    <div class="centrado-porcentual" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;" class="sombra">
+                                        <img src="img/cargando.svg" style="width: 40px; margin-right: 20px;"> Cargando ...
+                                    </div>
+
+                                </div>
+
                             </div>
                             <!-- end Map -->
                             <!--Items List-->
@@ -300,7 +308,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
 
-                         
+
                         </div>
                         <!-- end Map Canvas-->
 
@@ -332,22 +340,22 @@ var canceled = !objecto.dispatchEvent(nouEvent);
         <!-- /c-menu slide-left -->
         <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="background-color:#207a80; border-right: 2px solid #0dcdbd;">
 
-            
-             <nav class="main-nav">
+
+            <nav class="main-nav">
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
-                  <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
-                  <li class="icono_menu_izquierda"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                  <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
-                  <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
-                  <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
-                  <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
-                  <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
+                    <li class="icono_menu_izquierda"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
                 </ul>
-              </nav>
-            
-            
-   
+            </nav>
+
+
+
 
 
 
@@ -394,7 +402,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
             <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
 
                 <div class="items-list" style="width: 100%; background: #ffffff;">
- 
+
                     <div class="scroller1" style="width: 100%; background: #ffffff;">
                         <ul class="results grid" style="padding-bottom: 50px; padding-top: 74px;">
 
@@ -469,22 +477,22 @@ var canceled = !objecto.dispatchEvent(nouEvent);
 
 
 
-                 /**
-   * Push left instantiation and action.
-   */
-  var pushLeft = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'push-left',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
+                /**
+                 * Push left instantiation and action.
+                 */
+                var pushLeft = new Menu({
+                    wrapper: '#o-wrapper',
+                    type: 'push-left',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
+                });
 
-  var pushLeftBtn = document.querySelector('#c-button--push-left');
-  
-  pushLeftBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    pushLeft.open();
-  });
+                var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+                pushLeftBtn.addEventListener('click', function (e) {
+                    e.preventDefault;
+                    pushLeft.open();
+                });
 
         </script>
 
@@ -508,7 +516,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
         <script>
 
 
- function nuevo_rincon() {
+                function nuevo_rincon() {
                     $.ajax({
                         type: 'POST',
                         async: true,
@@ -543,7 +551,7 @@ var canceled = !objecto.dispatchEvent(nouEvent);
                             $('body').append(data);
                         },
                         beforeSend: function () {
-                             $('.modal-window').remove();
+                            $('.modal-window').remove();
                             document.getElementById("volver_atras").style.display = "none";
                             SimularClick('cerrar_derecha');
                             $('#loading').show();
@@ -626,53 +634,53 @@ var canceled = !objecto.dispatchEvent(nouEvent);
         <script type="text/javascript">
                 app.initialize();
 
- 
-
-function ShowExitDialog() {
-        navigator.notification.confirm(
-                ("Quieres salir de la aplicacion?"), // message
-                alertexit, // callback
-                'Mensaje de MISRINCONES', // title
-                'ACEPTAR,CANCELAR' // buttonName
-        );
-
-    }
-	
-	 function alertexit(button){
-
-        if(button=="1" || button==1)
-        {
-
-            navigator.app.exitApp();
-        }
-
-}
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-	document.addEventListener("backbutton", ShowExitDialog, false); 
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        navigator.splashscreen.show();
-    }
-    
-    function eliminar_modal()
-    {
-        $('#volver_atras').hide();
-        $('.modal-window .modal-background, .modal-close').live('click',  function(e){
-        $('.modal-window').addClass('fade_out');
-        setTimeout(function() {
-            $('.modal-window').remove();
-        }, 10);
-    });
-    }
 
 
-    </script> 
-        
+                function ShowExitDialog() {
+                    navigator.notification.confirm(
+                            ("Quieres salir de la aplicacion?"), // message
+                            alertexit, // callback
+                            'Mensaje de MISRINCONES', // title
+                            'ACEPTAR,CANCELAR' // buttonName
+                            );
+
+                }
+
+                function alertexit(button) {
+
+                    if (button == "1" || button == 1)
+                    {
+
+                        navigator.app.exitApp();
+                    }
+
+                }
+
+                // Wait for device API libraries to load
+                //
+                document.addEventListener("deviceready", onDeviceReady, false);
+                document.addEventListener("backbutton", ShowExitDialog, false);
+
+                // device APIs are available
+                //
+                function onDeviceReady() {
+                    navigator.splashscreen.show();
+                }
+
+                function eliminar_modal()
+                {
+                    $('#volver_atras').hide();
+                    $('.modal-window .modal-background, .modal-close').live('click', function (e) {
+                        $('.modal-window').addClass('fade_out');
+                        setTimeout(function () {
+                            $('.modal-window').remove();
+                        }, 10);
+                    });
+                }
+
+
+        </script> 
+
     </body>
 
 
