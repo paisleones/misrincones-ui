@@ -60,7 +60,7 @@
                 border-bottom: 2px solid #a0a0a0;
                 color: #fff;
                 font-size: 13px;
-                cursor: pointer;	
+                cursor: pointer;
                 margin: 10px;
             }
 
@@ -135,7 +135,7 @@
 
 
         <script type="text/javascript">
-            //<![CDATA[ 
+            //<![CDATA[
 
             function SimularClick(idObjeto) {
 
@@ -203,7 +203,7 @@
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
                      background-position: top left; background-size: cover; z-index: 10" id="portada">
 
-                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>  
+                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
 
                     <div class="centrado-porcentual">
                         <h6 style="font-size: 36px;">Mis Rincones
@@ -213,7 +213,7 @@
                         <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
-                </div>  
+                </div>
 
 
 
@@ -263,7 +263,7 @@
 
                                                 <li>
                                                     <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
-                                                </li>    
+                                                </li>
 
                                                 <li>
                                                     <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
@@ -365,18 +365,18 @@
                     console.log("navigator.geolocation works well");
                 }
 
-                // onSuccess Callback 
-                // This method accepts a Position object, which contains the 
-                // current GPS coordinates 
-                // 
+                // onSuccess Callback
+                // This method accepts a Position object, which contains the
+                // current GPS coordinates
+                //
                 var onSuccess = function (position) {
 
                     var latitud = position.coords.latitude;
                     var longitud = position.coords.longitude;
                 }
 
-                // onError Callback receives a PositionError object 
-                // 
+                // onError Callback receives a PositionError object
+                //
                 function onError(error) {
                     alert('code: ' + error.code + '\n' +
                             'message: ' + error.message + '\n');
@@ -411,7 +411,7 @@
                             <div class="scroller__bar"></div>
                         </div>
 
-                    </div>    
+                    </div>
                 </div>
 
             </div>
@@ -656,6 +656,12 @@
 
                 }
 
+                document.addEventListener("backbutton", onBackKeyDown, false);
+
+                function onBackKeyDown() {
+                    ShowExitDialog();
+                }
+
                 // Wait for device API libraries to load
                 //
                 document.addEventListener("deviceready", onDeviceReady, false);
@@ -663,9 +669,6 @@
 
                 // device APIs are available
                 //
-                function onDeviceReady() {
-                    navigator.splashscreen.show();
-                }
 
                 function eliminar_modal()
                 {
@@ -679,7 +682,7 @@
                 }
 
 
-        </script> 
+        </script>
 
     </body>
 
