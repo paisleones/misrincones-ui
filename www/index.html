@@ -163,7 +163,7 @@
 
 
 
-            function activar_tipo(tipo)
+            function activar_tipo_mapa(tipo)
             {
                 document.getElementById('tipo_de_rincon').innerHTML = tipo;
             }
@@ -262,19 +262,19 @@
                                             <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comer'); crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Rincones para comer'); crear_mapa_json('para_comer');"><span class="text">Rincones para comer</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo('Rincones para comprar'); crear_mapa_json('para_comprar');"><span class="text">Rincones para comprar</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Rincones para comprar'); crear_mapa_json('para_comprar');"><span class="text">Rincones para comprar</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                             </ul>
@@ -640,7 +640,7 @@
                     navigator.notification.confirm(
                             ("Quieres salir de la aplicacion?"), // message
                             alertexit, // callback
-                            'Mensaje de MISRINCONES', // title
+                            'Mensaje de Misrincones', // title
                             'ACEPTAR,CANCELAR' // buttonName
                             );
 
@@ -656,19 +656,12 @@
 
                 }
 
-                document.addEventListener("backbutton", onBackKeyDown, false);
-
-                function onBackKeyDown() {
-                    ShowExitDialog();
-                }
-
                 // Wait for device API libraries to load
                 //
-                document.addEventListener("deviceready", onDeviceReady, false);
-                document.addEventListener("backbutton", ShowExitDialog, false);
+                document.addEventListener("deviceready", onDeviceReady(), false);
+                document.addEventListener("backbutton", ShowExitDialog(), false);
 
-                // device APIs are available
-                //
+
 
                 function eliminar_modal()
                 {
