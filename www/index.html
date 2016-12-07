@@ -656,10 +656,8 @@
 
                 }
 
-                // Wait for device API libraries to load
-                //
-                document.addEventListener("deviceready", onDeviceReady(), false);
-                document.addEventListener("backbutton", ShowExitDialog(), false);
+
+                document.addEventListener("backbutton", ShowExitDialog, false);
 
 
 
