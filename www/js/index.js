@@ -44,3 +44,27 @@ var app = {
     }
 
 };
+
+
+ function ShowExitDialog() {
+                    navigator.notification.confirm(
+                            ("Quieres salir de la aplicacion?"), // message
+                            alertexit, // callback
+                            'Mensaje de Misrincones', // title
+                            'ACEPTAR,CANCELAR' // buttonName
+                            );
+
+                }
+
+                function alertexit(button) {
+
+                    if (button == "1" || button == 1)
+                    {
+
+                        navigator.app.exitApp();
+                    }
+
+                }
+
+
+                document.addEventListener("backbutton", ShowExitDialog, false);
