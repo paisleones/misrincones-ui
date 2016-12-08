@@ -324,7 +324,7 @@
 
 
 
-
+                <div id="contenido_nuevo"></div>
 
 
 
@@ -345,7 +345,7 @@
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
-                    <li class="icono_menu_izquierda" onclick="eliminar_modal();"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="SimularClick('cerrar_izquierda'); eliminar_modal();"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
@@ -524,7 +524,8 @@
                         cache: false,
                         url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
                         success: function (data) {
-                            $('body').append(data);
+                            //$('body').append(data);
+                            $('#contenido_nuevo').html(data);
                         },
                         beforeSend: function () {
                             document.getElementById("volver_atras").style.display = "none";
@@ -548,7 +549,8 @@
                         url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
                         data: id,
                         success: function (data) {
-                            $('body').append(data);
+                            //$('body').append(data);
+                            $('#contenido_nuevo').html(data);
                         },
                         beforeSend: function () {
                             $('.modal-window').remove();
