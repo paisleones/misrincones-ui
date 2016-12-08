@@ -375,19 +375,7 @@ function rating(element){
     });
 }
 
-// Owl Carousel in Modal Window ----------------------------------------------------------------------------------------
 
-function drawOwlCarousel(_rtl){
-    $.getScript( "assets/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
-        $(".image .gallery").owlCarousel({
-            rtl: _rtl,
-            items: 1,
-            nav: true,
-            navText: ["",""],
-            responsiveBaseElement: ".image"
-        });
-    });
-}
 
 function lazyLoad(selector){
     selector.load(function() {
@@ -426,60 +414,7 @@ function equalHeight(container){
     });
 }
 
-// Initialize Owl carousel ---------------------------------------------------------------------------------------------
 
-function initializeOwl(_rtl){
-    $.getScript( "assets/js/owl.carousel.min.js", function( data, textStatus, jqxhr ) {
-        if ($('.owl-carousel').length > 0) {
-            if ($('.carousel-full-width').length > 0) {
-                setCarouselWidth();
-            }
-            $(".carousel.wide").owlCarousel({
-                rtl: _rtl,
-                items: 1,
-                responsiveBaseWidth: ".slide",
-                nav: true,
-                navText: ["",""]
-            });
-            $(".item-slider").owlCarousel({
-                rtl: _rtl,
-                items: 1,
-                autoHeight: true,
-                responsiveBaseWidth: ".slide",
-                nav: false,
-                callbacks: true,
-                URLhashListener: true,
-                navText: ["",""]
-            });
-            $(".list-slider").owlCarousel({
-                rtl: _rtl,
-                items: 1,
-                responsiveBaseWidth: ".slide",
-                nav: true,
-                navText: ["",""]
-            });
-            $(".testimonials").owlCarousel({
-                rtl: _rtl,
-                items: 1,
-                responsiveBaseWidth: "blockquote",
-                nav: true,
-                navText: ["",""]
-            });
-
-            $('.item-gallery .thumbnails a').on('click', function(){
-                $('.item-gallery .thumbnails a').each(function(){
-                    $(this).removeClass('active');
-                });
-                $(this).addClass('active');
-            });
-            $('.item-slider').on('translated.owl.carousel', function(event) {
-                var thumbnailNumber = $('.item-slider .owl-item.active img').attr('data-hash');
-                $( '.item-gallery .thumbnails #thumbnail-' + thumbnailNumber ).trigger('click');
-            });
-            return false;
-        }
-    });
-}
 
 // Specific data for each item -----------------------------------------------------------------------------------------
 
