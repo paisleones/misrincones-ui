@@ -209,5 +209,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.phonegap.plugins.videoplayer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/raulduran/VideoPlayer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

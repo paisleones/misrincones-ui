@@ -70,10 +70,7 @@
         "com.hutchind.cordova.plugins.streamingmedia": {
             "PACKAGE_NAME": "com.trabajocreativo.misrincones"
         },
-        "com.moust.cordova.videoplayer": {
-            "PACKAGE_NAME": "com.trabajocreativo.misrincones"
-        },
-        "com.dawsonloudon.videoplayer": {
+        "com.phonegap.plugins.videoplayer": {
             "PACKAGE_NAME": "com.trabajocreativo.misrincones"
         }
     },
