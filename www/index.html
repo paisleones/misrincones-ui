@@ -152,7 +152,7 @@
                     url: url,
                     cache: false,
                     type: 'GET',
-                    contentType: "application/json",
+                    contentType: "html",
                     async: true,
                     crossDomain: true,
                     success: function (data) {
@@ -162,6 +162,25 @@
                 });
             }
 
+            function load_url_ajax(div, url)
+            {
+                $.ajax(
+                        {
+                            url: url,
+                            cache: false,
+                            type: 'GET',
+                            contentType: "html",
+                            async: true,
+                            crossDomain: true,
+                        })
+                        .fail(function (data) {
+                            alert("Se ha producido un error en la carga de datos");
+                        })
+                        .always(function (data) {
+                            $("#" + div).html(data);
+                            $("#" + div).show();
+                        });
+            }
 
 
             function activar_tipo_mapa(tipo)
