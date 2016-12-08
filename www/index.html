@@ -157,6 +157,7 @@
                     crossDomain: true,
                     success: function (data) {
                         $('#' + div).html(data);
+                        $("#" + div).show();
                     }
                 });
             }
@@ -324,7 +325,7 @@
 
 
 
-                <div id="contenido_nuevo"></div>
+                <div id="contenido_nuevo" style="display: none; z-index: 500;"></div>
 
 
 
@@ -526,6 +527,7 @@
                         success: function (data) {
                             //$('body').append(data);
                             $('#contenido_nuevo').html(data);
+                            $('#contenido_nuevo').show();
                         },
                         beforeSend: function () {
                             document.getElementById("volver_atras").style.display = "none";
@@ -551,6 +553,7 @@
                         success: function (data) {
                             //$('body').append(data);
                             $('#contenido_nuevo').html(data);
+                            $('#contenido_nuevo').show();
                         },
                         beforeSend: function () {
                             $('.modal-window').remove();
