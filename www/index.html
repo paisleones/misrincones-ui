@@ -582,7 +582,8 @@
                                 crossDomain: true,
                             })
                             .fail(function (data) {
-                                alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                                navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+
                             })
 
                             .always(function (data) {
@@ -640,7 +641,8 @@
                                 crossDomain: true,
                             })
                             .fail(function (data) {
-                                alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                                navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+
                             })
 
                             .always(function (data) {
