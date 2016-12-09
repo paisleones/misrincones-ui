@@ -174,13 +174,18 @@
                             crossDomain: true,
                         })
                         .fail(function (data) {
-                            alert("Se ha producido un error en la carga de datos");
+                            alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                        })
+                        .done(function () {
+                            $('#loading').show();
                         })
                         .always(function (data) {
                             $("#" + div).html(data);
                             $("#" + div).show();
+                            $('#loading').hide();
                         });
             }
+            ;
 
 
             function activar_tipo_mapa(tipo)
@@ -536,7 +541,7 @@
         <script>
 
 
-                function nuevo_rincon() {
+                function nuevo_rincon_original() {
                     $.ajax({
                         type: 'GET',
                         async: true,
@@ -561,7 +566,36 @@
                 }
 
 
-                function quickView(id) {
+                function nuevo_rincon()
+                {
+                    $('.modal-window').remove();
+                    document.getElementById("volver_atras").style.display = "none";
+                    SimularClick('cerrar_izquierda');
+                    $('#loading').show();
+                    $.ajax(
+                            {
+                                url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
+                                cache: false,
+                                type: 'GET',
+                                contentType: "html",
+                                async: true,
+                                crossDomain: true,
+                            })
+                            .fail(function (data) {
+                                alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                            })
+
+                            .always(function (data) {
+                                $('#contenido_nuevo').html(data);
+                                $('#loading').hide();
+                                $('#volver_atras').show();
+                                $('#contenido_nuevo').show();
+                            });
+                }
+                ;
+
+
+                function quickView_original(id) {
                     $.ajax({
                         type: 'GET',
                         async: true,
@@ -586,6 +620,38 @@
                         }
                     });
                 }
+
+
+
+                function quickView(id)
+                {
+                    $('.modal-window').remove();
+                    document.getElementById("volver_atras").style.display = "none";
+                    SimularClick('cerrar_derecha');
+                    $('#loading').show();
+                    $.ajax(
+                            {
+                                url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
+                                data: id,
+                                cache: false,
+                                type: 'GET',
+                                contentType: "html",
+                                async: true,
+                                crossDomain: true,
+                            })
+                            .fail(function (data) {
+                                alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                            })
+
+                            .always(function (data) {
+                                $('#contenido_nuevo').html(data);
+                                $('#loading').hide();
+                                $('#volver_atras').show();
+                                $('#contenido_nuevo').show();
+                            });
+                }
+                ;
+
 
 
                 // var _latitude = 42.599052;
