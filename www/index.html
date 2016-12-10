@@ -645,14 +645,18 @@
                                 crossDomain: true,
                             })
                             .fail(function (data) {
+                                eliminar_modal();
                                 navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            })
 
+                            .done(function (data) {
+                                $('#volver_atras').show();
                             })
 
                             .always(function (data) {
                                 $('#contenido_nuevo').html(data);
                                 $('#loading').hide();
-                                $('#volver_atras').show();
+                                //$('#volver_atras').show();
                                 $('#contenido_nuevo').show();
                             });
                 }
