@@ -419,7 +419,7 @@
         <!-- /c-menu slide-right -->
         <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
 
-            <a class="c-menu__close" id="cerrar_derecha" style="background: #61c6cc; width: 100%; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
+            <a class="c-menu__close" id="cerrar_derecha" style="background: rgba(13,205,189,0.9); width: 100%; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
                 <img src="img/iconos1/cerrar.png" style="width: 40px; margin-right: 20px;"><font style="color: #ffffff;">Rincones cerca de ti</font>
             </a>
 
@@ -582,14 +582,18 @@
                                 crossDomain: true,
                             })
                             .fail(function (data) {
+                                eliminar_modal();
                                 navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            })
 
+                            .done(function (data) {
+                                $('#volver_atras').show();
                             })
 
                             .always(function (data) {
                                 $('#contenido_nuevo').html(data);
                                 $('#loading').hide();
-                                $('#volver_atras').show();
+                                //$('#volver_atras').show();
                                 $('#contenido_nuevo').show();
                             });
                 }
