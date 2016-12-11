@@ -225,16 +225,6 @@
         <div id="o-wrapper" class="o-wrapper">
             <div id="contenido">
 
-
-
-
-
-
-
-
-
-
-
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
                      background-position: top left; background-size: cover; z-index: 10" id="portada">
 
@@ -320,14 +310,6 @@
                                 </header>
 
 
-
-
-
-
-
-
-
-
                                 <!--/.toggle-navigation-->
                                 <div id="map" style="width: 100%; height: 105%; margin-top: -50px;"></div>
 
@@ -338,7 +320,7 @@
 
                                 <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
 
-                                    <div class="centrado-porcentual sombra" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;">
+                                    <div class="centrado-porcentual" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;" class="sombra">
                                         <img src="img/cargando.svg" style="width: 40px; margin-right: 20px;"> Cargando ...
                                     </div>
 
@@ -363,340 +345,6 @@
                     <!-- end Page Content-->
                 </div>
                 <!-- end Page Canvas-->
-
-
-
-
-                <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
-
-
-                    <div  style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
-
-                        <div style="position: relative; top: 60px; width: 100%; height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px;">
-                            <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/nuevo_rincon.png" style="width: 32px; margin-right: 10px;">Arrastras y suelta donde quieras
-                        </div>
-
-                        <div id="map_canvas" class="mapa_nuevo_rincon" style="margin-top: 60px; z-index: 1; height: 50%; max-height: 300px;"></div>
-
-                        <div class="boton_zoom sombra" style="position: absolute; left: 10px; top: 120px; padding: 6px;" onclick="obtener();">
-                            <img src="http://misrincones.trabajocreativo.com/assets/img/icono_gps_blanco.png" style="width: 40px">
-                        </div>
-
-
-                        <section class="container" style="margin-top: -20px; background: #ffffff; z-index: 10;">
-                            <div class="row">
-                                <!--Item Detail Content-->
-                                <div class="col-md-12">
-                                    <section class="block" id="main-content">
-
-                                        <div class="row">
-
-                                            <form id="main" class="form-horizontal" action="" method="post" style="position: relative; margin-top: -26px; z-index: 99; background: #fff;">
-
-                                                <div class="col-md-3 col-sm-3">
-                                                    <!--Contact-->
-
-                                                    <div class="btn-group bootstrap-select framed">
-                                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
-                                                            <span class="filter-option pull-left" id="tipo_de_categoria_nuevo">Categoría de rincón?</span>&nbsp;<span class="caret"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu open animation-fade-in" style="max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
-                                                            <ul class="dropdown-menu inner selectpicker animation-fade-in Form-section" role="menu" style="max-height: 300px; overflow-y: auto; min-height: 111px;" id="categorias_ul">
-
-                                                            </ul>
-
-
-                                                            <script>
-                                                                var contenido_categorias_ul = "";
-                                                                var x = 0;
-                                                                var arr = ['Imprescindibles', 'Para comer', 'Para descansar', 'Para compprar'];
-                                                                for (x = 0; x < arr.length; x++)
-                                                                {
-                                                                    var nombre_categoria = arr[x];
-                                                                    var id_categoria = x;
-                                                                    var contenido = "<li rel='" + id_categoria + "' onclick='activar_categoria(" + id_categoria + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_categoria + "' name='categoria' id='categoria" + id_categoria + "'><span>" + nombre_categoria + "</span></a></li>";
-                                                                    var contenido_categorias_ul = contenido_categorias_ul + contenido;
-                                                                }
-                                                                document.getElementById("categorias_ul").innerHTML = contenido_categorias_ul;
-                                                            </script>
-
-
-
-
-                                                        </div>
-
-
-                                                        <script>
-                                                            function activar_categoria(id_categoria)
-                                                            {
-                                                                var x = 0;
-                                                                var arr = ['Imprescindibles', 'Para comer', 'Para descansar', 'Para compprar'];
-
-                                                                for (i = 1; i <= arr.length; i++)
-                                                                {
-                                                                    document.getElementById("categoria" + i).checked = "";
-                                                                    document.getElementById("categoria" + id_categoria).checked = "checked";
-                                                                    document.getElementById("tipo_de_categoria_nuevo").innerHTML = document.getElementById("categoria" + id_categoria).value;
-                                                                }
-                                                            }
-                                                        </script>
-
-
-                                                    </div>
-
-
-                                                    <div class="separador"></div>
-
-                                                    <section>
-
-                                                        <div class="btn-group bootstrap-select framed">
-                                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
-                                                                <span class="filter-option pull-left" id="tipo_de_rincon_nuevo">Tipo de rincón?</span>&nbsp;<span class="caret"></span>
-                                                            </button>
-
-
-
-                                                            <div class="dropdown-menu open animation-fade-in" style="max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
-                                                                <ul class="dropdown-menu inner selectpicker animation-fade-in Form-section" role="menu" style="max-height: 300px; overflow-y: auto; min-height: 111px;" id="contenedor_ul">
-
-
-
-
-                                                                </ul>
-
-                                                                <script>
-                                                                    var contenido_ul = "";
-                                                                    var x = 0;
-                                                                    var arr = ['Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
-                                                                    for (x = 0; x < arr.length; x++)
-                                                                    {
-                                                                        var nombre_tipo = arr[x];
-                                                                        var id_tipo = x;
-                                                                        var contenido = "<li rel='" + id_tipo + "' onclick='activar_tipo(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo' id='tipo" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
-                                                                        var contenido_ul = contenido_ul + contenido;
-                                                                    }
-                                                                    document.getElementById("contenedor_ul").innerHTML = contenido_ul;
-                                                                </script>
-
-                                                            </div>
-                                                        </div>
-
-
-                                                        <script>
-                                                            function activar_tipo(id_tipo)
-                                                            {
-                                                                var x = 0;
-                                                                var arr = ['Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
-
-
-                                                                for (i = 1; i <= arr.length; i++)
-                                                                {
-                                                                    document.getElementById("tipo" + i).checked = "";
-                                                                    document.getElementById("tipo" + id_tipo).checked = "checked";
-                                                                    document.getElementById("tipo_de_rincon_nuevo").innerHTML = document.getElementById("tipo" + id_tipo).value;
-                                                                }
-                                                            }
-                                                        </script>
-
-                                                    </section>
-
-
-
-                                                    <section>
-                                                        <article class="item-gallery" style="background: #f0f0f0; padding: 20px; padding-bottom: 0px; line-height: 130%;">
-
-
-
-                                                            Sabemos que este rincon es muy especial para ti, pero ¿puedes darle una calificación?
-                                                            <br><br>
-
-
-                                                            <figure class="rating active big" data-name="rating" style="font-size: 30px;"></figure>
-
-                                                            <br>
-                                                        </article>
-                                                    </section>
-
-
-
-                                                    <section style="display: none;">
-                                                        <div class="row">
-                                                            <div class="col-md-4 col-sm-4">
-                                                                <div class="form-group">
-                                                                    Latitud:
-                                                                    <br>
-                                                                    <input size="15" type="text" id="lat" name="lat" value="" class="coords" style="width: 200px;" readonly>
-
-                                                                </div>
-                                                            </div>
-                                                            <!--/.col-md-4-->
-                                                            <div class="col-md-6 col-sm-6">
-                                                                <div class="row">
-                                                                    <div class="col-md-12 col-sm-11">
-                                                                        <div class="form-group">
-                                                                            Longitud:
-                                                                            <br>
-                                                                            <input size="15" type="text" id="long" name="long" value="" class="coords" style="width: 200px;" readonly>
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </section>
-
-
-                                                </div>
-
-                                                <div class="col-md-5 col-sm-5">
-
-
-
-                                                    <section style="padding: 0px;">
-                                                        <article class="item-gallery" style="background: #fff; padding: 10px; padding-bottom: 0px;">
-
-
-                                                            <section>
-
-                                                                <div class="row">
-                                                                    <div class="col-md-12 col-sm-12">
-                                                                        <div class="form-group" style="padding-left: 10px; padding-right: 10px;">
-                                                                            Título:
-                                                                            <br>
-
-                                                                            <input type="text" class="form-control" id="titulo" name="titulo">
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <!--/.row-->
-
-                                                                <!--/.row-->
-                                                                <div class="row">
-                                                                    <div class="col-md-12 col-sm-12">
-                                                                        <div class="form-group" style="padding-left: 10px; padding-right: 10px;">
-                                                                            Localización:
-                                                                            <br>
-                                                                            <input type="text" class="form-control" id="localizacion" name="localizacion">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!--/.row-->
-                                                                <div class="row">
-                                                                    <div class="col-md-12 col-sm-12">
-                                                                        <div class="form-group" style="padding-left: 10px; padding-right: 10px;">
-                                                                            Descripcion:
-                                                                            <br>
-                                                                            <textarea class="form-control" id="descripcion" rows="5" name="descripcion"></textarea>
-                                                                            <BR>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </section>
-
-                                                        </article>
-                                                    </section>
-
-
-
-                                                </div>
-
-
-
-
-                                                <div class="col-md-4 col-sm-4">
-
-
-
-
-                                                    <section>
-                                                        <article class="item-gallery">
-
-
-
-
-
-                                                            <div style="padding: 10px; height: 140px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
-
-                                                                <div id="uri_foto" style="display: block;"></div>
-                                                                <div class="boton_captura" onclick="hacerFoto();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/fotos.png" style="width: 44px; margin-bottom: 6px;">
-                                                                    <br>
-                                                                    Hacer foto
-                                                                </div>
-
-                                                                <div class="boton_captura" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/files.png" style="width: 50px;">
-                                                                    <br>
-                                                                    Elegir foto
-                                                                </div>
-
-
-                                                                <img id="fotoLocal" src="" style="width: 100px; display: none;">
-
-
-                                                            </div>
-
-
-
-                                                            <div style="padding: 10px; height: 140px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
-
-
-                                                                <div id="uri_video" style="display: block;"></div>
-                                                                <div class="boton_captura" onclick="grabarvideo();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/videos.png" style="width: 44px; margin-bottom: 6px;">
-                                                                    <br>
-                                                                    Grabar video
-                                                                </div>
-
-                                                                <div class="boton_captura" onclick="libreria_videos();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/files.png" style="width: 50px;">
-                                                                    <br>
-                                                                    Elegir video
-                                                                </div>
-
-
-                                                                <img id="videoLocal" src="" style="width: 100px; display: none;">
-
-                                                            </div>
-
-
-                                                            <div class="result-block" style="display: none;">
-                                                                Capture Result: <span id="capture-result"></span><br/>
-                                                                <span id="format-data"></span><br/>
-                                                            </div>
-
-                                                            <br>
-
-                                                            <br>
-
-
-                                                            <button type="button" onclick="subirVideo();" class="btn btn-large btn-default" id="submit">GUARDAR ESTE RINCON</button>
-                                                        </article>
-
-
-                                                </div>
-
-                                            </form>
-
-                                        </div>
-
-                                </div>
-                                <!-- /.row -->
-                        </section>
-                        <!-- /#main-content-->
-                    </div>
-                    <!-- /.col-md-8-->
-
-
-
-
-                </div><!-- /.row-->
 
 
 
@@ -920,13 +568,36 @@
 
                 function nuevo_rincon()
                 {
+                    $('.modal-window').remove();
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_izquierda');
                     $('#loading').show();
-                    $('#nuevo_rincon').show();
-                    $('#loading').hide();
-                    obtener();
+                    $.ajax(
+                            {
+                                url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
+                                cache: false,
+                                type: 'GET',
+                                contentType: "html",
+                                async: true,
+                                crossDomain: true,
+                            })
+                            .fail(function (data) {
+                                eliminar_modal();
+                                navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            })
+
+                            .done(function (data) {
+                                $('#volver_atras').show();
+                            })
+
+                            .always(function (data) {
+                                $('#contenido_nuevo').html(data);
+                                $('#loading').hide();
+                                //$('#volver_atras').show();
+                                $('#contenido_nuevo').show();
+                            });
                 }
+                ;
 
 
                 function quickView_original(id) {
@@ -1068,7 +739,6 @@
                 function eliminar_modal()
                 {
                     $('#volver_atras').hide();
-                    $('#nuevo_rincon').hide();
                     $('.modal-window .modal-background, .modal-close').live('click', function (e) {
                         $('.modal-window').addClass('fade_out');
                         setTimeout(function () {

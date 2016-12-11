@@ -17,54 +17,323 @@
  * under the License.
  */
 
- document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("navigator.geolocation works well");
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log("navigator.geolocation works well");
 
 
-   // Avisar de que se perdió la conexión.
-  document.addEventListener("offline", function() {
-    $( "#error" ).show();
-    navigator.notification.alert("No tienes conexión a internet. Ten en cuenta que las secciones pueden verse afectadas", null, "Sin conexión", "Aceptar");
-  });
+    // Avisar de que se perdió la conexión.
+    document.addEventListener("offline", function () {
+        $("#error").show();
+        navigator.notification.alert("No tienes conexión a internet. Ten en cuenta que las secciones pueden verse afectadas", null, "Sin conexión", "Aceptar");
+    });
 
-    }
-    
+}
+
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     }
 
 };
 
 
- function ShowExitDialog() {
-                    navigator.notification.confirm(
-                            ("Quieres salir de la aplicacion?"), // message
-                            alertexit, // callback
-                            'Mensaje de Misrincones', // title
-                            'ACEPTAR,CANCELAR' // buttonName
-                            );
+function ShowExitDialog() {
+    navigator.notification.confirm(
+            ("Quieres salir de la aplicacion?"), // message
+            alertexit, // callback
+            'Mensaje de Misrincones', // title
+            'ACEPTAR,CANCELAR' // buttonName
+            );
 
-                }
+}
 
-                function alertexit(button) {
+function alertexit(button) {
 
-                    if (button == "1" || button == 1)
-                    {
+    if (button == "1" || button == 1)
+    {
 
-                        navigator.app.exitApp();
-                    }
+        navigator.app.exitApp();
+    }
 
-                }
+}
 
 
-                document.addEventListener("backbutton", ShowExitDialog, false);
+document.addEventListener("backbutton", ShowExitDialog, false);
+
+
+
+var source;
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;
+}
+
+function libreria_fotos(source) {
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source});
+}
+
+
+function libreria_videos() {
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(libreria_videos_Success, onFail, {quality: 50,
+        mediaType: window.Camera.MediaType.VIDEO,
+        destinationType: window.Camera.DestinationType.FILE_URI,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+}
+
+function libreria_videos_Success(videoURI) {
+    var video = document.getElementById('videoLocal');
+    video.src = videoURI.fullPath;
+    document.getElementById("uri_video").innerHTML = videoURI;
+    //subirImagen(imageURI)
+}
+
+function onPhotoURISuccess(imageURI) {
+    var largeImage = document.getElementById('fotoLocal');
+
+    largeImage.style.display = 'block';
+
+    largeImage.src = imageURI;
+    document.getElementById("uri_foto").innerHTML = largeImage.src;
+}
+
+
+function getPhoto(source) {
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(onSuccess, onFail, {quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source});
+}
+
+function hacerFoto(source) {
+    //navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI, sourceType: source});
+
+    navigator.camera.getPicture(onSuccess, onFail, {quality: 75,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType: source,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 500,
+        targetHeight: 500,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false});
+}
+
+function onSuccess(imageURI) {
+    var image = document.getElementById('fotoLocal');
+    image.src = imageURI;
+    document.getElementById("uri_foto").innerHTML = image.src;
+    //subirImagen(imageURI)
+}
+
+function grabarvideo()
+{
+    navigator.device.capture.captureVideo(captureVideoSuccess, onFail, {
+        destinationType: Camera.DestinationType.FILE_URI,
+        targetWidth: 500,
+        targetHeight: 500,
+        duration: 2,
+        limit: 1,
+        quality: 0
+    });
+}
+
+function captureVideoSuccess(videoURI) {
+    var video = document.getElementById('videoLocal');
+    video.src = videoURI[0].fullPath;
+    document.getElementById("uri_video").innerHTML = video.src;
+    //subirImagen(imageURI)
+}
+
+
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function subirImagen() {
+    var fileURL = document.getElementById("uri_foto").innerHTML
+    var options = new FileUploadOptions();
+    options.fileKey = "imagen";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+
+    var ft = new FileTransfer();
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload.php"), uploadSuccess, uploadFail, options);
+}
+
+function subirVideo() {
+    var fileURL = document.getElementById("uri_video").innerHTML
+    var options = new FileUploadOptions();
+    options.fileKey = "imagen";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+
+    var ft = new FileTransfer();
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php"), uploadSuccess, uploadFail, options);
+}
+
+function uploadSuccess(r) {
+    alert("Code = " + r.responseCode + " Response = " + r.response + " Sent = " + r.bytesSent);
+
+}
+
+function uploadFail(error) {
+    alert("An error has occurred: Code = " + error.code + " upload error source " + error.source + " upload error target " + error.target);
+}
+
+
+
+var styles = [
+    {
+        featureType: 'water', // set the water color
+        elementType: 'geometry.fill', // apply the color only to the fill
+        stylers: [
+            {color: '#96cbcc'}
+        ]
+    }, {
+        featureType: 'landscape.natural', // set the natural landscape
+        elementType: 'all',
+        stylers: [
+            {color: '#ecf0f1'},
+            {lightness: 0}
+        ]
+    }
+    , {
+        featureType: 'poi', // set the point of interest
+        elementType: 'geometry.stroke',
+        stylers: [
+            {color: '#ffffff'},
+            {lightness: 0}
+        ]
+    },
+    {//poi stands for point of interest - don't show these lables on the map
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [
+            {visibility: "off"}
+        ]
+    },
+    {
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+            {visibility: "off"}
+        ]},
+    {
+        featureType: 'road', // set the road
+        elementType: 'geometry',
+        stylers: [
+            {color: '#ffffff'},
+            {lightness: 0}
+        ]
+    }, {
+        featureType: 'road.highway', // set the local road
+        elementType: 'labels',
+        stylers: [
+            {visibility: "off"}
+        ]
+    }
+];
+
+
+
+function cargar_mapa(latitud, longitud) {
+    var map;
+    function initialize() {
+
+        var _latitude = latitud;
+        var _longitude = longitud;
+
+
+        var myLatlng = new google.maps.LatLng(_latitude, _longitude);
+
+        google.maps.event.addDomListener(zoomout, 'click', function () {
+            var currentZoomLevel = map.getZoom();
+            if (currentZoomLevel != 0) {
+                map.setZoom(currentZoomLevel - 1);
+            }
+
+        });
+
+        google.maps.event.addDomListener(zoomin, 'click', function () {
+            var currentZoomLevel = map.getZoom();
+            if (currentZoomLevel != 21) {
+                map.setZoom(currentZoomLevel + 1);
+            }
+
+        });
+
+        var myOptions = {
+            disableDefaultUI: true,
+            scrollwheel: false,
+            styles: styles,
+            zoom: 15,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        var marker = new google.maps.Marker({
+            icon: "http://misrincones.trabajocreativo.com/assets/img/marcador.png",
+            size: new google.maps.Size(44, 50),
+            animation: google.maps.Animation.DROP,
+            draggable: true,
+            position: myLatlng,
+            map: map,
+            title: "Estas aqui"
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("lat").value = event.latLng.lat();
+            document.getElementById("long").value = event.latLng.lng();
+        });
+
+
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            posset = 1;
+
+            if (map.getZoom() < 10) {
+                map.setZoom(10);
+            }
+            map.setCenter(event.latLng);
+            computepos(event.latLng);
+            drag = true;
+            setTimeout(function () {
+                drag = false;
+            }, 250);
+        });
+
+    }
+    google.maps.event.addDomListener(window, "load", initialize());
+}
+
+
+function obtener() {
+    navigator.geolocation.getCurrentPosition(mostrar);
+}
+
+function mostrar(posicion) {
+    var _latitude = posicion.coords.latitude;
+    var _longitude = posicion.coords.longitude;
+
+    document.getElementById("lat").value = _latitude;
+    document.getElementById("long").value = _longitude;
+
+    cargar_mapa(_latitude, _longitude);
+}
