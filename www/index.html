@@ -99,6 +99,7 @@
             #cd-zoom-out {
                 background-position: 50% -32px;
             }
+
         </style>
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -366,6 +367,84 @@
 
 
 
+                <!-- PANTALLA INFORMACION DEL RINCON -->
+
+                <div id="informacion_rincon" style="display: none; overflow-y: auto;">
+
+                    <div  class="fade_in modal-wrapper modal-body modal-content" style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow: auto; height: 100%; position: fixed; top: 0px; left: 0px; font-size: 12px;">
+
+
+
+                        <section style="margin-top: 14px;">
+
+
+                            <span id="enlace_video" class="video"></span>
+
+
+
+
+                            <div  style="width: 100%; padding: 20px; padding-bottom: 0px;">
+
+                                <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 0px;">
+                                    <span id="title"></span>
+                                </h2>
+                                <figure><span id="location"></span></figure>
+                                <span id="rating"></span>
+                                <br>
+                                <h3></h3>
+
+                                <span id="description"></span>
+
+                                <p>
+
+                                <h3></h3>
+
+                                <div class="features">
+                                    <h2>Detalles</h2>
+                                    <dl class="lines">
+                                        <dt>Categoria</dt>
+                                        <dd><span id="category"></span></dd>
+                                        <dt>Location</dt>
+                                        <dd><span id="location"></span></dd>
+                                        <dt>Latitud</dt>
+                                        <dd><span id="latitude"></span></dd>
+                                        <dt>Longitud</dt>
+                                        <dd><span id="longitude"></span></dd>
+                                        <dt>Tipo</dt>
+                                        <dd><span id="type"></span></dd>
+
+                                    </dl>
+
+
+                                </div>
+
+                                <div class="features">
+                                    <h2>Comentarios (0)</h2>
+
+                                    <br><br>
+
+                                </div>
+
+                                <h3></h3>
+
+
+
+                        </section>
+
+
+                        <br><br>
+
+                        <div id="consulta" style="display: none"></div>
+
+
+                    </div></div>
+
+
+
+
+
+
+                <!-- PANTALLA NUEVO RINCON -->
 
                 <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
 
@@ -923,7 +1002,9 @@
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_izquierda');
                     $('#loading').show();
-                    $('#nuevo_rincon').show();
+
+                    $('#nuevo_rincon').fadeIn('slow');
+
                     $('#loading').hide();
                     obtener();
                 }
@@ -992,6 +1073,41 @@
                 ;
 
 
+                function quickView_consuta(id)
+                {
+                    $('.modal-window').remove();
+                    $('#loading').show();
+                    $('#informacion_rincon').hide();
+                    document.getElementById("volver_atras").style.display = "block";
+                    SimularClick('cerrar_derecha');
+                    $.ajax(
+                            {
+                                url: 'http://misrincones.trabajocreativo.com/assets/external/consulta.php?id=' + id,
+                                data: id,
+                                cache: false,
+                                type: 'GET',
+                                contentType: "html",
+                                async: true,
+                                crossDomain: true,
+                            })
+                            .fail(function (data) {
+                                eliminar_modal();
+                                navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            })
+
+                            .done(function (data) {
+                                $('#volver_atras').show();
+                                $('#informacion_rincon').show();
+                            })
+
+                            .always(function (data) {
+                                $("#consulta").html(data);
+
+                            });
+                }
+                ;
+
+
 
                 // var _latitude = 42.599052;
                 //var _longitude = -5.5665905;
@@ -1049,6 +1165,29 @@
                 function onPositionReady() {
                     crear_mapa_json('todos');
                     // proceed
+                }
+
+
+
+                function play_video(STREAMING_VIDEO_URL)
+                {
+                    var videoUrl = STREAMING_VIDEO_URL;
+
+                    // Just play a video
+                    window.plugins.streamingMedia.playVideo(videoUrl);
+
+                    // Play a video with callbacks
+                    var options = {
+                        successCallback: function () {
+                            console.log("Video was closed without error.");
+                        },
+                        errorCallback: function (errMsg) {
+                            console.log("Error! " + errMsg);
+                        },
+                        orientation: 'landscape'
+                    };
+                    window.plugins.streamingMedia.playVideo(videoUrl, options);
+
                 }
 
                 crear_mapa_json('todos');
