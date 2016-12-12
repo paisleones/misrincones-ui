@@ -142,7 +142,6 @@
 
                 var nouEvent = document.createEvent("MouseEvents");
                 nouEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-
                 var objecto = document.getElementById(idObjeto);
                 var canceled = !objecto.dispatchEvent(nouEvent);
             }
@@ -187,8 +186,6 @@
                         });
             }
             ;
-
-
             function activar_tipo_mapa(tipo)
             {
                 document.getElementById('tipo_de_rincon').innerHTML = tipo;
@@ -298,11 +295,13 @@
                                             <ul class="dropdown-menu inner selectpicker animation-fade-in" role="menu" style="max-height: 330px; overflow-y: auto; min-height: 111px;">
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Todos los rincones'); crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Todos los rincones');
+                                                            crear_mapa_json('todos');"><span class="text">Todos los rincones</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                                 <li>
-                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Rincones imprescindibles'); crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
+                                                    <a tabindex="0" class="" style="font-size: 13px;" onclick="activar_tipo_mapa('Rincones imprescindibles');
+                                                            crear_mapa_json('imprescindibles');"><span class="text">Rincones imprescindibles</span><i class="glyphicon glyphicon-ok icon-ok check-mark"></i></a>
                                                 </li>
 
                                                 <li>
@@ -510,7 +509,6 @@
                                                             {
                                                                 var x = 0;
                                                                 var arr = ['Imprescindibles', 'Para comer', 'Para descansar', 'Para compprar'];
-
                                                                 for (i = 1; i <= arr.length; i++)
                                                                 {
                                                                     document.getElementById("categoria" + i).checked = "";
@@ -566,8 +564,6 @@
                                                             {
                                                                 var x = 0;
                                                                 var arr = ['Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
-
-
                                                                 for (i = 1; i <= arr.length; i++)
                                                                 {
                                                                     document.getElementById("tipo" + i).checked = "";
@@ -801,7 +797,8 @@
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
-                    <li class="icono_menu_izquierda" onclick="SimularClick('cerrar_izquierda'); eliminar_modal();"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="SimularClick('cerrar_izquierda');
+                            eliminar_modal();"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
@@ -905,15 +902,11 @@
                     menuOpenerClass: '.c-button',
                     maskId: '#c-mask'
                 });
-
                 var slideLeftBtn = document.querySelector('#c-button--slide-left');
-
                 slideLeftBtn.addEventListener('click', function (e) {
                     e.preventDefault;
                     slideLeft.open();
                 });
-
-
                 /**
                  * Slide right instantiation and action.
                  */
@@ -923,16 +916,11 @@
                     menuOpenerClass: '.c-button',
                     maskId: '#c-mask'
                 });
-
                 var slideRightBtn = document.querySelector('#c-button--slide-right');
-
                 slideRightBtn.addEventListener('click', function (e) {
                     e.preventDefault;
                     slideRight.open();
                 });
-
-
-
                 /**
                  * Push left instantiation and action.
                  */
@@ -942,14 +930,11 @@
                     menuOpenerClass: '.c-button',
                     maskId: '#c-mask'
                 });
-
                 var pushLeftBtn = document.querySelector('#c-button--push-left');
-
                 pushLeftBtn.addEventListener('click', function (e) {
                     e.preventDefault;
                     pushLeft.open();
                 });
-
         </script>
 
 
@@ -1002,9 +987,7 @@
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_izquierda');
                     $('#loading').show();
-
                     $('#nuevo_rincon').fadeIn('slow');
-
                     $('#loading').hide();
                     obtener();
                 }
@@ -1071,8 +1054,6 @@
                             });
                 }
                 ;
-
-
                 function quickView_consuta(id)
                 {
                     $('.modal-window').remove();
@@ -1102,18 +1083,13 @@
 
                             .always(function (data) {
                                 $("#consulta").html(data);
-
                             });
                 }
                 ;
-
-
-
                 // var _latitude = 42.599052;
                 //var _longitude = -5.5665905;
                 var zoom = 16;
                 var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/todos.json';
-
                 // Load JSON data and create Google Maps
 
 
@@ -1155,7 +1131,6 @@
                         $.getJSON(jsonPath)
                                 .done(function (json) {
                                     createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-
                                 })
 
                                 ;
@@ -1169,13 +1144,8 @@
 
 
 
-                function play_video(STREAMING_VIDEO_URL)
+                function play_video(videoUrl)
                 {
-                    var videoUrl = STREAMING_VIDEO_URL;
-
-                    // Just play a video
-                    window.plugins.streamingMedia.playVideo(videoUrl);
-
                     // Play a video with callbacks
                     var options = {
                         successCallback: function () {
@@ -1187,7 +1157,6 @@
                         orientation: 'landscape'
                     };
                     window.plugins.streamingMedia.playVideo(videoUrl, options);
-
                 }
 
                 crear_mapa_json('todos');
@@ -1202,8 +1171,6 @@
 
         <script type="text/javascript">
                 app.initialize();
-
-
                 function eliminar_modal()
                 {
                     $('#volver_atras').hide();

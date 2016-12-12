@@ -3765,13 +3765,13 @@ ul.bullets li a:hover {
 }
 
 .page-fade-out {
-    -webkit-animation: animation-fade-out .2s forwards;
-    animation: animation-fade-out .2s forwards;
+    -webkit-animation: animation-fade-out .5s forwards;
+    animation: animation-fade-out .5s forwards;
 }
 
 .page-fade-in {
-    -webkit-animation: animation-fade-in 0s forwards;
-    animation: animation-fade-in 0s forwards;
+    -webkit-animation: animation-fade-in .5s forwards;
+    animation: animation-fade-in .5s forwards;
 }
 
 #ui-timepicker-div {
@@ -6691,8 +6691,8 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
     }
 }
 .fade_in {
-    -webkit-animation: fade_in_animation .0s forwards;
-    animation: fade_in_animation .0s forwards;
+    -webkit-animation: fade_in_animation .5s forwards;
+    animation: fade_in_animation .5s forwards;
 
 }
 
@@ -6719,8 +6719,8 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
     }
 }
 .fade_out {
-    -webkit-animation: fade_out_animation .3s forwards;
-    animation: fade_out_animation .3s forwards;
+    -webkit-animation: fade_out_animation .5s forwards;
+    animation: fade_out_animation .5s forwards;
 }
 
 @keyframes fade_out_animation {
