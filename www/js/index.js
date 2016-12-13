@@ -337,3 +337,19 @@ function mostrar(posicion) {
 
     cargar_mapa(_latitude, _longitude);
 }
+
+
+function play_video(videoUrl)
+{
+    // Play a video with callbacks
+    var options = {
+        successCallback: function () {
+            console.log("Video was closed without error.");
+        },
+        errorCallback: function (errMsg) {
+            console.log("Error! " + errMsg);
+        },
+        orientation: 'landscape'
+    };
+    window.plugins.streamingMedia.playVideo(videoUrl, options);
+}

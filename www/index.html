@@ -233,7 +233,7 @@
 
 
 
-                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
+                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/register.jpg) no-repeat fixed;
                      background-position: top left; background-size: cover; z-index: 10" id="portada">
 
                     <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
@@ -363,6 +363,31 @@
                     <!-- end Page Content-->
                 </div>
                 <!-- end Page Canvas-->
+
+
+
+
+                <!-- PANTALLA DE LOGIN -->
+
+                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/login.jpg) no-repeat fixed;
+                     background-position: center center; background-size: cover; z-index: 99; display: none;" id="login">
+
+                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
+
+                    <div class="centrado-porcentual">
+                        <h6 style="font-size: 36px;">Mis Rincones
+                        </h6>
+                        <h6>Otra forma de ver el mundo que te rodea</h6>
+                        <br><br>
+                        <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+
+                    </div>
+                </div>
+
+
+
+
+
 
 
 
@@ -987,6 +1012,9 @@
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_izquierda');
                     $('#loading').show();
+                    $('#main')[0].reset();
+                    $('#urifoto').html("");
+                    $('#urivideo').html("");
                     $('#nuevo_rincon').fadeIn('slow');
                     $('#loading').hide();
                     obtener();
@@ -1143,21 +1171,6 @@
                 }
 
 
-
-                function play_video(videoUrl)
-                {
-                    // Play a video with callbacks
-                    var options = {
-                        successCallback: function () {
-                            console.log("Video was closed without error.");
-                        },
-                        errorCallback: function (errMsg) {
-                            console.log("Error! " + errMsg);
-                        },
-                        orientation: 'landscape'
-                    };
-                    window.plugins.streamingMedia.playVideo(videoUrl, options);
-                }
 
                 crear_mapa_json('todos');
         </script>
