@@ -1050,10 +1050,10 @@
 
                 function quickView(id)
                 {
-                    $('#loading').show();
-                    $('.modal-window').remove();
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_derecha');
+                    $('#loading').show();
+                    $('.modal-window').remove();
 
                     $.ajax(
                             {
@@ -1076,9 +1076,11 @@
 
                             .always(function (data) {
                                 $('#contenido_nuevo').html(data);
-                                $('#loading').hide();
+
                                 //$('#volver_atras').show();
                                 $('#contenido_nuevo').show();
+                                $('#loading').hide();
+
                             });
                 }
                 ;

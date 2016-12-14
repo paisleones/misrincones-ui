@@ -6691,8 +6691,8 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
     }
 }
 .fade_in {
-    -webkit-animation: fade_in_animation .5s forwards;
-    animation: fade_in_animation .5s forwards;
+    -webkit-animation: fade_in_animation .0s forwards;
+    animation: fade_in_animation .0s forwards;
 
 }
 
