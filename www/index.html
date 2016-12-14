@@ -110,6 +110,7 @@
 
         <link rel="stylesheet" href="css/mapa/jquery.mCustomScrollbar.css" type="text/css">
         <link rel="stylesheet" href="css/mapa/green.css" type="text/css">
+        <link rel="stylesheet" href="css/player.css" type="text/css">
 
         <style>
             .map-canvas .map .toggle-navigation {
@@ -333,9 +334,6 @@
 
 
 
-
-
-
                                 <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
 
                                     <div class="centrado-porcentual sombra" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;">
@@ -403,7 +401,6 @@
 
 
                             <span id="enlace_video" class="video"></span>
-
 
 
 
@@ -484,6 +481,8 @@
                         <div class="boton_zoom sombra" style="position: absolute; left: 10px; top: 120px; padding: 6px;" onclick="obtener();">
                             <img src="http://misrincones.trabajocreativo.com/assets/img/icono_gps_blanco.png" style="width: 40px">
                         </div>
+
+
 
 
                         <section class="container" style="margin-top: -20px; background: #ffffff; z-index: 10;">
@@ -1057,7 +1056,7 @@
                     $('#loading').show();
                     $.ajax(
                             {
-                                url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
+                                url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app_clean.php?id=' + id,
                                 data: id,
                                 cache: false,
                                 type: 'GET',
@@ -1082,7 +1081,7 @@
                             });
                 }
                 ;
-                function quickView_consuta(id)
+                function quickView_consulta(id)
                 {
                     $('.modal-window').remove();
                     $('#loading').show();
