@@ -1050,10 +1050,11 @@
 
                 function quickView(id)
                 {
+                    $('#loading').show();
                     $('.modal-window').remove();
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_derecha');
-                    $('#loading').show();
+
                     $.ajax(
                             {
                                 url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app_clean.php?id=' + id,
