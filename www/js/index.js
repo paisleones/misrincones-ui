@@ -212,8 +212,8 @@ function uploadFail(error) {
 function guardar_rincon()
 {
     var id = generar(20);
-    //subirImagen(id);
-    subirVideo(id);
+    subirImagen(id);
+    //subirVideo(id);
 }
 
 var styles = [
