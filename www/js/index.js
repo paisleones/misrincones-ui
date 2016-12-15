@@ -168,36 +168,51 @@ function onFail(message) {
     alert('Failed because: ' + message);
 }
 
-function subirImagen() {
+function subirImagen(id) {
     var fileURL = document.getElementById("uri_foto").innerHTML
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload.php"), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_foto.php?id=" + id), uploadSuccess, uploadFail, options);
 }
 
-function subirVideo() {
+function subirVideo(id) {
     var fileURL = document.getElementById("uri_video").innerHTML
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php"), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + id), uploadSuccess, uploadFail, options);
 }
 
 function uploadSuccess(r) {
-    alert("Code = " + r.responseCode + " Response = " + r.response + " Sent = " + r.bytesSent);
+    //alert("Code = " + r.responseCode + " Response = " + r.response + " Sent = " + r.bytesSent);
 
 }
 
 function uploadFail(error) {
-    alert("An error has occurred: Code = " + error.code + " upload error source " + error.source + " upload error target " + error.target);
+    alert("Los sentimos, pero se ha producido un error en la carga de datos.");
 }
 
+function generar(longitud)
+{
+    long = parseInt(longitud);
+    var caracteres = "abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789";
+    var contraseña = "";
+    for (i = 0; i < long; i++)
+        contraseña += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    document.getElementById("pass").innerHTML = contraseña;
+}
 
+function guardar_rincon()
+{
+    var id = generar(20);
+    subirImagen(id);
+    subirVideo(id);
+}
 
 var styles = [
     {

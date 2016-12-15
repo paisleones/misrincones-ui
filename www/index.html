@@ -468,7 +468,7 @@
                 <!-- PANTALLA NUEVO RINCON -->
 
                 <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
-
+                    <a name="nuevo_rincon"></a>
 
                     <div  style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
 
@@ -980,6 +980,20 @@
 
         <script>
 
+                function ocultar_pantallas()
+                {
+                    $('#nuevo_rincon').hide();
+                    $('#portada').hide();
+                    $('#login').hide();
+                }
+
+                function mostrar_pantalla(id)
+                {
+                    location.href = "#" + id;
+                    $('#' + id).fadeIn('slow');
+
+                }
+
 
                 function nuevo_rincon_original() {
                     $.ajax({
@@ -1014,7 +1028,7 @@
                     $('#main')[0].reset();
                     $('#urifoto').html("");
                     $('#urivideo').html("");
-                    $('#nuevo_rincon').fadeIn('slow');
+                    mostrar_pantalla('nuevo_rincon');
                     $('#loading').hide();
                     obtener();
                 }
