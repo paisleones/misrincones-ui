@@ -168,6 +168,17 @@ function onFail(message) {
     alert('Failed because: ' + message);
 }
 
+function generar(longitud)
+{
+    long = parseInt(longitud);
+    var caracteres = "abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789";
+    var contrasena = "";
+    for (i = 0; i < long; i++)
+        contrasena += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    return contrasena;
+}
+
+
 function subirImagen(id) {
     var fileURL = document.getElementById("uri_foto").innerHTML
     var options = new FileUploadOptions();
@@ -184,7 +195,6 @@ function subirVideo(id) {
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    alert(identificador);
     var ft = new FileTransfer();
     ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
@@ -196,16 +206,6 @@ function uploadSuccess(r) {
 
 function uploadFail(error) {
     alert("Los sentimos, pero se ha producido un error en la carga de datos.");
-}
-
-function generar(longitud)
-{
-    long = parseInt(longitud);
-    var caracteres = "abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789";
-    var contrasena = "";
-    for (i = 0; i < long; i++)
-        contrasena += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-    return contrasena;
 }
 
 
