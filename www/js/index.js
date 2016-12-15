@@ -201,16 +201,17 @@ function generar(longitud)
 {
     long = parseInt(longitud);
     var caracteres = "abcdefghijkmnpqrtuvwxyzABCDEFGHIJKLMNPQRTUVWXYZ2346789";
-    var contraseña = "";
+    var contrasena = "";
     for (i = 0; i < long; i++)
-        contraseña += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-    document.getElementById("pass").innerHTML = contraseña;
+        contrasena += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    return contrasena;
 }
+
 
 function guardar_rincon()
 {
     var id = generar(20);
-    subirImagen(id);
+    //subirImagen(id);
     subirVideo(id);
 }
 
