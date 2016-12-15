@@ -180,20 +180,21 @@ function generar(longitud)
 
 
 function subirImagen(id) {
-    var fileURL = document.getElementById("uri_foto").innerHTML
+    var identificador = id;
+    var fileURL = document.getElementById("uri_foto").innerHTML;
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_foto.php?id=" + id), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_foto.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
 
 function subirVideo(id) {
     var identificador = id;
-    var fileURL = document.getElementById("uri_video").innerHTML
+    var fileURL = document.getElementById("uri_video").innerHTML;
     var options = new FileUploadOptions();
-    options.fileKey = "imagen";
+    options.fileKey = "video";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
     var ft = new FileTransfer();
     ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
@@ -209,11 +210,18 @@ function uploadFail(error) {
 }
 
 
-function guardar_rincon()
+function guardar_rincon_imagen()
 {
     var id = generar(20);
     subirImagen(id);
     //subirVideo(id);
+}
+
+function guardar_rincon_video()
+{
+    var id = generar(20);
+    //subirImagen(id);
+    subirVideo(id);
 }
 
 var styles = [
