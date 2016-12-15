@@ -179,13 +179,14 @@ function subirImagen(id) {
 }
 
 function subirVideo(id) {
+    var identificador = id;
     var fileURL = document.getElementById("uri_video").innerHTML
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-
+    alert(identificador);
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + id), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
 
 function uploadSuccess(r) {
