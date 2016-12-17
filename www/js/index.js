@@ -215,24 +215,17 @@ function guardar_rincon()
     var id = generar(20);
     subirImagen(id);
     subirVideo(id);
-    $(function () {
 
-        $('#main').on('submit', function (e) {
-
-            e.preventDefault();
-
-            $.ajax({
-                type: 'post',
-                url: 'http://misrincones.trabajocreativo.com/subidas/actualizar_rincon.php?id=' + id,
-                data: $('#main').serialize(),
-                success: function () {
-                    alert('Se esta actualizando los datos');
-                }
-            });
-
-        });
-
+    $.ajax({
+        type: 'post',
+        url: 'http://misrincones.trabajocreativo.com/subidas/actualizar_rincon.php?id=' + id,
+        data: $('#main').serialize(),
+        success: function () {
+            alert('Se esta actualizando los datos');
+        }
     });
+
+
 }
 
 function guardar_rincon_video()
