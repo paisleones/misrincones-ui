@@ -223,8 +223,8 @@ function guardar_rincon()
 
             $.ajax({
                 type: 'post',
-                url: 'http://misrincones.trabajocrativo.com/subidas/actualizar_rincon.php?id=' + id,
-                data: $('form').serialize(),
+                url: 'http://misrincones.trabajocreativo.com/subidas/actualizar_rincon.php?id=' + id,
+                data: $('#main').serialize(),
                 success: function () {
                     alert('Se esta actualizando los datos');
                 }
