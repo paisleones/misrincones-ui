@@ -217,7 +217,7 @@ function guardar_rincon()
     subirVideo(id);
     $(function () {
 
-        $('form').on('submit', function (e) {
+        $('#main').on('submit', function (e) {
 
             e.preventDefault();
 
