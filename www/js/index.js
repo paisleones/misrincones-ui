@@ -210,17 +210,35 @@ function uploadFail(error) {
 }
 
 
-function guardar_rincon_imagen()
+function guardar_rincon()
 {
     var id = generar(20);
     subirImagen(id);
-    //subirVideo(id);
+    subirVideo(id);
+    $(function () {
+
+        $('form').on('submit', function (e) {
+
+            e.preventDefault();
+
+            $.ajax({
+                type: 'post',
+                url: 'http://misrincones.trabajocrativo.com/subidas/actualizar_rincon.php?id=' + id,
+                data: $('form').serialize(),
+                success: function () {
+                    alert('Se esta actualizando los datos');
+                }
+            });
+
+        });
+
+    });
 }
 
 function guardar_rincon_video()
 {
     var id = generar(20);
-    //subirImagen(id);
+    subirImagen(id);
     subirVideo(id);
 }
 
