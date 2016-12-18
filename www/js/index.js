@@ -178,6 +178,23 @@ function generar(longitud)
     return contrasena;
 }
 
+function getReverseGeocodingData(lat, lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    // This is making the Geocode request
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'latLng': latlng}, function (results, status) {
+        if (status !== google.maps.GeocoderStatus.OK) {
+            alert(status);
+        }
+        // This is checking to see if the Geoeode Status is OK before proceeding
+        if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results);
+            var address = (results[0].formatted_address);
+            document.getElementById("localizacion").value = address;
+            document.getElementById("direccion_rincon").innerHTML = address;
+        }
+    });
+}
 
 function subirImagen(id) {
     var identificador = id;
@@ -336,6 +353,7 @@ function cargar_mapa(latitud, longitud) {
         });
 
         google.maps.event.addListener(marker, 'dragend', function (event) {
+            getReverseGeocodingData(event.latLng.lat(), event.latLng.lng());
             document.getElementById("lat").value = event.latLng.lat();
             document.getElementById("long").value = event.latLng.lng();
         });
@@ -370,6 +388,8 @@ function mostrar(posicion) {
 
     document.getElementById("lat").value = _latitude;
     document.getElementById("long").value = _longitude;
+
+    getReverseGeocodingData(_latitude, _longitude);
 
     cargar_mapa(_latitude, _longitude);
 }
