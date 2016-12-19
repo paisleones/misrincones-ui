@@ -409,3 +409,58 @@ function play_video(videoUrl)
     };
     window.plugins.streamingMedia.playVideo(videoUrl, options);
 }
+
+
+function fotoDialog() {
+    navigator.notification.confirm(
+            ("Añadir una foto a tu rincón"), // message
+            alertfoto, // callback
+            'Mensaje de Misrincones', // title
+            'CAMARA,GALERIA,CANCELAR' // buttonName
+            );
+
+}
+
+function alertfoto(button) {
+
+    if (button == "1" || button == 1)
+    {
+
+        hacerFoto();
+    }
+
+    if (button == "2" || button == 1)
+    {
+
+        getPhoto(pictureSource.SAVEDPHOTOALBUM);
+    }
+
+}
+
+
+function videoDialog() {
+    navigator.notification.confirm(
+            ("Añadir un video a tu rincón"), // message
+            alertvideo, // callback
+            'Mensaje de Misrincones', // title
+            'GRABAR,GALERIA,CANCELAR' // buttonName
+            );
+
+}
+
+function alertvideo(button) {
+
+    if (button == "1" || button == 1)
+    {
+
+        grabarvideo();
+    }
+
+    if (button == "2" || button == 1)
+    {
+
+        libreria_videos();
+    }
+
+}
+

@@ -740,18 +740,10 @@
 
                                                             <div style="padding: 10px; height: 140px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
 
-                                                                <div id="uri_foto" style="display: block;"></div>
-                                                                <div class="boton_captura" onclick="hacerFoto();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/fotos.png" style="width: 44px; margin-bottom: 6px;">
-                                                                    <br>
-                                                                    Hacer foto
-                                                                </div>
+                                                                <div id="uri_foto" style="display: none;"></div>
 
-                                                                <div class="boton_captura" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/files.png" style="width: 50px;">
-                                                                    <br>
-                                                                    Elegir foto
-                                                                </div>
+
+                                                                <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UNA FOTO</button>
 
 
                                                                 <img id="fotoLocal" src="" style="width: 100px; display: none;">
@@ -764,19 +756,9 @@
                                                             <div style="padding: 10px; height: 140px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
 
 
-                                                                <div id="uri_video" style="display: block;"></div>
-                                                                <div class="boton_captura" onclick="grabarvideo();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/videos.png" style="width: 44px; margin-bottom: 6px;">
-                                                                    <br>
-                                                                    Grabar video
-                                                                </div>
+                                                                <div id="uri_video" style="display: none;"></div>
 
-                                                                <div class="boton_captura" onclick="libreria_videos();">
-                                                                    <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/files.png" style="width: 50px;">
-                                                                    <br>
-                                                                    Elegir video
-                                                                </div>
-
+                                                                <button type="button" onclick="videoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UN VIDEO</button>
 
                                                                 <img id="videoLocal" src="" style="width: 100px; display: none;">
 
@@ -983,7 +965,7 @@
 
 
         <script type="text/javascript" src="js/mapa/before.load.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M&sensor=true"></script>
 
         <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
