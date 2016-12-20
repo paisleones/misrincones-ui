@@ -230,12 +230,27 @@
 
 
 
+                <!-- PANTALLA DE BIENVENIDO -->
+
+                <script>
+                    $(document).ready(function () {
+                        var images = ['img/portada/portada1.jpg',
+                            'img/portada/portada2.jpg',
+                            'img/portada/portada3.jpg',
+                            'img/portada/portada4.jpg',
+                            'img/portada/portada5.jpg', ];
+
+                        var randomNumber = Math.floor(Math.random() * images.length);
+                        var bgImg = 'url(' + images[randomNumber] + ')';
+
+                        $('#portada').css({'background': bgImg, 'background-size': 'cover', 'background-repeat': 'no-repeat', 'background-position': 'center top'});
+                        $('#portada').fadeIn();
+
+                    });
+                </script>
 
 
-
-
-                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/bg0.jpg) no-repeat fixed;
-                     background-position: top left; background-size: cover; z-index: 10" id="portada">
+                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 10; display: none;" id="portada">
 
                     <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
 
@@ -243,8 +258,8 @@
                         <h6 style="font-size: 36px;">Mis Rincones
                         </h6>
                         <h6>Otra forma de ver el mundo que te rodea</h6>
-                        <br><br>
-                        <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        <br><br><br>
+                        <h6><a onclick="$('#portada').fadeOut(); $('#page-canvas').fadeIn(); crear_mapa_json('todos_los_rincones');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
                 </div>
@@ -253,14 +268,14 @@
 
 
 
+                <!-- FIN PANTALLA DE BIENVENIDA -->
 
 
 
 
 
 
-
-                <div id="page-canvas" style="z-index: 1; margin-top: 0px; overflow: hidden;">
+                <div id="page-canvas" style="z-index: 1; margin-top: 0px; overflow: hidden; display: none;">
 
 
 
@@ -383,6 +398,7 @@
 
                 <!-- PANTALLA DE LOGIN -->
 
+
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/login.jpg) no-repeat fixed;
                      background-position: center center; background-size: cover; z-index: 99; display: none;" id="login">
 
@@ -489,7 +505,7 @@
                     <div  style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
 
                         <div style="position: relative; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px;">
-                            <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px;">
+                            <img src="http://misrincones.trabajocreativo.com/assets/img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px; vertical-align: middle;">
 
                             <div id="direccion_rincon" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">
                             </div>
@@ -505,7 +521,7 @@
 
 
 
-                        <section class="container" style="margin-top: -20px; background: #ffffff; z-index: 10; padding-top: 20px;">
+                        <section class="container" style="margin-top: -30px; background: #ffffff; z-index: 10; padding-top: 20px;">
                             <div class="row">
                                 <!--Item Detail Content-->
                                 <div class="col-md-12">
