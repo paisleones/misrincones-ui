@@ -165,7 +165,7 @@ function captureVideoSuccess(videoURI) {
 
 
 function onFail(message) {
-    alert('Failed because: ' + message);
+
 }
 
 function generar(longitud)
@@ -429,7 +429,7 @@ function alertfoto(button) {
         hacerFoto();
     }
 
-    if (button == "2" || button == 1)
+    if (button == "2" || button == 2)
     {
 
         getPhoto(pictureSource.SAVEDPHOTOALBUM);
@@ -456,7 +456,7 @@ function alertvideo(button) {
         grabarvideo();
     }
 
-    if (button == "2" || button == 1)
+    if (button == "2" || button == 2)
     {
 
         libreria_videos();
