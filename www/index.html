@@ -238,13 +238,15 @@
                             'img/portada/portada2.jpg',
                             'img/portada/portada3.jpg',
                             'img/portada/portada4.jpg',
-                            'img/portada/portada5.jpg', ];
+                            'img/portada/portada5.jpg',
+                            'img/portada/portada6.jpg'
+                        ];
 
                         var randomNumber = Math.floor(Math.random() * images.length);
                         var bgImg = 'url(' + images[randomNumber] + ')';
 
                         $('#portada').css({'background': bgImg, 'background-size': 'cover', 'background-repeat': 'no-repeat', 'background-position': 'center top'});
-                        $('#portada').fadeIn();
+                        $('#portada').show();
 
                     });
                 </script>
@@ -259,7 +261,7 @@
                         </h6>
                         <h6>Otra forma de ver el mundo que te rodea</h6>
                         <br><br><br>
-                        <h6><a onclick="$('#portada').fadeOut(); $('#page-canvas').fadeIn(); crear_mapa_json('todos_los_rincones');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        <h6><a onclick="$('#portada').hide(); $('#page-canvas').show(); crear_mapa_json('todos_los_rincones');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
                 </div>
@@ -756,7 +758,7 @@
 
 
 
-                                                            <div style="padding: 10px; height: 76px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
+                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
 
                                                                 <div id="uri_foto" style="display: none;"></div>
 
@@ -771,7 +773,7 @@
 
 
 
-                                                            <div style="padding: 10px; height: 76px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
+                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
 
 
                                                                 <div id="uri_video" style="display: none;"></div>
@@ -793,7 +795,7 @@
                                                             <br>
 
 
-                                                            <button type="button" onclick="guardar_rincon();" class="btn btn-large btn-default" id="submit">GUARDAR ESTE RINCÓN</button>
+                                                            <button type="button" onclick="guardar_rincon();" class="btn btn-large btn-default" id="submit" style="width: 100%;">GUARDAR ESTE RINCÓN</button>
 
 
                                                         </article>

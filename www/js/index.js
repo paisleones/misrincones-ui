@@ -413,10 +413,10 @@ function play_video(videoUrl)
 
 function fotoDialog() {
     navigator.notification.confirm(
-            ("Añadir una foto a tu rincón"), // message
+            ("Selecciona desde dónde quieres añadir la foto"), // message
             alertfoto, // callback
-            'Mensaje de Misrincones', // title
-            'CAMARA,GALERIA,CANCELAR' // buttonName
+            'Añadir una foto a este rincón', // title
+            'CÁMARA  ,  GALERÍA  ,  CANCELAR' // buttonName
             );
 
 }
@@ -440,10 +440,10 @@ function alertfoto(button) {
 
 function videoDialog() {
     navigator.notification.confirm(
-            ("Añadir un video a tu rincón"), // message
+            ("Selecciona desde dónde quieres añadir el video"), // message
             alertvideo, // callback
-            'Mensaje de Misrincones', // title
-            'GRABAR,GALERIA,CANCELAR' // buttonName
+            'Añadir un video a este rincón"', // title
+            'GRABAR  ,  GALERÍA  ,  CANCELAR' // buttonName
             );
 
 }
