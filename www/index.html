@@ -261,7 +261,7 @@
                         </h6>
                         <h6>Otra forma de ver el mundo que te rodea</h6>
                         <br><br><br>
-                        <h6><a onclick="$('#portada').hide(); $('#page-canvas').show(); crear_mapa_json('todos_los_rincones');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        <h6><a onclick="crear_mapa_json('todos_los_rincones'); mostrar_pantalla('page-canvas');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
                 </div>
@@ -402,7 +402,7 @@
 
 
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/login.jpg) no-repeat fixed;
-                     background-position: center center; background-size: cover; z-index: 99; display: none;" id="login">
+                     background-position: center center; background-size: cover; z-index: 10; display: none;" id="login">
 
                     <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
 
@@ -843,11 +843,10 @@
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
-                    <li class="icono_menu_izquierda" onclick="SimularClick('cerrar_izquierda');
-                            eliminar_modal();"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('nuevo_rincon'); obtener();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda"><img src="img/iconos1/login.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('login');"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
                 </ul>
@@ -1002,17 +1001,17 @@
 
         <script>
 
-                function ocultar_pantallas()
-                {
-                    $('#nuevo_rincon').hide();
-                    $('#portada').hide();
-                    $('#login').hide();
-                }
 
                 function mostrar_pantalla(id)
                 {
+                    SimularClick('cerrar_izquierda');
+                    $('#nuevo_rincon').hide();
+                    $('#portada').hide();
+                    $('#login').hide();
+                    $('#page_canvas').hide();
+                    eliminar_modal();
                     location.href = "#" + id;
-                    $('#' + id).fadeIn('slow');
+                    $('#' + id).show();
 
                 }
 
