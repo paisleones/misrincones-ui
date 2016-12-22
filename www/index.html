@@ -216,7 +216,7 @@
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
 
-            <div id="volver_atras" class="modal-close" onclick="eliminar_modal();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
+            <div id="volver_atras" class="modal-close" onclick="quitar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
             <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
@@ -418,14 +418,17 @@
 
                     <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
 
+                    <div id="volver_atras_login" class="modal-close" onclick="cerrar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none; z-index: 999">
+                    </div>
+
                     <div class="centrado-porcentual">
                         <h6 style="font-size: 36px;">Iniciar sesion
                         </h6>
                         <h6>Introduce tu email y contraseña</h6>
                         <br>
-                        <input class="input_login" type="text" value="" id="usuario" name="usuario" placeholder="Usuario">
+                        <input class="input_login" type="text" value="" id="login_usuario" name="login_usuario" placeholder="Usuario">
                         <br><br>
-                        <input class="input_login" type="password" value="" id="usuario" name="usuario" placeholder="Contraseña">
+                        <input class="input_login" type="password" value="" id="login_clave" name="login_clave" placeholder="Contraseña">
                         <br><br><br>
                         <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
@@ -862,7 +865,7 @@
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('nuevo_rincon'); obtener();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('login');"><img src="img/iconos1/login.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
                 </ul>
@@ -1029,6 +1032,21 @@
                     location.href = "#" + id;
                     $('#' + id).show();
 
+                }
+
+                function login()
+                {
+                    SimularClick('cerrar_izquierda');
+                    $('#login_usuario').val("");
+                    $('#login_clave').val("");
+                    $('#volver_atras').show();
+                    $('#login').show();
+                }
+
+                function quitar_login()
+                {
+                    $('#volver_atras').hide();
+                    $('#login').hide();
                 }
 
 
