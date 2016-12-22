@@ -9,7 +9,39 @@
 
         <title>Astro - Mobile Template</title>
 
+
+        <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/mapa/bootstrap.css" type="text/css">
+
+        <link rel="stylesheet" href="css/mapa/bootstrap-select.min.css" type="text/css">
+
+
+        <link rel="stylesheet" href="css/mapa/jquery.mCustomScrollbar.css" type="text/css">
+        <link rel="stylesheet" href="css/mapa/green.css" type="text/css">
+        <link rel="stylesheet" href="css/player.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
         <style>
+            .map-canvas .map .toggle-navigation {
+                -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+                background-color: #f4f4f2;
+                bottom: 0;
+                height: 27px;
+                margin: auto;
+                /* position: absolute; */
+                top: 0;
+                z-index: 1;
+                display: none;
+            }
+
+            fade_in
+            {
+                display: block;
+            }
+
             @font-face {
                 font-family: 'Roboto thin';
                 font-style: normal;
@@ -100,37 +132,14 @@
                 background-position: 50% -32px;
             }
 
-        </style>
-        <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/mapa/bootstrap.css" type="text/css">
-
-        <link rel="stylesheet" href="css/mapa/bootstrap-select.min.css" type="text/css">
-
-
-        <link rel="stylesheet" href="css/mapa/jquery.mCustomScrollbar.css" type="text/css">
-        <link rel="stylesheet" href="css/mapa/green.css" type="text/css">
-        <link rel="stylesheet" href="css/player.css" type="text/css">
-        <link rel="stylesheet" href="css/style.css" rel="stylesheet">
-
-        <style>
-            .map-canvas .map .toggle-navigation {
-                -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-                -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-                background-color: #f4f4f2;
-                bottom: 0;
-                height: 27px;
-                margin: auto;
-                /* position: absolute; */
-                top: 0;
-                z-index: 1;
-                display: none;
-            }
-
-            fade_in
+            .input_login
             {
-                display: block;
+                width: 250px !important;
+                padding: 10px !important;
+                background: rgba(0,0,0,0.2) !important;
+                border-bottom: 2px solid rgb(12, 191, 176) !important;
+                text-size: 15px !important;
+                color: #f0f0f0 !important;
             }
         </style>
 
@@ -404,16 +413,20 @@
                 <!-- PANTALLA DE LOGIN -->
 
 
-                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; background: url(img/login.jpg) no-repeat fixed;
-                     background-position: center center; background-size: cover; z-index: 10; display: none;" id="login">
+                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; ;
+                     background-position: center center; background-size: cover; z-index: 20; display: none;" id="login">
 
-                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
+                    <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
 
                     <div class="centrado-porcentual">
-                        <h6 style="font-size: 36px;">Mis Rincones
+                        <h6 style="font-size: 36px;">Iniciar sesion
                         </h6>
-                        <h6>Otra forma de ver el mundo que te rodea</h6>
+                        <h6>Introduce tu email y contraseña</h6>
+                        <br>
+                        <input class="input_login" type="text" value="" id="usuario" name="usuario" placeholder="Usuario">
                         <br><br>
+                        <input class="input_login" type="password" value="" id="usuario" name="usuario" placeholder="Contraseña">
+                        <br><br><br>
                         <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>

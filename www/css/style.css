@@ -654,11 +654,6 @@ input
 .negocio_local
 {
     background-color: #e6e98f;
-    height: 36px;
-    position: absolute;
-    right: 10px;
-    top: -2px;
-    width: 36px;
-    text-align: center;
-    z-index: 2;
+
 }
+

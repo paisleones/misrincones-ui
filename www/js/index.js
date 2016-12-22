@@ -413,10 +413,10 @@ function play_video(videoUrl)
 
 function fotoDialog() {
     navigator.notification.confirm(
-            ("Selecciona desde dónde quieres añadir la foto"), // message
+            (""), // message
             alertfoto, // callback
-            'Añadir una foto a este rincón', // title
-            'CÁMARA  ,  GALERÍA  ,  CANCELAR' // buttonName
+            'Añadir una foto a este lugar', // title
+            'CÁMARA  ,  GALERÍA' // buttonName
             );
 
 }
@@ -440,10 +440,10 @@ function alertfoto(button) {
 
 function videoDialog() {
     navigator.notification.confirm(
-            ("Selecciona desde dónde quieres añadir el video"), // message
+            (""), // message
             alertvideo, // callback
-            'Añadir un video a este rincón"', // title
-            'GRABAR  ,  GALERÍA  ,  CANCELAR' // buttonName
+            'Añadir un video a este lugar"', // title
+            'GRABAR  ,  GALERÍA' // buttonName
             );
 
 }
