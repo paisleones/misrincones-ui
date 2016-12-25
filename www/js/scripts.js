@@ -58,21 +58,21 @@
 
                 if (email_sesion == "")
                 {
-                    $("#email_sesion").css("border-bottom-color", "#ff4b42");
+                    $("#email_sesion").addClass("input_login_error");
                     var validar5 = 0;
                 } else
                 {
-                	 $("#email_sesion").css("border-bottom-color", "#0dcdbd");
+                	 $("#email_sesion").removeClass("input_login_error");
                     var validar5 = 1;
                 }
 
                 if (clave_sesion == "")
                 {
-                    $("#clave_sesion").css("border-bottom-color", "#ff4b42");
+                    $("#clave_sesion").addClass("input_login_error");
                     var validar6 = 0;
                 } else
                 {
-                    $("#clave_sesion").css("border-bottom-color", "#0dcdbd");
+                    $("#clave_sesion").addClass("input_login_error");
                     var validar6 = 1;
                 }
 
