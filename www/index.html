@@ -7,7 +7,15 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 
+
+
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <meta http-equiv="pragma" content="no-cache">
+
+
         <title>Astro - Mobile Template</title>
+
 
 
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
@@ -137,7 +145,7 @@
                 width: 250px !important;
                 padding: 10px !important;
                 background: rgba(0,0,0,0.2) !important;
-                border-bottom: 2px solid rgb(12, 191, 176) !important;
+                border-bottom: 2px solid #0dcdbd !important;
                 text-size: 15px !important;
                 color: #f0f0f0 !important;
             }
@@ -146,66 +154,8 @@
 
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
 
-
-        <script type="text/javascript">
-            //<![CDATA[
-
-            function SimularClick(idObjeto) {
-
-                var nouEvent = document.createEvent("MouseEvents");
-                nouEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                var objecto = document.getElementById(idObjeto);
-                var canceled = !objecto.dispatchEvent(nouEvent);
-            }
-
-            function load_url(div, url)
-            {
-                $.ajax({
-                    url: url,
-                    cache: false,
-                    type: 'GET',
-                    contentType: "html",
-                    async: true,
-                    crossDomain: true,
-                    success: function (data) {
-                        $('#' + div).html(data);
-                        $("#" + div).show();
-                    }
-                });
-            }
-
-            function load_url_ajax(div, url)
-            {
-                $.ajax(
-                        {
-                            url: url,
-                            cache: false,
-                            type: 'GET',
-                            contentType: "html",
-                            async: true,
-                            crossDomain: true,
-                        })
-                        .fail(function (data) {
-                            alert("Lo sentimos, pero se ha producido un error en la carga de datos");
-                        })
-                        .done(function () {
-                            $('#loading').show();
-                        })
-                        .always(function (data) {
-                            $("#" + div).html(data);
-                            $("#" + div).show();
-                            $('#loading').hide();
-                        });
-            }
-            ;
-            function activar_tipo_mapa(tipo)
-            {
-                document.getElementById('tipo_de_rincon').innerHTML = tipo;
-            }
-
-            //]]>
-        </script>
 
 
     </head>
@@ -273,7 +223,8 @@
                         </h6>
                         <h6>Otra forma de ver el mundo que te rodea</h6>
                         <br><br><br>
-                        <h6><a onclick="crear_mapa_json('todos_los_rincones'); mostrar_pantalla('page-canvas');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        <h6><a onclick="crear_mapa_json('todos_los_rincones');
+                                mostrar_pantalla('page-canvas');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
                 </div>
@@ -425,12 +376,12 @@
                         <h6 style="font-size: 36px;">Iniciar sesion
                         </h6>
                         <h6>Introduce tu email y contraseña</h6>
-                        <br>
-                        <input class="input_login" type="text" value="" id="login_usuario" name="login_usuario" placeholder="Usuario">
                         <br><br>
-                        <input class="input_login" type="password" value="" id="login_clave" name="login_clave" placeholder="Contraseña">
+                        <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario">
+                        <br><br>
+                        <input class="input_login" type="password" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña">
                         <br><br><br>
-                        <h6><a onclick="$('#portada').hide();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        <h6><a onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
 
                     </div>
                 </div>
@@ -944,7 +895,7 @@
             <button class="c-menu__close"><strong>x</strong></button>
 
 
-
+            <div id="polivalente" style="display: none; width: 0px; height: 0px;"></div>
 
         </nav><!-- /c-menu push-bottom -->
 
