@@ -72,7 +72,7 @@
                     var validar6 = 0;
                 } else
                 {
-                    $("#clave_sesion").addClass("input_login_error");
+                    $("#clave_sesion").removeClass("input_login_error");
                     var validar6 = 1;
                 }
 
