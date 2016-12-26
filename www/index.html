@@ -730,17 +730,12 @@
                                                     <section>
                                                         <article class="item-gallery">
 
-
-
-
-
                                                             <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; " id="rincon_foto">
 
                                                                 <div id="uri_foto" style="display: none;"></div>
 
 
                                                                 <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UNA FOTO</button>
-
 
                                                                 <img id="fotoLocal" src="" style="width: 100px; display: none;">
 
@@ -820,7 +815,7 @@
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('nuevo_rincon'); obtener();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="nuevo_rincon(); mostrar_pantalla('nuevo_rincon');"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
@@ -1036,14 +1031,13 @@
 
                 function nuevo_rincon()
                 {
-                    document.getElementById("volver_atras").style.display = "none";
-                    SimularClick('cerrar_izquierda');
-                    $('#loading').show();
+
                     $('#main')[0].reset();
+                    $('#score_rating').val("");
+                    $("#titulo").val("");
+                    $("#descripcion").val("");
                     $('#urifoto').html("");
                     $('#urivideo').html("");
-                    mostrar_pantalla('nuevo_rincon');
-                    $('#loading').hide();
                     obtener();
                 }
 

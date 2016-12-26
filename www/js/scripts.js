@@ -106,11 +106,12 @@ function validar_nuevo_rincon()
     var titulo_rincon = $('#titulo').val();
     var descripcion_rincon = $('#descripcion').val();
     var rating_rincon = $('#score_rating').val();
-    var categoria_rincon = $('#categoria').val();
-    var tipo_rincon = $('#tipo').val();
+    var categoria_rincon = $("input[name='categoria']").val();
+    var tipo_rincon = $("input[name='tipo']").val();
     var uri_video_rincon = $('#uri_video').html();
     var uri_foto_rincon = $('#uri_foto').html();
 
+    alert(categoria_rincon);
 
     if (categoria_rincon == undefined)
     {
