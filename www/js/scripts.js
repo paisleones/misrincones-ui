@@ -111,8 +111,6 @@ function validar_nuevo_rincon()
     var uri_video_rincon = $('#uri_video').html();
     var uri_foto_rincon = $('#uri_foto').html();
 
-    alert(categoria_rincon);
-
     if (categoria_rincon == undefined)
     {
         $("#boton_categoria").addClass("input_login_error");
