@@ -382,6 +382,7 @@
                         </h6>
                         <h6>Introduce tu email y contraseña</h6>
                         <br><br>
+
                         <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario">
                         <br><br>
                         <input class="input_login" type="password" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña">
@@ -512,7 +513,7 @@
                                                     <!--Contact-->
 
                                                     <div class="btn-group bootstrap-select framed">
-                                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
+                                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="" id="boton_categoria">
                                                             <span class="filter-option pull-left" id="tipo_de_categoria_nuevo">Categoría de rincón?</span>&nbsp;<span class="caret"></span>
                                                         </button>
                                                         <div class="dropdown-menu open animation-fade-in" style="max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
@@ -564,7 +565,7 @@
                                                     <section>
 
                                                         <div class="btn-group bootstrap-select framed">
-                                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="Select Your City">
+                                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="" id="boton_tipo">
                                                                 <span class="filter-option pull-left" id="tipo_de_rincon_nuevo">Tipo de rincón?</span>&nbsp;<span class="caret"></span>
                                                             </button>
 
@@ -615,7 +616,7 @@
 
 
                                                     <section>
-                                                        <article class="item-gallery" style="background: #f0f0f0; padding: 20px; padding-bottom: 0px; line-height: 130%;">
+                                                        <article class="item-gallery" style="background: #f0f0f0; padding: 20px; padding-bottom: 0px; line-height: 130%;" id="rating_rincon">
 
 
 
@@ -733,7 +734,7 @@
 
 
 
-                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
+                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; " id="rincon_foto">
 
                                                                 <div id="uri_foto" style="display: none;"></div>
 
@@ -748,7 +749,7 @@
 
 
 
-                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; ">
+                                                            <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; " id="rincon_video">
 
 
                                                                 <div id="uri_video" style="display: none;"></div>
@@ -770,7 +771,7 @@
                                                             <br>
 
 
-                                                            <button type="button" onclick="guardar_rincon();" class="btn btn-large btn-default" id="submit" style="width: 100%;">GUARDAR ESTE RINCÓN</button>
+                                                            <button type="button" onclick="validar_nuevo_rincon();" class="btn btn-large btn-default" id="submit" style="width: 100%;">GUARDAR ESTE RINCÓN</button>
 
 
                                                         </article>
