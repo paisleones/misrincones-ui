@@ -478,7 +478,7 @@
                 <!-- PANTALLA NUEVO RINCON -->
 
                 <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
-                    <a name="nuevo_rincon"></a>
+                    <a name="top_nuevo_rincon"></a>
 
                     <div  style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
 
@@ -765,7 +765,7 @@
 
                                                             <br>
 
-
+                                                            <a onclick="$('#nuevo_rincon').scrollTop(300);">SUBIR</a>
                                                             <button type="button" onclick="validar_nuevo_rincon();" class="btn btn-large btn-default" id="submit" style="width: 100%;">GUARDAR ESTE RINCÓN</button>
 
 
@@ -1031,13 +1031,20 @@
 
                 function nuevo_rincon()
                 {
-
+                    $("#boton_categoria").removeClass("input_login_error");
+                    $("#boton_tipo").removeClass("input_login_error");
+                    $("#titulo").removeClass("input_login_error");
+                    $("#descripcion").removeClass("input_login_error");
+                    $("#rating_rincon").removeClass("input_login_error");
+                    $("#rincon_video").removeClass("input_login_error");
+                    $("#rincon_foto").removeClass("input_login_error");
                     $('#main')[0].reset();
                     $('#score_rating').val("");
                     $("#titulo").val("");
                     $("#descripcion").val("");
                     $('#urifoto').html("");
                     $('#urivideo').html("");
+                    $("#nuevo_rincon").scrollTop(300);
                     obtener();
                 }
 
@@ -1080,7 +1087,7 @@
 
                     $.ajax(
                             {
-                                url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app_clean.php?id=' + id,
+                                url: '_modal_app_clean.php?id=' + id,
                                 data: id,
                                 cache: false,
                                 type: 'GET',
