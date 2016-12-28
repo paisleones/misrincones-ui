@@ -204,7 +204,7 @@ function subirImagen(id) {
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_foto.php?id=" + identificador), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/app/upload_foto.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
 
 function subirVideo(id) {
@@ -214,7 +214,7 @@ function subirVideo(id) {
     options.fileKey = "video";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/app/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
 
 function uploadSuccess(r) {
@@ -235,7 +235,7 @@ function guardar_rincon()
 
     $.ajax({
         type: 'post',
-        url: 'http://misrincones.trabajocreativo.com/subidas/actualizar_rincon.php?id=' + id,
+        url: 'http://misrincones.trabajocreativo.com/app/actualizar_rincon.php?id=' + id,
         data: $('#main').serialize(),
         success: function () {
             alert('Se esta actualizando los datos');
