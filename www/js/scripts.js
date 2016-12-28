@@ -105,7 +105,7 @@ function validar_nuevo_rincon()
 {
     var titulo_rincon = $('#titulo').val();
     var descripcion_rincon = $('#descripcion').val();
-    var rating_rincon = $('#score_rating').val();
+    var rating_rincon = $("input[name='rating']").val();
     var categoria_rincon = $("input[name='categoria']").val();
     var tipo_rincon = $("input[name='tipo']").val();
     var uri_video_rincon = $('#uri_video').html();
