@@ -106,12 +106,12 @@ function validar_nuevo_rincon()
     var titulo_rincon = $('#titulo').val();
     var descripcion_rincon = $('#descripcion').val();
     var rating_rincon = $("#estrellas").html();
-    var categoria_rincon = $("input[name='categoria']").val();
-    var tipo_rincon = $("input[name='tipo']").val();
+    var categoria_rincon = $("#tipo_de_categoria_nuevo").html();
+    var tipo_rincon = $("#tipo_de_rincon_nuevo").html();
     var uri_video_rincon = $('#uri_video').html();
     var uri_foto_rincon = $('#uri_foto').html();
 
-    if (categoria_rincon == undefined)
+    if (categoria_rincon == "Categoría de rincón?")
     {
         $("#boton_categoria").addClass("input_login_error");
         var validar1 = 0;
@@ -122,7 +122,7 @@ function validar_nuevo_rincon()
         var validar1 = 1;
     }
 
-    if (tipo_rincon == undefined)
+    if (tipo_rincon == "Tipo de rincón?")
     {
         $("#boton_tipo").addClass("input_login_error");
         var validar2 = 0;
