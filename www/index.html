@@ -14,7 +14,7 @@
         <meta http-equiv="pragma" content="no-cache">
 
 
-        <title>Astro - Mobile Template</title>
+        <title>Misrincones</title>
 
 
 
@@ -154,12 +154,20 @@
             {
                 border-bottom: 2px solid #e24b61 !important;
             }
+
+            #portada {
+                background-position: center top;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
         </style>
 
 
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/jquery.chocolate.js"></script>
 
 
 
@@ -198,25 +206,26 @@
 
 
                 <!-- PANTALLA DE BIENVENIDO -->
-
                 <script>
                     $(document).ready(function () {
-                        var images = ['img/portada/portada1.jpg',
-                            'img/portada/portada2.jpg',
-                            'img/portada/portada3.jpg',
-                            'img/portada/portada4.jpg',
-                            'img/portada/portada5.jpg',
-                            'img/portada/portada6.jpg'
-                        ];
-
-                        var randomNumber = Math.floor(Math.random() * images.length);
-                        var bgImg = 'url(' + images[randomNumber] + ')';
-
-                        $('#portada').css({'background': bgImg, 'background-size': 'cover', 'background-repeat': 'no-repeat', 'background-position': 'center top'});
                         $('#portada').show();
-
+                        $('#portada').chocolate({
+                            images: ['img/portada/portada1.jpg',
+                                'img/portada/portada2.jpg',
+                                'img/portada/portada3.jpg',
+                                'img/portada/portada4.jpg',
+                                'img/portada/portada5.jpg',
+                                'img/portada/portada6.jpg'
+                            ],
+                            interval: 4000,
+                            speed: 2000,
+                        });
                     });
+
                 </script>
+
+
+
 
 
                 <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 10; display: none;" id="portada">
@@ -505,7 +514,8 @@
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="nuevo_rincon(); mostrar_pantalla('nuevo_rincon');"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();
+                            mostrar_pantalla('nuevo_rincon');"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
