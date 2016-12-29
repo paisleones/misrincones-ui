@@ -214,7 +214,7 @@ function subirVideo(id) {
     options.fileKey = "video";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/subidas/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("http://misrincones.trabajocreativo.com/app/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
 }
 
 function uploadSuccess(r) {
