@@ -223,7 +223,7 @@ function uploadSuccess(r) {
 }
 
 function uploadFail(error) {
-    alert("Los sentimos, pero se ha producido un error en la carga de datos.");
+    navigator.notification.alert("Los sentimos, pero se ha producido un error en la carga de datos.", null, "Mensaje de misrincones", "Aceptar");
 }
 
 
@@ -238,7 +238,8 @@ function guardar_rincon()
         url: 'http://misrincones.trabajocreativo.com/app/actualizar_rincon.php?id=' + id,
         data: $('#main').serialize(),
         success: function () {
-            alert('Se esta actualizando los datos');
+            navigator.notification.alert("Se estan actualizando los datos. EN 24h aproximadamente tu rincon estara visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+
         }
     });
 
