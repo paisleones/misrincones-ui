@@ -168,13 +168,61 @@
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/jquery.chocolate.js"></script>
+        <script type="text/javascript" src="js/afterglow.min.js"></script>
 
 
 
     </head>
     <body>
 
-        <div class="header">
+
+        <!-- PANTALLA DE BIENVENIDO -->
+        <script>
+            $(document).ready(function () {
+                $('#portada').show();
+                $('#portada').chocolate({
+                    images: ['img/portada/portada1.jpg',
+                        'img/portada/portada2.jpg',
+                        'img/portada/portada3.jpg',
+                        'img/portada/portada4.jpg',
+                        'img/portada/portada5.jpg',
+                        'img/portada/portada6.jpg'
+                    ],
+                    interval: 4000,
+                    speed: 2000,
+                });
+            });
+
+        </script>
+
+
+
+
+
+        <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 60; display: none;" id="portada">
+
+            <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
+
+            <div class="centrado-porcentual">
+                <h6 style="font-size: 36px;">Mis Rincones
+                </h6>
+                <h6>Otra forma de ver el mundo que te rodea</h6>
+                <br><br><br>
+                <h6><a onclick="crear_mapa_json('todos_los_rincones');
+                        mostrar_pantalla('page-canvas');
+                        $('#cabecera').show();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+
+            </div>
+        </div>
+
+
+
+
+
+        <!-- FIN PANTALLA DE BIENVENIDA -->
+
+
+        <div class="header" style="z-index: 50; display: none;" id="cabecera">
 
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu1.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
             </div>
@@ -182,8 +230,8 @@
             <div id="volver_atras" class="modal-close" onclick="quitar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
-            <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
 
+            <img src="img/misrincones.png" style="width: 170px; margin-top: 13px;">
 
 
             <div id="c-button--slide-right" class="c-button" style="width: 60px; height: 60px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps_big.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
@@ -198,56 +246,6 @@
 
         <div id="o-wrapper" class="o-wrapper">
             <div id="contenido">
-
-
-
-
-
-
-
-                <!-- PANTALLA DE BIENVENIDO -->
-                <script>
-                    $(document).ready(function () {
-                        $('#portada').show();
-                        $('#portada').chocolate({
-                            images: ['img/portada/portada1.jpg',
-                                'img/portada/portada2.jpg',
-                                'img/portada/portada3.jpg',
-                                'img/portada/portada4.jpg',
-                                'img/portada/portada5.jpg',
-                                'img/portada/portada6.jpg'
-                            ],
-                            interval: 4000,
-                            speed: 2000,
-                        });
-                    });
-
-                </script>
-
-
-
-
-
-                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 10; display: none;" id="portada">
-
-                    <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
-
-                    <div class="centrado-porcentual">
-                        <h6 style="font-size: 36px;">Mis Rincones
-                        </h6>
-                        <h6>Otra forma de ver el mundo que te rodea</h6>
-                        <br><br><br>
-                        <h6><a onclick="crear_mapa_json('todos_los_rincones');
-                                mostrar_pantalla('page-canvas');" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
-
-                    </div>
-                </div>
-
-
-
-
-
-                <!-- FIN PANTALLA DE BIENVENIDA -->
 
 
 
@@ -684,7 +682,7 @@
                     $('#page_canvas').hide();
                     eliminar_modal();
                     location.href = "#" + id;
-                    $('#' + id).show();
+                    $('#' + id).fadeIn();
 
                 }
 
@@ -887,7 +885,9 @@
 
 
 
-                crear_mapa_json('todos_los_rincones');
+                //crear_mapa_json('todos_los_rincones');
+
+
         </script>
 
         <script type="text/javascript" src="cordova.js"></script>
@@ -913,6 +913,11 @@
 
 
         </script>
+
+
+        <a id="play_video" href="#video3dark" class="afterglow"></a>
+        <video id='video3dark' width='640' height='360' controls='true' preload='auto' autoplay='autoplay' data-autoresize='fit' data-skin='dark'></video>
+
 
     </body>
 
