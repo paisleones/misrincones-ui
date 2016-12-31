@@ -197,7 +197,7 @@ function validar_nuevo_rincon()
 
 function reproducir_video(id_video)
 {
-    document.getElementById("video3dark").innerHTML = "<source src='http://misrincones.trabajocreativo.com/" + id_video + "' type='video/mp4' />";
+    document.getElementById("video3dark").innerHTML = "<source poster='img/transparente.png' src='http://misrincones.trabajocreativo.com/" + id_video + "' type='video/mp4' />";
     SimularClick("play_video");
 }
 
