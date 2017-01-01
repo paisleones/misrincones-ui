@@ -72,7 +72,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function createHomepageGoogleMap(_latitude, _longitude, json, zoom){
-        $.get("_infobox.js", function() {
+        $.get("js/mapa/_infobox.js", function() {
         gMap();
         });
                 function gMap(){
@@ -383,7 +383,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
 function createHomepageOSM(_latitude, _longitude, json, mapProvider){
 
-$.get("_infobox.js", function() {
+$.get("js/mapa/_infobox.js", function() {
 osmMap();
         });
         function osmMap(){
