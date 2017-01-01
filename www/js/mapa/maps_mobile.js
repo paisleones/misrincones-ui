@@ -117,7 +117,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var activeMarker = true;
                         var lastClicked = false;
                         var latLng = new google.maps.LatLng(_latitude, _longitude);
-                        var companyImage = new google.maps.MarkerImage('img/marcador1.png',
+                        var companyImage = new google.maps.MarkerImage('img/marcador.png',
                                 new google.maps.Size(44, 50),
                                 new google.maps.Point(0, 0),
                                 new google.maps.Point(22, 25)
@@ -130,8 +130,8 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         homeControlDiv.index = 1;
                         map.controls[google.maps.ControlPosition.TOP_LEFT].push(homeControlDiv);
                         var marker = new google.maps.Marker({
-                        animation: google.maps.Animation.DROP,
-                                position: latLng,
+
+                        position: latLng,
                                 icon: companyImage,
                                 title: "Tu estás aquí",
                                 map: map
@@ -351,6 +351,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                 }
                 });
                         function success(position) {
+
                         var locationCenter = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                                 map.setCenter(locationCenter);
                                 map.setZoom(16);
