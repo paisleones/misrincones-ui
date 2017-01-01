@@ -229,7 +229,6 @@ function uploadFail(error) {
 
 function guardar_rincon()
 {
-    var id = generar(20);
     subirImagen(id);
     subirVideo(id);
 
@@ -238,7 +237,7 @@ function guardar_rincon()
         url: 'http://misrincones.trabajocreativo.com/app/actualizar_rincon.php?id=' + id,
         data: $('#main').serialize(),
         success: function () {
-            navigator.notification.alert("Se estan actualizando los datos. EN 24h aproximadamente tu rincon estara visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+            navigator.notification.alert("Se estan actualizando los datos. En 24/48 horas aproximadamente tu rincon estará visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
             load_url('nuevo_rincon', 'rincon_ok.html');
 
         }
