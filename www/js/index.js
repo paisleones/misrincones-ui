@@ -239,6 +239,7 @@ function guardar_rincon()
         data: $('#main').serialize(),
         success: function () {
             navigator.notification.alert("Se estan actualizando los datos. EN 24h aproximadamente tu rincon estara visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+            load_url('nuevo_rincon', 'rincon_ok.html');
 
         }
     });
