@@ -238,7 +238,8 @@ function guardar_rincon()
         data: $('#main').serialize(),
         success: function () {
             navigator.notification.alert("Se estan actualizando los datos. En 24/48 horas aproximadamente tu rincon estará visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
-            setTimeout(load_url('nuevo_rincon', 'rincon_ok.html'), 500);
+            load_url('nuevo_rincon', 'rincon_ok.html');
+            setTimeout(load_url('polivalente', 'http://misrincones.trabajocreativo.com/app/enviar_email.php?id=' + id), 1000);
 
 
         }
