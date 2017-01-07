@@ -10,7 +10,7 @@ function load_url(div, url)
 {
     $.ajax({
         url: url,
-        cache: false,
+        cache: true,
         type: 'GET',
         contentType: "html",
         async: true,
@@ -27,7 +27,7 @@ function load_url_ajax(div, url)
     $.ajax(
             {
                 url: url,
-                cache: false,
+                cache: true,
                 type: 'GET',
                 contentType: "html",
                 async: true,
@@ -110,7 +110,6 @@ function validar_nuevo_rincon()
     var categoria_rincon = $("#tipo_de_categoria_nuevo").html();
     var tipo_rincon = $("#tipo_de_rincon_nuevo").html();
     var uri_video_rincon = $('#uri_video').html();
-    var uri_foto_rincon = $('#uri_foto').html();
 
     if (categoria_rincon == "Categoría de rincón?")
     {
@@ -174,18 +173,8 @@ function validar_nuevo_rincon()
         var validar6 = 1;
     }
 
-    if (uri_foto_rincon == "")
-    {
-        $("#rincon_foto").addClass("input_login_error");
-        var validar7 = 0;
-    } else
-    {
-        $("#rincon_foto").removeClass("input_login_error");
-        var validar7 = 1;
-    }
 
-
-    if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1 && validar5 == 1 && validar6 == 1 && validar7 == 1)
+    if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1 && validar5 == 1 && validar6 == 1)
     {
         guardar_rincon();
     } else

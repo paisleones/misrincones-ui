@@ -251,7 +251,6 @@ function guardar_rincon()
 function guardar_rincon_video()
 {
     var id = generar(20);
-    subirImagen(id);
     subirVideo(id);
 }
 

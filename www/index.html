@@ -25,9 +25,7 @@
         <link rel="stylesheet" href="css/mapa/bootstrap-select.min.css" type="text/css">
 
 
-        <link rel="stylesheet" href="css/mapa/jquery.mCustomScrollbar.css" type="text/css">
         <link rel="stylesheet" href="css/mapa/green.css" type="text/css">
-        <link rel="stylesheet" href="css/player.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
 
         <style>
@@ -591,7 +589,11 @@
 
         <script>
 
-
+                $(document).bind(" mobileinit ", function () {
+                    $.mobile.defaultPageTransition = ' none';
+                    $.mobile.defaultDialogTransition = 'none';
+                    $.mobile.buttonMarkup.hoverDelay = 0;
+                });
                 function mostrar_pantalla(id)
                 {
                     SimularClick('cerrar_izquierda');
@@ -603,7 +605,7 @@
                     $('#page_canvas').hide();
                     eliminar_modal();
                     location.href = "#" + id;
-                    $('#' + id).fadeIn();
+                    $('#' + id).show();
 
                 }
 
@@ -630,7 +632,7 @@
                         type: 'GET',
                         async: true,
                         dataType: 'html',
-                        cache: false,
+                        cache: true,
                         url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
                         success: function (data) {
                             //$('body').append(data);
@@ -662,7 +664,7 @@
                         type: 'GET',
                         async: true,
                         dataType: 'html',
-                        cache: false,
+                        cache: true,
                         url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
                         data: id,
                         success: function (data) {
@@ -697,7 +699,7 @@
                             {
                                 url: 'http://misrincones.trabajocreativo.com/app/modal_rincon.php?id=' + id,
                                 data: id,
-                                cache: false,
+                                cache: true,
                                 type: 'GET',
                                 contentType: "html",
                                 async: true,
@@ -733,7 +735,7 @@
                             {
                                 url: 'http://misrincones.trabajocreativo.com/assets/external/consulta.php?id=' + id,
                                 data: id,
-                                cache: false,
+                                cache: true,
                                 type: 'GET',
                                 contentType: "html",
                                 async: true,
@@ -746,7 +748,7 @@
 
                             .done(function (data) {
                                 $('#volver_atras').show();
-                                $('#informacion_rincon').fadeIn();
+                                $('#informacion_rincon').show();
                             })
 
                             .always(function (data) {
