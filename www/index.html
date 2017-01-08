@@ -165,7 +165,6 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/jquery.chocolate.js"></script>
         <script type="text/javascript" src="js/afterglow.min.js"></script>
 
 
@@ -178,19 +177,19 @@
         <script>
             $(document).ready(function () {
                 $('#portada').show();
-                $('#portada').chocolate({
-                    images: ['img/portada/portada1.jpg',
-                        'img/portada/portada2.jpg',
-                        'img/portada/portada3.jpg',
-                        'img/portada/portada4.jpg',
-                        'img/portada/portada5.jpg',
-                        'img/portada/portada6.jpg'
-                    ],
-                    interval: 4000,
-                    speed: 2000,
-                });
-            });
 
+                var imgCount = 6;
+                var dir = 'img/portada/';
+                var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
+                var images = new Array;
+                images[1] = "portada1.jpg",
+                        images[2] = "portada2.jpg",
+                        images[3] = "portada3.jpg",
+                        images[4] = "portada4.jpg",
+                        images[5] = "portada5.jpg",
+                        images[6] = "portada6.jpg",
+                        document.getElementById("portada").style.backgroundImage = "url(" + dir + images[randomCount] + ")";
+            });
         </script>
 
 
@@ -755,33 +754,6 @@
                                 $("#consulta").html(data);
                             });
                 }
-                ;
-                // var _latitude = 42.599052;
-                //var _longitude = -5.5665905;
-                var zoom = 16;
-                var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/todos_los_rincones.json';
-                // Load JSON data and create Google Maps
-
-
-                var _latitude, _longitude;
-                $(document).ready(function () {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
-                    } else {
-                        alert('Device probably not ready.');
-                    }
-                });
-                function handle_errors(error) {
-                    // error handling here
-                }
-                function handle_geolocation_query(position) {
-                    _latitude = (position.coords.latitude);
-                    _longitude = (position.coords.longitude);
-                    onPositionReady();
-                }
-
-
-
 
 
                 function crear_mapa_json(categoria)
@@ -805,6 +777,30 @@
                     crear_mapa_json('todos_los_rincones');
                     // proceed
                 }
+
+
+                var _latitude, _longitude;
+                $(document).ready(function () {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+                    } else {
+                        navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de misrincones', 'Aceptar');
+                    }
+                });
+                function handle_errors(error) {
+                    // error handling here
+                }
+                function handle_geolocation_query(position) {
+                    _latitude = (position.coords.latitude);
+                    _longitude = (position.coords.longitude);
+                    onPositionReady();
+                }
+
+
+
+
+
+
 
 
 
