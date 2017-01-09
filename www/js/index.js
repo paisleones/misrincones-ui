@@ -149,7 +149,7 @@ function grabarvideo()
         destinationType: Camera.DestinationType.FILE_URI,
         targetWidth: 500,
         targetHeight: 500,
-        duration: 2,
+        duration: 30,
         limit: 1,
         quality: 0
     });
