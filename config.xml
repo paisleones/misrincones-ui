@@ -31,6 +31,7 @@
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
+    <plugin name="cordova-plugin-socialsharing" source="npm" version="4.3.81" />
        <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
@@ -110,6 +111,7 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+  <allow-intent href="whatsapp:*" />
 <allow-intent href="*" />
   <platform name="android">
    <allow-intent href="market:*"/>
@@ -120,4 +122,5 @@
     </platform>
     <platform name="android" />
     <access origin="*" subdomains="true"/>
+    <access origin="whatsapp:*" launch-external="yes" />
     </widget>
