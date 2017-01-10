@@ -32,6 +32,13 @@
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+  <plugin name="cordova-plugin-streaming-media-mod" spec="" source="npm" />
+  <plugin
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="me.donaldepignosis.cordova.plugins.streamingmedia.mod"
+        version="1.0.1">
+<param name="android-package" value="me.donaldepignosis.cordova.plugins.streamingmedia.mod.StreamingMedia" />
 </feature>
        <icon src="icon.png" />
     <platform name="android">
