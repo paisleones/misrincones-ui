@@ -449,19 +449,12 @@
                 function onDeviceReady() {
                     console.log("navigator.geolocation works well");
                 }
-
-                // onSuccess Callback
-                // This method accepts a Position object, which contains the
-                // current GPS coordinates
-                //
                 var onSuccess = function (position) {
 
                     var _latitude = position.coords.latitude;
                     var _longitude = position.coords.longitude;
                 }
 
-                // onError Callback receives a PositionError object
-                //
                 function onError(error) {
                     alert('code: ' + error.code + '\n' +
                             'message: ' + error.message + '\n');
@@ -775,10 +768,6 @@
                     }
                 }
 
-                function onPositionReady() {
-                    crear_mapa_json('todos_los_rincones');
-                    // proceed
-                }
 
 
                 var _latitude, _longitude;
@@ -795,15 +784,7 @@
                 function handle_geolocation_query(position) {
                     _latitude = (position.coords.latitude);
                     _longitude = (position.coords.longitude);
-                    onPositionReady();
                 }
-
-
-
-
-
-
-
 
 
                 //crear_mapa_json('todos_los_rincones');
