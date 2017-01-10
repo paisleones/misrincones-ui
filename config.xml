@@ -29,11 +29,10 @@
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
+    <plugin name="cordova-plugin-streaming-media-mod" spec="" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-  <plugin name="cordova-plugin-streaming-media-mod" spec="" source="npm" />
-<param name="android-package" value="me.donaldepignosis.cordova.plugins.streamingmedia.mod.StreamingMedia" />
 </feature>
        <icon src="icon.png" />
     <platform name="android">
