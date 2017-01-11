@@ -756,12 +756,12 @@
                     //var _longitude = -5.5665905;
                     getCurrentPosition();
 
-                    if (_latitude == undefined || _longitude == undefined)
-                    {
-                        var _latitude = 42.599052;
-                        var _longitude = -5.5665905;
-                        navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto paea generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
-                    }
+                    //if (_latitude == undefined || _longitude == undefined)
+                    //{
+                    //    var _latitude = 42.599052;
+                    //    var _longitude = -5.5665905;
+                    //    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto paea generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
+                    //}
 
                     var zoom = 15;
                     var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
