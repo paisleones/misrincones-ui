@@ -197,18 +197,22 @@
 
         <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 60; display: none;" id="portada">
 
-            <div class="pattern" style="background: rgba(0,0,0,0.5)"></div>
+            <div class="pattern" style="background: rgba(0,0,0,0.6)"></div>
 
             <div class="centrado-porcentual">
-                <img src="img/mycorner360.png" style="width: 100px">
-                <br><br>
-                <h6 style="font-size: 36px;">Mycorner360
-                </h6>
-                <h6>Otra forma de ver el mundo que te rodea</h6>
-                <br><br>
-                <h6><a onclick="crear_mapa_json('todos_los_rincones');
+
+                <img src="img/logo_portada.png" style="width: 280px;">
+
+                <br><br><br>
+
+
+                <button onclick="crear_mapa_json('todos_los_rincones');
                         mostrar_pantalla('page-canvas');
-                        $('#cabecera').show();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; margin-right: 20px; cursor: pointer;">ENTRAR</a>
+                        $('#cabecera').show();" class="btn btn-large btn-default" style="width: 140px;">
+                    ENTRAR
+                </button>
+
+
 
             </div>
         </div>
