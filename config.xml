@@ -19,6 +19,7 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />

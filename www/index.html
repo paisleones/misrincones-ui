@@ -231,6 +231,8 @@
             </div>
 
             <img src="img/logo_cabecera.png" style="height: 34px; margin-top: 13px;">
+            <a onclick="getCurrentPosition();">POSICION</a>
+
 
 
             <div id="c-button--slide-right" class="c-button" style="width: 60px; height: 60px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps_big_blanco.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
@@ -464,7 +466,7 @@
                             'message: ' + error.message + '\n');
                 }
 
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                navigator.geolocation.getCurrentPosition(onSuccess, onError, navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true}));
             </script>
 
 
