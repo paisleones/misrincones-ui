@@ -20,13 +20,14 @@
 // api-geolocation
 var getCurrentPosition = function () {
     var success = function (pos) {
+        enableHighAccuracy: true;
         var _latitude = pos.coords.latitude;
         var _longitude = pos.coords.longitude;
-        var _precision = pos.coords.accuracy;
+        //var _precision = pos.coords.accuracy;
         return _latitude;
         return _longitude;
-        return _precision;
-        //alert(_latitude + " / " + _longitude);
+        //return _precision;
+        alert(_latitude + " / " + _longitude);
 
     };
     var fail = function (error) {
