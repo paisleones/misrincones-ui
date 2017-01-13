@@ -654,7 +654,7 @@
                     var id_usuario = localStorage.getItem('id_usuario');
                     var email = localStorage.getItem('email');
 
-                    if (id_usuario == "" || email == "")
+                    if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
                         navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                         login();
