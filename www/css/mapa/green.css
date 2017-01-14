@@ -6806,7 +6806,7 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
     height: 1px; margin: -1px;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 0px;
 }
 
 /* the basic, unchecked style */
