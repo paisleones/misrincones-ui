@@ -617,6 +617,8 @@
                     $('#email_sesion').val("");
                     $('#clave_sesion').val("");
                     $('#volver_atras').show();
+                    $("#comprobando_login").hide();
+                    $("#validar_login").show();
                     $('#login').show();
                 }
 
@@ -660,8 +662,8 @@
                     var id_usuario = localStorage.getItem('id_usuario');
                     var email = localStorage.getItem('email');
 
-                    var id_usuario = "1";
-                    var email = "mail@mail.com";
+                    //var id_usuario = "1";
+                    //var email = "mail@mail.com";
 
                     if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
