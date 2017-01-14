@@ -81,24 +81,14 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
         cordova.plugins.diagnostic.isLocationAvailable(function (available) {
 
-        document.addEventListener("deviceready", onDeviceReady, false);
-                function onDeviceReady() {
-                console.log("navigator.geolocation works well");
-                }
-        var onSuccess = function (position) {
-
-        var _latitude = position.coords.latitude;
-                var _longitude = position.coords.longitude;
-        }
-
-        navigator.geolocation.getCurrentPosition(onSuccess, navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true}));
+        getCurrentPosition();
         }, function (error) {
 
         var _latitude = 42.599052;
                 var _longitude = - 5.5665905;
-                navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
-                });
                 getCurrentPosition();
+                navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
+        });
                 $.get("http://misrincones.trabajocreativo.com/assets/external/_infobox.js", function() {
                 gMap();
                 });
