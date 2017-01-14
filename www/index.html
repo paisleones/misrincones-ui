@@ -462,6 +462,7 @@
                 }
 
                 navigator.geolocation.getCurrentPosition(onSuccess, navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true}));
+
             </script>
 
 
@@ -779,7 +780,52 @@
 
 
 
+
                 function crear_mapa_json(categoria)
+                {
+
+                    var onSuccess = function (position) {
+                        var _latitude = position.coords.latitude;
+                        var _longitude = position.coords.longitude;
+
+                        var zoom = 15;
+                        var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                        {
+                            $.getJSON(jsonPath)
+                                    .done(function (json) {
+                                        createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                                    })
+
+                                    ;
+                        }
+
+                    };
+                    function onError(error) {
+                        var _latitude = 42.599052;
+                        var _longitude = -5.5665905;
+                        navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
+                        var _latitude = 42.599052;
+                        var _longitude = -5.5665905;
+                        var zoom = 15;
+                        var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                        {
+                            $.getJSON(jsonPath)
+                                    .done(function (json) {
+                                        createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                                    })
+
+                                    ;
+                        }
+
+                    }
+
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true});
+
+                }
+
+
+
+                function crear_mapa_json1111(categoria)
                 {
                     //var _latitude = 42.599052;
                     //var _longitude = -5.5665905;
