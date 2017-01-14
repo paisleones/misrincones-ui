@@ -35,7 +35,6 @@
     <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 </feature>
-<feature name="Share"><param name="android-package" value="org.apache.cordova.plugins.CacheCleaner" /></feature>
        <icon src="icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
