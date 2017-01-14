@@ -833,6 +833,7 @@
         <script type="text/javascript" src="js/capture.js"></script>
         <script type="text/javascript" src="js/camera.js"></script>
         <script type="text/javascript" src="js/geolocation.js"></script>
+        <script type="text/javascript" src="js/cachecleaner.js"></script>
 
         <script type="text/javascript">
                 app.initialize();
@@ -848,6 +849,21 @@
                     });
                 }
 
+                function deleteEntireCache() {
+                    var cachecleaner = cordova.require("cordova/plugin/cachecleaner");
+                    cachecleaner.del(
+                            function () {
+                                // console.log("PhoneGap Plugin: CacheCleaner: callback success");
+                                window.location.href = "index.html"; // reload webapp
+                            },
+                            function () {
+                                console.log("PhoneGap Plugin: CacheCleaner: callback error");
+                            }
+                    );
+                }
+
+// example
+                deleteEntireCache();
         </script>
 
     </body>
