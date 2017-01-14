@@ -72,8 +72,8 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         function createHomepageGoogleMap(_latitude, _longitude, json, zoom){
-
-        if (_latitude == undefined || _longitude == undefined || _latitude == "" || _longitude == "")
+        getCurrentPosition();
+                if (_latitude == undefined || _longitude == undefined || _latitude == "" || _longitude == "")
         {
         var _latitude = 42.599052;
                 var _longitude = - 5.5665905;
