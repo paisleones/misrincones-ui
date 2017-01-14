@@ -436,8 +436,7 @@
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();
-                            mostrar_pantalla('nuevo_rincon');
-                            $('#volver_atras').show();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                        "><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
@@ -658,18 +657,21 @@
                     var id_usuario = localStorage.getItem('id_usuario');
                     var email = localStorage.getItem('email');
 
-                    //var id_usuario = "";
-                    //var email = "mail@mail.com";
+                    var id_usuario = "1";
+                    var email = "mail@mail.com";
 
                     if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
+
+                        //navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                         login();
-                        navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
+                        $("#login").show();
 
                     } else
                     {
                         $("#volver_atras").show();
                         $("#loading").show();
+                        SimularClick('cerrar_izquierda');
                         load_url("nuevo_rincon", "nuevo_rincon.html");
                     }
 
