@@ -462,12 +462,7 @@
                     var _longitude = position.coords.longitude;
                 }
 
-                function onError(error) {
-                    alert('code: ' + error.code + '\n' +
-                            'message: ' + error.message + '\n');
-                }
-
-                navigator.geolocation.getCurrentPosition(onSuccess, onError, navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true}));
+                navigator.geolocation.getCurrentPosition(onSuccess, navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true}));
             </script>
 
 
@@ -669,8 +664,8 @@
                     if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
                         $("#volver_atras").hide();
-                        //document.getElementById("volver_atras").style.display = "none";
-                        //navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
+                        document.getElementById("volver_atras").style.display = "none";
+                        navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                         login();
                     } else
                     {
