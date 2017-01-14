@@ -729,6 +729,7 @@
                             })
                             .fail(function (data) {
                                 eliminar_modal();
+                                $('#loading').hide();
                                 navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
                             })
 
@@ -819,7 +820,7 @@
 
                     }
 
-                    navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy: true});
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 2000, enableHighAccuracy: true});
 
                 }
 
