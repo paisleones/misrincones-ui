@@ -53,6 +53,9 @@ function activar_tipo_mapa(tipo)
 
 function iniciar_sesion()
 {
+
+    $("#validar_login").hide();
+    $("#comprobando_login").show();
     var email_sesion = $('#email_sesion').val();
     var clave_sesion = $('#clave_sesion').val();
 
@@ -95,6 +98,8 @@ function iniciar_sesion()
         load_url("polivalente", "http://misrincones.trabajocreativo.com/app/login.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion, "crear_nueva_cuenta");
     } else
     {
+        $("#comprobando_login").hide();
+        $("#validar_login").show();
         navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
     }
 
@@ -103,6 +108,8 @@ function iniciar_sesion()
 
 function validar_nuevo_rincon()
 {
+    $("#boton_nuevo_rincon").hide();
+    $("#comprobando_rincon").show();
     var titulo_rincon = $('#titulo').val();
     var descripcion_rincon = $('#descripcion').val();
     var rating_rincon = $("#estrellas").val();
@@ -173,12 +180,18 @@ function validar_nuevo_rincon()
         var validar6 = 1;
     }
 
+    if (localizacion_rincon == "" || localizacion_rincon != "Obteniendo localización ...")
+    {
+        var validar7 = 1;
+    }
 
-    if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1 && validar5 == 1 && validar6 == 1)
+    if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1 && validar5 == 1 && validar6 == 1 && validar7 == 1)
     {
         guardar_rincon();
     } else
     {
+        $("#comprobando_rincon").hide();
+        $("#boton_nuevo_rincon").show();
         navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
     }
 

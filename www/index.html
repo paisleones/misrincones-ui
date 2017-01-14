@@ -231,8 +231,6 @@
             </div>
 
             <img src="img/logo_cabecera.png" style="height: 34px; margin-top: 13px;">
-            <a onclick="getCurrentPosition();">POSICION</a>
-
 
 
             <div id="c-button--slide-right" class="c-button" style="width: 60px; height: 60px; position: fixed; right: 0px; top: 0px; cursor: pointer; background: url(img/gps_big_blanco.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
@@ -395,7 +393,9 @@
                         <br><br>
                         <input class="input_login" type="password" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña">
                         <br><br><br><br>
-                        <a onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
+
+                        <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
+                        <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
 
                     </div>
                 </div>
@@ -436,7 +436,8 @@
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();
-                            mostrar_pantalla('nuevo_rincon');"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                            mostrar_pantalla('nuevo_rincon');
+                            $('#volver_atras').show();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
@@ -623,6 +624,9 @@
                 {
                     $('#volver_atras').hide();
                     $('#login').hide();
+                    $('#loading').hide();
+                    $('#nuevo_rincon').hide();
+                    $('#nuevo_rincon').html("");
                 }
 
 
@@ -656,12 +660,17 @@
                     var id_usuario = localStorage.getItem('id_usuario');
                     var email = localStorage.getItem('email');
 
+                    var id_usuario = "1";
+                    var email = "mail@mail.com";
+
                     if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
                         navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                         login();
                     } else
                     {
+                        $("#volver_atras").show();
+                        $("#loading").show();
                         load_url("nuevo_rincon", "nuevo_rincon.html");
                     }
 
@@ -701,6 +710,8 @@
                     document.getElementById("volver_atras").style.display = "none";
                     SimularClick('cerrar_derecha');
                     $('#login').hide();
+                    $('#nuevo_rincon').html('');
+
                     $('#loading').show();
                     $('.modal-window').remove();
 
