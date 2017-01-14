@@ -663,10 +663,9 @@
 
                     if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                     {
-                        $("#volver_atras").hide();
-                        document.getElementById("volver_atras").style.display = "none";
-                        navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                         login();
+                        navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
+
                     } else
                     {
                         $("#volver_atras").show();
