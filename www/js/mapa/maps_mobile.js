@@ -147,18 +147,21 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var category = json.data[i].category;
                         var category = category.toLowerCase();
                         var category = category.replace(" ", "_");
+                        var tipo = json.data[i].type;
+                        var tipo = tipo.toLowerCase();
+                        var tipo = tipo.replace(" ", "_");
                         if (json.data[i].featured == 1) {
                 markerContent.innerHTML =
-                        '<div class="map-marker featured' + color + ' ' + category + '">' +
-                        '<div class="icon">' +
+                        '<div class="map-marker featured' + color + ' ' + tipo + ' todos_los_rincones">' +
+                        '<div class="icon ' + ' ' + category + '">' +
                         '<img src="' + json.data[i].type_icon + '">' +
                         '</div>' +
                         '</div>';
                 }
                 else {
                 markerContent.innerHTML =
-                        '<div class="map-marker ' + json.data[i].color + ' ' + category + '">' +
-                        '<div class="icon">' +
+                        '<div class="map-marker ' + json.data[i].color + ' ' + tipo + ' todos_los_rincones">' +
+                        '<div class="icon ' + ' ' + category + '">' +
                         '<img src="' + json.data[i].type_icon + '">' +
                         '</div>' +
                         '</div>';

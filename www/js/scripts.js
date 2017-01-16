@@ -51,6 +51,56 @@ function activar_tipo_mapa(tipo)
     document.getElementById('tipo_de_rincon').innerHTML = tipo;
 }
 
+function validar_registro()
+{
+    $("#validar_registro").hide();
+    $("#comprobando_registro").show();
+    var email_registro = $('#email_registro').val();
+    var clave_registro = $('#clave_registro').val();
+    var usuario_registro = $('#usuario_registro').val();
+
+    if (email_registro == "")
+    {
+        $("#email_registro").addClass("input_login_error");
+        var validar1 = 0;
+    } else
+    {
+        $("#email_registro").removeClass("input_login_error");
+        var validar1 = 1;
+    }
+
+    if (clave_registro == "")
+    {
+        $("#clave_registro").addClass("input_login_error");
+        var validar2 = 0;
+    } else
+    {
+        $("#clave_registro").removeClass("input_login_error");
+        var validar2 = 1;
+    }
+
+    if (usuario_registro == "")
+    {
+        $("#usuario_registro").addClass("input_login_error");
+        var validar3 = 0;
+    } else
+    {
+        $("#usuario_registro").removeClass("input_login_error");
+        var validar3 = 1;
+    }
+
+    if (validar1 == 1 && validar2 == 1 && validar3 == 1)
+    {
+        load_url("polivalente", "http://misrincones.trabajocreativo.com/app/login.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro, "crear_nueva_cuenta");
+    } else
+    {
+        $("#comprobando_registro").hide();
+        $("#validar_registro").show();
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
+    }
+}
+
+
 function iniciar_sesion()
 {
 
