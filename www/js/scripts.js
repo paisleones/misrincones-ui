@@ -53,7 +53,7 @@ function activar_tipo_mapa(tipo)
 
 function validar_registro()
 {
-    $("#validar_registro").hide();
+    $("#boton_registro").hide();
     $("#comprobando_registro").show();
     var email_registro = $('#email_registro').val();
     var clave_registro = $('#clave_registro').val();
@@ -99,7 +99,7 @@ function validar_registro()
 
         } else {
             $("#comprobando_registro").hide();
-            $("#validar_registro").show();
+            $("#boton_registro").show();
             navigator.notification.alert("Un momento!, debes aceptar los términos y condiciones de uso", null, "Mensaje de misrincones", "Aceptar");
         }
 
@@ -107,7 +107,7 @@ function validar_registro()
     } else
     {
         $("#comprobando_registro").hide();
-        $("#validar_registro").show();
+        $("#boton_registro").show();
         navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
     }
 }
