@@ -58,6 +58,7 @@ function validar_registro()
     var email_registro = $('#email_registro').val();
     var clave_registro = $('#clave_registro').val();
     var usuario_registro = $('#usuario_registro').val();
+    var aceptar_condiciones = $('#aceptar_condiciones').val();
 
     if (email_registro == "")
     {
@@ -91,7 +92,19 @@ function validar_registro()
 
     if (validar1 == 1 && validar2 == 1 && validar3 == 1)
     {
-        load_url("polivalente", "http://misrincones.trabajocreativo.com/app/login.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro, "crear_nueva_cuenta");
+
+
+        if ($("#aceptar_condiciones").is(':checked')) {
+
+            load_url("polivalente", "http://misrincones.trabajocreativo.com/app/registro_usuario.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro, "crear_nueva_cuenta");
+
+        } else {
+            $("#comprobando_registro").hide();
+            $("#validar_registro").show();
+            navigator.notification.alert("Un momento!, debes aceptar los términos y condiciones de uso", null, "Mensaje de misrincones", "Aceptar");
+
+        }
+
     } else
     {
         $("#comprobando_registro").hide();
