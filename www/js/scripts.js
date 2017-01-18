@@ -101,7 +101,7 @@ function validar_registro()
                 url: 'http://misrincones.trabajocreativo.com/app/registro_usuario.php?id=' + id,
                 data: $('#main').serialize(),
                 success: function () {
-                    navigator.notification.alert("Enhorabuena, se ha completado el registro. Revise su correo electronico para confirmar su cuenta de usuario. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+                    //navigator.notification.alert("Enhorabuena, se ha completado el registro. Revise su correo electronico para confirmar su cuenta de usuario. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
                     load_url('nuevo_rincon', 'registro_ok.html');
                     setTimeout(load_url('polivalente', 'http://misrincones.trabajocreativo.com/app/enviar_email_registro.php?id=' + id), 1000);
 
