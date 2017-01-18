@@ -504,51 +504,70 @@
         <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 
 
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                console.log("navigator.geolocation works well");
+            }
+
+            var onSuccess = function (position) {
+                var _latitud = position.coords.latitude;
+                var _longitud = position.coords.longitude;
+            }
+
+            function onError(error) {
+                console.log("Error code: " + error.code + " / Mensaje error: " + error.message);
+            }
+
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        </script>
+
+
         <script type="text/javascript" src="js/menu.js"></script>
         <script>
 
-                        /**
-                         * Slide left instantiation and action.
-                         */
-                        var slideLeft = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'slide-left',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var slideLeftBtn = document.querySelector('#c-button--slide-left');
-                        slideLeftBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            slideLeft.open();
-                        });
-                        /**
-                         * Slide right instantiation and action.
-                         */
-                        var slideRight = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'slide-right',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var slideRightBtn = document.querySelector('#c-button--slide-right');
-                        slideRightBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            slideRight.open();
-                        });
-                        /**
-                         * Push left instantiation and action.
-                         */
-                        var pushLeft = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'push-left',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var pushLeftBtn = document.querySelector('#c-button--push-left');
-                        pushLeftBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            pushLeft.open();
-                        });
+            /**
+             * Slide left instantiation and action.
+             */
+            var slideLeft = new Menu({
+                wrapper: '#o-wrapper',
+                type: 'slide-left',
+                menuOpenerClass: '.c-button',
+                maskId: '#c-mask'
+            });
+            var slideLeftBtn = document.querySelector('#c-button--slide-left');
+            slideLeftBtn.addEventListener('click', function (e) {
+                e.preventDefault;
+                slideLeft.open();
+            });
+            /**
+             * Slide right instantiation and action.
+             */
+            var slideRight = new Menu({
+                wrapper: '#o-wrapper',
+                type: 'slide-right',
+                menuOpenerClass: '.c-button',
+                maskId: '#c-mask'
+            });
+            var slideRightBtn = document.querySelector('#c-button--slide-right');
+            slideRightBtn.addEventListener('click', function (e) {
+                e.preventDefault;
+                slideRight.open();
+            });
+            /**
+             * Push left instantiation and action.
+             */
+            var pushLeft = new Menu({
+                wrapper: '#o-wrapper',
+                type: 'push-left',
+                menuOpenerClass: '.c-button',
+                maskId: '#c-mask'
+            });
+            var pushLeftBtn = document.querySelector('#c-button--push-left');
+            pushLeftBtn.addEventListener('click', function (e) {
+                e.preventDefault;
+                pushLeft.open();
+            });
         </script>
 
 
@@ -571,290 +590,290 @@
 
         <script>
 
-                        $(document).bind(" mobileinit ", function () {
-                            $.mobile.defaultPageTransition = ' none';
-                            $.mobile.defaultDialogTransition = 'none';
-                            $.mobile.buttonMarkup.hoverDelay = 0;
-                        });
-                        function mostrar_pantalla(id)
+            $(document).bind(" mobileinit ", function () {
+                $.mobile.defaultPageTransition = ' none';
+                $.mobile.defaultDialogTransition = 'none';
+                $.mobile.buttonMarkup.hoverDelay = 0;
+            });
+            function mostrar_pantalla(id)
+            {
+                SimularClick('cerrar_izquierda');
+                $('#nuevo_rincon').hide();
+                $('#nuevo_rincon').html("");
+                $('#portada').hide();
+                $('#portada').html("");
+                $('#login').hide();
+                $('#page_canvas').hide();
+                eliminar_modal();
+                location.href = "#" + id;
+                $('#' + id).show();
+
+            }
+
+            function login()
+            {
+                SimularClick('cerrar_izquierda');
+                $("#email_sesion").removeClass("input_login_error");
+                $("#clave_sesion").removeClass("input_login_error");
+                $('#email_sesion').val("");
+                $('#clave_sesion').val("");
+                $('#volver_atras').show();
+                $("#comprobando_login").hide();
+                $("#validar_login").show();
+                $('#login').show();
+            }
+
+            function quitar_login()
+            {
+                $('#volver_atras').hide();
+                $('#login').hide();
+                $('#loading').hide();
+                $('#nuevo_rincon').hide();
+                $('#nuevo_rincon').html("");
+            }
+
+            function registro()
+            {
+                $("#volver_atras").show();
+                //$("#loading").show();
+                SimularClick('cerrar_izquierda');
+                load_url("nuevo_rincon", "registro.html");
+            }
+
+            function quitar_registro()
+            {
+                $('#volver_atras').hide();
+                $('#registro').hide();
+                $('#loading').hide();
+                $('#nuevo_rincon').hide();
+                $('#nuevo_rincon').html("");
+            }
+
+
+            function nuevo_rincon_original() {
+                $.ajax({
+                    type: 'GET',
+                    async: true,
+                    dataType: 'html',
+                    cache: true,
+                    url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
+                    success: function (data) {
+                        //$('body').append(data);
+                        $('#contenido_nuevo').html(data);
+                        $('#contenido_nuevo').show();
+                    },
+                    beforeSend: function () {
+                        document.getElementById("volver_atras").style.display = "none";
+                        SimularClick('cerrar_izquierda');
+                        $('#loading').show();
+                    },
+                    complete: function () {
+                        document.getElementById("volver_atras").style.display = "block";
+                        $('#loading').hide();
+                    }
+                });
+            }
+
+
+            function nuevo_rincon()
+            {
+
+                var id_usuario = localStorage.getItem('id_usuario');
+                var email = localStorage.getItem('email');
+
+                //var id_usuario = "1";
+                //var email = "mail@mail.com";
+
+                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                {
+
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
+                    login();
+                    $("#login").show();
+
+                } else
+                {
+                    $("#volver_atras").show();
+                    //$("#loading").show();
+                    SimularClick('cerrar_izquierda');
+                    load_url("nuevo_rincon", "nuevo_rincon.html");
+                }
+
+            }
+
+
+            function quickView_original(id) {
+                $.ajax({
+                    type: 'GET',
+                    async: true,
+                    dataType: 'html',
+                    cache: true,
+                    url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
+                    data: id,
+                    success: function (data) {
+                        //$('body').append(data);
+                        $('#contenido_nuevo').html(data);
+                        $('#contenido_nuevo').show();
+                    },
+                    beforeSend: function () {
+                        $('.modal-window').remove();
+                        document.getElementById("volver_atras").style.display = "none";
+                        SimularClick('cerrar_derecha');
+                        $('#loading').show();
+                    },
+                    complete: function () {
+                        document.getElementById("volver_atras").style.display = "block";
+                        $('#loading').hide();
+                    }
+                });
+            }
+
+
+
+            function quickView(id)
+            {
+                document.getElementById("volver_atras").style.display = "block";
+                SimularClick('cerrar_derecha');
+                $('#login').hide();
+                $('#nuevo_rincon').html('');
+
+                $('#loading').show();
+                $('.modal-window').remove();
+
+                $.ajax(
                         {
-                            SimularClick('cerrar_izquierda');
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                            $('#portada').hide();
-                            $('#portada').html("");
-                            $('#login').hide();
-                            $('#page_canvas').hide();
+                            url: 'http://misrincones.trabajocreativo.com/app/modal_rincon.php?id=' + id,
+                            data: id,
+                            cache: true,
+                            type: 'GET',
+                            contentType: "html",
+                            async: true,
+                            crossDomain: true,
+                        })
+                        .fail(function (data) {
                             eliminar_modal();
-                            location.href = "#" + id;
-                            $('#' + id).show();
+                            $('#loading').hide();
+                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                        })
 
-                        }
-
-                        function login()
-                        {
-                            SimularClick('cerrar_izquierda');
-                            $("#email_sesion").removeClass("input_login_error");
-                            $("#clave_sesion").removeClass("input_login_error");
-                            $('#email_sesion').val("");
-                            $('#clave_sesion').val("");
+                        .done(function (data) {
                             $('#volver_atras').show();
-                            $("#comprobando_login").hide();
-                            $("#validar_login").show();
-                            $('#login').show();
-                        }
+                        })
 
-                        function quitar_login()
-                        {
-                            $('#volver_atras').hide();
-                            $('#login').hide();
+                        .success(function (data) {
+                            $('#contenido_nuevo').html(data);
+
+                            //$('#volver_atras').show();
+                            $('#contenido_nuevo').show();
                             $('#loading').hide();
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                        }
 
-                        function registro()
-                        {
-                            $("#volver_atras").show();
-                            //$("#loading").show();
-                            SimularClick('cerrar_izquierda');
-                            load_url("nuevo_rincon", "registro.html");
-                        }
-
-                        function quitar_registro()
-                        {
-                            $('#volver_atras').hide();
-                            $('#registro').hide();
-                            $('#loading').hide();
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                        }
-
-
-                        function nuevo_rincon_original() {
-                            $.ajax({
-                                type: 'GET',
-                                async: true,
-                                dataType: 'html',
-                                cache: true,
-                                url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
-                                success: function (data) {
-                                    //$('body').append(data);
-                                    $('#contenido_nuevo').html(data);
-                                    $('#contenido_nuevo').show();
-                                },
-                                beforeSend: function () {
-                                    document.getElementById("volver_atras").style.display = "none";
-                                    SimularClick('cerrar_izquierda');
-                                    $('#loading').show();
-                                },
-                                complete: function () {
-                                    document.getElementById("volver_atras").style.display = "block";
-                                    $('#loading').hide();
-                                }
-                            });
-                        }
-
-
-                        function nuevo_rincon()
-                        {
-
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            var email = localStorage.getItem('email');
-
-                            //var id_usuario = "1";
-                            //var email = "mail@mail.com";
-
-                            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                            {
-
-                                navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
-                                login();
-                                $("#login").show();
-
-                            } else
-                            {
-                                $("#volver_atras").show();
-                                //$("#loading").show();
-                                SimularClick('cerrar_izquierda');
-                                load_url("nuevo_rincon", "nuevo_rincon.html");
-                            }
-
-                        }
-
-
-                        function quickView_original(id) {
-                            $.ajax({
-                                type: 'GET',
-                                async: true,
-                                dataType: 'html',
-                                cache: true,
-                                url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
-                                data: id,
-                                success: function (data) {
-                                    //$('body').append(data);
-                                    $('#contenido_nuevo').html(data);
-                                    $('#contenido_nuevo').show();
-                                },
-                                beforeSend: function () {
-                                    $('.modal-window').remove();
-                                    document.getElementById("volver_atras").style.display = "none";
-                                    SimularClick('cerrar_derecha');
-                                    $('#loading').show();
-                                },
-                                complete: function () {
-                                    document.getElementById("volver_atras").style.display = "block";
-                                    $('#loading').hide();
-                                }
-                            });
-                        }
-
-
-
-                        function quickView(id)
-                        {
-                            document.getElementById("volver_atras").style.display = "block";
-                            SimularClick('cerrar_derecha');
-                            $('#login').hide();
-                            $('#nuevo_rincon').html('');
-
-                            $('#loading').show();
-                            $('.modal-window').remove();
-
-                            $.ajax(
-                                    {
-                                        url: 'http://misrincones.trabajocreativo.com/app/modal_rincon.php?id=' + id,
-                                        data: id,
-                                        cache: true,
-                                        type: 'GET',
-                                        contentType: "html",
-                                        async: true,
-                                        crossDomain: true,
-                                    })
-                                    .fail(function (data) {
-                                        eliminar_modal();
-                                        $('#loading').hide();
-                                        navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
-                                    })
-
-                                    .done(function (data) {
-                                        $('#volver_atras').show();
-                                    })
-
-                                    .success(function (data) {
-                                        $('#contenido_nuevo').html(data);
-
-                                        //$('#volver_atras').show();
-                                        $('#contenido_nuevo').show();
-                                        $('#loading').hide();
-
-                                    });
-                        }
-                        ;
-                        function quickView_consulta(id)
-                        {
-                            $('.modal-window').remove();
-                            $('#loading').show();
-                            $('#informacion_rincon').hide();
-                            document.getElementById("volver_atras").style.display = "block";
-                            SimularClick('cerrar_derecha');
-                            $.ajax(
-                                    {
-                                        url: 'http://misrincones.trabajocreativo.com/assets/external/consulta.php?id=' + id,
-                                        data: id,
-                                        cache: true,
-                                        type: 'GET',
-                                        contentType: "html",
-                                        async: true,
-                                        crossDomain: true,
-                                    })
-                                    .fail(function (data) {
-                                        eliminar_modal();
-                                        navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
-                                    })
-
-                                    .done(function (data) {
-                                        $('#volver_atras').show();
-                                        $('#informacion_rincon').show();
-                                    })
-
-                                    .always(function (data) {
-                                        $("#consulta").html(data);
-                                    });
-                        }
-
-
-
-
-                        function crear_mapa_json(categoria)
-                        {
-
-                            var onSuccess = function (position) {
-
-                                var _latitude = position.coords.latitude;
-                                var _longitude = position.coords.longitude;
-
-
-                                var zoom = 15;
-                                var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
-                                {
-                                    $.getJSON(jsonPath)
-                                            .done(function (json) {
-                                                createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                            })
-
-                                            ;
-                                }
-
-                            };
-                            function onError(error) {
-
-                                navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
-                                var _latitude = 42.599052;
-                                var _longitude = -5.5665905;
-                                var zoom = 15;
-                                var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
-                                {
-                                    $.getJSON(jsonPath)
-                                            .done(function (json) {
-                                                createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                            })
-
-                                            ;
-                                }
-
-                            }
-
-                            navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 2000, enableHighAccuracy: true});
-
-                        }
-
-
-
-                        var _latitude, _longitude;
-                        $(document).ready(function () {
-                            if (navigator.geolocation) {
-                                navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
-                            } else {
-                                navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de misrincones', 'Aceptar');
-                            }
                         });
-                        function handle_errors(error) {
-                            // error handling here
-                        }
-                        function handle_geolocation_query(position) {
-                            _latitude = (position.coords.latitude);
-                            _longitude = (position.coords.longitude);
-                        }
-
-
-                        function mostrar_rincones(tipo_rincon)
+            }
+            ;
+            function quickView_consulta(id)
+            {
+                $('.modal-window').remove();
+                $('#loading').show();
+                $('#informacion_rincon').hide();
+                document.getElementById("volver_atras").style.display = "block";
+                SimularClick('cerrar_derecha');
+                $.ajax(
                         {
-                            $(".todos_los_rincones").hide();
-                            $("." + tipo_rincon).show();
+                            url: 'http://misrincones.trabajocreativo.com/assets/external/consulta.php?id=' + id,
+                            data: id,
+                            cache: true,
+                            type: 'GET',
+                            contentType: "html",
+                            async: true,
+                            crossDomain: true,
+                        })
+                        .fail(function (data) {
+                            eliminar_modal();
+                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                        })
 
-                        }
-                        //crear_mapa_json('todos_los_rincones');
+                        .done(function (data) {
+                            $('#volver_atras').show();
+                            $('#informacion_rincon').show();
+                        })
+
+                        .always(function (data) {
+                            $("#consulta").html(data);
+                        });
+            }
+
+
+
+
+            function crear_mapa_json(categoria)
+            {
+
+                var onSuccess = function (position) {
+
+                    var _latitude = position.coords.latitude;
+                    var _longitude = position.coords.longitude;
+
+
+                    var zoom = 15;
+                    var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                    {
+                        $.getJSON(jsonPath)
+                                .done(function (json) {
+                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                                })
+
+                                ;
+                    }
+
+                };
+                function onError(error) {
+
+                    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
+                    var _latitude = 42.599052;
+                    var _longitude = -5.5665905;
+                    var zoom = 15;
+                    var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                    {
+                        $.getJSON(jsonPath)
+                                .done(function (json) {
+                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                                })
+
+                                ;
+                    }
+
+                }
+
+                navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 2000, enableHighAccuracy: true});
+
+            }
+
+
+
+            var _latitude, _longitude;
+            $(document).ready(function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+                } else {
+                    navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de misrincones', 'Aceptar');
+                }
+            });
+            function handle_errors(error) {
+                // error handling here
+            }
+            function handle_geolocation_query(position) {
+                _latitude = (position.coords.latitude);
+                _longitude = (position.coords.longitude);
+            }
+
+
+            function mostrar_rincones(tipo_rincon)
+            {
+                $(".todos_los_rincones").hide();
+                $("." + tipo_rincon).show();
+
+            }
+            //crear_mapa_json('todos_los_rincones');
 
 
         </script>
@@ -866,18 +885,18 @@
         <script type="text/javascript" src="js/geolocation.js"></script>
 
         <script type="text/javascript">
-                        app.initialize();
-                        function eliminar_modal()
-                        {
-                            $('#volver_atras').hide();
-                            $('#nuevo_rincon').hide();
-                            $('.modal-window .modal-background, .modal-close').live('click', function (e) {
-                                $('.modal-window').addClass('fade_out');
-                                setTimeout(function () {
-                                    $('.modal-window').remove();
-                                }, 10);
-                            });
-                        }
+            app.initialize();
+            function eliminar_modal()
+            {
+                $('#volver_atras').hide();
+                $('#nuevo_rincon').hide();
+                $('.modal-window .modal-background, .modal-close').live('click', function (e) {
+                    $('.modal-window').addClass('fade_out');
+                    setTimeout(function () {
+                        $('.modal-window').remove();
+                    }, 10);
+                });
+            }
 
         </script>
 

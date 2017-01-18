@@ -95,7 +95,7 @@ function validar_registro()
     {
 
         if ($("#aceptar_condiciones").is(':checked')) {
-            load_url("polivalente", "http://misrincones.trabajocreativo.com/app/registro_usuario.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro, "crear_nueva_cuenta");
+            load_url("polivalente", "http://misrincones.trabajocreativo.com/app/registro_usuario.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro);
 
         } else {
             $("#comprobando_registro").hide();
