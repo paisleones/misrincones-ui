@@ -95,7 +95,19 @@ function validar_registro()
     {
 
         if ($("#aceptar_condiciones").is(':checked')) {
-            load_url("polivalente", "http://misrincones.trabajocreativo.com/app/registro_usuario.php?usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro);
+            var id = generar(20);
+            $.ajax({
+                type: 'post',
+                url: 'http://misrincones.trabajocreativo.com/app/registro_usuario.php?id=' + id,
+                data: $('#main').serialize(),
+                success: function () {
+                    navigator.notification.alert("Enhorabuena, se ha completado el registro. Revise su correo electronico para confirmar su cuenta de usuario. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+                    load_url('nuevo_rincon', 'registro_ok.html');
+                    setTimeout(load_url('polivalente', 'http://misrincones.trabajocreativo.com/app/enviar_email_registro.php?id=' + id), 1000);
+
+
+                }
+            });
 
         } else {
             $("#comprobando_registro").hide();
