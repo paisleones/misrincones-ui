@@ -100,8 +100,7 @@ function validar_registro()
         {
             $("#comprobando_registro").hide();
             $("#boton_registro").show();
-            //navigator.notification.alert("Un momento!, debes utilizar un email valido.", null, "Mensaje de misrincones", "Aceptar");
-            alert("EL EMAIL NO ES VALIDO");
+            navigator.notification.alert("Un momento!, debes utilizar un email valido.", null, "Mensaje de misrincones", "Aceptar");
             exit();
         }
 
