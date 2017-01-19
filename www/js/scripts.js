@@ -51,6 +51,7 @@ function activar_tipo_mapa(tipo)
     document.getElementById('tipo_de_rincon').innerHTML = tipo;
 }
 
+
 function validar_registro()
 {
     $("#boton_registro").hide();
@@ -94,6 +95,16 @@ function validar_registro()
     if (validar1 == 1 && validar2 == 1 && validar3 == 1)
     {
 
+        expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!expr.test(email_registro))
+        {
+            $("#comprobando_registro").hide();
+            $("#boton_registro").show();
+            //navigator.notification.alert("Un momento!, debes utilizar un email valido.", null, "Mensaje de misrincones", "Aceptar");
+            alert("EL EMAIL NO ES VALIDO");
+            exit();
+        }
+
         if ($("#aceptar_condiciones").is(':checked')) {
             var id = generar(20);
             $.ajax({
@@ -101,7 +112,7 @@ function validar_registro()
                 url: 'http://misrincones.trabajocreativo.com/app/registro_usuario.php?id=' + id,
                 data: $('#main').serialize(),
                 success: function () {
-                    //navigator.notification.alert("Enhorabuena, se ha completado el registro. Revise su correo electronico para confirmar su cuenta de usuario. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+                    navigator.notification.alert("Enhorabuena, se ha completado el registro. Revise su correo electronico para confirmar su cuenta de usuario. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
                     load_url('nuevo_rincon', 'registro_ok.html');
                     setTimeout(load_url('polivalente', 'http://misrincones.trabajocreativo.com/app/enviar_email_registro.php?id=' + id), 1000);
 
