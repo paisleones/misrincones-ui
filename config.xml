@@ -27,6 +27,7 @@
     <plugin name="cordova-plugin-file-transfer" source="npm" />
     <plugin name="cordova-plugin-geolocation" source="npm" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <plugin name="ChildBrowser" value="com.phonegap.plugins.childBrowser.ChildBrowser"/>
     <plugin name="cordova-plugin-media" source="npm" />
     <plugin name="cordova-plugin-network-information" source="npm" />
     <plugin name="cordova-plugin-streaming-media-mod" source="npm" />
