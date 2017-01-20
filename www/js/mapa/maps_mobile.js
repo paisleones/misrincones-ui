@@ -60,10 +60,10 @@
 if ($(window).width() > alto_pantalla) {
 
 $('.map-canvas').height($(window).height() - $('.header').height() + 70);
-}
+        }
 else {
 $('.map-canvas #map').height($(window).height() - $('.header').height() + 70);
-}
+        }
 }
 
 $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100);
@@ -118,10 +118,10 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var activeMarker = true;
                         var lastClicked = false;
                         var latLng = new google.maps.LatLng(_latitude, _longitude);
-                        var companyImage = new google.maps.MarkerImage('img/marcador.png',
-                                new google.maps.Size(44, 50),
+                        var companyImage = new google.maps.MarkerImage('img/marker.png',
+                                new google.maps.Size(53, 52),
                                 new google.maps.Point(0, 0),
-                                new google.maps.Point(22, 25)
+                                new google.maps.Point(26, 26)
                                 );
                         // Create the DIV to hold the control and
                         // call the HomeControl() constructor passing
@@ -421,7 +421,7 @@ var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
                 flat: true
         });
         marker.content.className = 'marker-loaded';
-        }
+}
 
 
 
@@ -479,9 +479,9 @@ var _latitude = json.data[a].latitude;
         var _longitude = json.data[a].longitude;
         var mapCenter = new google.maps.LatLng(_latitude, _longitude);
         map.setCenter(mapCenter);
-}
-});
         }
+});
+}
 
 // Create modal if more items are on the same location (example: one building with floors) -----------------------------
 
@@ -497,15 +497,15 @@ var multipleItems = [];
         $('.modal-window').load('http://misrincones.trabajocreativo.com/assets/external/_modal-multichoice.html', function() {
 $('.modal-window .modal-wrapper .items').html(multipleItems);
         rating('.modal-window');
-});
+        });
         $('.modal-window .modal-background, .modal-close').live('click', function(e){
 $('.modal-window').addClass('fade_out');
         setTimeout(function() {
         $('.modal-window').remove();
         }, 300);
-});
+        });
         //}
-        }
+}
 
 // Animate OSM marker --------------------------------------------------------------------------------------------------
 
@@ -533,7 +533,7 @@ var bounds = map.getBounds();
 
         $('.items-list .results').html(visibleItemsArray);
         rating('.results .item');
-        }
+}
 
 // Redraw map after item list is closed --------------------------------------------------------------------------------
 
@@ -543,10 +543,10 @@ $('.map-canvas').toggleClass('results-collapsed');
         $('.map-canvas .map').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 if (mapProvider == 'osm'){
 map.invalidateSize();
-}
+        }
 else if (mapProvider == 'google'){
 google.maps.event.trigger(map, 'resize');
-}
-});
-});
         }
+});
+        });
+}
