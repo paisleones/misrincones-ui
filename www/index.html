@@ -312,8 +312,9 @@
                                             var nombre_tipo = nombre_tipo.toLowerCase();
                                             var nombre_tipo = nombre_tipo.replace(" ", "_");
                                             var nombre_tipo = nombre_tipo.replace(" ", "_");
-                                            $(".todos_los_rincones").fadeOut();
-                                            $("." + nombre_tipo).fadeIn();
+                                            //$(".todos_los_rincones").fadeOut();
+                                            //$("." + nombre_tipo).fadeIn();
+                                            crear_mapa_json(nombre_tipo);
                                             for (i = 1; i < arr.length; i++)
                                             {
                                                 document.getElementById("tipo_mapa" + i).checked = "";
@@ -656,7 +657,7 @@
                     async: true,
                     dataType: 'html',
                     cache: true,
-                    url: 'http://misrincones.trabajocreativo.com/assets/external/_nuevo_rincon_app_vacio.php',
+                    url: 'http://www.mycorner360.com/assets/external/_nuevo_rincon_app_vacio.php',
                     success: function (data) {
                         //$('body').append(data);
                         $('#contenido_nuevo').html(data);
@@ -708,7 +709,7 @@
                     async: true,
                     dataType: 'html',
                     cache: true,
-                    url: 'http://misrincones.trabajocreativo.com/assets/external/_modal_app.php?id=' + id,
+                    url: 'http://www.mycorner360.com/assets/external/_modal_app.php?id=' + id,
                     data: id,
                     success: function (data) {
                         //$('body').append(data);
@@ -742,7 +743,7 @@
 
                 $.ajax(
                         {
-                            url: 'http://misrincones.trabajocreativo.com/app/modal_rincon.php?id=' + id,
+                            url: 'http://www.mycorner360.com/app/modal_rincon.php?id=' + id,
                             data: id,
                             cache: true,
                             type: 'GET',
@@ -779,7 +780,7 @@
                 SimularClick('cerrar_derecha');
                 $.ajax(
                         {
-                            url: 'http://misrincones.trabajocreativo.com/assets/external/consulta.php?id=' + id,
+                            url: 'http://www.mycorner360.com/assets/external/consulta.php?id=' + id,
                             data: id,
                             cache: true,
                             type: 'GET',
@@ -815,7 +816,7 @@
 
 
                     var zoom = 15;
-                    var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'http://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
@@ -832,7 +833,7 @@
                     var _latitude = 42.599052;
                     var _longitude = -5.5665905;
                     var zoom = 15;
-                    var jsonPath = 'http://misrincones.trabajocreativo.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'http://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {

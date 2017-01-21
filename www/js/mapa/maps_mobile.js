@@ -73,7 +73,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
         function createHomepageGoogleMap(_latitude, _longitude, json, zoom){
 
-        $.get("http://misrincones.trabajocreativo.com/assets/external/_infobox.js", function() {
+        $.get("http://www.mycorner360.com/assets/external/_infobox.js", function() {
         gMap();
         });
                 function gMap(){
@@ -118,7 +118,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var activeMarker = true;
                         var lastClicked = false;
                         var latLng = new google.maps.LatLng(_latitude, _longitude);
-                        var companyImage = new google.maps.MarkerImage('img/marker.png',
+                        var companyImage = new google.maps.MarkerImage('img/marcador.png',
                                 new google.maps.Size(53, 52),
                                 new google.maps.Point(0, 0),
                                 new google.maps.Point(26, 26)
@@ -494,7 +494,7 @@ var multipleItems = [];
         }
         });
         $('body').append('<div class="modal-window multichoice fade_in"></div>');
-        $('.modal-window').load('http://misrincones.trabajocreativo.com/assets/external/_modal-multichoice.html', function() {
+        $('.modal-window').load('http://www.mycorner360.com/assets/external/_modal-multichoice.html', function() {
 $('.modal-window .modal-wrapper .items').html(multipleItems);
         rating('.modal-window');
         });

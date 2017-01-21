@@ -107,7 +107,7 @@ function validar_registro()
         if ($("#aceptar_condiciones").is(':checked')) {
 
             var id = generar(20);
-            load_url("polivalente", "http://misrincones.trabajocreativo.com/app/registro_usuario.php?id=" + id + "&usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro)
+            load_url("polivalente", "http://www.mycorner360.com/app/registro_usuario.php?id=" + id + "&usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro)
 
 
 
@@ -162,7 +162,7 @@ function iniciar_sesion()
          type: "POST",
          data: $("#login_form").serialize(),
          dataType: 'html',
-         url: "http://misrincones.trabajocreativo.com/app/login1.php",
+         url: "http://www.mycorner360.com/app/login1.php",
          success: function (data) {
          alert('EXITO');
          },
@@ -171,7 +171,7 @@ function iniciar_sesion()
          }
          });
          */
-        load_url("polivalente", "http://misrincones.trabajocreativo.com/app/login.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion, "crear_nueva_cuenta");
+        load_url("polivalente", "http://www.mycorner360.com/app/login.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion, "crear_nueva_cuenta");
     } else
     {
         $("#comprobando_login").hide();
@@ -276,7 +276,7 @@ function validar_nuevo_rincon()
 
 function reproducir_video(id_video)
 {
-    document.getElementById("video3dark").innerHTML = "<source src='http://misrincones.trabajocreativo.com/" + id_video + "' type='video/mp4' />";
+    document.getElementById("video3dark").innerHTML = "<source src='http://www.mycorner360.com/" + id_video + "' type='video/mp4' />";
     SimularClick("play_video");
 }
 
