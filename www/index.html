@@ -19,7 +19,7 @@
 
 
         <link href="fonts/font-awesome.css" rel="stylesheet" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/mapa/bootstrap.css" type="text/css">
 
         <link rel="stylesheet" href="css/mapa/bootstrap-select.min.css" type="text/css">
@@ -657,7 +657,7 @@
                     async: true,
                     dataType: 'html',
                     cache: true,
-                    url: 'http://www.mycorner360.com/assets/external/_nuevo_rincon_app_vacio.php',
+                    url: 'https://www.mycorner360.com/assets/external/_nuevo_rincon_app_vacio.php',
                     success: function (data) {
                         //$('body').append(data);
                         $('#contenido_nuevo').html(data);
@@ -709,7 +709,7 @@
                     async: true,
                     dataType: 'html',
                     cache: true,
-                    url: 'http://www.mycorner360.com/assets/external/_modal_app.php?id=' + id,
+                    url: 'https://www.mycorner360.com/assets/external/_modal_app.php?id=' + id,
                     data: id,
                     success: function (data) {
                         //$('body').append(data);
@@ -743,7 +743,7 @@
 
                 $.ajax(
                         {
-                            url: 'http://www.mycorner360.com/app/modal_rincon.php?id=' + id,
+                            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
                             data: id,
                             cache: true,
                             type: 'GET',
@@ -780,7 +780,7 @@
                 SimularClick('cerrar_derecha');
                 $.ajax(
                         {
-                            url: 'http://www.mycorner360.com/assets/external/consulta.php?id=' + id,
+                            url: 'https://www.mycorner360.com/assets/external/consulta.php?id=' + id,
                             data: id,
                             cache: true,
                             type: 'GET',
@@ -816,7 +816,7 @@
 
 
                     var zoom = 15;
-                    var jsonPath = 'http://www.mycorner360.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
@@ -833,7 +833,7 @@
                     var _latitude = 42.599052;
                     var _longitude = -5.5665905;
                     var zoom = 15;
-                    var jsonPath = 'http://www.mycorner360.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {

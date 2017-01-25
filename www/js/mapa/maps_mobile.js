@@ -60,10 +60,10 @@
 if ($(window).width() > alto_pantalla) {
 
 $('.map-canvas').height($(window).height() - $('.header').height() + 70);
-}
+        }
 else {
 $('.map-canvas #map').height($(window).height() - $('.header').height() + 70);
-}
+        }
 }
 
 $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100);
@@ -73,7 +73,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
         function createHomepageGoogleMap(_latitude, _longitude, json, zoom){
 
-        $.get("http://www.mycorner360.com/assets/external/_infobox.js", function() {
+        $.get("https://www.mycorner360.com/assets/external/_infobox.js", function() {
         gMap();
         });
                 function gMap(){
@@ -421,7 +421,7 @@ var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
                 flat: true
         });
         marker.content.className = 'marker-loaded';
-        }
+}
 
 
 
@@ -478,9 +478,9 @@ var _latitude = json.data[a].latitude;
         var _longitude = json.data[a].longitude;
         var mapCenter = new google.maps.LatLng(_latitude, _longitude);
         map.setCenter(mapCenter);
-}
-});
         }
+});
+}
 
 // Create modal if more items are on the same location (example: one building with floors) -----------------------------
 
@@ -493,18 +493,18 @@ var multipleItems = [];
         }
         });
         $('body').append('<div class="modal-window multichoice fade_in"></div>');
-        $('.modal-window').load('http://www.mycorner360.com/assets/external/_modal-multichoice.html', function() {
+        $('.modal-window').load('https://www.mycorner360.com/assets/external/_modal-multichoice.html', function() {
 $('.modal-window .modal-wrapper .items').html(multipleItems);
         rating('.modal-window');
-});
+        });
         $('.modal-window .modal-background, .modal-close').live('click', function(e){
 $('.modal-window').addClass('fade_out');
         setTimeout(function() {
         $('.modal-window').remove();
         }, 300);
-});
+        });
         //}
-        }
+}
 
 // Animate OSM marker --------------------------------------------------------------------------------------------------
 
@@ -532,7 +532,7 @@ var bounds = map.getBounds();
 
         $('.items-list .results').html(visibleItemsArray);
         rating('.results .item');
-        }
+}
 
 // Redraw map after item list is closed --------------------------------------------------------------------------------
 
@@ -542,10 +542,10 @@ $('.map-canvas').toggleClass('results-collapsed');
         $('.map-canvas .map').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 if (mapProvider == 'osm'){
 map.invalidateSize();
-}
+        }
 else if (mapProvider == 'google'){
 google.maps.event.trigger(map, 'resize');
-}
-});
-});
         }
+});
+        });
+}
