@@ -1,0 +1,65 @@
+<script>
+
+
+
+    function rincones_usuario(div, url)
+    {
+        $.ajax(
+                {
+                    url: url,
+                    cache: true,
+                    type: 'GET',
+                    contentType: "html",
+                    async: true,
+                    crossDomain: true,
+                })
+                .fail(function (data) {
+                    navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Mensaje de misrincones", "Aceptar");
+                })
+                .done(function () {
+
+                })
+                .always(function (data) {
+                    $('#' + div).html(data);
+                    $("#" + div).show();
+                });
+    }
+
+    var id_usuario = "Il6EN92PKgCwZXOveFB7";
+    var email = "paisleones@gmail.com";
+</script>
+
+<div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
+    <div class="modal-wrapper" style="width: 100%; height: 99%; margin: 0px; background: #fff;">
+        <div class="modal-body" style="width: 100%; height: 100%; margin: 0px; background: #fff;">
+            <div style="padding: 0px; background: #fff;">
+
+
+                <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
+
+                    <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">TUS RINCONES</h2>
+                    <hr>
+                    Aqui aparecen los rincones que has añadido a Mycorner360
+                    <div style="padding: 0px;">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div id="rincones_usuario">
+                                    <div style="width: 100%; min-height: 300px; background: url(img/loading.svg); background-size: 40px; background-repeat: no-repeat; background-position: center center;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    rincones_usuario("rincones_usuario", "https://www.mycorner360.com/app/rincones_usuario.php?identificador=" + id_usuario);
+</script>

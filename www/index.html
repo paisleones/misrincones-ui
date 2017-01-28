@@ -445,7 +445,7 @@
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();
                         "><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda"><img src="img/iconos1/perfil.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="registro();"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
@@ -678,20 +678,13 @@
 
             function nuevo_rincon()
             {
-
                 var id_usuario = localStorage.getItem('id_usuario');
                 var email = localStorage.getItem('email');
-
-                //var id_usuario = "1";
-                //var email = "mail@mail.com";
-
                 if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                 {
-
                     navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
                     login();
                     $("#login").show();
-
                 } else
                 {
                     $("#volver_atras").show();
@@ -699,7 +692,28 @@
                     SimularClick('cerrar_izquierda');
                     load_url("nuevo_rincon", "nuevo_rincon.html");
                 }
+            }
 
+            function mis_rincones()
+            {
+                var id_usuario = localStorage.getItem('id_usuario');
+                var email = localStorage.getItem('email');
+
+                var id_usuario = "Il6EN92PKgCwZXOveFB7";
+                var email = "paisleones@gmail.com";
+
+                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                {
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de misrincones', 'Aceptar');
+                    login();
+                    $("#login").show();
+                } else
+                {
+                    $("#volver_atras").show();
+                    //$("#loading").show();
+                    SimularClick('cerrar_izquierda');
+                    load_url("nuevo_rincon", "mis_rincones.html");
+                }
             }
 
 

@@ -34,7 +34,7 @@ function load_url_ajax(div, url)
                 crossDomain: true,
             })
             .fail(function (data) {
-                alert("Lo sentimos, pero se ha producido un error en la carga de datos");
+                navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Mensaje de misrincones", "Aceptar");
             })
             .done(function () {
                 $('#loading').show();
@@ -45,7 +45,7 @@ function load_url_ajax(div, url)
                 $('#loading').hide();
             });
 }
-;
+
 function activar_tipo_mapa(tipo)
 {
     document.getElementById('tipo_de_rincon').innerHTML = tipo;
