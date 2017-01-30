@@ -1,4 +1,31 @@
 <script>
+
+    function preguntar_eliminar_rincon(id) {
+        navigator.notification.confirm(
+                ("Realmente quieres eliminar este rincon ?. Este proceso es irreversible ..."), // message
+                accione_eliminar, // callback
+                'Mensaje de Misrincones', // title
+                'ACEPTAR,CANCELAR' // buttonName
+                );
+
+    }
+
+    function accion_elimina(button) {
+
+        if (button == "1" || button == 1)
+        {
+
+            eliminar_rincon(id);
+        }
+
+    }
+
+    function eliminar_rincon(id)
+    {
+        alert(id);
+    }
+
+
     function rincones_usuario(div, url)
     {
         $.ajax(
