@@ -230,6 +230,9 @@
             <div id="volver_atras" class="modal-close" onclick="quitar_login(); quitar_registro();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
+            <div id="volver_atras_mis_rincones" onclick="quitar_vista_rincon();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
+            </div>
+
             <img src="img/logo_cabecera.png" style="height: 34px; margin-top: 13px;">
 
 
@@ -416,12 +419,21 @@
                 <!-- PANTALLA NUEVO RINCON -->
 
                 <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
-                </div><!-- /.row-->
+                </div>
+
+                <!-- /.row-->
+
+                <!-- PANTALLA MIS RINCONES -->
+
+                <div id="pantalla_mis_rincones" style="display: none; overflow-y: auto;">
+                </div>
+
+                <!-- /.row-->
 
 
 
-
-                <div id="contenido_nuevo" style="display: none; z-index: 500;"></div>
+                <div id="contenido_nuevo" style="display: none; overflow-y: auto; z-index: 500;">
+                </div>
 
 
 
@@ -631,6 +643,8 @@
                 $('#loading').hide();
                 $('#nuevo_rincon').hide();
                 $('#nuevo_rincon').html("");
+                $('#contenido_nuevo').hide();
+                $('#contenido_nuevo').html("");
             }
 
             function registro()
@@ -648,31 +662,8 @@
                 $('#loading').hide();
                 $('#nuevo_rincon').hide();
                 $('#nuevo_rincon').html("");
-            }
-
-
-            function nuevo_rincon_original() {
-                $.ajax({
-                    type: 'GET',
-                    async: true,
-                    dataType: 'html',
-                    cache: true,
-                    url: 'https://www.mycorner360.com/assets/external/_nuevo_rincon_app_vacio.php',
-                    success: function (data) {
-                        //$('body').append(data);
-                        $('#contenido_nuevo').html(data);
-                        $('#contenido_nuevo').show();
-                    },
-                    beforeSend: function () {
-                        document.getElementById("volver_atras").style.display = "none";
-                        SimularClick('cerrar_izquierda');
-                        $('#loading').show();
-                    },
-                    complete: function () {
-                        document.getElementById("volver_atras").style.display = "block";
-                        $('#loading').hide();
-                    }
-                });
+                $('#contenido_nuevo').hide();
+                $('#contenido_nuevo').html("");
             }
 
 
@@ -712,37 +703,57 @@
                     $("#volver_atras").show();
                     //$("#loading").show();
                     SimularClick('cerrar_izquierda');
-                    load_url("nuevo_rincon", "mis_rincones.html");
+                    load_url("pantalla_mis_rincones", "mis_rincones.html");
+                    $("#pantalla_mis_rincones").show();
                 }
             }
 
+            function quitar_vista_rincon()
+            {
+                $('#volver_atras_mis_rincones').hide();
+                $("#volver_atras").show();
+                $('#pantalla_mis_rincones').show();
+                $('#contenido_nuevo').hide();
+                $('#contenido_nuevo').html("");
 
-            function quickView_original(id) {
-                $.ajax({
-                    type: 'GET',
-                    async: true,
-                    dataType: 'html',
-                    cache: true,
-                    url: 'https://www.mycorner360.com/assets/external/_modal_app.php?id=' + id,
-                    data: id,
-                    success: function (data) {
-                        //$('body').append(data);
-                        $('#contenido_nuevo').html(data);
-                        $('#contenido_nuevo').show();
-                    },
-                    beforeSend: function () {
-                        $('.modal-window').remove();
-                        document.getElementById("volver_atras").style.display = "none";
-                        SimularClick('cerrar_derecha');
-                        $('#loading').show();
-                    },
-                    complete: function () {
-                        document.getElementById("volver_atras").style.display = "block";
-                        $('#loading').hide();
-                    }
-                });
             }
 
+            function quickView_mi_rincon(id)
+            {
+                //document.getElementById("volver_atras").style.display = "none";
+                document.getElementById("volver_atras_mis_rincones").style.display = "block";
+                $('#pantalla_mis_rincones').hide();
+                $('#loading').show();
+
+
+                $.ajax(
+                        {
+                            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
+                            data: id,
+                            cache: true,
+                            type: 'GET',
+                            contentType: "html",
+                            async: true,
+                            crossDomain: true,
+                        })
+                        .fail(function (data) {
+                            $('#contenido_nuevo').hide();
+                            $('#loading').hide();
+                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                        })
+
+                        .done(function (data) {
+                            $("#volver_atras").hide();
+                            $('#volver_atras_mis_rincones').show();
+                        })
+
+                        .success(function (data) {
+                            $('#contenido_nuevo').html(data);
+                            $('#contenido_nuevo').show();
+                            $('#loading').hide();
+                        });
+
+            }
 
 
             function quickView(id)
@@ -784,40 +795,6 @@
 
                         });
             }
-            ;
-            function quickView_consulta(id)
-            {
-                $('.modal-window').remove();
-                $('#loading').show();
-                $('#informacion_rincon').hide();
-                document.getElementById("volver_atras").style.display = "block";
-                SimularClick('cerrar_derecha');
-                $.ajax(
-                        {
-                            url: 'https://www.mycorner360.com/assets/external/consulta.php?id=' + id,
-                            data: id,
-                            cache: true,
-                            type: 'GET',
-                            contentType: "html",
-                            async: true,
-                            crossDomain: true,
-                        })
-                        .fail(function (data) {
-                            eliminar_modal();
-                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
-                        })
-
-                        .done(function (data) {
-                            $('#volver_atras').show();
-                            $('#informacion_rincon').show();
-                        })
-
-                        .always(function (data) {
-                            $("#consulta").html(data);
-                        });
-            }
-
-
 
 
             function crear_mapa_json(categoria)
