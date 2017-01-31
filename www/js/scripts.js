@@ -34,7 +34,7 @@ function load_url_ajax(div, url)
                 crossDomain: true,
             })
             .fail(function (data) {
-                navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Mensaje de misrincones", "Aceptar");
+                navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
             })
             .done(function () {
                 $('#loading').show();
@@ -100,7 +100,7 @@ function validar_registro()
         {
             $("#comprobando_registro").hide();
             $("#boton_registro").show();
-            navigator.notification.alert("Un momento!, debes utilizar un email valido.", null, "Mensaje de misrincones", "Aceptar");
+            navigator.notification.alert("Un momento!, debes utilizar un email valido.", null, "Aviso de Mycorner360", "Aceptar");
             exit();
         }
 
@@ -114,7 +114,7 @@ function validar_registro()
         } else {
             $("#comprobando_registro").hide();
             $("#boton_registro").show();
-            navigator.notification.alert("Un momento!, debes aceptar los términos y condiciones de uso", null, "Mensaje de misrincones", "Aceptar");
+            navigator.notification.alert("Un momento!, debes aceptar los términos y condiciones de uso", null, "Aviso de Mycorner360", "Aceptar");
         }
 
 
@@ -122,7 +122,7 @@ function validar_registro()
     {
         $("#comprobando_registro").hide();
         $("#boton_registro").show();
-        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
     }
 }
 
@@ -176,7 +176,7 @@ function iniciar_sesion()
     {
         $("#comprobando_login").hide();
         $("#validar_login").show();
-        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
     }
 
 }
@@ -268,7 +268,7 @@ function validar_nuevo_rincon()
     {
         $("#comprobando_rincon").hide();
         $("#boton_nuevo_rincon").show();
-        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Mensaje de misrincones", "Aceptar");
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
     }
 
 }

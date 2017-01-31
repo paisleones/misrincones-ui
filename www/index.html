@@ -14,7 +14,7 @@
         <meta http-equiv="pragma" content="no-cache">
 
 
-        <title>Misrincones</title>
+        <title>Mycorner360</title>
 
 
 
@@ -673,7 +673,7 @@
                 var email = localStorage.getItem('email');
                 if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                 {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de misrincones', 'Aceptar');
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
                     login();
                     $("#login").show();
                 } else
@@ -692,7 +692,7 @@
 
                 if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                 {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de misrincones', 'Aceptar');
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de Mycorner360', 'Aceptar');
                     login();
                     $("#login").show();
                 } else
@@ -736,7 +736,7 @@
                         .fail(function (data) {
                             $('#contenido_nuevo').hide();
                             $('#loading').hide();
-                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
                         })
 
                         .done(function (data) {
@@ -776,7 +776,7 @@
                         .fail(function (data) {
                             eliminar_modal();
                             $('#loading').hide();
-                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de misrincones', 'Aceptar');
+                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
                         })
 
                         .done(function (data) {
@@ -817,7 +817,7 @@
                 };
                 function onError(error) {
 
-                    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Mensaje de misrincones", "Aceptar");
+                    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
                     var _latitude = 42.599052;
                     var _longitude = -5.5665905;
                     var zoom = 15;
@@ -844,7 +844,7 @@
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
                 } else {
-                    navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de misrincones', 'Aceptar');
+                    navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de Mycorner360', 'Aceptar');
                 }
             });
             function handle_errors(error) {

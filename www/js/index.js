@@ -49,7 +49,7 @@ function ShowExitDialog() {
     navigator.notification.confirm(
             ("Quieres salir de la aplicacion?"), // message
             alertexit, // callback
-            'Mensaje de Misrincones', // title
+            'Aviso de Mycorner360', // title
             'ACEPTAR,CANCELAR' // buttonName
             );
 
@@ -222,7 +222,7 @@ function uploadSuccess(r) {
 }
 
 function uploadFail(error) {
-    navigator.notification.alert("Los sentimos, pero se ha producido un error en la carga de datos.", null, "Mensaje de misrincones", "Aceptar");
+    navigator.notification.alert("Los sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
 }
 
 
@@ -236,7 +236,7 @@ function guardar_rincon()
         url: 'https://www.mycorner360.com/app/actualizar_rincon.php?id=' + id,
         data: $('#main').serialize(),
         success: function () {
-            navigator.notification.alert("Se estan actualizando los datos. En 24/48 horas aproximadamente tu rincon estará visible. Muchas gracias.", null, "Mensaje de misrincones", "Aceptar");
+            navigator.notification.alert("Se estan actualizando los datos. En 24/48 horas aproximadamente tu rincon estará visible. Muchas gracias.", null, "Aviso de Mycorner360", "Aceptar");
             load_url('nuevo_rincon', 'rincon_ok.html');
             setTimeout(load_url('polivalente', 'https://www.mycorner360.com/app/enviar_email.php?id=' + id), 1000);
 
