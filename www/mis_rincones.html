@@ -1,28 +1,45 @@
 <script>
+    /*
+     function preguntar_eliminar_rincon(id) {
+     navigator.notification.confirm(
+     ("Realmente quieres eliminar este rincon ?. Este proceso es irreversible ..."), // message
+     accion_eliminar, // callback
+     'Mensaje de Misrincones', // title
+     'ACEPTAR,CANCELAR' // buttonName
+     );
+
+     }
+
+     function accion_eliminar(button) {
+
+     if (button == "1" || button == 1)
+     {
+     eliminar_rincon(id);
+     }
+
+     }
+
+     function eliminar_rincon(id)
+     {
+     alert(id);
+     }
+     */
 
     function preguntar_eliminar_rincon(id) {
         navigator.notification.confirm(
-                ("Realmente quieres eliminar este rincon ?. Este proceso es irreversible ..."), // message
-                accion_eliminar, // callback
-                'Mensaje de Misrincones', // title
-                'ACEPTAR,CANCELAR' // buttonName
+                "Realmente quieres eliminar este rincon ?. Este proceso es irreversible ...",
+                function (buttonIndex) {
+                    onConfirm(buttonIndex, id);
+                },
+                'Error',
+                'Submit, Cancel'
                 );
-
     }
-
-    function accion_elimina(button) {
-
-        if (button == "1" || button == 1)
-        {
-
-            eliminar_rincon(id);
+    function onConfirm(buttonIndex, id) {
+        if (buttonIndex === 1) {
+            load_url("datos_rincones", "https://www.mycorner360.com/app/eliminar_rincon.php?identificador=" + id);
         }
 
-    }
-
-    function eliminar_rincon(id)
-    {
-        alert(id);
     }
 
 
@@ -82,6 +99,8 @@
         </div>
     </div>
 </div>
+
+<div id="datos_rincones" style="display: none;"></div>
 
 <script>
     rincones_usuario("rincones_usuario", "https://www.mycorner360.com/app/rincones_usuario.php?identificador=" + id_usuario);
