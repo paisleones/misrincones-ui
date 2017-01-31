@@ -37,7 +37,8 @@
     }
     function onConfirm(buttonIndex, id) {
         if (buttonIndex === 1) {
-            load_url("datos_rincones", "https://www.mycorner360.com/app/eliminar_rincon.php?identificador=" + id);
+            var id_usuario = localStorage.getItem('id_usuario');
+            load_url("datos_rincones", "https://www.mycorner360.com/app/eliminar_rincon.php?id_rincon=" + id + "&id_usuario=" + id_usuario);
         }
 
     }
