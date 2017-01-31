@@ -27,12 +27,12 @@
 
     function preguntar_eliminar_rincon(id) {
         navigator.notification.confirm(
-                "Realmente quieres eliminar este rincon ?. Este proceso es irreversible ...",
+                "Realmente quieres eliminar este rincon ? Este proceso es irreversible ...",
                 function (buttonIndex) {
                     onConfirm(buttonIndex, id);
                 },
-                'Error',
-                'Submit, Cancel'
+                'Mensaje de Mycorner360',
+                'Aceptar, Cancelar'
                 );
     }
     function onConfirm(buttonIndex, id) {
