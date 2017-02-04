@@ -31,7 +31,7 @@
     <plugin name="cordova-plugin-network-information" source="npm" />
     <plugin name="cordova-plugin-streaming-media-mod" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
-    <plugin name="cordova-plugin-firebase" />
+   	<plugin name="cordova-plugin-firebase" spec="0.1.19" />
     <feature name="SocialSharing">
   <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 </feature>
