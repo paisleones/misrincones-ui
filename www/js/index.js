@@ -108,7 +108,6 @@ function onPhotoURISuccess(imageURI) {
     var largeImage = document.getElementById('fotoLocal');
 
     largeImage.style.display = 'block';
-    $("#fotoLocal").show();
 
     largeImage.src = imageURI;
     document.getElementById("uri_foto").innerHTML = largeImage.src;
@@ -142,7 +141,6 @@ function onSuccess(imageURI) {
     document.getElementById("uri_foto").innerHTML = image.src;
     $("#foto_perfil").hide();
     $("#div_foto").show();
-    $("#fotoLocal").show();
     subirImagen(imageURI);
 }
 
@@ -200,14 +198,14 @@ function getReverseGeocodingData(lat, lng) {
 }
 
 function subirImagen(id) {
-    var identificador = id;
+    var identificador = localStorage.getItem('id_usuario');
     var fileURL = document.getElementById("uri_foto").innerHTML;
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("https://www.mycorner360.com/app/upload_foto.php?id=" + identificador), uploadSuccess, uploadFail, options);
+    ft.upload(fileURL, encodeURI("https://www.mycorner360.com/app/upload_foto.php?id=" + identificador), uploadPhotoSuccess, uploadFail, options);
 }
 
 function subirVideo(id) {
@@ -223,6 +221,10 @@ function subirVideo(id) {
 function uploadSuccess(r) {
     //alert("Code = " + r.responseCode + " Response = " + r.response + " Sent = " + r.bytesSent);
 
+}
+
+function uploadPhotoSuccess(r) {
+    $("#fotoLocal").show();
 }
 
 function uploadFail(error) {

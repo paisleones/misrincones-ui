@@ -4,6 +4,7 @@
     var nombre = localStorage.getItem('nombre_usuario');
     var apellidos = localStorage.getItem('apellidos_usuario');
     var provincia = localStorage.getItem('provincia_usuario');
+    var nick = localStorage.getItem('nick_usuario');
 </script>
 
 <div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
@@ -29,13 +30,13 @@
 
                                             <div id="uri_foto" style="display: none;"></div>
 
-                                            <img id="foto_perfil" src="" onerror="this.src='img/addphoto.png';" style="width: 140px; margin-bottom: 20px;">
+                                            <img id="foto_perfil" src="" onerror="this.src='img/addphoto.png';" style="width: 180px; margin-bottom: 20px;">
 
                                             <div id="div_foto" style="background: url(img/loading.svg); background-repeat: no-repeat; background-position: center center; background-size: 34px; width: 100%; min-height: 140px; display: none; margin-bottom: 20px;">
-                                                <img id="fotoLocal" src="" style="border: none; width: 100%; max-width: 140px; display: none;">
+                                                <img id="fotoLocal" src="" style="border: none; width: 100%; max-width: 180px; display: none;">
                                             </div>
 
-                                            <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">ACTUALIZAR FOTO</button>
+                                            <button type="button" style="width: 180px; text-align: center;" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">ACTUALIZAR FOTO</button>
 
 
                                         </div>
@@ -89,6 +90,11 @@
                                                                         var id_provincia = x;
                                                                         var contenido = "<li style='width: 99%' rel='" + id_provincia + "' onclick='activar_provincia(" + id_provincia + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_provincia + "' name='provincia' id='provincia" + id_provincia + "'><span>" + nombre_provincia + "</span></a></li>";
                                                                         var contenido_provincias_ul = contenido_provincias_ul + contenido;
+                                                                        if (nombre_provincia == provincia)
+                                                                        {
+                                                                            var id_provincia_usuario = id_provincia;
+                                                                        }
+
                                                                     }
                                                                     document.getElementById("provincias_ul").innerHTML = contenido_provincias_ul;
                                                                 </script>
@@ -111,6 +117,10 @@
                                                                     document.getElementById("provincia_nuevo").innerHTML = document.getElementById("provincia" + id_provincia).value;
                                                                 }
                                                             }
+
+                                                            document.getElementById("provincia_nuevo").innerHTML = provincia;
+                                                            document.getElementById("provincia" + id_provincia_usuario).checked = "checked";
+
                                                         </script>
 
 
@@ -136,7 +146,7 @@
                                             </div>
 
                                             <div class = "form-group">
-                                                <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'https://www.mycorner360.com/app/validar_perfil.php');">GUARDAR PERFIL</a>
+                                                <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'https://www.mycorner360.com/app/validar_perfil.php?id_usuario=' + id_usuario + '&nick_usuario=' + nick);">GUARDAR PERFIL</a>
                                             </div>
                                             <!--/.form-group -->
 
