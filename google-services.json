@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "612719026808",
+    "firebase_url": "https://mycorner360-d053a.firebaseio.com",
+    "project_id": "mycorner360-d053a",
+    "storage_bucket": "mycorner360-d053a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612719026808:android:9dde468b154552a8",
+        "android_client_info": {
+          "package_name": "com.trabajocreativo.mycorner360"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612719026808-f1fdsj23kp53sqbigre9id2oo4bnfmbi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsH2vioYteQINWvywKZhUBfA9bnIqtMjI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
