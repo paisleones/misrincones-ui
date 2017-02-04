@@ -1,73 +1,4 @@
 <script>
-    /*
-     function preguntar_eliminar_rincon(id) {
-     navigator.notification.confirm(
-     ("Realmente quieres eliminar este rincon ?. Este proceso es irreversible ..."), // message
-     accion_eliminar, // callback
-     'Mensaje de Misrincones', // title
-     'ACEPTAR,CANCELAR' // buttonName
-     );
-
-     }
-
-     function accion_eliminar(button) {
-
-     if (button == "1" || button == 1)
-     {
-     eliminar_rincon(id);
-     }
-
-     }
-
-     function eliminar_rincon(id)
-     {
-     alert(id);
-     }
-     */
-
-    function preguntar_eliminar_rincon(id) {
-        navigator.notification.confirm(
-                "Realmente quieres eliminar este rincon ? Este proceso es irreversible ...",
-                function (buttonIndex) {
-                    onConfirm(buttonIndex, id);
-                },
-                'Mensaje de Mycorner360',
-                'Aceptar, Cancelar'
-                );
-    }
-    function onConfirm(buttonIndex, id) {
-        if (buttonIndex === 1) {
-            var id_usuario = localStorage.getItem('id_usuario');
-            load_url("datos_rincones", "https://www.mycorner360.com/app/eliminar_rincon.php?id_rincon=" + id + "&id_usuario=" + id_usuario);
-        }
-
-    }
-
-
-    function rincones_usuario(div, url)
-    {
-        $.ajax(
-                {
-                    url: url,
-                    cache: true,
-                    type: 'GET',
-                    contentType: "html",
-                    async: true,
-                    crossDomain: true,
-                })
-                .fail(function (data) {
-                    navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
-                })
-                .done(function () {
-
-                })
-                .always(function (data) {
-                    $('#' + div).html(data);
-                    $("#" + div).fadeIn();
-                });
-    }
-
-
     var id_usuario = localStorage.getItem('id_usuario');
     var email = localStorage.getItem('email');
 </script>
@@ -83,14 +14,161 @@
                     <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">MI PERFIL</h2>
                     Este es tu perfil personal. Podras cambiar tus datos personales y tu clave de acceso asi como tu foto de perfil.
                     <hr>
-                    <div style="padding: 0px;">
+                    <div class="container" style="padding: 0px;">
+                        <div class="col-md-12">
+                            <div class="row">
 
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div id="mi_perfil">
-                                    <div style="width: 100%; min-height: 300px; background: url(img/loading.svg); background-size: 40px; background-repeat: no-repeat; background-position: center center;"></div>
+                                <!--Profile Picture-->
+                                <div class="col-md-3">
+                                    <section style="text-align: center;">
+
+                                        <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; display: block;" id="rincon_foto">
+
+                                            <div id="uri_foto" style="display: none;"></div>
+
+
+                                            <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UNA FOTO</button>
+
+                                            <img id="fotoLocal" src="" style="border: 0px; width: 100px; display: block;">
+
+
+                                        </div>
+
+                                    </section>
+                                </div>
+                                <!--/.col-md-3-->
+
+                                <!--Contact Info-->
+                                <div class="col-md-6">
+                                    <section>
+                                        <form id="form-perfil" method="post" action="" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="nombre">Nombre:</label>
+                                                        <input type="text" class="form-control" id="nombre" name="nombre" value="">
+                                                    </div>
+                                                    <!--/.form-group-->
+                                                </div>
+                                                <!--/.col-md-3-->
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="apellidos">Apellidos:</label>
+                                                        <input type="text" class="form-control" id="apellidos" name="apellidos" value="">
+                                                    </div>
+                                                    <!--/.form-group-->
+                                                </div>
+                                                <!--/.col-md-3-->
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="provincia">Provincia:</label>
+
+                                                        <div class="btn-group bootstrap-select framed">
+                                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" title="" id="boton_provincia">
+                                                                <span class="filter-option pull-left" id="provincia_nuevo">Selecciona una provincia</span>&nbsp;<span class="caret"></span>
+                                                            </button>
+                                                            <div class="dropdown-menu open animation-fade-in" style="overflow: hidden;border: 1px solid #f0f0f0;">
+                                                                <ul class="dropdown-menu inner selectpicker animation-fade-in Form-section" role="menu" style="max-height: 300px; overflow-x: hidden; overflow-y: auto; z-index: 999; padding: 6px;" id="provincias_ul">
+
+                                                                </ul>
+
+
+                                                                <script>
+                                                                    var contenido_provincias_ul = "";
+                                                                    var x = 0;
+                                                                    var arr = ['Araba/Álava', 'Albacete', 'Alicante/Alacant', 'Almería', 'Ávila', 'Badajoz', 'Balears, Illes', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Castellón/Castelló', 'Ciudad Real', 'Córdoba', 'Coruña, A', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'León', 'Lleida', 'Rioja, La', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Asturias', 'Palencia', 'Palmas, Las', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Cantabria', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia/València', 'Valladolid', 'Bizkaia', 'Zamora', 'Zaragoza', 'Ceuta', 'Melilla'];
+                                                                    for (x = 0; x < arr.length; x++)
+                                                                    {
+                                                                        var nombre_provincia = arr[x];
+                                                                        var id_provincia = x;
+                                                                        var contenido = "<li style='width: 99%' rel='" + id_provincia + "' onclick='activar_provincia(" + id_provincia + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_provincia + "' name='provincia' id='provincia" + id_provincia + "'><span>" + nombre_provincia + "</span></a></li>";
+                                                                        var contenido_provincias_ul = contenido_provincias_ul + contenido;
+                                                                    }
+                                                                    document.getElementById("provincias_ul").innerHTML = contenido_provincias_ul;
+                                                                </script>
+
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <script>
+                                                            function activar_provincia(id_provincia)
+                                                            {
+                                                                var x = 0;
+                                                                var arr = ['Araba/Álava', 'Albacete', 'Alicante/Alacant', 'Almería', 'Ávila', 'Badajoz', 'Balears, Illes', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Castellón/Castelló', 'Ciudad Real', 'Córdoba', 'Coruña, A', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'León', 'Lleida', 'Rioja, La', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Asturias', 'Palencia', 'Palmas, Las', 'Pontevedra', 'Salamanca', 'Santa Cruz de Tenerife', 'Cantabria', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia/València', 'Valladolid', 'Bizkaia', 'Zamora', 'Zaragoza', 'Ceuta', 'Melilla'];
+                                                                for (i = 1; i <= arr.length; i++)
+                                                                {
+                                                                    document.getElementById("provincia" + i).checked = "";
+                                                                    document.getElementById("provincia" + id_provincia).checked = "checked";
+                                                                    document.getElementById("provincia_nuevo").innerHTML = document.getElementById("provincia" + id_provincia).value;
+                                                                }
+                                                            }
+                                                        </script>
+
+
+                                                    </div>
+                                                    <!--/.form-group-->
+                                                </div>
+                                                <!--/.col-md-3 -->
+                                                <div class = "col-md-6 col-sm-6">
+                                                    <div class = "form-group">
+                                                        <label for = "email">Email: <span class="texto-simple">(se utiliza para iniciar sesión)</span></label>
+                                                        <input type = "text" class = "form-control" id = "email" name = "email" value = "">
+                                                    </div>
+                                                    <!--/.form-group-->
+                                                </div>
+                                                <!--/.col-md-3 -->
+
+
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div id="error_perfil" style="width: 100%; max-width: 300px; text-align: center; position: relative; background: #e24b61; line-height: 140%;"></div>
+                                            </div>
+
+                                            <div class = "form-group">
+                                                <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'ajax/validar_perfil.php');">GUARDAR PERFIL</a>
+                                            </div>
+                                            <!--/.form-group -->
+
+                                        </form>
+                                    </section>
 
                                 </div>
+                                <!--/.col-md-6 -->
+
+
+
+
+                                <div class="col-md-3 col-sm-9">
+                                    <form class="framed" id="form-clave" method="post" action="" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <label for="clave">Nueva contraseña:</label>
+                                            <input type="password" class="form-control" id="clave" name="clave" value="">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="otra_clave">Confirmar contraseña:</label>
+                                            <input type="password" class="form-control" id="otra_clave" name="otra_clave" value="">
+                                        </div>
+
+                                        <div class="form-group" style="padding-top: 1px;">
+                                            <div id="error_clave" style="width: 100%; max-width: 300px; text-align: center; position: relative; background: #e24b61; line-height: 140%;"></div>
+                                        </div>
+
+                                        <div class = "form-group">
+                                            <a class="btn btn-large btn-default" style="width: 100%" href="javascript: post_ajax('error_clave', 'form-clave', 'ajax/validar_clave.php');">CAMBIAR CONTRASEÑA</a>
+                                        </div>
+                                        <!--/.form-group -->
+
+                                    </form>
+                                </div>
+
                             </div>
                         </div>
 
@@ -106,5 +184,5 @@
 <div id="datos_perfil" style="display: none;"></div>
 
 <script>
-    rincones_usuario("mi_perfil", "https://www.mycorner360.com/app/mi_perfil.php?identificador=" + id_usuario);
+    //rincones_usuario("mi_perfil", "https://www.mycorner360.com/app/mi_perfil.php?identificador=" + id_usuario);
 </script>
