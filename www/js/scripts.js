@@ -279,13 +279,3 @@ function reproducir_video(id_video)
     document.getElementById("video3dark").innerHTML = "<source src='https://www.mycorner360.com/" + id_video + "' type='video/mp4' />";
     SimularClick("play_video");
 }
-
-
-function SimularClick(idObjeto) {
-
-    var nouEvent = document.createEvent("MouseEvents");
-    nouEvent.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-
-    var objecto = document.getElementById(idObjeto);
-    var canceled = !objecto.dispatchEvent(nouEvent);
-}

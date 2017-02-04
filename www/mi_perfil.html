@@ -29,10 +29,13 @@
 
                                             <div id="uri_foto" style="display: none;"></div>
 
+                                            <img id="foto_perfil" src="" onerror="this.src='img/addphoto.png';" style="width: 140px; margin-bottom: 20px;">
 
-                                            <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UNA FOTO</button>
+                                            <div id="div_foto" style="background: url(img/loading.svg); background-repeat: no-repeat; background-position: center center; background-size: 34px; width: 100%; min-height: 140px; display: none; margin-bottom: 20px;">
+                                                <img id="fotoLocal" src="" style="border: none; width: 100%; max-width: 140px; display: none;">
+                                            </div>
 
-                                            <img id="fotoLocal" src="" style="border: 0px; width: 100%; display: none;">
+                                            <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">ACTUALIZAR FOTO</button>
 
 
                                         </div>
@@ -133,7 +136,7 @@
                                             </div>
 
                                             <div class = "form-group">
-                                                <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'ajax/validar_perfil.php');">GUARDAR PERFIL</a>
+                                                <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'https://www.mycorner360.com/app/validar_perfil.php');">GUARDAR PERFIL</a>
                                             </div>
                                             <!--/.form-group -->
 
@@ -186,6 +189,9 @@
 </div>
 
 <script>
+    var id_usuario = "JCkkbgEBriW2ZHnVna3F";
+    var imagen_perfil = "https://www.mycorner360.com/profiles/" + id_usuario + ".jpg";
+    $("#foto_perfil").attr("src", imagen_perfil);
     $("#nombre").val(nombre);
     $("#apellidos").val(apellidos);
     $("#email").val(email);

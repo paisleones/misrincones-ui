@@ -140,8 +140,10 @@ function onSuccess(imageURI) {
     var image = document.getElementById('fotoLocal');
     image.src = imageURI;
     document.getElementById("uri_foto").innerHTML = image.src;
+    $("#foto_perfil").hide();
+    $("#div_foto").show();
     $("#fotoLocal").show();
-    //subirImagen(imageURI)
+    subirImagen(imageURI);
 }
 
 function grabarvideo()
@@ -465,5 +467,32 @@ function alertvideo(button) {
         libreria_videos();
     }
 
+}
+
+
+
+function post_ajax(div_id, id, url)
+{
+    $.ajax({
+        type: "POST",
+        //url: form.attr("action"),
+        //data: form.serialize(),
+        url: url,
+        cache: false,
+        async: true,
+        data: $('#' + id).serialize(),
+        success: function (response) {
+            $('#' + div_id).hide();
+            $('#' + div_id).html(response);
+            $('#' + div_id).fadeIn();
+            setTimeout(function () {
+                $('#' + div_id).fadeOut();
+            }, 3000);
+        },
+        error: function (e) {
+            alert("SE HA PRODUCIDO UN ERROR");
+        }
+
+    });
 }
 
