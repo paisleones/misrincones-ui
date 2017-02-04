@@ -1,6 +1,9 @@
 <script>
     var id_usuario = localStorage.getItem('id_usuario');
     var email = localStorage.getItem('email');
+    var nombre = localStorage.getItem('nombre_usuario');
+    var apellidos = localStorage.getItem('apellidos_usuario');
+    var provincia = localStorage.getItem('provincia_usuario');
 </script>
 
 <div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
@@ -19,17 +22,17 @@
                             <div class="row">
 
                                 <!--Profile Picture-->
-                                <div class="col-md-3">
+                                <div class="col-md-3" style="margin-bottom: 40px;">
                                     <section style="text-align: center;">
 
-                                        <div style="padding: 10px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; display: block;" id="rincon_foto">
+                                        <div style="padding: 20px; min-height: 70px; text-align: center; border: 2px dashed rgba(0, 0, 0, 0.1); margin-bottom: 20px; display: block;" id="rincon_foto">
 
                                             <div id="uri_foto" style="display: none;"></div>
 
 
                                             <button type="button" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">AÑADIR UNA FOTO</button>
 
-                                            <img id="fotoLocal" src="" style="border: 0px; width: 100px; display: block;">
+                                            <img id="fotoLocal" src="" style="border: 0px; width: 100%; display: none;">
 
 
                                         </div>
@@ -39,7 +42,7 @@
                                 <!--/.col-md-3-->
 
                                 <!--Contact Info-->
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="margin-bottom: 40px;">
                                     <section>
                                         <form id="form-perfil" method="post" action="" enctype="multipart/form-data">
                                             <div class="row">
@@ -143,7 +146,7 @@
 
 
 
-                                <div class="col-md-3 col-sm-9">
+                                <div class="col-md-3 col-sm-9" style="margin-bottom: 40px;">
                                     <form class="framed" id="form-clave" method="post" action="" enctype="multipart/form-data">
 
                                         <div class="form-group">
@@ -175,11 +178,18 @@
                     </div>
 
                 </section>
+                <br><br><br><br>
 
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $("#nombre").val(nombre);
+    $("#apellidos").val(apellidos);
+    $("#email").val(email);
+</script>
 
 <div id="datos_perfil" style="display: none;"></div>
 

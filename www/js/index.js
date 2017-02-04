@@ -108,6 +108,7 @@ function onPhotoURISuccess(imageURI) {
     var largeImage = document.getElementById('fotoLocal');
 
     largeImage.style.display = 'block';
+    $("#fotoLocal").show();
 
     largeImage.src = imageURI;
     document.getElementById("uri_foto").innerHTML = largeImage.src;
@@ -139,6 +140,7 @@ function onSuccess(imageURI) {
     var image = document.getElementById('fotoLocal');
     image.src = imageURI;
     document.getElementById("uri_foto").innerHTML = image.src;
+    $("#fotoLocal").show();
     //subirImagen(imageURI)
 }
 
