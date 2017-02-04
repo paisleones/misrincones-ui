@@ -1,0 +1,110 @@
+<script>
+    /*
+     function preguntar_eliminar_rincon(id) {
+     navigator.notification.confirm(
+     ("Realmente quieres eliminar este rincon ?. Este proceso es irreversible ..."), // message
+     accion_eliminar, // callback
+     'Mensaje de Misrincones', // title
+     'ACEPTAR,CANCELAR' // buttonName
+     );
+
+     }
+
+     function accion_eliminar(button) {
+
+     if (button == "1" || button == 1)
+     {
+     eliminar_rincon(id);
+     }
+
+     }
+
+     function eliminar_rincon(id)
+     {
+     alert(id);
+     }
+     */
+
+    function preguntar_eliminar_rincon(id) {
+        navigator.notification.confirm(
+                "Realmente quieres eliminar este rincon ? Este proceso es irreversible ...",
+                function (buttonIndex) {
+                    onConfirm(buttonIndex, id);
+                },
+                'Mensaje de Mycorner360',
+                'Aceptar, Cancelar'
+                );
+    }
+    function onConfirm(buttonIndex, id) {
+        if (buttonIndex === 1) {
+            var id_usuario = localStorage.getItem('id_usuario');
+            load_url("datos_rincones", "https://www.mycorner360.com/app/eliminar_rincon.php?id_rincon=" + id + "&id_usuario=" + id_usuario);
+        }
+
+    }
+
+
+    function rincones_usuario(div, url)
+    {
+        $.ajax(
+                {
+                    url: url,
+                    cache: true,
+                    type: 'GET',
+                    contentType: "html",
+                    async: true,
+                    crossDomain: true,
+                })
+                .fail(function (data) {
+                    navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
+                })
+                .done(function () {
+
+                })
+                .always(function (data) {
+                    $('#' + div).html(data);
+                    $("#" + div).fadeIn();
+                });
+    }
+
+
+    var id_usuario = localStorage.getItem('id_usuario');
+    var email = localStorage.getItem('email');
+</script>
+
+<div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
+    <div class="modal-wrapper" style="width: 100%; height: 99%; margin: 0px; background: #fff;">
+        <div class="modal-body" style="width: 100%; height: 100%; margin: 0px; background: #fff;">
+            <div style="padding: 0px; background: #fff;">
+
+
+                <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
+
+                    <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">MI PERFIL</h2>
+                    Este es tu perfil personal. Podras cambiar tus datos personales y tu clave de acceso asi como tu foto de perfil.
+                    <hr>
+                    <div style="padding: 0px;">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div id="mi_perfil">
+                                    <div style="width: 100%; min-height: 300px; background: url(img/loading.svg); background-size: 40px; background-repeat: no-repeat; background-position: center center;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="datos_perfil" style="display: none;"></div>
+
+<script>
+    rincones_usuario("mi_perfil", "https://www.mycorner360.com/app/mi_perfil.php?identificador=" + id_usuario);
+</script>

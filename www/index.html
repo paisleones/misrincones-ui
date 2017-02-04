@@ -202,7 +202,6 @@
             <div class="centrado-porcentual">
 
                 <img src="img/logo_portada.png" style="width: 280px;">
-
                 <br><br><br>
 
 
@@ -455,12 +454,11 @@
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
                     <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();
-                        "><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="registro();"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda"><img src="img/iconos1/configuracion.png" alt="" title=""></li>
+                    <li class="icono_menu_izquierda" onclick="mi_perfil();"> <img src="img/iconos1/configuracion.png" alt="" title=""></li>
                 </ul>
             </nav>
 
@@ -650,9 +648,17 @@
             function registro()
             {
                 $("#volver_atras").show();
-                //$("#loading").show();
+//$("#loading").show();
                 SimularClick('cerrar_izquierda');
                 load_url("nuevo_rincon", "registro.html");
+            }
+
+            function mi_perfil()
+            {
+                $("#volver_atras").show();
+//$("#loading").show();
+                SimularClick('cerrar_izquierda');
+                load_url("nuevo_rincon", "mi_perfil.html");
             }
 
             function quitar_registro()
@@ -679,7 +685,7 @@
                 } else
                 {
                     $("#volver_atras").show();
-                    //$("#loading").show();
+//$("#loading").show();
                     SimularClick('cerrar_izquierda');
                     load_url("nuevo_rincon", "nuevo_rincon.html");
                 }
@@ -698,7 +704,7 @@
                 } else
                 {
                     $("#volver_atras").show();
-                    //$("#loading").show();
+//$("#loading").show();
                     SimularClick('cerrar_izquierda');
                     load_url("pantalla_mis_rincones", "mis_rincones.html");
                     $("#pantalla_mis_rincones").show();
@@ -833,7 +839,8 @@
 
                 }
 
-                navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 2000, enableHighAccuracy: true});
+                navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+                    timeout: 2000, enableHighAccuracy: true});
 
             }
 
@@ -848,7 +855,7 @@
                 }
             });
             function handle_errors(error) {
-                // error handling here
+// error handling here
             }
             function handle_geolocation_query(position) {
                 _latitude = (position.coords.latitude);
@@ -862,7 +869,7 @@
                 $("." + tipo_rincon).show();
 
             }
-            //crear_mapa_json('todos_los_rincones');
+//crear_mapa_json('todos_los_rincones');
 
 
         </script>
