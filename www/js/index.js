@@ -203,7 +203,6 @@ function subirImagen(id) {
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-
     var ft = new FileTransfer();
     ft.upload(fileURL, encodeURI("https://www.mycorner360.com/app/upload_foto.php?id=" + identificador), uploadPhotoSuccess, uploadFail, options);
 }
