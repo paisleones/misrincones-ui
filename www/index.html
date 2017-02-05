@@ -668,10 +668,21 @@
 
             function mi_perfil()
             {
-                $("#volver_atras").show();
+                var id_usuario = localStorage.getItem('id_usuario');
+                var email = localStorage.getItem('email');
+                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                {
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tu perfil de usuario.', null, 'Aviso de Mycorner360', 'Aceptar');
+                    login();
+                    $("#login").show();
+                } else
+                {
+                    $("#volver_atras").show();
 //$("#loading").show();
-                SimularClick('cerrar_izquierda');
-                load_url("nuevo_rincon", "mi_perfil.html");
+                    SimularClick('cerrar_izquierda');
+                    load_url("nuevo_rincon", "mi_perfil.html");
+                }
+
             }
 
             function quitar_registro()
