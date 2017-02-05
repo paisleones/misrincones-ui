@@ -19,7 +19,7 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
-    <gap:plugin name="com.sharinglabs.cordova.plugin.cache" />
+    <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="cordova-plugin-firebase" spec="0.1.19" />
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-media-capture" source="npm" />

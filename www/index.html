@@ -515,20 +515,6 @@
 
 
         <script>
-            document.addEventListener('deviceready', onDeviceReady);
-            function onDeviceReady()
-            {
-                var success = function (status) {
-                    alert('Message: ' + status);
-                }
-
-                var error = function (status) {
-                    alert('Error: ' + status);
-                }
-
-                window.cache.clear(success, error);
-            }
-
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
                 console.log("navigator.geolocation works well");
@@ -544,6 +530,7 @@
             }
 
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            window.cache.clear();
         </script>
 
 
