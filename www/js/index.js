@@ -198,7 +198,7 @@ function getReverseGeocodingData(lat, lng) {
 }
 
 function subirImagen(id) {
-    var identificador = localStorage.getItem('id_usuario');
+    var identificador = id;
     var fileURL = document.getElementById("uri_foto").innerHTML;
     var options = new FileUploadOptions();
     options.fileKey = "imagen";
