@@ -141,7 +141,7 @@ function onSuccess(imageURI) {
     document.getElementById("uri_foto").innerHTML = image.src;
     $("#foto_perfil").hide();
     $("#div_foto").show();
-    subirImagen(imageURI);
+    subirImagen(id_usuario);
 }
 
 function grabarvideo()
