@@ -421,7 +421,7 @@ function fotoDialog() {
     navigator.notification.confirm(
             (""), // message
             alertfoto, // callback
-            'Añadir una foto a este lugar', // title
+            'Selecciona una imagen para tu perfil de usuario', // title
             'CÁMARA  ,  GALERÍA' // buttonName
             );
 
