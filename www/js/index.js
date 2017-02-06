@@ -111,6 +111,9 @@ function onPhotoURISuccess(imageURI) {
 
     largeImage.src = imageURI;
     document.getElementById("uri_foto").innerHTML = largeImage.src;
+    $("#foto_perfil").hide();
+    $("#div_foto").show();
+    $("#icono_eliminar_foto").show();
 }
 
 
