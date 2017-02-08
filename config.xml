@@ -21,7 +21,7 @@
     <preference name="disable-cursor" value="false" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="phonegap-plugin-push" spec="1.6.0">
-    <param name="SENDER_ID" value="000111000" />
+    <param name="SENDER_ID" value="71391652319" />
 </plugin>
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-media-capture" source="npm" />
