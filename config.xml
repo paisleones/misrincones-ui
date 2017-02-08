@@ -20,7 +20,7 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
-    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" />
+    <plugin name="cordova-plugin-fcm-config" spec="1.0.0" />
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-media-capture" source="npm" />
     <plugin name="cordova-plugin-device" source="npm" />
