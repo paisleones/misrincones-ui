@@ -924,8 +924,9 @@
             };
             firebase.initializeApp(config);
 
+            var time = Math.round(+new Date() / 1000);
             var id_usuario = localStorage.getItem('id_usuario');
-            $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/profiles/" + id_usuario + ".jpg);'></div>");
+            $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?t=" + time + ");'></div>");
 
         </script>
 
