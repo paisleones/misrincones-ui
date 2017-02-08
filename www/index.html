@@ -451,7 +451,8 @@
             <nav class="main-nav">
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
-                    <li class="icono_menu_izquierda" style="padding: 0px;"><img src="img/avatar.png" alt="" title="" style="width: 60px;"></li>
+                    <li class="icono_menu_izquierda" id="foto_perfil_usuario" style="background-image: url(img/avatar.png);">
+                    </li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
@@ -922,6 +923,9 @@
                 messagingSenderId: "612719026808"
             };
             firebase.initializeApp(config);
+
+            var id_usuario = localStorage.getItem('id_usuario');
+            $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/" + id_usuario + ".jpg);'></div>");
         </script>
 
     </body>
