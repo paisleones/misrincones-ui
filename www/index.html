@@ -402,8 +402,10 @@
                     <div id="volver_atras_login" class="modal-close" onclick="cerrar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none; z-index: 999">
                     </div>
 
-                    <div class="centrado-porcentual">
-                        <h6 style="font-size: 36px;">Iniciar sesion
+
+
+                    <div class="centrado-porcentual" id="ventana_login" style="display: none;">
+                        <h6 style="font-size: 36px;">Iniciar sesión
                         </h6>
                         <h6>Introduce tu email y contraseña</h6>
                         <br><br>
@@ -411,12 +413,38 @@
                         <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario">
                         <br><br>
                         <input class="input_login" type="password" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña">
-                        <br><br><br><br>
+                        <br><br><br>
 
                         <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
                         <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
-
                     </div>
+
+                    <div class="centrado-porcentual" id="ventana_cerrar_sesion" style="display: none;">
+                        <h6 style="font-size: 36px;">Cerrar sesión
+                        </h6>
+                        <h6>Si quieres cerrar sesión o entrar con un <br>usuario diferente, pincha en cerrar sesión.</h6>
+
+                        <br><br><br>
+
+                        <div id="comprobando_cerrar_sesion" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
+                        <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
+                    </div>
+
+                    <script>
+
+                        var id_usuario = localStorage.getItem('id_usuario');
+                        if (id_usuario === "" || id_usuario === null)
+                        {
+                            document.getElementById("ventana_login").style.display = "block";
+                            document.getElementById("ventana_cerrar_sesion").style.display = "hidden";
+                        } else
+                        {
+                            document.getElementById("ventana_login").style.display = "hidden";
+                            document.getElementById("ventana_cerrar_sesion").style.display = "block";
+                        }
+                    </script>
+
+
                 </div>
 
 
