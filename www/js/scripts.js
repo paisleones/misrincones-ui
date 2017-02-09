@@ -147,6 +147,8 @@ function cerrar_sesion()
     quitar_login();
     document.getElementById("ventana_login").style.display = "none";
     document.getElementById("ventana_cerrar_sesion").style.display = "none";
+    navigator.notification.alert("Enhorabuena! Has cerrado la sesión de tu usuario correctamente. Hasta la próxima.", null, "Aviso de Mycorner360", "Aceptar");
+
 
 }
 
