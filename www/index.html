@@ -424,7 +424,7 @@
                         </h6>
                         <h6>Si quieres cerrar sesión o entrar con un <br>usuario diferente, pincha en cerrar sesión.</h6>
 
-                        <br><br><br><br>
+                        <br><br><br>
 
                         <div id="comprobando_cerrar_sesion" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
                         <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
@@ -661,10 +661,10 @@
                 if (id_usuario === "" || id_usuario === null)
                 {
                     document.getElementById("ventana_login").style.display = "block";
-                    document.getElementById("ventana_cerrar_sesion").style.display = "hidden";
+                    document.getElementById("ventana_cerrar_sesion").style.display = "none";
                 } else
                 {
-                    document.getElementById("ventana_login").style.display = "hidden";
+                    document.getElementById("ventana_login").style.display = "none";
                     document.getElementById("ventana_cerrar_sesion").style.display = "block";
                 }
             }

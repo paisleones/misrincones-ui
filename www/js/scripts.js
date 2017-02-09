@@ -126,6 +126,29 @@ function validar_registro()
     }
 }
 
+function cerrar_sesion()
+{
+    localStorage.setItem("id_usuario", "");
+    localStorage.setItem("email", "");
+    localStorage.setItem("nick", "");
+    localStorage.setItem("nombre_usuario", "");
+    localStorage.setItem("apellidos_usuario", "");
+    localStorage.setItem("provincia_usuario", "");
+
+    var id_usuario = localStorage.getItem('id_usuario');
+    var email = localStorage.getItem('email');
+    var nick = localStorage.getItem('nick');
+    var nombre = localStorage.getItem('nombre_usuario');
+    var apellidos = localStorage.getItem('apellidos_usuario');
+    var provincia = localStorage.getItem('provincia_usuario');
+
+    $("#foto_perfil_usuario").html("");
+
+    quitar_login();
+    document.getElementById("ventana_login").style.display = "none";
+    document.getElementById("ventana_cerrar_sesion").style.display = "none";
+
+}
 
 function iniciar_sesion()
 {
