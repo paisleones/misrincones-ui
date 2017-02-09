@@ -912,9 +912,11 @@
 
             if (id_usuario == "" || id_usuario == null)
             {
+                alert("NO hay foto");
                 $("#foto_perfil_usuario").html("");
             } else
             {
+                alert("hay foto");
                 $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?t=" + time + ");'></div>");
 
             }
