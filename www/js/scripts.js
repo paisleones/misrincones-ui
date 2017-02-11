@@ -128,7 +128,7 @@ function validar_registro()
 
 
 
-function validar_comentario()
+function validar_comentario(id_rincon)
 {
     $("#boton_nuevo_comentario").hide();
     $("#comprobando_comentario").show();
@@ -159,8 +159,9 @@ function validar_comentario()
 
     if (validar1 == 1 && validar2 == 1)
     {
-        var id = generar(20);
-        load_url("polivalente", "https://www.mycorner360.com/app/nuevo_comentario.php?id=" + id + "&valoracion=" + valoracion + "&comentario=" + comentario)
+        var id_usuario = localStorage.getItem('id_usuario');
+        var nick = localStorage.getItem('nick');
+        load_url("polivalente", "https://www.mycorner360.com/app/validar_comentario.php?id_rincon=" + id_rincon + "&valoracion=" + valoracion + "&comentario=" + comentario + "&id_usuario=" + id_usuario + "&nombre_usuario=" + nick);
     } else
     {
         $("#comprobando_comentario").hide();
