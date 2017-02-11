@@ -126,6 +126,52 @@ function validar_registro()
     }
 }
 
+
+
+function validar_comentario()
+{
+    $("#boton_nuevo_comentario").hide();
+    $("#comprobando_comentario").show();
+    var comentario = $('#comentario').val();
+    var valoracion = $('#estrellas').val();
+
+
+    if (comentario == "")
+    {
+        $("#comentario").addClass("input_login_error");
+        var validar1 = 0;
+    } else
+    {
+        $("#comentario").removeClass("input_login_error");
+        var validar1 = 1;
+    }
+
+    if (valoracion == "")
+    {
+        $("#rating_rincon").addClass("input_login_error");
+        var validar2 = 0;
+    } else
+    {
+        $("#rating_rincon").removeClass("input_login_error");
+        var validar2 = 1;
+    }
+
+
+    if (validar1 == 1 && validar2 == 1)
+    {
+        var id = generar(20);
+        load_url("polivalente", "https://www.mycorner360.com/app/nuevo_comentario.php?id=" + id + "&valoracion=" + valoracion + "&comentario=" + comentario)
+    } else
+    {
+        $("#comprobando_comentario").hide();
+        $("#boton_nuevo_comentario").show();
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
+    }
+}
+
+
+
+
 function cerrar_sesion()
 {
     localStorage.setItem("id_usuario", "");

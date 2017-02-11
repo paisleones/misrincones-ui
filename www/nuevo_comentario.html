@@ -1,0 +1,189 @@
+<style>
+    .stars_rincon
+    {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        text-align: center;
+        width: 100%;
+    }
+
+    .star-rating {
+        font-size: 0;
+        white-space: nowrap;
+        display: inline-block;
+        width: 136px;
+        height: 26px;
+        overflow: hidden;
+        position: relative;
+        background: url(img/star2.png);
+        background-size: contain;
+    }
+    .star-rating i {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 20%;
+        z-index: 1;
+        background: url(img/star1.png);
+        background-size: contain;
+    }
+    .star-rating input {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        opacity: 0;
+        display: inline-block;
+        width: 20%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+        position: relative;
+    }
+    .star-rating input:hover + i,
+    .star-rating input:checked + i {
+        opacity: 1;
+    }
+    .star-rating i ~ i {
+        width: 40%;
+    }
+    .star-rating i ~ i ~ i {
+        width: 60%;
+    }
+    .star-rating i ~ i ~ i ~ i {
+        width: 80%;
+    }
+    .star-rating i ~ i ~ i ~ i ~ i {
+        width: 100%;
+    }
+</style>
+
+
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
+
+    var id = generar(20);
+</script>
+
+
+
+<div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
+    <div class="modal-wrapper" style="width: 100%; height: 99%; margin: 0px; background: #fff;">
+        <div class="modal-body" style="width: 100%; height: 100%; margin: 0px; background: #fff;">
+            <div style="padding: 0px; background: #fff;">
+
+
+                <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
+
+                    <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">COMENTAR ESTE RINCÓN</h2>
+                    Dinos que te ha parecido este rincón. Seguro que a todos nos interesa escuchar tu opinión.
+                    <hr>
+                </section>
+
+
+
+                <section class="container" style="background: #ffffff; z-index: 10; padding-top: 20px;">
+                    <div class="row">
+                        <!--Item Detail Content-->
+                        <div class="col-md-12">
+
+
+                            <div class="row">
+
+
+                                <form id="main" class="form-horizontal" action="" method="post" style="position: relative; margin-top: -26px; z-index: 99; background: #fff;">
+
+                                    <div class="col-md-12 col-sm-12">
+
+
+                                        <section>
+                                            <article class="item-gallery" style="background: #f0f0f0; padding: 20px; padding-bottom: 0px; line-height: 130%;" id="rating_rincon">
+
+
+
+                                                Añade una valoración a este rincón:
+                                                <br><br>
+
+                                                <input id="estrellas" name="estrellas" style="display:none;">
+                                                <div class="stars_rincon">
+                                                    <span class="star-rating">
+                                                        <input type="radio" name="rating" value="1"><i></i>
+                                                        <input type="radio" name="rating" value="2"><i></i>
+                                                        <input type="radio" name="rating" value="3"><i></i>
+                                                        <input type="radio" name="rating" value="4"><i></i>
+                                                        <input type="radio" name="rating" value="5"><i></i>
+                                                    </span>
+                                                </div>
+
+                                                <script>
+                                                    $(':radio').change(function () {
+                                                        $('#estrellas').val(this.value);
+                                                    });
+                                                    //# sourceURL=pen.js
+                                                </script>
+
+                                                <br>
+                                            </article>
+                                        </section>
+
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12">
+
+                                        <section style="padding: 0px; margin: 0px;">
+                                            <article class="item-gallery" style="background: #fff; padding: 10px; padding-bottom: 0px; padding-top: 0px;">
+
+                                                <!--/.row-->
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12">
+                                                        <div class="form-group" style="padding-left: 10px; padding-right: 10px;">
+                                                            <textarea class="form-control" id="comentario" rows="7" name="comentario" placeholder="¿Que quieres comentar? (max 300 caracteres)"></textarea>
+                                                            <BR>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </article>
+                                        </section>
+
+
+
+                                    </div>
+
+
+
+
+                                    <div class="col-md-12 col-sm-12">
+
+                                        <div id="comprobando_comentario" style="width: 100%; height: 50px; text-align: center; display: none;"><img src="img/loading.svg" style="width: 34px;"></div>
+
+                                        <button id="boton_nuevo_comentario" type="button" onclick="validar_comentario();" class="btn btn-large btn-default" style="width: 100%;">AÑADIR COMENTARIO</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+                        <!-- /.row -->
+                </section>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

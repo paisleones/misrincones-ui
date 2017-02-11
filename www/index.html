@@ -241,6 +241,9 @@
             <div id="volver_atras_mis_rincones" onclick="quitar_vista_rincon();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
             </div>
 
+            <div id="volver_atras_comentario" onclick="quitar_vista_comentario();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none;">
+            </div>
+
             <img src="img/logo_cabecera.png" style="height: 34px; margin-top: 13px;">
 
 
@@ -458,8 +461,8 @@
                 </div>
 
 
-
-
+                <div id="contenido_nuevo_comentario" style="display: none; overflow-y: auto; z-index: 501;">
+                </div>
 
 
 
@@ -759,13 +762,34 @@
                 }
             }
 
-            function quitar_vista_rincon()
+
+            function nuevo_comentario()
             {
-                $('#volver_atras_mis_rincones').hide();
-                $("#volver_atras").show();
-                $('#pantalla_mis_rincones').show();
-                $('#contenido_nuevo').hide();
-                $('#contenido_nuevo').html("");
+                var id_usuario = localStorage.getItem('id_usuario');
+                var email = localStorage.getItem('email');
+                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                {
+                    navigator.notification.alert('Ups! Tienes que iniciar sesion para comentar este rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
+                } else
+                {
+                    //$("#volver_atras").show();
+                    //SimularClick('cerrar_izquierda');
+                    $('#volver_atras').hide();
+                    $('#volver_atras_mis_rincones').hide();
+                    $('#volver_atras_comentario').show();
+                    load_url("contenido_nuevo_comentario", "nuevo_comentario.html");
+                    //$('.modal-window').hide();
+                }
+            }
+
+            function quitar_vista_comentario()
+            {
+                $('#volver_atras_comentario').hide();
+                $('#volver_atras').show();
+                //$('#pantalla_mis_rincones').show();
+                $('#contenido_nuevo_comentario').hide();
+                $('#contenido_nuevo_comentario').html("");
+                //$('.modal-window').show();
 
             }
 
@@ -847,6 +871,15 @@
                         });
             }
 
+            function quitar_vista_rincon()
+            {
+                $('#volver_atras_mis_rincones').hide();
+                $("#volver_atras").show();
+                $('#pantalla_mis_rincones').show();
+                $('#contenido_nuevo').hide();
+                $('#contenido_nuevo').html("");
+
+            }
 
             function crear_mapa_json(categoria)
             {
