@@ -237,7 +237,7 @@ function uploadFail(error) {
 
 function guardar_rincon()
 {
-    subirImagen(id);
+    //subirImagen(id);
     subirVideo(id);
 
     $.ajax({
