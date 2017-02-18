@@ -346,7 +346,7 @@ function cargar_mapa(latitud, longitud) {
             disableDefaultUI: true,
             scrollwheel: false,
             styles: styles,
-            zoom: 15,
+            zoom: 17,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
