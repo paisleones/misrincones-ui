@@ -6,14 +6,16 @@
         featureType: 'water', // set the water color
                 elementType: 'geometry.fill', // apply the color only to the fill
                 stylers: [
-                {color: '#96cbcc'}
+                {color: '#96cbcc'},
+                {visibility: "off"}
                 ]
         }, {
         featureType: 'landscape.natural', // set the natural landscape
                 elementType: 'all',
                 stylers: [
                 {color: '#ecf0f1'},
-                {lightness: 0}
+                {lightness: 0},
+                {visibility: "off"}
                 ]
         }
         , {
@@ -21,7 +23,8 @@
                 elementType: 'geometry.stroke',
                 stylers: [
                 {color: '#ffffff'},
-                {lightness: 0}
+                {lightness: 0},
+                {visibility: "off"}
                 ]
         },
         {	//poi stands for point of interest - don't show these lables on the map

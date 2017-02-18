@@ -890,7 +890,7 @@
                     var _longitude = position.coords.longitude;
 
 
-                    var zoom = 15;
+                    var zoom = 17;
                     var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
@@ -907,7 +907,7 @@
                     navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
                     var _latitude = 42.599052;
                     var _longitude = -5.5665905;
-                    var zoom = 15;
+                    var zoom = 17;
                     var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
                     {
                         $.getJSON(jsonPath)
