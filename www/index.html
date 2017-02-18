@@ -891,7 +891,8 @@
 
 
                     var zoom = 17;
-                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+                    + ;
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
@@ -908,7 +909,7 @@
                     var _latitude = 42.599052;
                     var _longitude = -5.5665905;
                     var zoom = 17;
-                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json';
+                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
