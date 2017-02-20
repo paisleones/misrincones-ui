@@ -58,12 +58,12 @@
                 .fail(function (data) {
                     navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
                 })
-                .done(function () {
-
-                })
-                .always(function (data) {
+                .done(function (data) {
                     $('#' + div).html(data);
                     $("#" + div).fadeIn();
+                })
+                .always(function (data) {
+
                 });
     }
 
@@ -87,7 +87,7 @@
 
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <div id="rincones_usuario">
+                                <div id="rincones_usuario" >
                                     <div style="width: 100%; min-height: 300px; background: url(img/loading.svg); background-size: 40px; background-repeat: no-repeat; background-position: center center;"></div>
 
                                 </div>
