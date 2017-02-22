@@ -443,3 +443,13 @@ function reproducir_video(id_video)
     document.getElementById("video3dark").innerHTML = "<source src='https://www.mycorner360.com/" + id_video + "' type='video/mp4' />";
     SimularClick("play_video");
 }
+
+
+function centrado_mapa()
+{
+    //coordenadas centrado mapa
+    var NewMapCenter = map.getCenter();
+    var _latitude = NewMapCenter.lat();
+    var _longitude = NewMapCenter.lng();
+    //fin coordenadas centrado mapa
+}

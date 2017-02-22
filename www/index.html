@@ -229,7 +229,6 @@
 
 
 
-
         <div class="header" style="z-index: 50; display: none; background: #0dcdbd;" id="cabecera">
 
             <div id="c-button--slide-left" class="c-button" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/menu_blanco.png); background-position: center center; background-size: 28px; background-repeat: no-repeat;">
@@ -328,7 +327,7 @@
                                             var nombre_tipo = nombre_tipo.replace(" ", "_");
                                             //$(".todos_los_rincones").fadeOut();
                                             //$("." + nombre_tipo).fadeIn();
-                                            crear_mapa_json(nombre_tipo);
+                                            crear_mapa_json(nombre_tipo, 'centrado');
                                             for (i = 1; i < arr.length; i++)
                                             {
                                                 document.getElementById("tipo_mapa" + i).checked = "";
@@ -881,13 +880,20 @@
 
             }
 
-            function crear_mapa_json(categoria)
+            var centrado = null;
+            function crear_mapa_json(categoria, centrado)
             {
-
                 var onSuccess = function (position) {
-
-                    var _latitude = position.coords.latitude;
-                    var _longitude = position.coords.longitude;
+                    if (centrado == 'centrado')
+                    {
+                        var NewMapCenter = map.getCenter();
+                        var _latitude = NewMapCenter.lat();
+                        var _longitude = NewMapCenter.lng();
+                    } else
+                    {
+                        var _latitude = position.coords.latitude;
+                        var _longitude = position.coords.longitude;
+                    }
 
 
                     var zoom = 17;
@@ -895,13 +901,12 @@
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
-                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                })
-
-                                ;
+                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado);
+                                });
                     }
-
                 };
+
+
                 function onError(error) {
 
                     navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
@@ -913,9 +918,7 @@
                         $.getJSON(jsonPath)
                                 .done(function (json) {
                                     createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                })
-
-                                ;
+                                });
                     }
 
                 }

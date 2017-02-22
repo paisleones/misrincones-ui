@@ -63,23 +63,24 @@
 if ($(window).width() > alto_pantalla) {
 
 $('.map-canvas').height($(window).height() - $('.header').height() + 70);
-        }
+}
 else {
 $('.map-canvas #map').height($(window).height() - $('.header').height() + 70);
-        }
+}
 }
 
 $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Homepage map - Google
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        function createHomepageGoogleMap(_latitude, _longitude, json, zoom){
+        var map = null;
+        function createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado){
 
         $.get("https://www.mycorner360.com/assets/external/_infobox.js", function() {
         gMap();
         });
                 function gMap(){
+
                 var mapCenter = new google.maps.LatLng(_latitude, _longitude);
                         function HomeControl(controlDiv, map) {
 
@@ -115,21 +116,33 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         }
                 };
                         var mapElement = document.getElementById('map');
-                        var map = new google.maps.Map(mapElement, mapOptions);
+                        map = new google.maps.Map(mapElement, mapOptions);
                         var newMarkers = [];
                         var markerClicked = 0;
                         var activeMarker = true;
                         var lastClicked = false;
                         var latLng = new google.maps.LatLng(_latitude, _longitude);
-                        var companyImage = new google.maps.MarkerImage('img/marcador.png',
-                                new google.maps.Size(53, 52),
-                                new google.maps.Point(0, 0),
-                                new google.maps.Point(26, 26)
-                                );
-                        // Create the DIV to hold the control and
-                        // call the HomeControl() constructor passing
-                        // in this DIV.
-                        var homeControlDiv = document.createElement('div');
+                        if (centrado != 'centrado')
+                {
+                var companyImage = new google.maps.MarkerImage('img/marcador.png',
+                        new google.maps.Size(53, 52),
+                        new google.maps.Point(0, 0),
+                        new google.maps.Point(26, 26)
+                        );
+                }
+                else
+                {
+                var companyImage = new google.maps.MarkerImage('',
+                        new google.maps.Size(0, 0),
+                        new google.maps.Point(0, 0),
+                        new google.maps.Point(0, 0)
+                        );
+                }
+
+                // Create the DIV to hold the control and
+                // call the HomeControl() constructor passing
+                // in this DIV.
+                var homeControlDiv = document.createElement('div');
                         var homeControl = new HomeControl(homeControlDiv, map);
                         homeControlDiv.index = 1;
                         map.controls[google.maps.ControlPosition.TOP_LEFT].push(homeControlDiv);
@@ -378,9 +391,6 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
                 // Autocomplete address ----------------------------------------------------------------------------------------
 
-
-
-
                 }
         }
 
@@ -389,7 +399,6 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Item Detail Map - Google
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function itemDetailMap(json){
 var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
         var mapOptions = {
@@ -481,9 +490,9 @@ var _latitude = json.data[a].latitude;
         var _longitude = json.data[a].longitude;
         var mapCenter = new google.maps.LatLng(_latitude, _longitude);
         map.setCenter(mapCenter);
-        }
-});
 }
+});
+        }
 
 // Create modal if more items are on the same location (example: one building with floors) -----------------------------
 
@@ -499,15 +508,15 @@ var multipleItems = [];
         $('.modal-window').load('https://www.mycorner360.com/assets/external/_modal-multichoice.html', function() {
 $('.modal-window .modal-wrapper .items').html(multipleItems);
         rating('.modal-window');
-        });
+});
         $('.modal-window .modal-background, .modal-close').live('click', function(e){
 $('.modal-window').addClass('fade_out');
         setTimeout(function() {
         $('.modal-window').remove();
         }, 300);
-        });
+});
         //}
-}
+        }
 
 // Animate OSM marker --------------------------------------------------------------------------------------------------
 
@@ -535,7 +544,7 @@ var bounds = map.getBounds();
 
         $('.items-list .results').html(visibleItemsArray);
         rating('.results .item');
-}
+        }
 
 // Redraw map after item list is closed --------------------------------------------------------------------------------
 
@@ -545,10 +554,10 @@ $('.map-canvas').toggleClass('results-collapsed');
         $('.map-canvas .map').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 if (mapProvider == 'osm'){
 map.invalidateSize();
-        }
+}
 else if (mapProvider == 'google'){
 google.maps.event.trigger(map, 'resize');
-        }
-});
-        });
 }
+});
+});
+        }
