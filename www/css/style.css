@@ -648,7 +648,16 @@ input
 
 .negocio_local
 {
-    background-color: #e6e98f;
 
+    background-color: #e6e98f;
+    border: 3px solid #ff0000;
+
+}
+
+.icon
+{
+    border: 10px;
+    width: 50px;
+    background: #ff0000;
 }
 

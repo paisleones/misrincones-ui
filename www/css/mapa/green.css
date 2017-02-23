@@ -6893,5 +6893,10 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
     height: 60px;
 }
 
+.map-marker
+{
+    z-index:-1;
+}
+
 
 
