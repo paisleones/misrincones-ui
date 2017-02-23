@@ -558,6 +558,8 @@
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 //window.cache.clear();
             }
+
+
         </script>
 
 
@@ -884,6 +886,9 @@
             function crear_mapa_json(categoria, centrado)
             {
                 var onSuccess = function (position) {
+                    var gps_latitud = position.coords.latitude;
+                    var gps_longitud = position.coords.longitude;
+
                     if (centrado == 'centrado')
                     {
                         var NewMapCenter = map.getCenter();
@@ -892,8 +897,8 @@
                         var zoom = map.getZoom();
                     } else
                     {
-                        var _latitude = position.coords.latitude;
-                        var _longitude = position.coords.longitude;
+                        var _latitude = gps_latitud;
+                        var _longitude = gps_longitud;
                         var zoom = 17;
                     }
 
@@ -902,7 +907,7 @@
                     {
                         $.getJSON(jsonPath)
                                 .done(function (json) {
-                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado);
+                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud);
                                 });
                     }
                 };

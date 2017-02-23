@@ -74,7 +74,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 // Homepage map - Google
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         var map = null;
-        function createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado){
+        function createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud){
 
         $.get("https://www.mycorner360.com/assets/external/_infobox.js", function() {
         gMap();
@@ -146,13 +146,6 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var homeControl = new HomeControl(homeControlDiv, map);
                         homeControlDiv.index = 1;
                         map.controls[google.maps.ControlPosition.TOP_LEFT].push(homeControlDiv);
-                        var marker = new google.maps.Marker({
-
-                        position: latLng,
-                                icon: companyImage,
-                                title: "Tu estás aquí",
-                                map: map
-                        });
                         for (var i = 0; i < json.data.length; i++) {
 
                 // Google map marker content -----------------------------------------------------------------------------------
@@ -389,11 +382,21 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                                 });
                         }
 
-                // Autocomplete address ----------------------------------------------------------------------------------------
+
+
+
+                var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(gps_latitud, gps_longitud),
+                        map: map,
+                        icon: 'img/marcador.png',
+                        optimized: false,
+                        zIndex: 999,
+                        flat: true
+                });
+                        // Autocomplete address ----------------------------------------------------------------------------------------
 
                 }
         }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
