@@ -545,19 +545,19 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
                 console.log("navigator.geolocation works well");
-            }
 
-            var onSuccess = function (position) {
-                var _latitud = position.coords.latitude;
-                var _longitud = position.coords.longitude;
-            }
+                var onSuccess = function (position) {
+                    var _latitud = position.coords.latitude;
+                    var _longitud = position.coords.longitude;
+                }
 
-            function onError(error) {
-                console.log("Error code: " + error.code + " / Mensaje error: " + error.message);
-            }
+                function onError(error) {
+                    console.log("Error code: " + error.code + " / Mensaje error: " + error.message);
+                }
 
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            //window.cache.clear();
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                //window.cache.clear();
+            }
         </script>
 
 
@@ -889,14 +889,15 @@
                         var NewMapCenter = map.getCenter();
                         var _latitude = NewMapCenter.lat();
                         var _longitude = NewMapCenter.lng();
+                        var zoom = map.getZoom();
                     } else
                     {
                         var _latitude = position.coords.latitude;
                         var _longitude = position.coords.longitude;
+                        var zoom = 17;
                     }
 
 
-                    var zoom = 17;
                     var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
                     {
                         $.getJSON(jsonPath)
