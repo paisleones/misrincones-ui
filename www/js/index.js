@@ -353,9 +353,7 @@ function cargar_mapa(latitud, longitud) {
         map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
         var marker = new google.maps.Marker({
-            icon: "img/marcador.png",
-            size: new google.maps.Size(44, 50),
-            //animation: google.maps.Animation.DROP,
+            icon: "img/marcador_v2_nuevo_rincon.png",
             draggable: true,
             position: myLatlng,
             map: map,
