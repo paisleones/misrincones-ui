@@ -294,8 +294,8 @@
 
 
 
-                                    <div class="btn-group bootstrap-select framed sombra" style="padding: 0px;">
-                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px;">
+                                    <div class="btn-group bootstrap-select framed" style="padding: 0px; height: 40px;">
+                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px; height:40px; border: 1px solid #f0f0f0; border-bottom: 1px solid #c0c0c0;">
                                             <span class="filter-option pull-left" id="tipo_de_rincon_mapa">Selecciona un rincón</span>&nbsp;<span class="caret"></span>
                                         </button>
                                         <div class="dropdown-menu open animation-fade-in" style="margin-top: 2px; max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
@@ -309,7 +309,7 @@
                                                 {
                                                     var nombre_tipo = arr[x];
                                                     var id_tipo = x;
-                                                    var contenido = "<li rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
+                                                    var contenido = "<li style='height: 40px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
                                                     var contenido_ul = contenido_ul + contenido;
                                                 }
                                                 document.getElementById("contenedor_ul_mapa").innerHTML = contenido_ul;
