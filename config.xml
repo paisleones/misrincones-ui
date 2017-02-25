@@ -52,8 +52,8 @@
     <platform name="windows">
     </platform>
       <access origin="*" />
-  <access origin="*.mycorner360.com"></access>
-<allow-navigation href="*.mycorner360.com"></allow-navigation>
+  <access origin="*.mycorner360.com">
+<allow-navigation href="*.mycorner360.com">
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
