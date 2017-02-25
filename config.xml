@@ -18,7 +18,7 @@
     <preference name="show-splash-screen-spinner" value="true" /> 
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
+    <preference name="exit-on-suspend" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="HideKeyboardFormAccessoryBar" value="true"/>
     <plugin name="cordova-plugin-cache" source="npm" /> 
