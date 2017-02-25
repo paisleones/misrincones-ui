@@ -15,6 +15,7 @@
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="true" />
+    <preference name="show-splash-screen-spinner" value="true" /> 
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
@@ -24,7 +25,6 @@
     <plugin name="phonegap-plugin-push" spec="1.6.0">
     <param name="SENDER_ID" value="71391652319" />
 </plugin>
-	<gap:plugin name="cordova-plugin-crosswalk-webview-pgb-adapt" source="npm" version="1.4.0-dev-5"/>
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-media-capture" source="npm" />
     <plugin name="cordova-plugin-device" source="npm" />
