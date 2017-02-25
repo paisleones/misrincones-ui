@@ -913,30 +913,13 @@
                     createHomepageGoogleMap(_latitude, _longitude, json, zoom);
                     });
             }
-
             }
 
             navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-            timeout: 2000, enableHighAccuracy: true});
+            timeout: 200, enableHighAccuracy: true});
             }
 
 
-
-            var _latitude, _longitude;
-            $(document).ready(function () {
-            if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
-            } else {
-            navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de Mycorner360', 'Aceptar');
-            }
-            });
-            function handle_errors(error) {
-// error handling here
-            }
-            function handle_geolocation_query(position) {
-            _latitude = (position.coords.latitude);
-            _longitude = (position.coords.longitude);
-            }
 
 
             function mostrar_rincones(tipo_rincon)
