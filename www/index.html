@@ -165,7 +165,10 @@
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
 
-
+        <!-- start Mixpanel --><script type="text/javascript">(function(e, a){if (!a.__SV){var b = window; try{var c, l, i, j = b.location, g = j.hash; c = function(a, b){return(l = a.match(RegExp(b + "=([^&]*)")))?l[1]:null}; g && c(g, "state") && (i = JSON.parse(decodeURIComponent(c(g, "state"))), "mpeditor" === i.action && (b.sessionStorage.setItem("_mpcehash", g), history.replaceState(i.desiredHash || "", e.title, j.pathname + j.search)))} catch (m){}var k, h; window.mixpanel = a; a._i = []; a.init = function(b, c, f){function e(b, a){var c = a.split("."); 2 == c.length && (b = b[c[0]], a = c[1]); b[a] = function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+                    0)))}}var d = a; "undefined" !== typeof f?d = a[f] = []:f = "mixpanel"; d.people = d.people || []; d.toString = function(b){var a = "mixpanel"; "mixpanel" !== f && (a += "." + f); b || (a += " (stub)"); return a}; d.people.toString = function(){return d.toString(1) + ".people (stub)"}; k = "disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+            for (h = 0; h < k.length; h++)e(d, k[h]); a._i.push([b, c, f])}; a.__SV = 1.2; b = e.createElement("script"); b.type = "text/javascript"; b.async = !0; b.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:" === e.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; c = e.getElementsByTagName("script")[0]; c.parentNode.insertBefore(b, c)}})(document, window.mixpanel || []);
+            mixpanel.init("b2893aa997ba2c9452feea0697329899");</script><!-- end Mixpanel -->
 
     </head>
     <body>
@@ -174,31 +177,28 @@
         <!-- PANTALLA DE BIENVENIDO -->
         <script>
             $(document).ready(function () {
-                $('#portada').fadeIn();
+            $('#portada').fadeIn();
+            var time = Math.round( + new Date() / 1000);
+            var id_usuario = localStorage.getItem('id_usuario');
+            if (id_usuario == "" || id_usuario == null)
+            {
+            $("#foto_perfil_usuario").html("");
+            } else
+            {
+            $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?t=" + time + ");'></div>");
+            }
 
-                var time = Math.round(+new Date() / 1000);
-                var id_usuario = localStorage.getItem('id_usuario');
-
-                if (id_usuario == "" || id_usuario == null)
-                {
-                    $("#foto_perfil_usuario").html("");
-                } else
-                {
-                    $("#foto_perfil_usuario").html("<div class='foto_perfil_usuario' style='background-image: url(https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?t=" + time + ");'></div>");
-
-                }
-
-                var imgCount = 6;
-                var dir = 'img/portada/';
-                var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
-                var images = new Array;
-                images[1] = "portada1.jpg",
-                        images[2] = "portada2.jpg",
-                        images[3] = "portada3.jpg",
-                        images[4] = "portada4.jpg",
-                        images[5] = "portada5.jpg",
-                        images[6] = "portada6.jpg",
-                        document.getElementById("portada").style.backgroundImage = "url(" + dir + images[randomCount] + ")";
+            var imgCount = 6;
+            var dir = 'img/portada/';
+            var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
+            var images = new Array;
+            images[1] = "portada1.jpg",
+                    images[2] = "portada2.jpg",
+                    images[3] = "portada3.jpg",
+                    images[4] = "portada4.jpg",
+                    images[5] = "portada5.jpg",
+                    images[6] = "portada6.jpg",
+                    document.getElementById("portada").style.backgroundImage = "url(" + dir + images[randomCount] + ")";
             });
         </script>
 
@@ -217,8 +217,8 @@
 
 
                 <button onclick="crear_mapa_json('todos_los_rincones');
-                        mostrar_pantalla('page-canvas');
-                        $('#cabecera').show();" class="btn btn-large btn-default" style="width: 140px;">
+                    mostrar_pantalla('page-canvas');
+                    $('#cabecera').show();" class="btn btn-large btn-default" style="width: 140px;">
                     ENTRAR
                 </button>
 
@@ -309,10 +309,10 @@
                                                 var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
                                                 for (x = 0; x < arr.length; x++)
                                                 {
-                                                    var nombre_tipo = arr[x];
-                                                    var id_tipo = x;
-                                                    var contenido = "<li style='height: 35px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
-                                                    var contenido_ul = contenido_ul + contenido;
+                                                var nombre_tipo = arr[x];
+                                                var id_tipo = x;
+                                                var contenido = "<li style='height: 35px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
+                                                var contenido_ul = contenido_ul + contenido;
                                                 }
                                                 document.getElementById("contenedor_ul_mapa").innerHTML = contenido_ul;
                                                 document.getElementById("tipo_mapa0").checked = "checked";
@@ -323,20 +323,20 @@
                                     <script>
                                         function activar_tipo_mapa(id_tipo)
                                         {
-                                            var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
-                                            var nombre_tipo = arr[id_tipo];
-                                            var nombre_tipo = nombre_tipo.toLowerCase();
-                                            var nombre_tipo = nombre_tipo.replace(" ", "_");
-                                            var nombre_tipo = nombre_tipo.replace(" ", "_");
-                                            //$(".todos_los_rincones").fadeOut();
-                                            //$("." + nombre_tipo).fadeIn();
-                                            crear_mapa_json(nombre_tipo, 'centrado');
-                                            for (i = 1; i < arr.length; i++)
-                                            {
-                                                document.getElementById("tipo_mapa" + i).checked = "";
-                                                document.getElementById("tipo_mapa" + id_tipo).checked = "checked";
-                                                document.getElementById("tipo_de_rincon_mapa").innerHTML = document.getElementById("tipo_mapa" + id_tipo).value;
-                                            }
+                                        var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua'];
+                                        var nombre_tipo = arr[id_tipo];
+                                        var nombre_tipo = nombre_tipo.toLowerCase();
+                                        var nombre_tipo = nombre_tipo.replace(" ", "_");
+                                        var nombre_tipo = nombre_tipo.replace(" ", "_");
+                                        //$(".todos_los_rincones").fadeOut();
+                                        //$("." + nombre_tipo).fadeIn();
+                                        crear_mapa_json(nombre_tipo, 'centrado');
+                                        for (i = 1; i < arr.length; i++)
+                                        {
+                                        document.getElementById("tipo_mapa" + i).checked = "";
+                                        document.getElementById("tipo_mapa" + id_tipo).checked = "checked";
+                                        document.getElementById("tipo_de_rincon_mapa").innerHTML = document.getElementById("tipo_mapa" + id_tipo).value;
+                                        }
                                         }
                                     </script>
 
@@ -547,19 +547,18 @@
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
-                console.log("navigator.geolocation works well");
+            console.log("navigator.geolocation works well");
+            var onSuccess = function (position) {
+            var _latitud = position.coords.latitude;
+            var _longitud = position.coords.longitude;
+            }
 
-                var onSuccess = function (position) {
-                    var _latitud = position.coords.latitude;
-                    var _longitud = position.coords.longitude;
-                }
+            function onError(error) {
+            console.log("Error code: " + error.code + " / Mensaje error: " + error.message);
+            }
 
-                function onError(error) {
-                    console.log("Error code: " + error.code + " / Mensaje error: " + error.message);
-                }
-
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-                //window.cache.clear();
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            //window.cache.clear();
             }
 
 
@@ -573,43 +572,43 @@
              * Slide left instantiation and action.
              */
             var slideLeft = new Menu({
-                wrapper: '#o-wrapper',
-                type: 'slide-left',
-                menuOpenerClass: '.c-button',
-                maskId: '#c-mask'
+            wrapper: '#o-wrapper',
+                    type: 'slide-left',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
             });
             var slideLeftBtn = document.querySelector('#c-button--slide-left');
             slideLeftBtn.addEventListener('click', function (e) {
-                e.preventDefault;
-                slideLeft.open();
+            e.preventDefault;
+            slideLeft.open();
             });
             /**
              * Slide right instantiation and action.
              */
             var slideRight = new Menu({
-                wrapper: '#o-wrapper',
-                type: 'slide-right',
-                menuOpenerClass: '.c-button',
-                maskId: '#c-mask'
+            wrapper: '#o-wrapper',
+                    type: 'slide-right',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
             });
             var slideRightBtn = document.querySelector('#c-button--slide-right');
             slideRightBtn.addEventListener('click', function (e) {
-                e.preventDefault;
-                slideRight.open();
+            e.preventDefault;
+            slideRight.open();
             });
             /**
              * Push left instantiation and action.
              */
             var pushLeft = new Menu({
-                wrapper: '#o-wrapper',
-                type: 'push-left',
-                menuOpenerClass: '.c-button',
-                maskId: '#c-mask'
+            wrapper: '#o-wrapper',
+                    type: 'push-left',
+                    menuOpenerClass: '.c-button',
+                    maskId: '#c-mask'
             });
             var pushLeftBtn = document.querySelector('#c-button--push-left');
             pushLeftBtn.addEventListener('click', function (e) {
-                e.preventDefault;
-                pushLeft.open();
+            e.preventDefault;
+            pushLeft.open();
             });
         </script>
 
@@ -634,333 +633,318 @@
         <script>
 
             $(document).bind(" mobileinit ", function () {
-                $.mobile.defaultPageTransition = ' none';
-                $.mobile.defaultDialogTransition = 'none';
-                $.mobile.buttonMarkup.hoverDelay = 0;
+            $.mobile.defaultPageTransition = ' none';
+            $.mobile.defaultDialogTransition = 'none';
+            $.mobile.buttonMarkup.hoverDelay = 0;
             });
             function mostrar_pantalla(id)
             {
-                SimularClick('cerrar_izquierda');
-                $('#nuevo_rincon').hide();
-                $('#nuevo_rincon').html("");
-                $('#portada').hide();
-                $('#portada').html("");
-                $('#login').hide();
-                $('#page_canvas').hide();
-                eliminar_modal();
-                location.href = "#" + id;
-                $('#' + id).show();
-
+            SimularClick('cerrar_izquierda');
+            $('#nuevo_rincon').hide();
+            $('#nuevo_rincon').html("");
+            $('#portada').hide();
+            $('#portada').html("");
+            $('#login').hide();
+            $('#page_canvas').hide();
+            eliminar_modal();
+            location.href = "#" + id;
+            $('#' + id).show();
             }
 
             function login()
             {
-                SimularClick('cerrar_izquierda');
-                $("#email_sesion").removeClass("input_login_error");
-                $("#clave_sesion").removeClass("input_login_error");
-                $('#email_sesion').val("");
-                $('#clave_sesion').val("");
-                $('#volver_atras').show();
-                $("#comprobando_login").hide();
-                $("#validar_login").show();
-                $('#login').show();
-                var id_usuario = localStorage.getItem('id_usuario');
-                if (id_usuario === "" || id_usuario === null)
-                {
-                    document.getElementById("ventana_login").style.display = "block";
-                    document.getElementById("ventana_cerrar_sesion").style.display = "none";
-                } else
-                {
-                    document.getElementById("ventana_login").style.display = "none";
-                    document.getElementById("ventana_cerrar_sesion").style.display = "block";
-                }
+            SimularClick('cerrar_izquierda');
+            $("#email_sesion").removeClass("input_login_error");
+            $("#clave_sesion").removeClass("input_login_error");
+            $('#email_sesion').val("");
+            $('#clave_sesion').val("");
+            $('#volver_atras').show();
+            $("#comprobando_login").hide();
+            $("#validar_login").show();
+            $('#login').show();
+            var id_usuario = localStorage.getItem('id_usuario');
+            if (id_usuario === "" || id_usuario === null)
+            {
+            document.getElementById("ventana_login").style.display = "block";
+            document.getElementById("ventana_cerrar_sesion").style.display = "none";
+            } else
+            {
+            document.getElementById("ventana_login").style.display = "none";
+            document.getElementById("ventana_cerrar_sesion").style.display = "block";
+            }
             }
 
             function quitar_login()
             {
-                $('#volver_atras').hide();
-                $('#login').hide();
-                $('#loading').hide();
-                $('#nuevo_rincon').hide();
-                $('#nuevo_rincon').html("");
-                $('#contenido_nuevo').hide();
-                $('#contenido_nuevo').html("");
+            $('#volver_atras').hide();
+            $('#login').hide();
+            $('#loading').hide();
+            $('#nuevo_rincon').hide();
+            $('#nuevo_rincon').html("");
+            $('#contenido_nuevo').hide();
+            $('#contenido_nuevo').html("");
             }
 
             function registro()
             {
-                $("#volver_atras").show();
+            $("#volver_atras").show();
 //$("#loading").show();
-                SimularClick('cerrar_izquierda');
-                load_url("nuevo_rincon", "registro.html");
+            SimularClick('cerrar_izquierda');
+            load_url("nuevo_rincon", "registro.html");
             }
 
             function mi_perfil()
             {
-                var id_usuario = localStorage.getItem('id_usuario');
-                var email = localStorage.getItem('email');
-                //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
-                //var email = "paisleones@gmail.com";
-                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tu perfil de usuario.', null, 'Aviso de Mycorner360', 'Aceptar');
-                    login();
-                    $("#login").show();
-                } else
-                {
-                    $("#volver_atras").show();
+            var id_usuario = localStorage.getItem('id_usuario');
+            var email = localStorage.getItem('email');
+            //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
+            //var email = "paisleones@gmail.com";
+            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+            {
+            navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tu perfil de usuario.', null, 'Aviso de Mycorner360', 'Aceptar');
+            login();
+            $("#login").show();
+            } else
+            {
+            $("#volver_atras").show();
 //$("#loading").show();
-                    SimularClick('cerrar_izquierda');
-                    load_url("nuevo_rincon", "mi_perfil.html");
-                }
+            SimularClick('cerrar_izquierda');
+            load_url("nuevo_rincon", "mi_perfil.html");
+            }
 
             }
 
             function quitar_registro()
             {
-                $('#volver_atras').hide();
-                $('#registro').hide();
-                $('#loading').hide();
-                $('#nuevo_rincon').hide();
-                $('#nuevo_rincon').html("");
-                $('#contenido_nuevo').hide();
-                $('#contenido_nuevo').html("");
+            $('#volver_atras').hide();
+            $('#registro').hide();
+            $('#loading').hide();
+            $('#nuevo_rincon').hide();
+            $('#nuevo_rincon').html("");
+            $('#contenido_nuevo').hide();
+            $('#contenido_nuevo').html("");
             }
 
 
             function nuevo_rincon()
             {
-                var id_usuario = localStorage.getItem('id_usuario');
-                var email = localStorage.getItem('email');
-                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
-                    login();
-                    $("#login").show();
-                } else
-                {
-                    $("#volver_atras").show();
+            var id_usuario = localStorage.getItem('id_usuario');
+            var email = localStorage.getItem('email');
+            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+            {
+            navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
+            login();
+            $("#login").show();
+            } else
+            {
+            $("#volver_atras").show();
 //$("#loading").show();
-                    SimularClick('cerrar_izquierda');
-                    load_url("nuevo_rincon", "nuevo_rincon.html");
-                }
+            SimularClick('cerrar_izquierda');
+            load_url("nuevo_rincon", "nuevo_rincon.html");
+            }
             }
 
             function mis_rincones()
             {
-                var id_usuario = localStorage.getItem('id_usuario');
-                var email = localStorage.getItem('email');
-
-                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de Mycorner360', 'Aceptar');
-                    login();
-                    $("#login").show();
-                } else
-                {
-                    $("#volver_atras").show();
+            var id_usuario = localStorage.getItem('id_usuario');
+            var email = localStorage.getItem('email');
+            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+            {
+            navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de Mycorner360', 'Aceptar');
+            login();
+            $("#login").show();
+            } else
+            {
+            $("#volver_atras").show();
 //$("#loading").show();
-                    SimularClick('cerrar_izquierda');
-                    load_url("pantalla_mis_rincones", "mis_rincones.html");
-                    $("#pantalla_mis_rincones").show();
-                }
+            SimularClick('cerrar_izquierda');
+            load_url("pantalla_mis_rincones", "mis_rincones.html");
+            $("#pantalla_mis_rincones").show();
+            }
             }
 
 
             function nuevo_comentario()
             {
-                var id_usuario = localStorage.getItem('id_usuario');
-                var email = localStorage.getItem('email');
-                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                {
-                    navigator.notification.alert('Ups! Tienes que iniciar sesion para comentar este rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
-                } else
-                {
-                    //$("#volver_atras").show();
-                    //SimularClick('cerrar_izquierda');
-                    $('#volver_atras').hide();
-                    $('#volver_atras_mis_rincones').hide();
-                    $('#volver_atras_comentario').show();
-                    load_url("contenido_nuevo_comentario", "nuevo_comentario.html");
-                    //$('.modal-window').hide();
-                }
+            var id_usuario = localStorage.getItem('id_usuario');
+            var email = localStorage.getItem('email');
+            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+            {
+            navigator.notification.alert('Ups! Tienes que iniciar sesion para comentar este rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
+            } else
+            {
+            //$("#volver_atras").show();
+            //SimularClick('cerrar_izquierda');
+            $('#volver_atras').hide();
+            $('#volver_atras_mis_rincones').hide();
+            $('#volver_atras_comentario').show();
+            load_url("contenido_nuevo_comentario", "nuevo_comentario.html");
+            //$('.modal-window').hide();
+            }
             }
 
             function quitar_vista_comentario()
             {
-                $('#volver_atras_comentario').hide();
-                $('#volver_atras').show();
-                //$('#pantalla_mis_rincones').show();
-                $('#contenido_nuevo_comentario').hide();
-                $('#contenido_nuevo_comentario').html("");
-                //$('.modal-window').show();
+            $('#volver_atras_comentario').hide();
+            $('#volver_atras').show();
+            //$('#pantalla_mis_rincones').show();
+            $('#contenido_nuevo_comentario').hide();
+            $('#contenido_nuevo_comentario').html("");
+            //$('.modal-window').show();
 
             }
 
             function quickView_mi_rincon(id)
             {
-                document.getElementById("volver_atras").style.display = "none";
-                document.getElementById("volver_atras_mis_rincones").style.display = "block";
-                $('#pantalla_mis_rincones').hide();
-                $('#loading').show();
+            document.getElementById("volver_atras").style.display = "none";
+            document.getElementById("volver_atras_mis_rincones").style.display = "block";
+            $('#pantalla_mis_rincones').hide();
+            $('#loading').show();
+            $.ajax(
+            {
+            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
+                    data: id,
+                    cache: true,
+                    type: 'GET',
+                    contentType: "html",
+                    async: true,
+                    crossDomain: true,
+            })
+                    .fail(function (data) {
+                    $('#contenido_nuevo').hide();
+                    $('#loading').hide();
+                    navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
+                    })
 
+                    .done(function (data) {
+                    $("#volver_atras").hide();
+                    $('#volver_atras_mis_rincones').show();
+                    })
 
-                $.ajax(
-                        {
-                            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
-                            data: id,
-                            cache: true,
-                            type: 'GET',
-                            contentType: "html",
-                            async: true,
-                            crossDomain: true,
-                        })
-                        .fail(function (data) {
-                            $('#contenido_nuevo').hide();
-                            $('#loading').hide();
-                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
-                        })
-
-                        .done(function (data) {
-                            $("#volver_atras").hide();
-                            $('#volver_atras_mis_rincones').show();
-                        })
-
-                        .success(function (data) {
-                            $('#contenido_nuevo').html(data);
-                            $('#contenido_nuevo').show();
-                            $('#loading').hide();
-                        });
-
+                    .success(function (data) {
+                    $('#contenido_nuevo').html(data);
+                    $('#contenido_nuevo').show();
+                    $('#loading').hide();
+                    });
             }
 
 
             function quickView(id)
             {
-                document.getElementById("volver_atras").style.display = "block";
-                SimularClick('cerrar_derecha');
-                $('#login').hide();
-                $('#nuevo_rincon').html('');
+            document.getElementById("volver_atras").style.display = "block";
+            SimularClick('cerrar_derecha');
+            $('#login').hide();
+            $('#nuevo_rincon').html('');
+            $('#loading').show();
+            $('.modal-window').remove();
+            $.ajax(
+            {
+            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
+                    data: id,
+                    cache: true,
+                    type: 'GET',
+                    contentType: "html",
+                    async: true,
+                    crossDomain: true,
+            })
+                    .fail(function (data) {
+                    eliminar_modal();
+                    $('#loading').hide();
+                    navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
+                    })
 
-                $('#loading').show();
-                $('.modal-window').remove();
+                    .done(function (data) {
+                    $('#volver_atras').show();
+                    })
 
-                $.ajax(
-                        {
-                            url: 'https://www.mycorner360.com/app/modal_rincon.php?id=' + id,
-                            data: id,
-                            cache: true,
-                            type: 'GET',
-                            contentType: "html",
-                            async: true,
-                            crossDomain: true,
-                        })
-                        .fail(function (data) {
-                            eliminar_modal();
-                            $('#loading').hide();
-                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
-                        })
-
-                        .done(function (data) {
-                            $('#volver_atras').show();
-                        })
-
-                        .success(function (data) {
-                            $('#contenido_nuevo').html(data);
-
-                            //$('#volver_atras').show();
-                            $('#contenido_nuevo').show();
-                            $('#loading').hide();
-
-                        });
+                    .success(function (data) {
+                    $('#contenido_nuevo').html(data);
+                    //$('#volver_atras').show();
+                    $('#contenido_nuevo').show();
+                    $('#loading').hide();
+                    });
             }
 
             function quitar_vista_rincon()
             {
-                $('#volver_atras_mis_rincones').hide();
-                $("#volver_atras").show();
-                $('#pantalla_mis_rincones').show();
-                $('#contenido_nuevo').hide();
-                $('#contenido_nuevo').html("");
-
+            $('#volver_atras_mis_rincones').hide();
+            $("#volver_atras").show();
+            $('#pantalla_mis_rincones').show();
+            $('#contenido_nuevo').hide();
+            $('#contenido_nuevo').html("");
             }
 
             var centrado = null;
             function crear_mapa_json(categoria, centrado)
             {
-                var onSuccess = function (position) {
-                    var gps_latitud = position.coords.latitude;
-                    var gps_longitud = position.coords.longitude;
-
-                    if (centrado == 'centrado')
-                    {
-                        var NewMapCenter = map.getCenter();
-                        var _latitude = NewMapCenter.lat();
-                        var _longitude = NewMapCenter.lng();
-                        var zoom = map.getZoom();
-                    } else
-                    {
-                        var _latitude = gps_latitud;
-                        var _longitude = gps_longitud;
-                        var zoom = 17;
-                    }
-
-
-                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
-                    {
-                        $.getJSON(jsonPath)
-                                .done(function (json) {
-                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud);
-                                });
-                    }
-                };
+            var onSuccess = function (position) {
+            var gps_latitud = position.coords.latitude;
+            var gps_longitud = position.coords.longitude;
+            if (centrado == 'centrado')
+            {
+            var NewMapCenter = map.getCenter();
+            var _latitude = NewMapCenter.lat();
+            var _longitude = NewMapCenter.lng();
+            var zoom = map.getZoom();
+            } else
+            {
+            var _latitude = gps_latitud;
+            var _longitude = gps_longitud;
+            var zoom = 17;
+            }
 
 
-                function onError(error) {
+            var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+            {
+            $.getJSON(jsonPath)
+                    .done(function (json) {
+                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud);
+                    });
+            }
+            };
+            function onError(error) {
 
-                    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
-                    var _latitude = 42.599052;
-                    var _longitude = -5.5665905;
-                    var zoom = 17;
-                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
-                    {
-                        $.getJSON(jsonPath)
-                                .done(function (json) {
-                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                });
-                    }
+            navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
+            var _latitude = 42.599052;
+            var _longitude = - 5.5665905;
+            var zoom = 17;
+            var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+            {
+            $.getJSON(jsonPath)
+                    .done(function (json) {
+                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                    });
+            }
 
-                }
+            }
 
-                navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-                    timeout: 2000, enableHighAccuracy: true});
-
+            navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+            timeout: 2000, enableHighAccuracy: true});
             }
 
 
 
             var _latitude, _longitude;
             $(document).ready(function () {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
-                } else {
-                    navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de Mycorner360', 'Aceptar');
-                }
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(handle_geolocation_query, handle_errors);
+            } else {
+            navigator.notification.alert('Ups! Por favor, comprueba que tienes activado el GPS ...', null, 'Aviso de Mycorner360', 'Aceptar');
+            }
             });
             function handle_errors(error) {
 // error handling here
             }
             function handle_geolocation_query(position) {
-                _latitude = (position.coords.latitude);
-                _longitude = (position.coords.longitude);
+            _latitude = (position.coords.latitude);
+            _longitude = (position.coords.longitude);
             }
 
 
             function mostrar_rincones(tipo_rincon)
             {
-                $(".todos_los_rincones").hide();
-                $("." + tipo_rincon).show();
-
+            $(".todos_los_rincones").hide();
+            $("." + tipo_rincon).show();
             }
 //crear_mapa_json('todos_los_rincones');
 
@@ -977,14 +961,14 @@
             app.initialize();
             function eliminar_modal()
             {
-                $('#volver_atras').hide();
-                $('#nuevo_rincon').hide();
-                $('.modal-window .modal-background, .modal-close').live('click', function (e) {
-                    $('.modal-window').addClass('fade_out');
-                    setTimeout(function () {
-                        $('.modal-window').remove();
-                    }, 10);
-                });
+            $('#volver_atras').hide();
+            $('#nuevo_rincon').hide();
+            $('.modal-window .modal-background, .modal-close').live('click', function (e) {
+            $('.modal-window').addClass('fade_out');
+            setTimeout(function () {
+            $('.modal-window').remove();
+            }, 10);
+            });
             }
 
 
