@@ -936,24 +936,11 @@
                         });
                         }
 
-
-                        var analytics = navigator.analytics;
-// set the tracking id
-                        analytics.setTrackingId('UA-92629052-1');
-// ...or set multiple tracking ids
-//analytics.setMultipleTrackingIds(['UA-XXXXX-1', 'UA-XXXXX-2']);
-
-                        analytics.sendAppView('home', successCallback, errorCallback);
-// or the same could be done using the send function
-
-                        var Fields = analytics.Fields,
-                                HitTypes = analytics.HitTypes,
-                                LogLevel = analytics.LogLevel,
-                                params = {};
-                        params[Fields.HIT_TYPE] = HitTypes.APP_VIEW;
-                        params[Fields.SCREEN_NAME] = 'home';
-                        analytics.setLogLevel(LogLevel.INFO);
-                        analytics.send(params, successCallback, errorCallback);
+                        var gaPlugin;
+                        function onDeviceReady() {
+                        gaPlugin = window.plugins.gaPlugin;
+                        gaPlugin.init(successHandler, errorHandler, "UA-92629052-1", 10);
+                        }
 
         </script>
 
