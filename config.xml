@@ -35,9 +35,7 @@
     <plugin name="cordova-plugin-media" source="npm" />
     <plugin name="cordova-plugin-network-information" source="npm" />
     <plugin name="cordova-plugin-streaming-media-mod" source="npm" />
-    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
-    <feature name="SocialSharing">
-  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+<gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 </feature>
        <icon src="www/icon.png" />
     <platform name="android">
