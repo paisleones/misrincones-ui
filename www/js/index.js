@@ -414,7 +414,7 @@ function obtener() {
     }
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-        timeout: 1000, enableHighAccuracy: true});
+        timeout: 2000, enableHighAccuracy: true});
 }
 
 
