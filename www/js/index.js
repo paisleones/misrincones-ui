@@ -391,15 +391,61 @@ function obtener() {
 }
 
 function mostrar(posicion) {
-    var _latitude = posicion.coords.latitude;
-    var _longitude = posicion.coords.longitude;
 
-    document.getElementById("lat").value = _latitude;
-    document.getElementById("long").value = _longitude;
 
-    getReverseGeocodingData(_latitude, _longitude);
 
-    cargar_mapa(_latitude, _longitude);
+
+
+
+
+    var onSuccess = function (position) {
+        var gps_latitud = position.coords.latitude;
+        var gps_longitud = position.coords.longitude;
+        var _latitude = gps_latitud;
+        var _longitude = gps_longitud;
+
+        document.getElementById("lat").value = _latitude;
+        document.getElementById("long").value = _longitude;
+
+        getReverseGeocodingData(_latitude, _longitude);
+
+        cargar_mapa(_latitude, _longitude);
+    };
+
+    function onError(error) {
+
+        navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
+        var _latitude = 42.599052;
+        var _longitude = -5.5665905;
+    }
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+        timeout: 2000, enableHighAccuracy: true});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
