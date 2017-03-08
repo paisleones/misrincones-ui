@@ -802,8 +802,8 @@
 
                                 .success(function (data) {
                                 $('#contenido_nuevo').html(data);
-                                $('#contenido_nuevo').show();
-                                $('#loading').hide();
+                                document.getElementById("contenido_nuevo").style.display = "block";
+                                document.getElementById("loading").style.display = "none";
                                 });
                         }
 
