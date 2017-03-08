@@ -387,16 +387,9 @@ function cargar_mapa(latitud, longitud) {
 
 
 function obtener() {
-    navigator.geolocation.getCurrentPosition(mostrar);
-}
-
-function mostrar(posicion) {
-
     var onSuccess = function (position) {
-        var gps_latitud = position.coords.latitude;
-        var gps_longitud = position.coords.longitude;
-        var _latitude = gps_latitud;
-        var _longitude = gps_longitud;
+        var _latitude = position.coords.latitude;
+        var _longitude = position.coords.longitude;
 
         document.getElementById("lat").value = _latitude;
         document.getElementById("long").value = _longitude;
@@ -422,8 +415,8 @@ function mostrar(posicion) {
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError, {
         timeout: 2000, enableHighAccuracy: true});
-
 }
+
 
 
 function play_video(videoUrl)
