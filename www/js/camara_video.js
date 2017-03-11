@@ -22,7 +22,7 @@ function grabarvideo()
         targetHeight: 500,
         duration: 30,
         limit: 1,
-        quality: 0
+        quality: 1
     });
 }
 
