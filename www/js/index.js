@@ -25,6 +25,7 @@ var app = {
 
 };
 
+// Funcion para mostrar la confirmacion para salir de la aplicacion
 
 function ShowExitDialog() {
     navigator.notification.confirm(
@@ -62,6 +63,8 @@ function onDeviceReady() {
     destinationType = navigator.camera.DestinationType;
 }
 
+// Funcion para generar una cadena alfanumerica de longitud determinada
+
 function generar(longitud)
 {
     long = parseInt(longitud);
@@ -71,6 +74,8 @@ function generar(longitud)
         contrasena += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     return contrasena;
 }
+
+// Funcion de geoposicinamiento inverso
 
 function getReverseGeocodingData(lat, lng) {
     var latlng = new google.maps.LatLng(lat, lng);
@@ -89,6 +94,8 @@ function getReverseGeocodingData(lat, lng) {
         }
     });
 }
+
+// Funcion para haccer upload de un video al servidor
 
 function subirVideo(id) {
     var identificador = id;
@@ -109,6 +116,7 @@ function uploadFail(error) {
     navigator.notification.alert("Los sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
 }
 
+// Funcion para guardar un nuevo rincon
 
 function guardar_rincon()
 {
@@ -127,9 +135,9 @@ function guardar_rincon()
 
         }
     });
-
-
 }
+
+// Funcion para cargar video del rincon
 
 function guardar_rincon_video()
 {
@@ -189,7 +197,7 @@ var styles = [
     }
 ];
 
-
+// Funcion para cargar un mapa - latitud y longitud
 
 function cargar_mapa(latitud, longitud) {
     var map;
@@ -260,6 +268,7 @@ function cargar_mapa(latitud, longitud) {
     google.maps.event.addDomListener(window, "load", initialize());
 }
 
+// Funcion para obtener el geoposicionamiento del usuario - latitud y longitud
 
 function obtener() {
     var onSuccess = function (position) {
@@ -292,7 +301,7 @@ function obtener() {
         timeout: 2000, enableHighAccuracy: true});
 }
 
-
+// Funcion para reproducir un video - a traves de la url
 
 function play_video(videoUrl)
 {
@@ -309,6 +318,7 @@ function play_video(videoUrl)
     window.plugins.streamingMedia.playVideo(videoUrl, options);
 }
 
+// Funcion para elegir de donde obtener el video del rincon
 
 function videoDialog() {
     navigator.notification.confirm(
@@ -336,7 +346,7 @@ function alertvideo(button) {
 
 }
 
-
+// Funcion para enviar datos de un formulario con ajax - con post
 
 function post_ajax(div_id, id, url)
 {

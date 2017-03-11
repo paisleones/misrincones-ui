@@ -611,6 +611,9 @@
                             $.mobile.defaultDialogTransition = 'none';
                             $.mobile.buttonMarkup.hoverDelay = 0;
                         });
+
+// Funcion para mostrar una determinada pantalla - a traves del id
+
                         function mostrar_pantalla(id)
                         {
                             SimularClick('cerrar_izquierda');
@@ -624,6 +627,8 @@
                             location.href = "#" + id;
                             $('#' + id).show();
                         }
+
+// Funcion para mostrar la pantalla de login del usuario
 
                         function login()
                         {
@@ -648,6 +653,8 @@
                             }
                         }
 
+// Funcion para quitar la pantalla de login
+
                         function quitar_login()
                         {
                             $('#volver_atras').hide();
@@ -659,6 +666,8 @@
                             $('#contenido_nuevo').html("");
                         }
 
+// Funcion para mostrar la pantalla de registro de un nuevo usuario
+
                         function registro()
                         {
                             $("#volver_atras").show();
@@ -666,6 +675,8 @@
                             SimularClick('cerrar_izquierda');
                             load_url("nuevo_rincon", "registro.html");
                         }
+
+// Funcion para mostrar la pantalla de perfil del usuario
 
                         function mi_perfil()
                         {
@@ -688,6 +699,8 @@
 
                         }
 
+// Funcion para quitar la pantalla de registro de usuario
+
                         function quitar_registro()
                         {
                             $('#volver_atras').hide();
@@ -699,6 +712,7 @@
                             $('#contenido_nuevo').html("");
                         }
 
+// Funcion para mostrar la pantalla para cargar un nuevo rincon
 
                         function nuevo_rincon()
                         {
@@ -720,6 +734,8 @@
                             }
                         }
 
+// Funcion para mostrar la pantalla de los rincones del usuario
+
                         function mis_rincones()
                         {
                             var id_usuario = localStorage.getItem('id_usuario');
@@ -739,6 +755,7 @@
                             }
                         }
 
+// Funcion para mostrar la pantalla de nuevo nuevo comentario
 
                         function nuevo_comentario()
                         {
@@ -759,6 +776,8 @@
                             }
                         }
 
+// Funcion para quitar la pantalla de nuevo comentario
+
                         function quitar_vista_comentario()
                         {
                             $('#volver_atras_comentario').hide();
@@ -769,6 +788,8 @@
                             //$('.modal-window').show();
 
                         }
+
+// Funcion para cargar datos de un rincon en la pantalla de rincones del usuario
 
                         function quickView_mi_rincon(id)
                         {
@@ -804,6 +825,7 @@
                                     });
                         }
 
+// Funcion para cargar datos de un rincon en el mapa de rincones
 
                         function quickView(id)
                         {
@@ -841,6 +863,8 @@
                                     });
                         }
 
+// Funcion para quitar la pantalla de datos de un rincon
+
                         function quitar_vista_rincon()
                         {
                             $('#volver_atras_mis_rincones').hide();
@@ -849,6 +873,8 @@
                             $('#contenido_nuevo').hide();
                             $('#contenido_nuevo').html("");
                         }
+
+// Funcion para crear el mapa de rincones de una categoria - importante
 
                         var centrado = null;
                         function crear_mapa_json(categoria, centrado)
@@ -898,7 +924,7 @@
                                 timeout: 2000, enableHighAccuracy: true});
                         }
 
-
+// Funcion para mostrar tipos de rincones por clases - no esta en uso
 
                         function mostrar_rincones(tipo_rincon)
                         {

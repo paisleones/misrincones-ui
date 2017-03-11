@@ -1,3 +1,5 @@
+// Funcion codificar / decodificar en base64
+
 var Base64 = {_keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", encode: function (e) {
         var t = "";
         var n, r, i, s, o, u, a;
@@ -87,6 +89,8 @@ function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+// Funcion para simular un click en elemento a traves del id
+
 function SimularClick(idObjeto) {
 
     var nouEvent = document.createEvent("MouseEvents");
@@ -94,6 +98,8 @@ function SimularClick(idObjeto) {
     var objecto = document.getElementById(idObjeto);
     var canceled = !objecto.dispatchEvent(nouEvent);
 }
+
+// Funcion para cargar contenido en un div a traves de ajax
 
 function load_url(div, url)
 {
@@ -110,6 +116,8 @@ function load_url(div, url)
         }
     });
 }
+
+// Funcion para cargar contenido en un div a traves de ajax
 
 function load_url_ajax(div, url)
 {
@@ -135,11 +143,15 @@ function load_url_ajax(div, url)
             });
 }
 
+
+// Funcion para activar un mapa con de un tipo de rincon
+
 function activar_tipo_mapa(tipo)
 {
     document.getElementById('tipo_de_rincon').innerHTML = tipo;
 }
 
+// Funcion para validar el registro de un usuario
 
 function validar_registro()
 {
@@ -215,7 +227,7 @@ function validar_registro()
     }
 }
 
-
+// Funcion para validar un comentario nuevo
 
 function validar_comentario(id_rincon)
 {
@@ -263,7 +275,7 @@ function validar_comentario(id_rincon)
 }
 
 
-
+// Funcion para cerrar sesion y borrar el localstorage
 
 function cerrar_sesion()
 {
@@ -290,6 +302,8 @@ function cerrar_sesion()
 
 
 }
+
+// Funcion para iniciar sesion
 
 function iniciar_sesion()
 {
@@ -345,6 +359,7 @@ function iniciar_sesion()
 
 }
 
+// Funcion para validar un nuevo rincon
 
 function validar_nuevo_rincon()
 {
@@ -437,6 +452,7 @@ function validar_nuevo_rincon()
 
 }
 
+// Funcion para reproducir video - a traves de id
 
 function reproducir_video(id_video)
 {
@@ -444,6 +460,7 @@ function reproducir_video(id_video)
     SimularClick("play_video");
 }
 
+// Funcion para centrar mapa - coordenadas
 
 function centrado_mapa()
 {
