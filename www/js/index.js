@@ -1,22 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     console.log("navigator.geolocation works well");
@@ -81,98 +62,6 @@ function onDeviceReady() {
     destinationType = navigator.camera.DestinationType;
 }
 
-function libreria_fotos(source) {
-    // Retrieve image file location from specified source
-    navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source});
-}
-
-
-function libreria_videos() {
-    // Retrieve image file location from specified source
-    navigator.camera.getPicture(libreria_videos_Success, onFail, {quality: 50,
-        mediaType: window.Camera.MediaType.VIDEO,
-        destinationType: window.Camera.DestinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
-}
-
-function libreria_videos_Success(videoURI) {
-    var video = document.getElementById('videoLocal');
-    video.src = videoURI.fullPath;
-    document.getElementById("uri_video").innerHTML = videoURI;
-    //subirImagen(imageURI)
-}
-
-function onPhotoURISuccess(imageURI) {
-    var largeImage = document.getElementById('fotoLocal');
-
-    largeImage.style.display = 'block';
-
-    largeImage.src = imageURI;
-    document.getElementById("uri_foto").innerHTML = largeImage.src;
-    $("#foto_perfil").hide();
-    $("#div_foto").show();
-    $("#icono_eliminar_foto").show();
-}
-
-
-function getPhoto(source) {
-    // Retrieve image file location from specified source
-    navigator.camera.getPicture(onSuccess, onFail, {quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source});
-}
-
-function hacerFoto(source) {
-    //navigator.camera.getPicture(onSuccess, onFail, {quality: 50, destinationType: Camera.DestinationType.FILE_URI, sourceType: source});
-
-    navigator.camera.getPicture(onSuccess, onFail, {quality: 75,
-        destinationType: Camera.DestinationType.FILE_URI,
-        sourceType: source,
-        allowEdit: false,
-        encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 500,
-        targetHeight: 500,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false});
-}
-
-function onSuccess(imageURI) {
-    var image = document.getElementById('fotoLocal');
-    image.src = imageURI;
-    document.getElementById("uri_foto").innerHTML = image.src;
-    $("#foto_perfil").hide();
-    $("#div_foto").show();
-    $("#icono_eliminar_foto").show();
-    subirImagen(id_usuario);
-}
-
-function grabarvideo()
-{
-    navigator.device.capture.captureVideo(captureVideoSuccess, onFail, {
-        destinationType: Camera.DestinationType.FILE_URI,
-        targetWidth: 500,
-        targetHeight: 500,
-        duration: 30,
-        limit: 1,
-        quality: 0
-    });
-}
-
-function captureVideoSuccess(videoURI) {
-    var video = document.getElementById('videoLocal');
-    video.src = videoURI[0].fullPath;
-    document.getElementById("uri_video").innerHTML = video.src;
-    //subirImagen(imageURI)
-}
-
-
-
-function onFail(message) {
-
-}
-
 function generar(longitud)
 {
     long = parseInt(longitud);
@@ -199,39 +88,6 @@ function getReverseGeocodingData(lat, lng) {
             document.getElementById("direccion_rincon").innerHTML = address;
         }
     });
-}
-
-function subirImagen(id) {
-    var identificador = id;
-    var fileURL = document.getElementById("uri_foto").innerHTML;
-    var options = new FileUploadOptions();
-    options.fileKey = "imagen";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("https://www.mycorner360.com/app/upload_foto.php?id=" + id_usuario), uploadPhotoSuccess, uploadFail, options);
-}
-
-function subirVideo(id) {
-    var identificador = id;
-    var fileURL = document.getElementById("uri_video").innerHTML;
-    var options = new FileUploadOptions();
-    options.fileKey = "video";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("https://www.mycorner360.com/app/upload_video.php?id=" + identificador), uploadSuccess, uploadFail, options);
-}
-
-function uploadSuccess(r) {
-    //alert("Code = " + r.responseCode + " Response = " + r.response + " Sent = " + r.bytesSent);
-
-}
-
-function uploadPhotoSuccess(r) {
-    $("#fotoLocal").show();
-}
-
-function uploadFail(error) {
-    navigator.notification.alert("Los sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
 }
 
 
@@ -433,61 +289,6 @@ function play_video(videoUrl)
     };
     window.plugins.streamingMedia.playVideo(videoUrl, options);
 }
-
-
-function fotoDialog() {
-    navigator.notification.confirm(
-            (""), // message
-            alertfoto, // callback
-            'Selecciona una imagen para tu perfil de usuario', // title
-            'CÁMARA  ,  GALERÍA' // buttonName
-            );
-
-}
-
-function alertfoto(button) {
-
-    if (button == "1" || button == 1)
-    {
-
-        hacerFoto();
-    }
-
-    if (button == "2" || button == 2)
-    {
-
-        getPhoto(pictureSource.SAVEDPHOTOALBUM);
-    }
-
-}
-
-
-function videoDialog() {
-    navigator.notification.confirm(
-            (""), // message
-            alertvideo, // callback
-            'Añadir un video a este lugar', // title
-            'GRABAR  ,  GALERÍA' // buttonName
-            );
-
-}
-
-function alertvideo(button) {
-
-    if (button == "1" || button == 1)
-    {
-
-        grabarvideo();
-    }
-
-    if (button == "2" || button == 2)
-    {
-
-        libreria_videos();
-    }
-
-}
-
 
 
 function post_ajax(div_id, id, url)
