@@ -122,10 +122,10 @@ function guardar_rincon()
 {
     //subirImagen(id);
     subirVideo(id);
-
+    var id_usuario = localStorage.getItem('id_usuario');
     $.ajax({
         type: 'post',
-        url: 'https://www.mycorner360.com/app/actualizar_rincon.php?id=' + id,
+        url: 'https://www.mycorner360.com/app/actualizar_rincon.php?id_usuario=' + id_usuario + '&id=' + id,
         data: $('#main').serialize(),
         success: function () {
             navigator.notification.alert("Se estan actualizando los datos. En 24/48 horas aproximadamente tu rincon estará visible. Muchas gracias.", null, "Aviso de Mycorner360", "Aceptar");
