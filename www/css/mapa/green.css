@@ -1684,8 +1684,8 @@ ul.bullets li a:hover {
     width: auto;
 }
 .item .info {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: 15px;
+    border-top: 0px solid rgba(0, 0, 0, 0.05);
+    margin-top: 5px;
     padding-top: 5px;
 }
 .item .info dl {
@@ -1880,7 +1880,8 @@ ul.bullets li a:hover {
     padding: 4px 8px;
 }
 .item .wrapper {
-    padding: 20px 20px 10px;
+    padding: 10px;
+    padding-bottom: 0px;
     position: initial;
     text-align: center;
 }
