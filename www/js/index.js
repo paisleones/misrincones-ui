@@ -182,6 +182,11 @@ var styles = [
             {visibility: "off"}
         ]},
     {
+        featureType: "transit.station",
+        stylers: [
+            {visibility: "off"}
+        ]},
+    {
         featureType: 'road', // set the road
         elementType: 'geometry',
         stylers: [
