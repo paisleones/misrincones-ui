@@ -28,7 +28,7 @@ function grabarvideo()
 
 function captureVideoSuccess(videoURI) {
     var video = document.getElementById('videoLocal');
-    video.src = videoURI[0].fullPath;
+    video.src = videoURI.fullPath;
     document.getElementById("uri_video").innerHTML = video.src;
     //subirImagen(imageURI)
 }
