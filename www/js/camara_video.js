@@ -30,6 +30,12 @@ function captureVideoSuccess(videoURI) {
     var video = document.getElementById('videoLocal');
     video.src = videoURI.fullPath;
     document.getElementById("uri_video").innerHTML = video.src;
+
+    var ok_video = document.getElementById("uri_video").innerHTML;
+    if (ok_video != "")
+    {
+        $("#ok_video").show();
+    }
     //subirImagen(imageURI)
 }
 
