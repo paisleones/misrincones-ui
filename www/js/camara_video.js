@@ -10,6 +10,8 @@ function libreria_videos_Success(videoURI) {
     var video = document.getElementById('videoLocal');
     video.src = videoURI.fullPath;
     document.getElementById("uri_video").innerHTML = videoURI;
+
+    $("#ok_video").show();
     //subirImagen(imageURI)
 }
 
@@ -31,11 +33,7 @@ function captureVideoSuccess(videoURI) {
     video.src = videoURI.fullPath;
     document.getElementById("uri_video").innerHTML = video.src;
 
-    var ok_video = document.getElementById("uri_video").innerHTML;
-    if (ok_video != "")
-    {
-        $("#ok_video").show();
-    }
+    $("#ok_video").show();
     //subirImagen(imageURI)
 }
 
