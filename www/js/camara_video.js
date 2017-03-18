@@ -1,3 +1,19 @@
+function gotFile(fileEntry) {
+
+    fileEntry.file(function (file) {
+        var s = "";
+        s += "<b>Nombre:</b> " + file.name + "<br/>";
+        s += "<b>Tipo:</b> " + file.type + "<br/>";
+        s += "<b>Fecha:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
+        s += "<b>Tamaño:</b> " + file.size + "<br/>";
+
+        document.querySelector("#videoArea").innerHTML = s;
+        $("#videoArea").fadeIn();
+        console.dir(file);
+    });
+}
+
+
 function libreria_videos() {
     // Retrieve image file location from specified source
     navigator.camera.getPicture(libreria_videos_Success, onFail, {quality: 50,
@@ -13,6 +29,7 @@ function libreria_videos_Success(videoURI) {
     //document.getElementById("uri_video").innerHTML = videoURI;
 
     $("#ok_video").fadeIn();
+    gotFile(video.src);
 
     //subirImagen(imageURI)
 }
@@ -37,6 +54,7 @@ function captureVideoSuccess(videoURI) {
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").fadeIn();
+    gotFile(video.src);
     //subirImagen(imageURI)
 }
 
