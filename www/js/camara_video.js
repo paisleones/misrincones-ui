@@ -47,7 +47,7 @@ function grabarvideo()
 function captureVideoSuccess(videoURI) {
     var video = document.getElementById('videoLocal');
     video.src = videoURI.fullPath;
-    $('#uri_video').val(videoURI);
+    $('#uri_video').val(video.src);
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").fadeIn();
