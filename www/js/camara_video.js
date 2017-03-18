@@ -1,16 +1,13 @@
-function gotFile(fileEntry) {
-
-    fileEntry.file(function (file) {
-        var s = "";
-        s += "<b>Nombre:</b> " + file.name + "<br/>";
-        s += "<b>Tipo:</b> " + file.type + "<br/>";
-        s += "<b>Fecha:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
-        s += "<b>Tamaño:</b> " + file.size + "<br/>";
-
-        document.querySelector("#videoArea").innerHTML = s;
-        $("#videoArea").fadeIn();
-        console.dir(file);
-    });
+function video_info(mediaFiles) {
+    var i, len;
+    var formatSuccess = function (mediaFile) {
+        document.getElementById('videoArea').innerHTML =
+                "Alto: <strong>" + mediaFile.height + "</strong><br/>" +
+                "Ancho: <strong>" + mediaFile.width + "</strong><br/>" +
+                "Duracción: <strong>" + mediaFile.duration / 1000 + " segundos</strong><br/>" +
+                "Tamaño: <strong>" + mediaFile.size / 1000 + " Kbs.</strong><br/>";
+    };
+    $("#videoArea").fadeIn();
 }
 
 
@@ -29,7 +26,7 @@ function libreria_videos_Success(videoURI) {
     //document.getElementById("uri_video").innerHTML = videoURI;
 
     $("#ok_video").fadeIn();
-    gotFile(video.src);
+    video_info(video.src);
 
     //subirImagen(imageURI)
 }
@@ -54,7 +51,7 @@ function captureVideoSuccess(videoURI) {
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").fadeIn();
-    gotFile(video.src);
+    video_info(video.src);
     //subirImagen(imageURI)
 }
 
