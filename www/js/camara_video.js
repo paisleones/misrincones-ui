@@ -14,14 +14,15 @@ function libreria_videos_Success(videoURI) {
 
     $("#ok_video").show();
 
-    navigator.createThumbnail(video.src, function (err, imageData) {
+
+    navigator.videoThumbnail.createThumbnail(video.src, function (imageData) {
         alert(imageData);
         $("#videoArea").html(imageData);
         $("#videoArea").fadeIn();
-        if (err)
-            throw err;
-    });
 
+    }, function (err) {
+        alert("Error: " + err); //Fire an alert if any errors occur.
+    });
     //subirImagen(imageURI)
 }
 
