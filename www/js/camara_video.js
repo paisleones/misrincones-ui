@@ -19,7 +19,7 @@ function libreria_videos_Success(videoURI) {
         $("#videoArea").fadeIn();
         if (err)
             throw err;
-        console.log(imageData);
+        alert(imageData);
     });
 
     //subirImagen(imageURI)
@@ -50,7 +50,7 @@ function captureVideoSuccess(videoURI) {
         $("#videoArea").html(imageData);
         $("#videoArea").fadeIn();
         if (err)
-            throw err;
+            alert(imageData);
         console.log(imageData);
     });
     //subirImagen(imageURI)
