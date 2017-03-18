@@ -28,8 +28,6 @@ function libreria_videos_Success(videoURI) {
     //document.getElementById("uri_video").innerHTML = videoURI;
 
     $("#ok_video").fadeIn();
-    video_info(video.src);
-
     //subirImagen(imageURI)
 }
 
@@ -53,7 +51,6 @@ function captureVideoSuccess(videoURI) {
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").fadeIn();
-    video_info(video.src);
     //subirImagen(imageURI)
 }
 
