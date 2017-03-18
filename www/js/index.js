@@ -283,6 +283,9 @@ function cargar_mapa(latitud, longitud) {
 // Funcion para obtener el geoposicionamiento del usuario - latitud y longitud
 
 function obtener() {
+
+    $("#direccion_rincon").html("Obteniendo localización ...");
+
     var onSuccess = function (position) {
         var _latitude = position.coords.latitude;
         var _longitude = position.coords.longitude;
