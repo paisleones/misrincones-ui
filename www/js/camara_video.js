@@ -1,13 +1,15 @@
 function video_info(mediaFiles) {
-    var i, len;
-    var formatSuccess = function (mediaFile) {
-        document.getElementById('videoArea').innerHTML =
-                "Alto: <strong>" + mediaFile.height + "</strong><br/>" +
-                "Ancho: <strong>" + mediaFile.width + "</strong><br/>" +
-                "Duracción: <strong>" + mediaFile.duration / 1000 + " segundos</strong><br/>" +
-                "Tamaño: <strong>" + mediaFile.size / 1000 + " Kbs.</strong><br/>";
-    };
-    $("#videoArea").fadeIn();
+
+    var medFile = new MediaFile(mediaFiles, "video/mp4");
+
+    medFile.getFormatData(function (metadata) {
+        var info = "<strong>Ancho: <strong>" + metadata.width + "<br><strong>Alto: <strong>" + metadata.height + "<br><strong>Duracción: <strong>" + metadata.duration;
+        $("#videoArea").html(info);
+        $("#videoArea").fadeIn();
+
+    }, function () {
+        console.log("fail");
+    });
 }
 
 
