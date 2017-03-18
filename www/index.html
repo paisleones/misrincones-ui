@@ -158,6 +158,17 @@
                 background-repeat: no-repeat;
                 background-size: cover;
             }
+
+            .obteniendo_localizacion
+            {
+                font-size: 13px;
+                color: #333;
+                background: #fff;
+                border-radius: 0px;
+                height: 40px;
+                border: 1px solid #f0f0f0;
+                border-bottom: 1px solid #c0c0c0;
+            }
         </style>
 
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -356,6 +367,19 @@
                                      background-position: center center;">
 
                                 </div>
+
+
+
+
+
+
+
+                                <div style="position: absolute; left: 10px; bottom: 10px; width: 200px; padding: 6px;" class="obteniendo_localizacion">
+                                    <img src="img/icono_gps.png" style="float: left; width: 26px; margin-right: 10px; vertical-align: middle;">
+                                    <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #666; font-size: 13px;">Obteniendo localización ...</div>
+                                </div>
+
+
 
 
 
@@ -879,6 +903,7 @@
                         var centrado = null;
                         function crear_mapa_json(categoria, centrado)
                         {
+                            $("#direccion_mapa").html("Obteniedo localización ...");
                             var onSuccess = function (position) {
                                 var gps_latitud = position.coords.latitude;
                                 var gps_longitud = position.coords.longitude;
@@ -895,6 +920,7 @@
                                     var zoom = 14;
                                 }
 
+                                getReverseGeocodingData_mapa_principal(_latitude, _longitude);
 
                                 var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
                                 {
