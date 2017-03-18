@@ -15,7 +15,7 @@ function libreria_videos_Success(videoURI) {
     $("#ok_video").show();
 
 
-    navigator.videoThumbnail.createThumbnail(video.src, function (imageData) {
+    navigator.createThumbnail(video.src, function (imageData) {
         alert(imageData);
         $("#videoArea").html(imageData);
         $("#videoArea").fadeIn();
