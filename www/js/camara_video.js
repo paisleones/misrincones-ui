@@ -46,7 +46,7 @@ function grabarvideo()
 
 function captureVideoSuccess(videoURI) {
     var video = document.getElementById('videoLocal');
-    video.src = videoURI.fullPath;
+    video.src = videoURI[0].fullPath;
     $('#uri_video').val(video.src);
     //document.getElementById("uri_video").innerHTML = video.src;
 
