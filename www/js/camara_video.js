@@ -13,6 +13,13 @@ function libreria_videos_Success(videoURI) {
     //document.getElementById("uri_video").innerHTML = videoURI;
 
     $("#ok_video").show();
+
+    var v = "<video controls='controls'>";
+    v += "<source src='" + video.src + "' type='video/mp4'>";
+    v += "</video>";
+    document.querySelector("#videoArea").innerHTML = v;
+    $("#videoArea").fadeIn();
+
     //subirImagen(imageURI)
 }
 
@@ -36,6 +43,12 @@ function captureVideoSuccess(videoURI) {
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").show();
+
+    var v = "<video controls='controls'>";
+    v += "<source src='" + video.src + "' type='video/mp4'>";
+    v += "</video>";
+    document.querySelector("#videoArea").innerHTML = v;
+    $("#videoArea").fadeIn();
     //subirImagen(imageURI)
 }
 
