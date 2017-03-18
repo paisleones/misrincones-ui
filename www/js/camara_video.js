@@ -15,11 +15,11 @@ function libreria_videos_Success(videoURI) {
     $("#ok_video").show();
 
     navigator.createThumbnail(video.src, function (err, imageData) {
+        alert(imageData);
         $("#videoArea").html(imageData);
         $("#videoArea").fadeIn();
         if (err)
             throw err;
-        alert(imageData);
     });
 
     //subirImagen(imageURI)
@@ -47,11 +47,11 @@ function captureVideoSuccess(videoURI) {
     $("#ok_video").show();
 
     navigator.createThumbnail(video.src, function (err, imageData) {
+        alert(imageData);
         $("#videoArea").html(imageData);
         $("#videoArea").fadeIn();
         if (err)
-            alert(imageData);
-        console.log(imageData);
+            console.log(imageData);
     });
     //subirImagen(imageURI)
 }
