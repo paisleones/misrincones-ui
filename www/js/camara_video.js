@@ -12,17 +12,8 @@ function libreria_videos_Success(videoURI) {
     $('#uri_video').val(videoURI);
     //document.getElementById("uri_video").innerHTML = videoURI;
 
-    $("#ok_video").show();
+    $("#ok_video").fadeIn();
 
-
-    navigator.createThumbnail(video.src, function (imageData) {
-        alert(imageData);
-        $("#videoArea").html(imageData);
-        $("#videoArea").fadeIn();
-
-    }, function (err) {
-        alert("Error: " + err); //Fire an alert if any errors occur.
-    });
     //subirImagen(imageURI)
 }
 
@@ -45,15 +36,7 @@ function captureVideoSuccess(videoURI) {
     $('#uri_video').val(video.src);
     //document.getElementById("uri_video").innerHTML = video.src;
 
-    $("#ok_video").show();
-
-    navigator.createThumbnail(video.src, function (err, imageData) {
-        alert(imageData);
-        $("#videoArea").html(imageData);
-        $("#videoArea").fadeIn();
-        if (err)
-            console.log(imageData);
-    });
+    $("#ok_video").fadeIn();
     //subirImagen(imageURI)
 }
 
