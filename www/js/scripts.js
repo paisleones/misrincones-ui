@@ -371,7 +371,7 @@ function validar_nuevo_rincon()
     var localizacion_rincon = $("#localizacion").val();
     var categoria_rincon = $("#tipo_de_categoria_nuevo").html();
     var tipo_rincon = $("#tipo_de_rincon_nuevo").html();
-    var uri_video_rincon = $('#uri_video').html();
+    var uri_video_rincon = $('#uri_video').val();
 
     if (categoria_rincon == "Categoría de rincón?")
     {
