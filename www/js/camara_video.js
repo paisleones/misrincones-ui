@@ -24,7 +24,7 @@ function libreria_videos() {
 function libreria_videos_Success(videoURI) {
     var video = document.getElementById('videoLocal');
     video.src = videoURI.fullPath;
-    $('#uri_video').val(videoURI);
+    $('#uri_video').val(videoURI.fullPath);
     //document.getElementById("uri_video").innerHTML = videoURI;
 
     $("#ok_video").fadeIn();
@@ -47,7 +47,7 @@ function grabarvideo()
 function captureVideoSuccess(videoURI) {
     var video = document.getElementById('videoLocal');
     video.src = videoURI.fullPath;
-    $('#uri_video').val(video.src);
+    $('#uri_video').val(videoURI.fullPath);
     //document.getElementById("uri_video").innerHTML = video.src;
 
     $("#ok_video").fadeIn();
