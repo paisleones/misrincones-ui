@@ -68,7 +68,7 @@ function onFail(message) {
 
 function subirVideo(id) {
     var identificador = id;
-    var fileURL = document.getElementById("uri_video").innerHTML;
+    var fileURL = $('#uri_video').val();
     var options = new FileUploadOptions();
     options.fileKey = "video";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
