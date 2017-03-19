@@ -49,8 +49,14 @@ function captureVideoSuccess(videoURI) {
     video.src = videoURI[0].fullPath;
     $('#uri_video').val(video.src);
     //document.getElementById("uri_video").innerHTML = video.src;
-
-    $("#ok_video").fadeIn();
+    if (video.src != "")
+    {
+        $("#ok_video").fadeIn();
+    } else
+    {
+        $("#ok_video").hide();
+        video_error();
+    }
     //subirImagen(imageURI)
 }
 
@@ -98,6 +104,27 @@ function alertvideo(button) {
     }
 
     if (button == "2" || button == 2)
+    {
+
+        libreria_videos();
+    }
+
+}
+
+
+function video_error() {
+    navigator.notification.confirm(
+            (""), // message
+            alertvideo_error, // callback
+            'Correcto! Ahora selecciona el video grabado manualmente de la galería.', // title
+            'IR A LA GALERIA' // buttonName
+            );
+
+}
+
+function alertvideo_error(button) {
+
+    if (button == "1" || button == 1)
     {
 
         libreria_videos();
