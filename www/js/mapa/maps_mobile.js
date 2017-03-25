@@ -76,7 +76,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
         var map = null;
         function createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud){
 
-        $.get("https://www.mycorner360.com/assets/external/_infobox.js", function() {
+        $.get("https://www.mycorner360.com/assets/external/_infobox_app.js", function() {
         gMap();
         });
                 function gMap(){
@@ -163,6 +163,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         else color = '';
                         var markerContent = document.createElement('DIV');
                         var category = json.data[i].category;
+                        var id_rincon = json.data[i].id;
                         var category = category.toLowerCase();
                         var category = category.replace(" ", "_");
                         var tipo = json.data[i].type;
@@ -184,7 +185,6 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         '</div>' +
                         '</div>';
                 }
-
                 // Create marker on the map ------------------------------------------------------------------------------------
 
                 var marker = new RichMarker({
@@ -215,6 +215,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         // Infobox HTML element ----------------------------------------------------------------------------------------
 
                         var category = json.data[i].category;
+                        var id = json.data[i].id;
                         infoboxContent.innerHTML = drawInfobox(category, infoboxContent, json, i);
                         // Create new markers ------------------------------------------------------------------------------------------
 
@@ -223,9 +224,14 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
                         google.maps.event.addListener(marker, 'click', (function(marker, i) {
                         return function() {
-                        google.maps.event.addListener(map, 'click', function(event) {
-                        lastClicked = newMarkers[i];
-                        });
+                        // Abre ventana de informacion por ajax
+                        var id_rincon = json.data[i].id;
+                                //$("#informacion_rincon_" + id_ricon).hide();
+                                load_url("rincon_" + id_rincon, "https://www.mycorner360.com/ajax/consultar_rincon.php?id_rincon=" + id_rincon);
+                                // Fin
+                                google.maps.event.addListener(map, 'click', function(event) {
+                                lastClicked = newMarkers[i];
+                                });
                                 activeMarker = newMarkers[i];
                                 if (activeMarker != lastClicked){
                         for (var h = 0; h < newMarkers.length; h++) {

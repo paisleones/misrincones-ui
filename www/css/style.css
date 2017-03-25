@@ -661,3 +661,76 @@ input
     background: #ff0000;
 }
 
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+.animated-background {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    height: 50px;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    top: 8px;
+}
+
+
+.background-masker {
+    background: #fff;
+    position: absolute;
+}
+
+/* Every thing below this is just positioning */
+
+
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end{
+    width: auto;
+    left: 100%;
+    right: 0;
+    top: 0px;
+    height: 8px;
+}
+
+.background-masker.content-second-line  {
+    top: 8px;
+}
+
+.background-masker.content-second-end {
+    left: 100%;
+    top: 14px;
+}
+
+.background-masker.content-third-line {
+    top: 22px;
+}
+
+.background-masker.content-third-end {
+    left: 85%;
+    top: 28px;
+}
+
