@@ -517,7 +517,7 @@ var multipleItems = [];
         SimularClick('cerrar_izquierda');
         load_url("pantalla_mis_rincones", "multichoice.html");
         $("#pantalla_mis_rincones").show();
-        load_url("multichoice", "https://www.mycorner360.com/app/_modal-multichoice.php?latitud=" + sameLatitude + "&longitud=" + sameLongitude);
+        load_url("multichoice", "https://www.mycorner360.com/app/_modal_multichoice.php?latitud=" + sameLatitude + "&longitud=" + sameLongitude);
         //}
 }
 
