@@ -1,0 +1,59 @@
+<script>
+    function rincones_usuario(div, url)
+    {
+        $.ajax(
+                {
+                    url: url,
+                    cache: true,
+                    type: 'GET',
+                    contentType: "html",
+                    async: true,
+                    crossDomain: true,
+                })
+                .fail(function (data) {
+                    navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
+                })
+                .done(function (data) {
+                    $('#' + div).html(data);
+                    $("#" + div).fadeIn();
+                })
+                .always(function (data) {
+
+                });
+    }
+
+
+    var id_usuario = localStorage.getItem('id_usuario');
+    var email = localStorage.getItem('email');
+</script>
+
+<div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto;">
+    <div class="modal-wrapper" style="width: 100%; height: 99%; margin: 0px; background: #fff;">
+        <div class="modal-body" style="width: 100%; height: 100%; margin: 0px; background: #fff;">
+            <div style="padding: 0px; background: #fff;">
+
+
+                <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
+
+                    <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">HAY VARIOS RINCONES EN ESTA LOCALIZACIÓN</h2>
+                    Varios usuarios han añadido sus rincones en este punto. Aqui puedes verlos todos.
+                    <hr>
+                    <div style="padding: 0px;">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div id="multichoice" >
+                                    <div style="width: 100%; min-height: 300px; background: url(img/loading.svg); background-size: 40px; background-repeat: no-repeat; background-position: center center;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
