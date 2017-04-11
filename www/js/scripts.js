@@ -160,7 +160,6 @@ function validar_registro()
     var email_registro = $('#email_registro').val();
     var clave_registro = $('#clave_registro').val();
     var usuario_registro = $('#usuario_registro').val();
-    var codigo_promocion = $('#codigo_promocion').val();
     var aceptar_condiciones = $('#aceptar_condiciones').val();
 
 
@@ -194,16 +193,6 @@ function validar_registro()
         var validar3 = 1;
     }
 
-    if (codigo_promocion == "")
-    {
-        $("#codigo_promocion").addClass("input_login_error");
-        var validar4 = 0;
-    } else
-    {
-        $("#codigo_promocion").removeClass("input_login_error");
-        var validar4 = 1;
-    }
-
     if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1)
     {
 
@@ -219,7 +208,7 @@ function validar_registro()
         if ($("#aceptar_condiciones").is(':checked')) {
 
             var id = generar(20);
-            load_url("polivalente", "https://www.mycorner360.com/app/registro_usuario.php?id=" + id + "&usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro + "&codigo_promocion=" + codigo_promocion)
+            load_url("polivalente", "https://www.mycorner360.com/app/registro_usuario.php?id=" + id + "&usuario_registro=" + usuario_registro + "&email_registro=" + email_registro + "&clave_registro=" + clave_registro)
 
 
 
