@@ -169,11 +169,13 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var tipo = json.data[i].type;
                         var tipo = tipo.toLowerCase();
                         var tipo = tipo.replace(" ", "_");
+                        var icono = json.data[i].type_icon;
+                        var icono = icono.replace(" ", "_");
                         if (json.data[i].featured == 1) {
                 markerContent.innerHTML =
                         '<div class="map-marker featured' + color + ' ' + tipo + ' todos_los_rincones">' +
                         '<div class="icon ' + ' ' + category + '">' +
-                        '<img src="' + json.data[i].type_icon + '">' +
+                        '<img src="' + icono + '">' +
                         '</div>' +
                         '</div>';
                 }
@@ -181,7 +183,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                 markerContent.innerHTML =
                         '<div class="map-marker ' + json.data[i].color + ' ' + tipo + ' todos_los_rincones">' +
                         '<div class="icon ' + ' ' + category + '">' +
-                        '<img src="' + json.data[i].type_icon + '">' +
+                        '<img src="' + icono + '">' +
                         '</div>' +
                         '</div>';
                 }
