@@ -280,11 +280,11 @@
                     <!--Page Content-->
                     <div id="page-content">
                         <!-- Map Canvas-->
-                        <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 50px; left: 0px;">
+                        <div class="map-canvas list-solid" style="width: 100%; height: 100%; position: fixed; top: 00px; left: 0px;">
                             <!-- Map -->
                             <div class="map">
 
-                                <div style="position: absolute; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px; z-index: 100;" class="sombra">
+                                <div style="position: relative; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px; z-index: 100;" class="sombra">
                                     <img src="img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px; vertical-align: middle;">
 
                                     <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
@@ -420,16 +420,38 @@
                         <h6>Introduce tu email y contraseña</h6>
                         <br><br>
 
-                        <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario">
+                        <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario" style="font-size: 16px;">
                         <br><br>
-                        <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña">
+                        <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;">
                         <br><br><br><br>
 
                         <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
                         <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
+                        <br><br><br>
+                        <a onclick="mostrar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>¿Has olvidado tu contraseña?</h6></a>
                     </div>
 
-                    <div class="centrado-porcentual" id="ventana_cerrar_sesion" style="display: none;">
+                    <div class="centrado-porcentual" id="ventana_recordar_clave" style="display: none; padding: 20px;">
+                        <form id="formulario_recordar_clave" name="formulario_recordar_clave" class="form-horizontal" action="" method="post">
+                            <h6 style="font-size: 30px;">Recordar contraseña
+                            </h6>
+                            <h6>Si has olvidado tu contraseña, introcuce tu email y te enviaremos una nueva.</h6>
+
+                            <br><br>
+                            <input class="input_login" type="text"  id="email_recordar_clave" name="email_recordar_clave" placeholder="Correo electrónico" style="font-size: 16px;" value="paisleones@gmail.com">
+                            <br><br><br><br>
+
+                            <div id="comprobando_recordar_clave" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
+                        </form>
+                        <a id="validar_recordar_clave" onclick="recordar_clave();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">RECORDAR CONTRASEÑA</a>
+
+                        <br><br><br>
+
+                        <a onclick="quitar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>Volver a iniciar sesión</h6></a>
+
+                    </div>
+
+                    <div class="centrado-porcentual" id="ventana_recordar_clave" style="display: none;">
                         <h6 style="font-size: 36px;">Cerrar sesión
                         </h6>
                         <h6>Si quieres cerrar sesión o entrar con un <br>usuario diferente, pincha en cerrar sesión.</h6>
@@ -642,6 +664,7 @@
 
                         function login()
                         {
+                            document.getElementById("ventana_recordar_clave").style.display = "none";
                             SimularClick('cerrar_izquierda');
                             $("#email_sesion").removeClass("input_login_error");
                             $("#clave_sesion").removeClass("input_login_error");

@@ -3802,22 +3802,7 @@ body.map-fullscreen #map {
 .map-marker.featured:before {
     border-color: #474747 transparent transparent transparent;
 }
-.map-marker .icon {
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    -moz-transition: 0.3s ease-in-out all;
-    -webkit-transition: 0.3s ease-in-out all;
-    transition: 0.3s ease-in-out all;
-    background-color: #fff;
-    border: 3px solid #0dcdbd;
-    height: 28px;
-    left: 4px;
-    width: 28px;
-    overflow: hidden;
-    position: relative;
-    top: 5px;
-}
+
 .map-marker .icon img {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
     opacity: 0.6;
@@ -6896,6 +6881,63 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
 .map-marker
 {
     z-index:-1;
+}
+
+
+.map-marker .icon {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transition: 0.3s ease-in-out all;
+    -webkit-transition: 0.3s ease-in-out all;
+    transition: 0.3s ease-in-out all;
+    background-color: #fff;
+    border: 3px solid #0dcdbd;
+    height: 28px;
+    left: 4px;
+    width: 28px;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+
+.map-marker .destacado {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transition: 0.3s ease-in-out all;
+    -webkit-transition: 0.3s ease-in-out all;
+    transition: 0.3s ease-in-out all;
+    background-color: #fff;
+    border: 3px solid #ff513f;
+    height: 28px;
+    left: 4px;
+    width: 28px;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+
+.item .price_destacado {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    background-color:  #ff513f;
+    color: #fff;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+    padding: 4px 8px;
+}
+
+.item .price_ {
+    display: none;
 }
 
 

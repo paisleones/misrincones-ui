@@ -63,10 +63,10 @@
 if ($(window).width() > alto_pantalla) {
 
 $('.map-canvas').height($(window).height() - $('.header').height() + 70);
-        }
+}
 else {
 $('.map-canvas #map').height($(window).height() - $('.header').height() + 70);
-        }
+}
 }
 
 $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100);
@@ -162,27 +162,28 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                 if (json.data[i].color) var color = json.data[i].color;
                         else color = '';
                         var markerContent = document.createElement('DIV');
-                        var category = json.data[i].category;
                         var id_rincon = json.data[i].id;
-                        var category = category.toLowerCase();
-                        var category = category.replace(" ", "_");
+                        var categoria = json.data[i].category;
+                        categoria = categoria.replace(" ", "_");
+                        categoria = categoria.toLowerCase();
+                        var destacado = json.data[i].destacado;
                         var tipo = json.data[i].type;
-                        var tipo = tipo.toLowerCase();
-                        var tipo = tipo.replace(" ", "_");
+                        tipo = tipo.toLowerCase();
+                        tipo = tipo.replace(" ", "_");
                         var icono = json.data[i].type_icon;
-                        var icono = icono.replace(" ", "_");
+                        icono = icono.replace(" ", "_");
                         if (json.data[i].featured == 1) {
                 markerContent.innerHTML =
-                        '<div class="map-marker featured' + color + ' ' + tipo + ' todos_los_rincones">' +
-                        '<div class="icon ' + ' ' + category + '">' +
+                        '<div class="map-marker featured sombra ' + color + ' ' + tipo + ' todos_los_rincones">' +
+                        '<div class="icon ' + destacado + '">' +
                         '<img src="' + icono + '">' +
                         '</div>' +
                         '</div>';
                 }
                 else {
                 markerContent.innerHTML =
-                        '<div class="map-marker ' + json.data[i].color + ' ' + tipo + ' todos_los_rincones">' +
-                        '<div class="icon ' + ' ' + category + '">' +
+                        '<div class="map-marker sombra ' + json.data[i].color + ' ' + tipo + ' todos_los_rincones">' +
+                        '<div class="icon ' + destacado + '">' +
                         '<img src="' + icono + '">' +
                         '</div>' +
                         '</div>';
@@ -340,16 +341,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                                 });
                                 // Call Rating function ----------------------------------------------------------------------------------------
 
-                                rating('.results .item');
-                                var $singleItem = $('.results .item');
-                                $singleItem.hover(
-                                        function(){
-                                        newMarkers[ $(this).attr('id') - 1 ].content.className = 'marker-active marker-loaded';
-                                        },
-                                        function() {
-                                        newMarkers[ $(this).attr('id') - 1 ].content.className = 'marker-loaded';
-                                        }
-                                );
+
                         });
                         redrawMap('google', map);
                         function is_cached(src, a) {
@@ -448,7 +440,7 @@ var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
                 flat: true
         });
         marker.content.className = 'marker-loaded';
-        }
+}
 
 
 
@@ -459,7 +451,9 @@ var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
 // Push items to array and create <li> element in Results sidebar ------------------------------------------------------
 
 function pushItemsToArray(json, a, category, visibleItemsArray){
-var itemPrice;
+
+var destacado = json.data[a].destacado;
+        var itemPrice;
         visibleItemsArray.push(
                 '<li>' +
                 '<div class="item" id="' + json.data[a].id + '">' +
@@ -473,7 +467,7 @@ var itemPrice;
                 '<div class="wrapper">' +
                 '<a href="#" id="' + json.data[a].id + '"><h3>' + json.data[a].title + '</h3></a>' +
                 '<figure>' + json.data[a].location + '</figure>' +
-                drawPrice(json.data[a].price) +
+                '<div class="price_' + destacado + '">' + json.data[a].destacado + '</div>' +
                 '<div class="info">' +
                 '<div class="type">' +
                 '<i><img src="' + json.data[a].type_icon + '" alt=""></i>' +
@@ -505,9 +499,9 @@ var _latitude = json.data[a].latitude;
         var _longitude = json.data[a].longitude;
         var mapCenter = new google.maps.LatLng(_latitude, _longitude);
         map.setCenter(mapCenter);
-        }
-});
 }
+});
+        }
 
 // Create modal if more items are on the same location (example: one building with floors) -----------------------------
 
@@ -521,7 +515,7 @@ var multipleItems = [];
         $("#pantalla_mis_rincones").show();
         load_url("multichoice", "https://www.mycorner360.com/app/_modal_multichoice.php?latitud=" + sameLatitude + "&longitud=" + sameLongitude);
         //}
-}
+        }
 
 // Animate OSM marker --------------------------------------------------------------------------------------------------
 
@@ -549,7 +543,7 @@ var bounds = map.getBounds();
 
         $('.items-list .results').html(visibleItemsArray);
         rating('.results .item');
-}
+        }
 
 // Redraw map after item list is closed --------------------------------------------------------------------------------
 
@@ -559,10 +553,10 @@ $('.map-canvas').toggleClass('results-collapsed');
         $('.map-canvas .map').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 if (mapProvider == 'osm'){
 map.invalidateSize();
-        }
+}
 else if (mapProvider == 'google'){
 google.maps.event.trigger(map, 'resize');
-        }
-});
-        });
 }
+});
+});
+        }

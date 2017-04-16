@@ -297,6 +297,7 @@ function cerrar_sesion()
 
     quitar_login();
     document.getElementById("ventana_login").style.display = "none";
+    document.getElementById("ventana_recordar_clave").style.display = "none";
     document.getElementById("ventana_cerrar_sesion").style.display = "none";
     navigator.notification.alert("Enhorabuena! Has cerrado la sesión de tu usuario correctamente. Hasta la próxima.", null, "Aviso de Mycorner360", "Aceptar");
 
@@ -354,6 +355,39 @@ function iniciar_sesion()
     {
         $("#comprobando_login").hide();
         $("#validar_login").show();
+        navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
+    }
+
+}
+
+
+
+// Funcion para iniciar sesion
+
+function recordar_clave()
+{
+
+    $("#validar_login").hide();
+    $("#comprobando_login").show();
+    var email_recordar_clave = $('#email_recordar_clave').val();
+
+    if (email_recordar_clave == "")
+    {
+        $("#email_recordar_clave").addClass("input_login_error");
+        var validar5 = 0;
+    } else
+    {
+        $("#email_recordar_clave").removeClass("input_login_error");
+        var validar1 = 1;
+    }
+
+    if (validar1 == 1)
+    {
+        post_ajax('comprobando_recordar_clave', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
+    } else
+    {
+        $("#comprobando_recordar_clave").hide();
+        $("#validar_recordar_clave").show();
         navigator.notification.alert("Un momento!, debes rellenar todos los campos", null, "Aviso de Mycorner360", "Aceptar");
     }
 
@@ -470,3 +504,18 @@ function centrado_mapa()
     var _longitude = NewMapCenter.lng();
     //fin coordenadas centrado mapa
 }
+
+function mostrar_recordar_clave()
+{
+    $("#email_recordar_clave").val('');
+    $("#ventana_login").hide();
+    $("#ventana_recordar_clave").show();
+}
+
+function quitar_recordar_clave()
+{
+    $("#ventana_recordar_clave").hide();
+    $("#ventana_login").show();
+    $("#email_recordar_clave").val('');
+}
+
