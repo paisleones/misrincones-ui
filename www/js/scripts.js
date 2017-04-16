@@ -367,7 +367,7 @@ function iniciar_sesion()
 function recordar_clave()
 {
 
-    $("#validar_login").hide();
+    $("#validar_recordar_clave").hide();
     $("#comprobando_recordar_clave").show();
     var email_recordar_clave = $('#email_recordar_clave').val();
 
