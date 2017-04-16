@@ -368,7 +368,7 @@ function recordar_clave()
 {
 
     $("#validar_login").hide();
-    $("#comprobando_login").show();
+    $("#comprobando_recordar_clave").show();
     var email_recordar_clave = $('#email_recordar_clave').val();
 
     if (email_recordar_clave == "")
