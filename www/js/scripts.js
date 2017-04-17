@@ -366,6 +366,7 @@ function iniciar_sesion()
 
 function recordar_clave()
 {
+
     var email_recordar_clave = $('#email_recordar_clave').val();
 
     if (email_recordar_clave == "")
@@ -382,7 +383,11 @@ function recordar_clave()
     {
         $("#comprobando_recordar_clave").show();
         $("#validar_recordar_clave").hide();
-        post_ajax('comprobando_recordar_clave', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
+
+        setTimeout(function () {
+            post_ajax('comprobando_recordar_clave', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
+        }, 1000);
+
     } else
     {
         $("#comprobando_recordar_clave").hide();
