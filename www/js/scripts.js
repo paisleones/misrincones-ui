@@ -336,21 +336,12 @@ function iniciar_sesion()
 
     if (validar5 == 1 && validar6 == 1)
     {
-        /*
-         $.ajax({
-         type: "POST",
-         data: $("#login_form").serialize(),
-         dataType: 'html',
-         url: "http://www.mycorner360.com/app/login1.php",
-         success: function (data) {
-         alert('EXITO');
-         },
-         error: function () {
-         alert('ERROR');
-         }
-         });
-         */
-        load_url("polivalente", "https://www.mycorner360.com/app/login.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion, "crear_nueva_cuenta");
+
+        setTimeout(function () {
+            post_ajax('polivalente', 'formulario_iniciar_sesion', 'https://www.mycorner360.com/app/validar_login.php');
+        }, 500);
+
+        //load_url("polivalente", "https://www.mycorner360.com/app/login.php?email_sesion=" + email_sesion + "&clave_sesion=" + clave_sesion, "crear_nueva_cuenta");
     } else
     {
         $("#comprobando_login").hide();

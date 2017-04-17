@@ -415,18 +415,20 @@
 
 
                     <div class="centrado-porcentual" id="ventana_login" style="display: none;">
-                        <h6 style="font-size: 36px;">Iniciar sesión
-                        </h6>
-                        <h6>Introduce tu email y contraseña</h6>
-                        <br><br>
+                        <form id="formulario_iniciar_sesion" name="formulario_iniciar_sesion" class="form-horizontal" action="" method="post">
+                            <h6 style="font-size: 36px;">Iniciar sesión
+                            </h6>
+                            <h6>Introduce tu email y contraseña</h6>
+                            <br><br>
 
-                        <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario" style="font-size: 16px;">
-                        <br><br>
-                        <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;">
-                        <br><br><br><br>
+                            <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario" style="font-size: 16px;">
+                            <br><br>
+                            <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;">
+                            <br><br><br><br>
 
-                        <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
-                        <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
+                            <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
+                            <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
+                        </form>
                         <br><br><br><br>
                         <a onclick="mostrar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>¿Has olvidado tu contraseña? →</h6></a>
                     </div>
