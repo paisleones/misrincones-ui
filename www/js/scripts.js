@@ -366,15 +366,26 @@ function iniciar_sesion()
 
 function recordar_clave()
 {
+
     var email_recordar_clave = $('#email_recordar_clave').val();
 
-    if (email_recordar_clave != "")
+    if (email_recordar_clave == "")
     {
-        $("#validar_recordar_clave").hide();
+        $("#email_recordar_clave").addClass("input_login_error");
+        var validar1 = 0;
+    } else
+    {
+        $("#email_recordar_clave").removeClass("input_login_error");
+        var validar1 = 1;
+    }
+
+    if (validar1 == 1)
+    {
         $("#comprobando_recordar_clave").show();
+        $("#validar_recordar_clave").hide();
 
         setTimeout(function () {
-            post_ajax('comprobando_recordar_clave', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
+            post_ajax('polivalente', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
         }, 1000);
 
     } else
