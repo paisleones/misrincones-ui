@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.trabajocreativo.mycorner360" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+	<?xml version='1.0' encoding='utf-8'?>
+	<widget id="com.trabajocreativo.mycorner360" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mycorner360</name>
     <description>
         Otra forma de descubir el mundo que te rodea
@@ -11,8 +11,8 @@
     <preference name="permissions" value="none"/>
     <preference name="target-device" value="universal"/>
     <preference name="DisallowOverscroll" value="true" />
-  <preference name="android-minSdkVersion" value="12"/>
-  <preference name="android-installLocation" value="auto"/>
+  	<preference name="android-minSdkVersion" value="12"/>
+  	<preference name="android-installLocation" value="auto"/>
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="webviewbounce" value="true" />
@@ -24,9 +24,10 @@
     <preference name="exit-on-suspend" value="false"/>
     <preference name="disable-cursor" value="false" />
 	<plugin name="cordova-plugin-app-version">
-   <param name="id" value="plugin.google.maps" />
-   <variable name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M" />
-</plugin>
+   	<param name="id" value="plugin.google.maps" />
+   	<variable name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M" />
+	</plugin>
+	<plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-media-capture" source="npm" />
@@ -41,8 +42,8 @@
     <plugin name="cordova-plugin-streaming-media-mod" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <feature name="SocialSharing">
-  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-</feature>
+ 	 <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+	</feature>
        <icon src="www/icon.png" />
     <platform name="android">
     </platform>
@@ -53,21 +54,21 @@
     <platform name="windows">
     </platform>
       <access origin="*" />
-  <plugin name="cordova-plugin-whitelist" version="1"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-  <allow-intent href="geo:*"/>
-  <allow-intent href="whatsapp:*" />
-<allow-intent href="*" />
-  <platform name="android">
-   <allow-intent href="market:*"/>
-  </platform>
-  <engine name="android" spec="^4.0.2" />
+  	<plugin name="cordova-plugin-whitelist" version="1"/>
+  	<allow-intent href="http://*/*"/>
+  	<allow-intent href="https://*/*"/>
+  	<allow-intent href="tel:*"/>
+  	<allow-intent href="sms:*"/>
+  	<allow-intent href="mailto:*"/>
+  	<allow-intent href="geo:*"/>
+  	<allow-intent href="whatsapp:*" />
+	<allow-intent href="*" />
+  	<platform name="android">
+   	<allow-intent href="market:*"/>
+  	</platform>
+  	<engine name="android" spec="^4.0.2" />
     <gap:platform name="android" />
-  <platform name="ios">
+  	<platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
