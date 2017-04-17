@@ -366,9 +366,6 @@ function iniciar_sesion()
 
 function recordar_clave()
 {
-
-    $("#validar_recordar_clave").hide();
-    $("#comprobando_recordar_clave").show();
     var email_recordar_clave = $('#email_recordar_clave').val();
 
     if (email_recordar_clave == "")
@@ -383,6 +380,8 @@ function recordar_clave()
 
     if (validar1 == 1)
     {
+        $("#comprobando_recordar_clave").show();
+        $("#validar_recordar_clave").hide();
         post_ajax('comprobando_recordar_clave', 'formulario_recordar_clave', 'https://www.mycorner360.com/app/recordar_clave.php');
     } else
     {
