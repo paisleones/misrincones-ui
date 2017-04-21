@@ -103,17 +103,14 @@
 
 
             .boton_zoom {
-                width: 44px;
-                height: 44px;
+                width: 40px;
+                height: 40px;
                 background: rgba(13,205,189,0.9);
                 position: absolute;
                 cursor: pointer;
                 padding: 9px;
                 border-radius: 0px;
                 z-index: 100;
-                border-radius: 50%;
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.20), 0 3px 1px -2px rgba(0,0,0,0.2);
-
             }
 
             .no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
@@ -304,19 +301,19 @@
                                     <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
                                 </div>
 
-                                <div class="boton_zoom" style="position: absolute; left: 10px; top: 124px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
+                                <div class="boton_zoom sombra" style="position: absolute; left: 10px; top: 124px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
                                     <img src="img/icono_gps_blanco.png" style="width: 40px">
                                 </div>
 
-                                <div id="zoomin" class="boton_zoom" style="position: absolute; bottom: 60px; right: 10px;">
-                                    <img src="img/zoom_mas.png" style="width: 26px">
+                                <div id="zoomin" class="boton_zoom sombra" style="position: absolute; bottom: 56px; right: 10px;">
+                                    <img src="img/zoom_mas.png" style="width: 22px">
                                 </div>
 
-                                <div id="zoomout" class="boton_zoom" style="position: absolute; bottom: 10px; right: 10px;">
-                                    <img src="img/zoom_menos.png" style="width: 26px">
+                                <div id="zoomout" class="boton_zoom sombra" style="position: absolute; bottom: 10px; right: 10px;">
+                                    <img src="img/zoom_menos.png" style="width: 22px">
                                 </div>
 
-                                <a onclick="nuevo_rincon();" class="btn-floating" style="position: absolute; bottom: 10px; left: 10px; width: 44px; height: 44px;"><img src="img/play_icon.png" style="width: 44px;"></a>
+                                <a onclick="nuevo_rincon();" class="btn-floating" style="position: absolute; bottom: 10px; left: 10px; width: 40px; height: 40px;"><img src="img/play_icon.png" style="width: 40px;"></a>
 
 
                                 <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 120px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
