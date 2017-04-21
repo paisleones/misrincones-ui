@@ -183,6 +183,12 @@
                 vertical-align: middle;
                 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.20), 0 3px 1px -2px rgba(0,0,0,0.2);
             }
+
+            .material_shadow
+            {
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.20), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+            }
         </style>
 
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -303,7 +309,7 @@
                                     <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
                                 </div>
 
-                                <div class="boton_zoom" style="position: absolute; left: 10px; top: 124px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
+                                <div class="boton_zoom" style="position: absolute; left: 10px; top: 120px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
                                     <img src="img/icono_gps_blanco.png" style="width: 40px">
                                 </div>
 
@@ -318,12 +324,12 @@
                                 <a onclick="nuevo_rincon();" class="btn-floating" style="position: absolute; bottom: 10px; left: 10px; width: 40px; height: 40px;"><img src="img/play_icon.png" style="width: 40px;"></a>
 
 
-                                <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 120px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
+                                <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 116px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
 
 
-                                    <div class="btn-group bootstrap-select framed" style="padding: 0px; height: 40px;">
-                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px; height:40px; border: 1px solid #f0f0f0; border-bottom: 1px solid #c0c0c0;">
+                                    <div class="btn-group bootstrap-select framed material_shadow" style="padding: 0px; height: 40px;">
+                                        <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px; height:40px; border: 0px solid #f0f0f0;">
                                             <span class="filter-option pull-left" id="tipo_de_rincon_mapa">Selecciona un rincón</span>&nbsp;<span class="caret"></span>
                                         </button>
                                         <div class="dropdown-menu open animation-fade-in" style="margin-top: 2px; max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
