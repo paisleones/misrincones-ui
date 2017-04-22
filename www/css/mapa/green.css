@@ -3042,7 +3042,7 @@ body.map-fullscreen #map {
 }
 .items-list .inner {
     height: 100%;
-    width: 100%;
+    width: 93%;
     position: relative;
 }
 .items-list .inner .filter {
