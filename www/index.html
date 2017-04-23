@@ -890,10 +890,11 @@
 
                         function quickView(id)
                         {
-                            document.getElementById("volver_atras").style.display = "block";
+                            $('#volver_atras').show();
                             SimularClick('cerrar_derecha');
                             $('#login').hide();
                             $('#nuevo_rincon').html('');
+                            $('#contenido_nuevo').html('');
                             $('#loading').show();
                             $('.modal-window').remove();
                             $.ajax(
