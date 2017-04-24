@@ -195,6 +195,19 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        
+                <script type="text/javascript" src="iscroll.js"></script>
+<script type="text/javascript">
+var myScroll;
+function loaded() {
+    myScroll = new IScroll('body');
+}
+
+var myScroll = new IScroll('body', {
+    mouseWheel: true,
+    scrollbars: true
+});
+</script>
 
     </head>
     <body>
@@ -1007,6 +1020,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/camera.js"></script>
         <script type="text/javascript" src="js/geolocation.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
 
         <script type="text/javascript">
                         app.initialize();
