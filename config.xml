@@ -11,7 +11,7 @@
     <preference name="permissions" value="none"/>
     <preference name="target-device" value="universal"/>
     <preference name="DisallowOverscroll" value="true" />
-  	<preference name="android-minSdkVersion" value="14"/>
+  	<preference name="android-minSdkVersion" value="12"/>
   	<preference name="android-installLocation" value="auto"/>
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -27,7 +27,6 @@
    	<param name="id" value="plugin.google.maps" />
    	<variable name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M" />
 	</plugin>
-	<plugin name="phonegap-plugin-push" source="npm" />
 	<plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="cordova-plugin-camera" source="npm" />
