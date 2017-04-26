@@ -75,8 +75,6 @@
     }
 </style>
 
-<div style="" id="como_usar" class="como_usar"></div>
-
 <script>
     if (document.location.search.match(/type=embed/gi)) {
         window.parent.postMessage("resize", "*");
@@ -84,12 +82,32 @@
 
     var id = generar(20);
 
-    var como_crear_nuevo_rincon = localStorage.getItem('como_crear_nuevo_rincon');
-    if (como_crear_nuevo_rincon === "")
+    function entendido()
     {
-        load_url("como_usar", "como_crear_nuevo_rincon.html");
+        document.getElementById("paso2").style.display = "none";
+        localStorage.setItem("como_crear_nuevo_rincon", "entendido");
     }
 </script>
+
+<div style="" id="como_usar" class="como_usar">
+
+    <div id="paso1" style="display: block;">
+        <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+        <div class="centrado-porcentual" style="z-index: 50; padding: 40px; padding-top: 0px; color: #c0c0c0; line-height: 120%; text-align: center;">
+            <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
+                <img src="img/uso/drag.png" style="width: 50px; margin-top: 15px; margin-left: 10px;">
+            </div>
+            <br>
+            Puedes arrastrar el marcador y situarlo sobre el mapa donde tu quieras
+            <p><br><br>
+                <button id="boton_registro" type="button" onclick="siguiente_paso();" class="btn btn-large btn-default" style="width: 150px;">SIGUIENTE</button>
+
+
+        </div>
+    </div>
+
+</div>
+
 
 
 <div style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
