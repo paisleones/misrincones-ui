@@ -61,6 +61,18 @@
     .star-rating i ~ i ~ i ~ i ~ i {
         width: 100%;
     }
+    
+        .como_usar
+    {
+        width: 100%; 
+        height: 100%; 
+        position: fixed; 
+        top: 0px; 
+        left: 0px; ;
+        z-index: 20; 
+        display: block;
+        opacity: 1;
+    }
 </style>
 
 
@@ -70,8 +82,16 @@
     }
 
     var id = generar(20);
+
+    localStorage.setItem("como_crear_nuevo_rincon", "");
+    var como_crear_nuevo_rincon = localStorage.getItem('como_crear_nuevo_rincon');
+    if (como_crear_nuevo_rincon === "")
+    {
+        load_url("como_usar", "como_crear_nuevo_rincon.html");
+    }
 </script>
 
+<div style="" id="como_usar" class="como_usar"></div>
 
 <div  style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
 
