@@ -82,23 +82,30 @@
 
     var id = generar(20);
 
+    function siguiente_paso()
+    {
+        document.getElementById("paso1").style.display = "none";
+        document.getElementById("paso2").style.display = "block";
+    }
+
     function entendido()
     {
         document.getElementById("paso2").style.display = "none";
         localStorage.setItem("como_crear_nuevo_rincon", "entendido");
     }
+
 </script>
 
 <div style="" id="como_usar" class="como_usar">
 
-    <div id="paso1" style="display: block;">
+    <div id="paso1" style="display: none;">
         <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
         <div class="centrado-porcentual" style="z-index: 50; padding: 40px; padding-top: 0px; color: #c0c0c0; line-height: 120%; text-align: center;">
             <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
                 <img src="img/uso/drag.png" style="width: 50px; margin-top: 15px; margin-left: 10px;">
             </div>
-            <br>
-            Puedes arrastrar el marcador y situarlo sobre el mapa donde tu quieras
+            <br><br>
+            Puedes arrastrar el marcador y situarlo sobre el mapa donde tu quieras para posicionarlo mejor.
             <p><br><br>
                 <button id="boton_registro" type="button" onclick="siguiente_paso();" class="btn btn-large btn-default" style="width: 150px;">SIGUIENTE</button>
 
@@ -106,7 +113,30 @@
         </div>
     </div>
 
+    <div id="paso2" style="display: none;">
+        <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+        <div class="centrado-porcentual" style="z-index: 50; padding: 40px; padding-top: 0px; color: #c0c0c0; line-height: 120%; text-align: center;">
+            <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
+                <img src="img/uso/click.png" style="width: 50px; margin-top: 22px; margin-left: 36px;">
+            </div>
+            <br><br>
+            Añadir un nuevo rincon es muy sencillo. Puedes grabar un video de 30 segundos como máximo por cada rincón
+            <p><br><br>
+                <button id="boton_registro" type="button" onclick="entendido();" class="btn btn-large btn-default" style="width: 150px;">ENTENDIDO !!</button>
+
+
+        </div>
+    </div>
+
 </div>
+
+<script>
+    var como_crear_nuevo_rincon = localStorage.getItem('como_crear_nuevo_rincon');
+    if (como_crear_nuevo_rincon == "")
+    {
+        $("#paso1").show();
+    }
+</script>
 
 
 
