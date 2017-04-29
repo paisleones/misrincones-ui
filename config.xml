@@ -23,10 +23,6 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false"/>
     <preference name="disable-cursor" value="false" />
-	<plugin name="cordova-plugin-app-version">
-   	<param name="id" value="plugin.google.maps" />
-   	<variable name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M" />
-	</plugin>
 	<gap:plugin name="cordova-plugin-googlemaps" source="npm">
     <param name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
     <param name="API_KEY_FOR_IOS" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
