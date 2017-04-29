@@ -1006,7 +1006,8 @@
         <script type="text/javascript">
                         var map;
                         document.addEventListener("deviceready", function () {
-                            var div = document.getElementById("map_canvas");
+                            //var div = document.getElementById("map_canvas");
+                            var div = getElementsByClassName("map");
 
                             // Initialize the map view
                             map = plugin.google.maps.Map.getMap(div);
