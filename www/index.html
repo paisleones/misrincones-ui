@@ -196,6 +196,21 @@
         <script type="text/javascript" src="js/fastclick.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+            var map;
+            document.addEventListener("deviceready", function () {
+                var button = document.getElementById("button");
+                button.addEventListener("click", onBtnClicked, false);
+
+                var div = document.getElementById("map_canvas");
+                map = plugin.google.maps.Map.getMap(div);
+            }, false);
+            function onBtnClicked() {
+                map.showDialog();
+            }
+        </script>
+
     </head>
     <body>
 
@@ -648,19 +663,6 @@
         <!--
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
         -->
-        <script type="text/javascript">
-                       var map;
-                       document.addEventListener("deviceready", function () {
-                           var button = document.getElementById("button");
-                           button.addEventListener("click", onBtnClicked, false);
-
-                           var div = document.getElementById("map_canvas");
-                           map = plugin.google.maps.Map.getMap(div);
-                       }, false);
-                       function onBtnClicked() {
-                           map.showDialog();
-                       }
-        </script>
 
         <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
@@ -1015,7 +1017,6 @@
 
         </script>
 
-        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/capture.js"></script>
         <script type="text/javascript" src="js/camara_fotos.js"></script>
         <script type="text/javascript" src="js/camara_video.js"></script>
