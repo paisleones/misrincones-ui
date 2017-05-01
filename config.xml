@@ -27,8 +27,6 @@
     <param name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
     <param name="API_KEY_FOR_IOS" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
 </gap:plugin>
-	<plugin name="cordova-plugin-crosswalk-webview" source="npm"/>
-<plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
 	<plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="cordova-plugin-camera" source="npm" />
