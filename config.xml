@@ -23,7 +23,6 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false"/>
     <preference name="disable-cursor" value="false" />
-    <preference name="xwalkMode" value="lite" />
 <gap:plugin name="cordova-plugin-armsoft-googlemaps" source="npm">
     <param name="API_KEY_FOR_ANDROID" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
     <param name="API_KEY_FOR_IOS" value="AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"/>
