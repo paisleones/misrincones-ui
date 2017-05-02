@@ -304,711 +304,716 @@
                                 <!-- Map -->
                                 <div class="map">
 
-                                    <div style="position: relative; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px; z-index: 100;" class="shadow">
-                                        <img src="img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px; vertical-align: middle;">
+                                    <div id="map" style="z-index: 0; width: 100%; height: 110%; margin-top: -50px;">
 
-                                        <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
-                                    </div>
+                                        <div style="position: relative; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px; z-index: 100;" class="shadow">
+                                            <img src="img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px; vertical-align: middle;">
 
-                                    <div class="boton_zoom" style="position: absolute; left: 10px; top: 120px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
-                                        <img src="img/icono_gps_blanco.png" style="width: 40px">
-                                    </div>
+                                            <div id="direccion_mapa" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
+                                        </div>
 
-                                    <div id="zoomin" class="boton_zoom" style="position: absolute; bottom: 56px; right: 10px;">
-                                        <img src="img/zoom_mas.png" style="width: 22px">
-                                    </div>
+                                        <div class="boton_zoom" style="position: absolute; left: 10px; top: 120px; padding: 6px;" onclick="crear_mapa_json('todos_los_rincones');">
+                                            <img src="img/icono_gps_blanco.png" style="width: 40px">
+                                        </div>
 
-                                    <div id="zoomout" class="boton_zoom" style="position: absolute; bottom: 10px; right: 10px;">
-                                        <img src="img/zoom_menos.png" style="width: 22px">
-                                    </div>
+                                        <div id="zoomin" class="boton_zoom" style="position: absolute; bottom: 56px; right: 10px;">
+                                            <img src="img/zoom_mas.png" style="width: 22px">
+                                        </div>
 
-                                    <a onclick="nuevo_rincon();" class="btn-floating" style="position: absolute; bottom: 10px; left: 10px; width: 48px; height: 48px;"><img src="img/zoom_mas.png" style="width: 18px;"></a>
+                                        <div id="zoomout" class="boton_zoom" style="position: absolute; bottom: 10px; right: 10px;">
+                                            <img src="img/zoom_menos.png" style="width: 22px">
+                                        </div>
 
-
-                                    <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 116px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
-
+                                        <a onclick="nuevo_rincon();" class="btn-floating" style="position: absolute; bottom: 10px; left: 10px; width: 48px; height: 48px;"><img src="img/zoom_mas.png" style="width: 18px;"></a>
 
 
-                                        <div class="btn-group bootstrap-select framed material_shadow" style="padding: 0px; height: 40px;">
-                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px; height:40px; border: 0px solid #f0f0f0;">
-                                                <span class="filter-option pull-left" id="tipo_de_rincon_mapa">Selecciona un rincón</span>&nbsp;<span class="caret"></span>
-                                            </button>
-                                            <div class="dropdown-menu open animation-fade-in" style="margin-top: 2px; max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
-                                                <ul class="dropdown-menu inner selectpicker animation-fade-in Form-section" role="menu" style="max-height: 300px; overflow-y: auto; min-height: 111px;" id="contenedor_ul_mapa">
-                                                </ul>
-                                                <script>
-                                                    var contenido_ul = "";
-                                                    var x = 0;
-                                                    var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local'];
-                                                    for (x = 0; x < arr.length; x++)
-                                                    {
-                                                        var nombre_tipo = arr[x];
-                                                        var id_tipo = x;
-                                                        var contenido = "<li style='height: 35px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
-                                                        var contenido_ul = contenido_ul + contenido;
-                                                    }
-                                                    document.getElementById("contenedor_ul_mapa").innerHTML = contenido_ul;
-                                                    document.getElementById("tipo_mapa0").checked = "checked";
-                                                </script>
+                                        <header class="clearfix" style="border: 0px; width: 230px; padding: 0px; position: absolute; right: 6px; top: 116px; cursor: pointer; padding: 6px; border-radius: 2px; z-index:100">
 
+
+
+                                            <div class="btn-group bootstrap-select framed material_shadow" style="padding: 0px; height: 40px;">
+                                                <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" style="border: 0px; border-radius: 0px; height:40px; border: 0px solid #f0f0f0;">
+                                                    <span class="filter-option pull-left" id="tipo_de_rincon_mapa">Selecciona un rincón</span>&nbsp;<span class="caret"></span>
+                                                </button>
+                                                <div class="dropdown-menu open animation-fade-in" style="margin-top: 2px; max-height: 300px; overflow: hidden; min-height: 111px; border: 1px solid #f0f0f0;">
+                                                    <ul class="dropdown-menu inner selectpicker animation-fade-in Form-section" role="menu" style="max-height: 300px; overflow-y: auto; min-height: 111px;" id="contenedor_ul_mapa">
+                                                    </ul>
+                                                    <script>
+                                                        var contenido_ul = "";
+                                                        var x = 0;
+                                                        var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local'];
+                                                        for (x = 0; x < arr.length; x++)
+                                                        {
+                                                            var nombre_tipo = arr[x];
+                                                            var id_tipo = x;
+                                                            var contenido = "<li style='height: 35px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
+                                                            var contenido_ul = contenido_ul + contenido;
+                                                        }
+                                                        document.getElementById("contenedor_ul_mapa").innerHTML = contenido_ul;
+                                                        document.getElementById("tipo_mapa0").checked = "checked";
+                                                    </script>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                        <script>
-                                            function activar_tipo_mapa(id_tipo)
-                                            {
-                                                var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local'];
-                                                var nombre_tipo = arr[id_tipo];
-                                                var nombre_tipo = nombre_tipo.toLowerCase();
-                                                var nombre_tipo = nombre_tipo.replace(" ", "_");
-                                                var nombre_tipo = nombre_tipo.replace(" ", "_");
-                                                //$(".todos_los_rincones").fadeOut();
-                                                //$("." + nombre_tipo).fadeIn();
-                                                crear_mapa_json(nombre_tipo, 'centrado');
-                                                for (i = 1; i < arr.length; i++)
+                                            <script>
+                                                function activar_tipo_mapa(id_tipo)
                                                 {
-                                                    document.getElementById("tipo_mapa" + i).checked = "";
-                                                    document.getElementById("tipo_mapa" + id_tipo).checked = "checked";
-                                                    document.getElementById("tipo_de_rincon_mapa").innerHTML = document.getElementById("tipo_mapa" + id_tipo).value;
+                                                    var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local'];
+                                                    var nombre_tipo = arr[id_tipo];
+                                                    var nombre_tipo = nombre_tipo.toLowerCase();
+                                                    var nombre_tipo = nombre_tipo.replace(" ", "_");
+                                                    var nombre_tipo = nombre_tipo.replace(" ", "_");
+                                                    //$(".todos_los_rincones").fadeOut();
+                                                    //$("." + nombre_tipo).fadeIn();
+                                                    crear_mapa_json(nombre_tipo, 'centrado');
+                                                    for (i = 1; i < arr.length; i++)
+                                                    {
+                                                        document.getElementById("tipo_mapa" + i).checked = "";
+                                                        document.getElementById("tipo_mapa" + id_tipo).checked = "checked";
+                                                        document.getElementById("tipo_de_rincon_mapa").innerHTML = document.getElementById("tipo_mapa" + id_tipo).value;
+                                                    }
                                                 }
-                                            }
-                                        </script>
+                                            </script>
 
 
 
-                                    </header>
+                                        </header>
 
 
 
 
-                                    <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
 
-                                        <div class="centrado-porcentual sombra" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;">
-                                            <img src="img/cargando.svg" style="width: 40px; margin-right: 20px;"> Cargando ...
+
+
+                                        <div id="loading" style="z-index: 9999; display: none; height: 100%; position: fixed; top: 0px; left: 0px; width:100%; background: #ffffff;">
+
+                                            <div class="centrado-porcentual sombra" style="width: 200px; padding: 10px; background: #00cebe; color: #fff; text-align: center;">
+                                                <img src="img/cargando.svg" style="width: 40px; margin-right: 20px;"> Cargando ...
+                                            </div>
+
                                         </div>
 
                                     </div>
+                                    <!-- end Map -->
+                                    <!--Items List-->
+
+
+
 
                                 </div>
-                                <!-- end Map -->
-                                <!--Items List-->
-
-
-
-
-
                             </div>
                             <!-- end Map Canvas-->
 
+
+
+
+
+                        </div>
+                        <!-- end Page Content-->
+                    </div>
+                    <!-- end Page Canvas-->
+
+
+
+
+
+                    <!-- PANTALLA DE LOGIN -->
+
+
+                    <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; ;
+                         background-position: center center; background-size: cover; z-index: 20; display: none;" id="login">
+
+                        <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+
+                        <div id="volver_atras_login" class="modal-close" onclick="cerrar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none; z-index: 999">
                         </div>
 
 
 
-                    </div>
-                    <!-- end Page Content-->
-                </div>
-                <!-- end Page Canvas-->
+                        <div class="centrado-porcentual" id="ventana_login" style="display: none;">
+                            <form id="formulario_iniciar_sesion" name="formulario_iniciar_sesion" class="form-horizontal" action="" method="post">
+                                <h6 style="font-size: 36px;">Iniciar sesión
+                                </h6>
+                                <h6>Introduce tu email y contraseña</h6>
+                                <br><br>
 
+                                <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario" style="font-size: 16px;">
+                                <br><br>
+                                <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;">
+                                <br><br><br><br>
 
+                                <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 33px;"></div>
+                                <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
+                            </form>
+                            <br><br><br>
+                            <a onclick="mostrar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>¿Has olvidado tu contraseña? →</h6></a>
+                        </div>
 
+                        <div class="centrado-porcentual" id="ventana_recordar_clave" style="display: none; padding: 20px;">
+                            <form id="formulario_recordar_clave" name="formulario_recordar_clave" class="form-horizontal" action="" method="post">
+                                <h6 style="font-size: 30px;">Recordar contraseña
+                                </h6>
+                                <h6>Si has olvidado tu contraseña, introduce tu email y te enviaremos una nueva.</h6>
 
+                                <br><br>
+                                <input class="input_login" type="text"  id="email_recordar_clave" name="email_recordar_clave" placeholder="Correo electrónico" style="font-size: 16px;" value="paisleones@gmail.com">
+                                <br><br><br><br>
 
-                <!-- PANTALLA DE LOGIN -->
+                                <div id="comprobando_recordar_clave" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 34px;"></div>
 
+                                <a id="validar_recordar_clave" onclick="recordar_clave();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">RECORDAR CONTRASEÑA</a>
 
-                <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; ;
-                     background-position: center center; background-size: cover; z-index: 20; display: none;" id="login">
+                            </form>
 
-                    <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+                            <br><br><br>
 
-                    <div id="volver_atras_login" class="modal-close" onclick="cerrar_login();" style="width: 60px; height: 60px; position: fixed; left: 0px; top: 0px; cursor: pointer; background: url(img/arrow_left.png); background-position: center center; background-size: 28px; background-repeat: no-repeat; display: none; z-index: 999">
-                    </div>
+                            <a onclick="quitar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>← Volver a iniciar sesión</h6></a>
 
+                        </div>
 
-
-                    <div class="centrado-porcentual" id="ventana_login" style="display: none;">
-                        <form id="formulario_iniciar_sesion" name="formulario_iniciar_sesion" class="form-horizontal" action="" method="post">
-                            <h6 style="font-size: 36px;">Iniciar sesión
+                        <div class="centrado-porcentual" id="ventana_cerrar_sesion" style="display: none;">
+                            <h6 style="font-size: 36px;">Cerrar sesión
                             </h6>
-                            <h6>Introduce tu email y contraseña</h6>
-                            <br><br>
+                            <h6>Si quieres cerrar sesión o entrar con un <br>usuario diferente, pincha en cerrar sesión.</h6>
 
-                            <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Usuario" style="font-size: 16px;">
-                            <br><br>
-                            <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;">
-                            <br><br><br><br>
+                            <br><br><br>
 
-                            <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 33px;"></div>
-                            <a id="validar_login" onclick="iniciar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
-                        </form>
-                        <br><br><br>
-                        <a onclick="mostrar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>¿Has olvidado tu contraseña? →</h6></a>
-                    </div>
+                            <div id="comprobando_cerrar_sesion" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
+                            <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
+                        </div>
 
-                    <div class="centrado-porcentual" id="ventana_recordar_clave" style="display: none; padding: 20px;">
-                        <form id="formulario_recordar_clave" name="formulario_recordar_clave" class="form-horizontal" action="" method="post">
-                            <h6 style="font-size: 30px;">Recordar contraseña
-                            </h6>
-                            <h6>Si has olvidado tu contraseña, introduce tu email y te enviaremos una nueva.</h6>
-
-                            <br><br>
-                            <input class="input_login" type="text"  id="email_recordar_clave" name="email_recordar_clave" placeholder="Correo electrónico" style="font-size: 16px;" value="paisleones@gmail.com">
-                            <br><br><br><br>
-
-                            <div id="comprobando_recordar_clave" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 34px;"></div>
-
-                            <a id="validar_recordar_clave" onclick="recordar_clave();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">RECORDAR CONTRASEÑA</a>
-
-                        </form>
-
-                        <br><br><br>
-
-                        <a onclick="quitar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>← Volver a iniciar sesión</h6></a>
 
                     </div>
 
-                    <div class="centrado-porcentual" id="ventana_cerrar_sesion" style="display: none;">
-                        <h6 style="font-size: 36px;">Cerrar sesión
-                        </h6>
-                        <h6>Si quieres cerrar sesión o entrar con un <br>usuario diferente, pincha en cerrar sesión.</h6>
 
-                        <br><br><br>
 
-                        <div id="comprobando_cerrar_sesion" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
-                        <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
+
+
+
+                    <!-- PANTALLA NUEVO RINCON -->
+
+                    <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
+                    </div>
+
+                    <!-- /.row-->
+
+                    <!-- PANTALLA MIS RINCONES -->
+
+                    <div id="pantalla_mis_rincones" style="display: none; overflow-y: auto;">
+                    </div>
+
+                    <!-- /.row-->
+
+
+
+                    <div id="contenido_nuevo" style="display: none; overflow-y: auto; z-index: 500;">
                     </div>
 
 
+                    <div id="contenido_nuevo_comentario" style="display: none; overflow-y: auto; z-index: 501;">
+                    </div>
+
+
+
+
+                </div>
+            </div><!-- /o-wrapper -->
+
+
+            <!-- /c-menu slide-left -->
+            <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="background-color:#207a80; border-right: 2px solid #0dcdbd;">
+
+
+                <nav class="main-nav">
+                    <ul>
+                        <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
+                        <li class="icono_menu_izquierda" id="foto_perfil_usuario" style="background-image: url(img/avatar.png);"></li>
+                        <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
+                        <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
+                        <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
+                        <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
+                        <li class="icono_menu_izquierda" onclick="registro();"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
+                        <li class="icono_menu_izquierda" onclick="mi_perfil();"> <img src="img/iconos1/configuracion.png" alt="" title=""></li>
+                    </ul>
+                </nav>
+
+
+
+
+            </nav>
+            <!-- /c-menu slide-left -->
+
+
+            <!-- /c-menu slide-right -->
+            <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
+
+                <a class="c-menu__close" id="cerrar_derecha" style="background: rgba(13,205,189,0.9); width: 100%; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
+                    <img src="img/iconos1/cerrar.png" style="width: 40px; margin-right: 20px;"><font style="color: #ffffff;">Rincones cerca de ti</font>
+                </a>
+
+
+                <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
+
+                    <div class="items-list" style="width: 100%; background: #ffffff;">
+
+                        <div class="scroller1" style="width: 100%; background: #ffffff;">
+                            <ul class="results grid" style="padding-bottom: 50px; padding-top: 74px;">
+
+                            </ul>
+                            <div class="scroller__track">
+                                <div class="scroller__bar"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
 
 
-
-
-
-                <!-- PANTALLA NUEVO RINCON -->
-
-                <div id="nuevo_rincon" style="display: none; overflow-y: auto;">
-                </div>
-
-                <!-- /.row-->
-
-                <!-- PANTALLA MIS RINCONES -->
-
-                <div id="pantalla_mis_rincones" style="display: none; overflow-y: auto;">
-                </div>
-
-                <!-- /.row-->
-
-
-
-                <div id="contenido_nuevo" style="display: none; overflow-y: auto; z-index: 500;">
-                </div>
-
-
-                <div id="contenido_nuevo_comentario" style="display: none; overflow-y: auto; z-index: 501;">
-                </div>
-
-
-
-
-            </div>
-        </div><!-- /o-wrapper -->
-
-
-        <!-- /c-menu slide-left -->
-        <nav id="c-menu--slide-left" class="c-menu c-menu--slide-left sombra" style="background-color:#207a80; border-right: 2px solid #0dcdbd;">
-
-
-            <nav class="main-nav">
-                <ul>
-                    <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
-                    <li class="icono_menu_izquierda" id="foto_perfil_usuario" style="background-image: url(img/avatar.png);"></li>
-                    <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="login();"><img src="img/iconos1/login.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="registro();"><img src="img/iconos1/crear_perfil.png" alt="" title=""></li>
-                    <li class="icono_menu_izquierda" onclick="mi_perfil();"> <img src="img/iconos1/configuracion.png" alt="" title=""></li>
-                </ul>
             </nav>
 
 
 
 
-        </nav>
-        <!-- /c-menu slide-left -->
+            <nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
+                <button class="c-menu__close"><strong>x</strong></button>
 
 
-        <!-- /c-menu slide-right -->
-        <nav id="c-menu--slide-right" class="c-menu c-menu--slide-right sombra" style="background: #ffffff; border-left: 2px solid #0dcdbd;">
+                <div id="polivalente" style="display: none; width: 0px; height: 0px;"></div>
 
-            <a class="c-menu__close" id="cerrar_derecha" style="background: rgba(13,205,189,0.9); width: 100%; cursor: pointer; position: fixed; top: 0px; left: 0px; z-index: 999; padding: 10px;">
-                <img src="img/iconos1/cerrar.png" style="width: 40px; margin-right: 20px;"><font style="color: #ffffff;">Rincones cerca de ti</font>
-            </a>
+            </nav><!-- /c-menu push-bottom -->
 
 
-            <div id="contenido_menu_derecha" class="contenido_menu_derecha" style="padding: 0px;">
+            <!-- /c-menu slide-right -->
 
-                <div class="items-list" style="width: 100%; background: #ffffff;">
-
-                    <div class="scroller1" style="width: 100%; background: #ffffff;">
-                        <ul class="results grid" style="padding-bottom: 50px; padding-top: 74px;">
-
-                        </ul>
-                        <div class="scroller__track">
-                            <div class="scroller__bar"></div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+            <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 
 
+            <script type="text/javascript" src="js/menu.js"></script>
+            <script>
 
-        </nav>
-
-
-
-
-        <nav id="c-menu--push-bottom" class="c-menu c-menu--push-bottom">
-            <button class="c-menu__close"><strong>x</strong></button>
-
-
-            <div id="polivalente" style="display: none; width: 0px; height: 0px;"></div>
-
-        </nav><!-- /c-menu push-bottom -->
-
-
-        <!-- /c-menu slide-right -->
-
-        <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
-
-
-        <script type="text/javascript" src="js/menu.js"></script>
-        <script>
-
-                        /**
-                         * Slide left instantiation and action.
-                         */
-                        var slideLeft = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'slide-left',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var slideLeftBtn = document.querySelector('#c-button--slide-left');
-                        slideLeftBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            slideLeft.open();
-                        });
-                        /**
-                         * Slide right instantiation and action.
-                         */
-                        var slideRight = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'slide-right',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var slideRightBtn = document.querySelector('#c-button--slide-right');
-                        slideRightBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            slideRight.open();
-                        });
-                        /**
-                         * Push left instantiation and action.
-                         */
-                        var pushLeft = new Menu({
-                            wrapper: '#o-wrapper',
-                            type: 'push-left',
-                            menuOpenerClass: '.c-button',
-                            maskId: '#c-mask'
-                        });
-                        var pushLeftBtn = document.querySelector('#c-button--push-left');
-                        pushLeftBtn.addEventListener('click', function (e) {
-                            e.preventDefault;
-                            pushLeft.open();
-                        });
-        </script>
+                            /**
+                             * Slide left instantiation and action.
+                             */
+                            var slideLeft = new Menu({
+                                wrapper: '#o-wrapper',
+                                type: 'slide-left',
+                                menuOpenerClass: '.c-button',
+                                maskId: '#c-mask'
+                            });
+                            var slideLeftBtn = document.querySelector('#c-button--slide-left');
+                            slideLeftBtn.addEventListener('click', function (e) {
+                                e.preventDefault;
+                                slideLeft.open();
+                            });
+                            /**
+                             * Slide right instantiation and action.
+                             */
+                            var slideRight = new Menu({
+                                wrapper: '#o-wrapper',
+                                type: 'slide-right',
+                                menuOpenerClass: '.c-button',
+                                maskId: '#c-mask'
+                            });
+                            var slideRightBtn = document.querySelector('#c-button--slide-right');
+                            slideRightBtn.addEventListener('click', function (e) {
+                                e.preventDefault;
+                                slideRight.open();
+                            });
+                            /**
+                             * Push left instantiation and action.
+                             */
+                            var pushLeft = new Menu({
+                                wrapper: '#o-wrapper',
+                                type: 'push-left',
+                                menuOpenerClass: '.c-button',
+                                maskId: '#c-mask'
+                            });
+                            var pushLeftBtn = document.querySelector('#c-button--push-left');
+                            pushLeftBtn.addEventListener('click', function (e) {
+                                e.preventDefault;
+                                pushLeft.open();
+                            });
+            </script>
 
 
-        <script type="text/javascript" src="js/mapa/before.load.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
-        <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
-        <script type="text/javascript" src="js/mapa/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mapa/richmarker-compiled.js"></script>
-        <script type="text/javascript" src="js/mapa/smoothscroll.js"></script>
-        <script type="text/javascript" src="js/mapa/infobox.js"></script>
+            <script type="text/javascript" src="js/mapa/before.load.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8XfU1TcwgKidv4ZKg1xSxgE8pLLBFy1M"></script>
+            <script type="text/javascript" src="js/mapa/jquery-migrate-1.2.1.min.js"></script>
+            <script type="text/javascript" src="js/mapa/markerclusterer.js"></script>
+            <script type="text/javascript" src="js/mapa/bootstrap.min.js"></script>
+            <script type="text/javascript" src="js/mapa/richmarker-compiled.js"></script>
+            <script type="text/javascript" src="js/mapa/smoothscroll.js"></script>
+            <script type="text/javascript" src="js/mapa/infobox.js"></script>
 
-        <script type="text/javascript" src="js/mapa/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script type="text/javascript" src="js/mapa/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
-        <script type="text/javascript" src="js/mapa/custom.js"></script>
+            <script type="text/javascript" src="js/mapa/maps_mobile.js"></script>
+            <script type="text/javascript" src="js/mapa/custom.js"></script>
 
-        <script>
+            <script>
 
-                        $(document).bind(" mobileinit ", function () {
-                            $.mobile.defaultPageTransition = ' none';
-                            $.mobile.defaultDialogTransition = 'none';
-                            $.mobile.buttonMarkup.hoverDelay = 0;
-                        });
+                            $(document).bind(" mobileinit ", function () {
+                                $.mobile.defaultPageTransition = ' none';
+                                $.mobile.defaultDialogTransition = 'none';
+                                $.mobile.buttonMarkup.hoverDelay = 0;
+                            });
 
-// Funcion para mostrar una determinada pantalla - a traves del id
+                            // Funcion para mostrar una determinada pantalla - a traves del id
 
-                        function mostrar_pantalla(id)
-                        {
-                            SimularClick('cerrar_izquierda');
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                            $('#portada').hide();
-                            $('#portada').html("");
-                            $('#login').hide();
-                            $('#page_canvas').hide();
-                            eliminar_modal();
-                            location.href = "#" + id;
-                            $('#' + id).show();
-                        }
-
-// Funcion para mostrar la pantalla de login del usuario
-
-                        function login()
-                        {
-                            document.getElementById("ventana_recordar_clave").style.display = "none";
-                            SimularClick('cerrar_izquierda');
-                            $("#email_sesion").removeClass("input_login_error");
-                            $("#clave_sesion").removeClass("input_login_error");
-                            $('#email_sesion').val("");
-                            $('#clave_sesion').val("");
-                            $('#email_recordar_clave').val("");
-                            $("#email_recordar_clave").removeClass("input_login_error");
-                            $('#volver_atras').show();
-                            $("#comprobando_login").hide();
-                            $("#validar_login").show();
-                            $('#login').show();
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            if (id_usuario === "" || id_usuario === null)
+                            function mostrar_pantalla(id)
                             {
-                                document.getElementById("ventana_login").style.display = "block";
-                                document.getElementById("ventana_cerrar_sesion").style.display = "none";
-                            } else
-                            {
-                                document.getElementById("ventana_login").style.display = "none";
-                                document.getElementById("ventana_cerrar_sesion").style.display = "block";
-                            }
-                        }
-
-// Funcion para quitar la pantalla de login
-
-                        function quitar_login()
-                        {
-                            $('#cabecera').show();
-                            $('#volver_atras').hide();
-                            $('#login').hide();
-                            $('#loading').hide();
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                            $('#contenido_nuevo').hide();
-                            $('#contenido_nuevo').html("");
-                        }
-
-// Funcion para mostrar la pantalla de registro de un nuevo usuario
-
-                        function registro()
-                        {
-                            $("#volver_atras").show();
-//$("#loading").show();
-                            SimularClick('cerrar_izquierda');
-                            load_url("nuevo_rincon", "registro.html");
-                        }
-
-// Funcion para mostrar la pantalla de perfil del usuario
-
-                        function mi_perfil()
-                        {
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            var email = localStorage.getItem('email');
-                            //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
-                            //var email = "paisleones@gmail.com";
-                            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                            {
-                                navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tu perfil de usuario.', null, 'Aviso de Mycorner360', 'Aceptar');
-                                login();
-                                $("#login").show();
-                            } else
-                            {
-                                $("#volver_atras").show();
-//$("#loading").show();
                                 SimularClick('cerrar_izquierda');
-                                load_url("nuevo_rincon", "mi_perfil.html");
+                                $('#nuevo_rincon').hide();
+                                $('#nuevo_rincon').html("");
+                                $('#portada').hide();
+                                $('#portada').html("");
+                                $('#login').hide();
+                                $('#page_canvas').hide();
+                                eliminar_modal();
+                                location.href = "#" + id;
+                                $('#' + id).show();
                             }
 
-                        }
+                            // Funcion para mostrar la pantalla de login del usuario
 
-// Funcion para quitar la pantalla de registro de usuario
-
-                        function quitar_registro()
-                        {
-                            $('#volver_atras').hide();
-                            $('#registro').hide();
-                            $('#loading').hide();
-                            $('#nuevo_rincon').hide();
-                            $('#nuevo_rincon').html("");
-                            $('#contenido_nuevo').hide();
-                            $('#contenido_nuevo').html("");
-                        }
-
-// Funcion para mostrar la pantalla para cargar un nuevo rincon
-
-                        function nuevo_rincon()
-                        {
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            var email = localStorage.getItem('email');
-                            //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
-                            //var email = "paisleones@gmail.com";
-                            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                            function login()
                             {
-                                navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
-                                login();
-                                $("#login").show();
-                            } else
-                            {
-                                $("#volver_atras").show();
-//$("#loading").show();
+                                document.getElementById("ventana_recordar_clave").style.display = "none";
                                 SimularClick('cerrar_izquierda');
-                                load_url("nuevo_rincon", "nuevo_rincon.html");
-                            }
-                        }
-
-// Funcion para mostrar la pantalla de los rincones del usuario
-
-                        function mis_rincones()
-                        {
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            var email = localStorage.getItem('email');
-                            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                            {
-                                navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de Mycorner360', 'Aceptar');
-                                login();
-                                $("#login").show();
-                            } else
-                            {
-                                $("#volver_atras").show();
-//$("#loading").show();
-                                SimularClick('cerrar_izquierda');
-                                load_url("pantalla_mis_rincones", "mis_rincones.html");
-                                $("#pantalla_mis_rincones").show();
-                            }
-                        }
-
-// Funcion para mostrar la pantalla de nuevo nuevo comentario
-
-                        function nuevo_comentario()
-                        {
-                            var id_usuario = localStorage.getItem('id_usuario');
-                            var email = localStorage.getItem('email');
-                            if (id_usuario == "" || email == "" || id_usuario == null || email == null)
-                            {
-                                navigator.notification.alert('Ups! Tienes que iniciar sesion para comentar este rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
-                            } else
-                            {
-                                //$("#volver_atras").show();
-                                //SimularClick('cerrar_izquierda');
-                                $('#volver_atras').hide();
-                                $('#volver_atras_mis_rincones').hide();
-                                $('#volver_atras_comentario').show();
-                                load_url("contenido_nuevo_comentario", "nuevo_comentario.html");
-                                //$('.modal-window').hide();
-                            }
-                        }
-
-// Funcion para quitar la pantalla de nuevo comentario
-
-                        function quitar_vista_comentario()
-                        {
-                            $('#volver_atras_comentario').hide();
-                            $('#volver_atras').show();
-                            //$('#pantalla_mis_rincones').show();
-                            $('#contenido_nuevo_comentario').hide();
-                            $('#contenido_nuevo_comentario').html("");
-                            //$('.modal-window').show();
-
-                        }
-
-// Funcion para cargar datos de un rincon en la pantalla de rincones del usuario
-
-                        function quickView_mi_rincon(id)
-                        {
-                            document.getElementById("volver_atras").style.display = "none";
-                            document.getElementById("volver_atras_mis_rincones").style.display = "block";
-                            $('#pantalla_mis_rincones').hide();
-                            $('#loading').show();
-                            $.ajax(
-                                    {
-                                        url: 'https://www.mycorner360.com/app/modal_rincon_app.php?id=' + id,
-                                        data: id,
-                                        cache: true,
-                                        type: 'GET',
-                                        contentType: "html",
-                                        async: true,
-                                        crossDomain: true,
-                                    })
-                                    .fail(function (data) {
-                                        $('#contenido_nuevo').hide();
-                                        $('#loading').hide();
-                                        navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
-                                    })
-
-                                    .done(function (data) {
-                                        $("#volver_atras").hide();
-                                        $('#volver_atras_mis_rincones').show();
-                                    })
-
-                                    .success(function (data) {
-                                        $('#contenido_nuevo').html(data);
-                                        document.getElementById("contenido_nuevo").style.display = "block";
-                                        document.getElementById("loading").style.display = "none";
-                                    });
-                        }
-
-// Funcion para cargar datos de un rincon en el mapa de rincones
-
-                        function quickView(id)
-                        {
-                            $('#volver_atras').show();
-                            SimularClick('cerrar_derecha');
-                            $('#login').hide();
-                            $('#nuevo_rincon').html('');
-                            $('#contenido_nuevo').html('');
-                            $('#loading').show();
-                            $('.modal-window').remove();
-                            $.ajax(
-                                    {
-                                        url: 'https://www.mycorner360.com/app/modal_rincon_app.php?id=' + id,
-                                        data: id,
-                                        cache: true,
-                                        type: 'GET',
-                                        contentType: "html",
-                                        async: true,
-                                        crossDomain: true,
-                                    })
-                                    .fail(function (data) {
-                                        eliminar_modal();
-                                        $('#loading').hide();
-                                        navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
-                                    })
-
-                                    .done(function (data) {
-                                        $('#volver_atras').show();
-                                    })
-
-                                    .success(function (data) {
-                                        $('#contenido_nuevo').html(data);
-                                        //$('#volver_atras').show();
-                                        $('#contenido_nuevo').show();
-                                        $('#loading').hide();
-                                    });
-                        }
-
-// Funcion para quitar la pantalla de datos de un rincon
-
-                        function quitar_vista_rincon()
-                        {
-                            $('#volver_atras_mis_rincones').hide();
-                            $("#volver_atras").show();
-                            $('#pantalla_mis_rincones').show();
-                            $('#contenido_nuevo').hide();
-                            $('#contenido_nuevo').html("");
-                        }
-
-// Funcion para crear el mapa de rincones de una categoria - importante
-
-                        var centrado = null;
-                        function crear_mapa_json(categoria, centrado)
-                        {
-                            $("#direccion_mapa").html("Obteniedo localización ...");
-                            var onSuccess = function (position) {
-                                var gps_latitud = position.coords.latitude;
-                                var gps_longitud = position.coords.longitude;
-                                if (centrado == 'centrado')
+                                $("#email_sesion").removeClass("input_login_error");
+                                $("#clave_sesion").removeClass("input_login_error");
+                                $('#email_sesion').val("");
+                                $('#clave_sesion').val("");
+                                $('#email_recordar_clave').val("");
+                                $("#email_recordar_clave").removeClass("input_login_error");
+                                $('#volver_atras').show();
+                                $("#comprobando_login").hide();
+                                $("#validar_login").show();
+                                $('#login').show();
+                                var id_usuario = localStorage.getItem('id_usuario');
+                                if (id_usuario === "" || id_usuario === null)
                                 {
-                                    var NewMapCenter = map.getCenter();
-                                    var _latitude = NewMapCenter.lat();
-                                    var _longitude = NewMapCenter.lng();
-                                    var zoom = map.getZoom();
+                                    document.getElementById("ventana_login").style.display = "block";
+                                    document.getElementById("ventana_cerrar_sesion").style.display = "none";
                                 } else
                                 {
-                                    var _latitude = gps_latitud;
-                                    var _longitude = gps_longitud;
-                                    var zoom = 14;
+                                    document.getElementById("ventana_login").style.display = "none";
+                                    document.getElementById("ventana_cerrar_sesion").style.display = "block";
                                 }
+                            }
 
-                                getReverseGeocodingData_mapa_principal(_latitude, _longitude);
+                            // Funcion para quitar la pantalla de login
 
-                                var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+                            function quitar_login()
+                            {
+                                $('#cabecera').show();
+                                $('#volver_atras').hide();
+                                $('#login').hide();
+                                $('#loading').hide();
+                                $('#nuevo_rincon').hide();
+                                $('#nuevo_rincon').html("");
+                                $('#contenido_nuevo').hide();
+                                $('#contenido_nuevo').html("");
+                            }
+
+                            // Funcion para mostrar la pantalla de registro de un nuevo usuario
+
+                            function registro()
+                            {
+                                $("#volver_atras").show();
+                                //$("#loading").show();
+                                SimularClick('cerrar_izquierda');
+                                load_url("nuevo_rincon", "registro.html");
+                            }
+
+                            // Funcion para mostrar la pantalla de perfil del usuario
+
+                            function mi_perfil()
+                            {
+                                var id_usuario = localStorage.getItem('id_usuario');
+                                var email = localStorage.getItem('email');
+                                //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
+                                //var email = "paisleones@gmail.com";
+                                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
                                 {
-                                    $.getJSON(jsonPath)
-                                            .done(function (json) {
-                                                createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud);
-                                            });
-                                }
-                            };
-                            function onError(error) {
-
-                                navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
-                                var _latitude = 42.599052;
-                                var _longitude = -5.5665905;
-                                var zoom = 14;
-                                var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+                                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tu perfil de usuario.', null, 'Aviso de Mycorner360', 'Aceptar');
+                                    login();
+                                    $("#login").show();
+                                } else
                                 {
-                                    $.getJSON(jsonPath)
-                                            .done(function (json) {
-                                                createHomepageGoogleMap(_latitude, _longitude, json, zoom);
-                                            });
+                                    $("#volver_atras").show();
+                                    //$("#loading").show();
+                                    SimularClick('cerrar_izquierda');
+                                    load_url("nuevo_rincon", "mi_perfil.html");
                                 }
 
                             }
 
-                            navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-                                timeout: 2000, enableHighAccuracy: true});
-                        }
+                            // Funcion para quitar la pantalla de registro de usuario
 
-// Funcion para mostrar tipos de rincones por clases - no esta en uso
+                            function quitar_registro()
+                            {
+                                $('#volver_atras').hide();
+                                $('#registro').hide();
+                                $('#loading').hide();
+                                $('#nuevo_rincon').hide();
+                                $('#nuevo_rincon').html("");
+                                $('#contenido_nuevo').hide();
+                                $('#contenido_nuevo').html("");
+                            }
 
-                        function mostrar_rincones(tipo_rincon)
-                        {
-                            $(".todos_los_rincones").hide();
-                            $("." + tipo_rincon).show();
-                        }
-//crear_mapa_json('todos_los_rincones');
+                            // Funcion para mostrar la pantalla para cargar un nuevo rincon
+
+                            function nuevo_rincon()
+                            {
+                                var id_usuario = localStorage.getItem('id_usuario');
+                                var email = localStorage.getItem('email');
+                                //var id_usuario = "JCkkbgEBriW2ZHnVna3F";
+                                //var email = "paisleones@gmail.com";
+                                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                                {
+                                    navigator.notification.alert('Ups! Tienes que iniciar sesion para crear un nuevo rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
+                                    login();
+                                    $("#login").show();
+                                } else
+                                {
+                                    $("#volver_atras").show();
+                                    //$("#loading").show();
+                                    SimularClick('cerrar_izquierda');
+                                    load_url("nuevo_rincon", "nuevo_rincon.html");
+                                }
+                            }
+
+                            // Funcion para mostrar la pantalla de los rincones del usuario
+
+                            function mis_rincones()
+                            {
+                                var id_usuario = localStorage.getItem('id_usuario');
+                                var email = localStorage.getItem('email');
+                                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                                {
+                                    navigator.notification.alert('Ups! Tienes que iniciar sesion para ver tus rincones.', null, 'Aviso de Mycorner360', 'Aceptar');
+                                    login();
+                                    $("#login").show();
+                                } else
+                                {
+                                    $("#volver_atras").show();
+                                    //$("#loading").show();
+                                    SimularClick('cerrar_izquierda');
+                                    load_url("pantalla_mis_rincones", "mis_rincones.html");
+                                    $("#pantalla_mis_rincones").show();
+                                }
+                            }
+
+                            // Funcion para mostrar la pantalla de nuevo nuevo comentario
+
+                            function nuevo_comentario()
+                            {
+                                var id_usuario = localStorage.getItem('id_usuario');
+                                var email = localStorage.getItem('email');
+                                if (id_usuario == "" || email == "" || id_usuario == null || email == null)
+                                {
+                                    navigator.notification.alert('Ups! Tienes que iniciar sesion para comentar este rincon.', null, 'Aviso de Mycorner360', 'Aceptar');
+                                } else
+                                {
+                                    //$("#volver_atras").show();
+                                    //SimularClick('cerrar_izquierda');
+                                    $('#volver_atras').hide();
+                                    $('#volver_atras_mis_rincones').hide();
+                                    $('#volver_atras_comentario').show();
+                                    load_url("contenido_nuevo_comentario", "nuevo_comentario.html");
+                                    //$('.modal-window').hide();
+                                }
+                            }
+
+                            // Funcion para quitar la pantalla de nuevo comentario
+
+                            function quitar_vista_comentario()
+                            {
+                                $('#volver_atras_comentario').hide();
+                                $('#volver_atras').show();
+                                //$('#pantalla_mis_rincones').show();
+                                $('#contenido_nuevo_comentario').hide();
+                                $('#contenido_nuevo_comentario').html("");
+                                //$('.modal-window').show();
+
+                            }
+
+                            // Funcion para cargar datos de un rincon en la pantalla de rincones del usuario
+
+                            function quickView_mi_rincon(id)
+                            {
+                                document.getElementById("volver_atras").style.display = "none";
+                                document.getElementById("volver_atras_mis_rincones").style.display = "block";
+                                $('#pantalla_mis_rincones').hide();
+                                $('#loading').show();
+                                $.ajax(
+                                        {
+                                            url: 'https://www.mycorner360.com/app/modal_rincon_app.php?id=' + id,
+                                            data: id,
+                                            cache: true,
+                                            type: 'GET',
+                                            contentType: "html",
+                                            async: true,
+                                            crossDomain: true,
+                                        })
+                                        .fail(function (data) {
+                                            $('#contenido_nuevo').hide();
+                                            $('#loading').hide();
+                                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
+                                        })
+
+                                        .done(function (data) {
+                                            $("#volver_atras").hide();
+                                            $('#volver_atras_mis_rincones').show();
+                                        })
+
+                                        .success(function (data) {
+                                            $('#contenido_nuevo').html(data);
+                                            document.getElementById("contenido_nuevo").style.display = "block";
+                                            document.getElementById("loading").style.display = "none";
+                                        });
+                            }
+
+                            // Funcion para cargar datos de un rincon en el mapa de rincones
+
+                            function quickView(id)
+                            {
+                                $('#volver_atras').show();
+                                SimularClick('cerrar_derecha');
+                                $('#login').hide();
+                                $('#nuevo_rincon').html('');
+                                $('#contenido_nuevo').html('');
+                                $('#loading').show();
+                                $('.modal-window').remove();
+                                $.ajax(
+                                        {
+                                            url: 'https://www.mycorner360.com/app/modal_rincon_app.php?id=' + id,
+                                            data: id,
+                                            cache: true,
+                                            type: 'GET',
+                                            contentType: "html",
+                                            async: true,
+                                            crossDomain: true,
+                                        })
+                                        .fail(function (data) {
+                                            eliminar_modal();
+                                            $('#loading').hide();
+                                            navigator.notification.alert('Ups! Lo sentimos, pero se ha producido un error en la carga de datos', null, 'Aviso de Mycorner360', 'Aceptar');
+                                        })
+
+                                        .done(function (data) {
+                                            $('#volver_atras').show();
+                                        })
+
+                                        .success(function (data) {
+                                            $('#contenido_nuevo').html(data);
+                                            //$('#volver_atras').show();
+                                            $('#contenido_nuevo').show();
+                                            $('#loading').hide();
+                                        });
+                            }
+
+                            // Funcion para quitar la pantalla de datos de un rincon
+
+                            function quitar_vista_rincon()
+                            {
+                                $('#volver_atras_mis_rincones').hide();
+                                $("#volver_atras").show();
+                                $('#pantalla_mis_rincones').show();
+                                $('#contenido_nuevo').hide();
+                                $('#contenido_nuevo').html("");
+                            }
+
+                            // Funcion para crear el mapa de rincones de una categoria - importante
+
+                            var centrado = null;
+                            function crear_mapa_json(categoria, centrado)
+                            {
+                                $("#direccion_mapa").html("Obteniedo localización ...");
+                                var onSuccess = function (position) {
+                                    var gps_latitud = position.coords.latitude;
+                                    var gps_longitud = position.coords.longitude;
+                                    if (centrado == 'centrado')
+                                    {
+                                        var NewMapCenter = map.getCenter();
+                                        var _latitude = NewMapCenter.lat();
+                                        var _longitude = NewMapCenter.lng();
+                                        var zoom = map.getZoom();
+                                    } else
+                                    {
+                                        var _latitude = gps_latitud;
+                                        var _longitude = gps_longitud;
+                                        var zoom = 14;
+                                    }
+
+                                    getReverseGeocodingData_mapa_principal(_latitude, _longitude);
+
+                                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+                                    {
+                                        $.getJSON(jsonPath)
+                                                .done(function (json) {
+                                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom, centrado, gps_latitud, gps_longitud);
+                                                });
+                                    }
+                                };
+                                function onError(error) {
+
+                                    navigator.notification.alert("Lo sentimos pero no hemos podido determinar tu posición actual. Se utilizaran las coordenadas por defecto para generar el mapa. Para ver tu posicion, por favor activa el GPS.", null, "Aviso de Mycorner360", "Aceptar");
+                                    var _latitude = 42.599052;
+                                    var _longitude = -5.5665905;
+                                    var zoom = 14;
+                                    var jsonPath = 'https://www.mycorner360.com/lugares/' + categoria + '.json?t=' + new Date().getTime();
+                                    {
+                                        $.getJSON(jsonPath)
+                                                .done(function (json) {
+                                                    createHomepageGoogleMap(_latitude, _longitude, json, zoom);
+                                                });
+                                    }
+
+                                }
+
+                                navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+                                    timeout: 2000, enableHighAccuracy: true});
+                            }
+
+                            // Funcion para mostrar tipos de rincones por clases - no esta en uso
+
+                            function mostrar_rincones(tipo_rincon)
+                            {
+                                $(".todos_los_rincones").hide();
+                                $("." + tipo_rincon).show();
+                            }
+                            //crear_mapa_json('todos_los_rincones');
 
 
-        </script>
+            </script>
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/capture.js"></script>
-        <script type="text/javascript" src="js/camara_fotos.js"></script>
-        <script type="text/javascript" src="js/camara_video.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/camera.js"></script>
-        <script type="text/javascript" src="js/geolocation.js"></script>
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="js/capture.js"></script>
+            <script type="text/javascript" src="js/camara_fotos.js"></script>
+            <script type="text/javascript" src="js/camara_video.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript" src="js/camera.js"></script>
+            <script type="text/javascript" src="js/geolocation.js"></script>
 
-        <script type="text/javascript">
-                        app.initialize();
-                        function eliminar_modal()
-                        {
-                            $('#volver_atras').hide();
-                            $('#nuevo_rincon').hide();
-                            $('.modal-window .modal-background, .modal-close').live('click', function (e) {
-                                $('.modal-window').addClass('fade_out');
-                                setTimeout(function () {
-                                    $('.modal-window').remove();
-                                }, 10);
-                            });
-                        }
+            <script type="text/javascript">
+                            app.initialize();
+                            function eliminar_modal()
+                            {
+                                $('#volver_atras').hide();
+                                $('#nuevo_rincon').hide();
+                                $('.modal-window .modal-background, .modal-close').live('click', function (e) {
+                                    $('.modal-window').addClass('fade_out');
+                                    setTimeout(function () {
+                                        $('.modal-window').remove();
+                                    }, 10);
+                                });
+                            }
 
-        </script>
+            </script>
 
     </body>
 
