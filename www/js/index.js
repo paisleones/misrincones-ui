@@ -262,7 +262,7 @@ function cargar_mapa(latitud, longitud) {
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        map = plugin.google.maps.Map.getMap(document.getElementById("map_canvas"), myOptions);
 
         var marker = new google.maps.Marker({
             icon: "img/marcador_v2_nuevo_rincon.png",

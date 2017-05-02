@@ -116,7 +116,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         }
                 };
                         var mapElement = document.getElementById('map');
-                        map = new google.maps.Map(mapElement, mapOptions);
+                        map = plugin.google.maps.Map.getMap(mapElement, mapOptions);
                         var newMarkers = [];
                         var markerClicked = 0;
                         var activeMarker = true;
