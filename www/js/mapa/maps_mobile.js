@@ -116,7 +116,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         }
                 };
                         var mapElement = document.getElementById('map');
-                        map = new plugin.google.maps.Map.getMap(mapElement, mapOptions);
+                        map = new google.maps.Map(mapElement, mapOptions);
                         var newMarkers = [];
                         var markerClicked = 0;
                         var activeMarker = true;
@@ -124,7 +124,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                         var latLng = new google.maps.LatLng(_latitude, _longitude);
                         if (centrado != 'centrado')
                 {
-                var companyImage = new plugin.google.maps.MarkerImage('img/marcador.png',
+                var companyImage = new google.maps.MarkerImage('img/marcador.png',
                         new google.maps.Size(53, 52),
                         new google.maps.Point(0, 0),
                         new google.maps.Point(26, 26)
@@ -132,7 +132,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                 }
                 else
                 {
-                var companyImage = new plugin.google.maps.MarkerImage('',
+                var companyImage = new google.maps.MarkerImage('',
                         new google.maps.Size(0, 0),
                         new google.maps.Point(0, 0),
                         new google.maps.Point(0, 0)
@@ -140,7 +140,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
                 }
 
                 var marker = new RichMarker({
-                position: new plugin.google.maps.LatLng(gps_latitud, gps_longitud),
+                position: new google.maps.LatLng(gps_latitud, gps_longitud),
                         map: map,
                         //icon: 'img/marcador.png',
                         content: '<img src="img/marcador_v2.png" style="width: 32px;">',

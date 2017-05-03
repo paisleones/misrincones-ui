@@ -23,10 +23,6 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false"/>
     <preference name="disable-cursor" value="false" />
-<gap:plugin name="cordova-plugin-armsoft-googlemaps" source="npm">
-    <param name="API_KEY_FOR_ANDROID" value="AIzaSyDVtTPupHTZv7fSWRxBceJ362GqXsm7E6Y"/>
-    <param name="API_KEY_FOR_IOS" value="AIzaSyDVtTPupHTZv7fSWRxBceJ362GqXsm7E6Y"/>
-</gap:plugin>
 	<plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="cordova-plugin-cache" source="npm" /> 
     <plugin name="cordova-plugin-camera" source="npm" />
