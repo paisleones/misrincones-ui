@@ -193,7 +193,8 @@ function validar_registro()
         var validar3 = 1;
     }
 
-    if (validar1 == 1 && validar2 == 1 && validar3 == 1 && validar4 == 1)
+
+    if (validar1 == 1 && validar2 == 1 && validar3 == 1)
     {
 
         expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
