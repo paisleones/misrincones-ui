@@ -1,17 +1,17 @@
-<?xml version='1.2' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="com.trabajocreativo.mycorner360" version="1.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mycorner360</name>
     <description>
         Otra forma de descubir el mundo que te rodea
     </description>
-    <author email="info@trabajocreativo.com" href="http://www.trabajocreativo.com">
+    <author email="support@phonegap.com" href="http://phonegap.com">
         Team
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none"/>
     <preference name="target-device" value="universal"/>
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="16"/>
+    <preference name="android-minSdkVersion" value="12"/>
     <preference name="android-installLocation" value="auto"/>
     <preference name="SplashScreenDelay" value="0" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -23,7 +23,6 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false"/>
     <preference name="disable-cursor" value="false" />
-    <plugin name="cordova-plugin-crosswalk-webview" source="npm" />
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="cordova-plugin-cache" source="npm" />
     <plugin name="cordova-plugin-camera" source="npm" />
