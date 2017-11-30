@@ -1,10 +1,10 @@
 <?xml version='1.2' encoding='utf-8'?>
-<widget id="com.trabajocreativo.mycorner360" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.trabajocreativo.mycorner360" version="1.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mycorner360</name>
     <description>
         Otra forma de descubir el mundo que te rodea
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="info@trabajocreativo.com" href="http://www.trabajocreativo.com">
         Team
     </author>
     <content src="index.html" />
