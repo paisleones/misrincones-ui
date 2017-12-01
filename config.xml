@@ -28,6 +28,7 @@
     <preference name="xwalkMultipleApk" value="false" />
     <plugin name="cordova-plugin-crosswalk-webview" source="npm" />
 
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
