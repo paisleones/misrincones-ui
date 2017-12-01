@@ -4,14 +4,14 @@
     <description>
         Otra forma de descubir el mundo que te rodea
     </description>
-    <author email="info@trabajocreativo.com" href="http://www.trabajocreativo.com">
+    <author email="support@phonegap.com" href="http://phonegap.com">
         Team
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="target-device" value="universal" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-targetSdkVersion" value="16" />
+    <preference name="android-minSdkVersion" value="12" />
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreenDelay" value="0" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -23,6 +23,18 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
+    <plugin name="cordova-plugin-cache" source="npm" />
+    <plugin name="cordova-plugin-camera" source="npm" />
+    <plugin name="cordova-plugin-media-capture" source="npm" />
+    <plugin name="cordova-plugin-device" source="npm" />
+    <plugin name="cordova-plugin-dialogs" source="npm" />
+    <plugin name="cordova-plugin-file" source="npm" />
+    <plugin name="cordova-plugin-geolocation" source="npm" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <plugin name="cordova-plugin-media" source="npm" />
+    <plugin name="cordova-plugin-network-information" source="npm" />
+    <plugin name="cordova-plugin-streaming-media-mod" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
@@ -37,6 +49,7 @@
     <platform name="windows">
     </platform>
     <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -56,22 +69,5 @@
     <platform name="android" />
     <access origin="*" subdomains="true" />
     <access launch-external="yes" origin="whatsapp:*" />
-    <engine name="android" spec="^6.3.0" />
-    <plugin name="cordova-plugin-crosswalk-webview" spec="git+https://github.com/MobileChromeApps/cordova-plugin-crosswalk-webview.git#1.0.0" />
-    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.1.0" />
-    <plugin name="cordova-plugin-cache" spec="^1.0.5" />
-    <plugin name="cordova-plugin-camera" />
-    <plugin name="cordova-plugin-media-capture" />
-    <plugin name="cordova-plugin-device" />
-    <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-file" />
-    <plugin name="cordova-plugin-file-transfer" />
-    <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-media" />
-    <plugin name="cordova-plugin-network-information" />
-    <plugin name="cordova-plugin-streaming-media-mod" spec="^1.0.5" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="com.tiltshiftfocus.cordova.plugin.clearCache" />
-    <plugin name="me.donaldepignosis.cordova.plugins.streamingmedia.mod" />
+    <engine name="android" spec="^4.0.2" />
 </widget>
