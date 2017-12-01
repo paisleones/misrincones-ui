@@ -70,5 +70,4 @@
     <platform name="android" />
     <access origin="*" subdomains="true" />
     <access launch-external="yes" origin="whatsapp:*" />
-    <plugin name="cordova-plugin-file-transfer" spec="~1.5.1" />
 </widget>
