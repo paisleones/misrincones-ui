@@ -24,6 +24,7 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
 
+    <preference name="xwalkMode" value="lite" />
     <plugin name="cordova-plugin-crosswalk-webview" source="npm" />
 
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
