@@ -24,7 +24,6 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
 
-    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
