@@ -446,12 +446,12 @@
                             <input class="input_login" type="text" value="" id="email_sesion" name="email_sesion" placeholder="Email" style="font-size: 16px;" autocomplete="off" autocorrect="off" spellcheck="false">
                             <br><br>
                             <input class="input_login" type="text" value="" id="clave_sesion" name="clave_sesion" placeholder="Contraseña" style="font-size: 16px;" autocomplete="off" autocorrect="off" spellcheck="false">
-                            <br>
+                            <br><br><br>
 
                             <div id="comprobando_login" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 33px;"></div>
                             <a id="validar_login" onclick="iniciar_sesion();" class="boton_full btn btn-large btn-default" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">INICIAR SESIÓN</a>
                         </form>
-                        <br><br><br>
+                        <br><br>
                         <a onclick="mostrar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>¿Has olvidado tu contraseña? →</h6></a>
                     </div>
 
@@ -459,11 +459,11 @@
                         <form id="formulario_recordar_clave" name="formulario_recordar_clave" class="form-horizontal" action="" method="post">
                             <h6 style="font-size: 30px;">Recordar contraseña
                             </h6>
-                            <h6>Si has olvidado tu contraseña, introduce tu email y te enviaremos una nueva.</h6>
+                            <h6>Te enviaremos una nueva a tu email.</h6>
 
                             <br><br>
-                            <input class="input_login" type="text"  id="email_recordar_clave" name="email_recordar_clave" placeholder="Correo electrónico" style="font-size: 16px;" autocomplete="off" autocorrect="off" spellcheck="false">
-                            <br>
+                            <input class="input_login" type="text"  id="email_recordar_clave" name="email_recordar_clave" placeholder="Email" style="font-size: 16px;" autocomplete="off" autocorrect="off" spellcheck="false">
+                            <br><br><br>
 
                             <div id="comprobando_recordar_clave" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -13px; "><img src="img/loading.svg" style="width: 34px;"></div>
 
@@ -471,7 +471,7 @@
 
                         </form>
 
-                        <br><br><br>
+                        <br><br>
 
                         <a onclick="quitar_recordar_clave();" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;"><h6>← Volver a iniciar sesión</h6></a>
 
@@ -485,7 +485,7 @@
                         <br><br><br>
 
                         <div id="comprobando_cerrar_sesion" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: -14px; "><img src="img/loading.svg" style="width: 34px;"></div>
-                        <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
+                        <a id="validar_cerrar_sesion" onclick="cerrar_sesion();" class="boton_full btn btn-large btn-default" style="text-decoration: none; color: #fff; font-size: 15px; position: relative; margin-top: 50px; cursor: pointer;">CERRAR SESIÓN</a>
                     </div>
 
 
