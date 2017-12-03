@@ -63,10 +63,10 @@
 if ($(window).width() > alto_pantalla) {
 
 $('.map-canvas').height($(window).height() - $('.header').height() + 70);
-}
+        }
 else {
 $('.map-canvas #map').height($(window).height() - $('.header').height() + 70);
-}
+        }
 }
 
 $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100);
@@ -100,6 +100,7 @@ $('.mapa_nuevo_rincon').height($(window).height() - $('.header').height() - 100)
 
                 var mapOptions = {
                 zoom: zoom,
+                        liteMode: true,
                         center: mapCenter,
                         disableDefaultUI: true,
                         scrollwheel: false,
@@ -440,7 +441,7 @@ var mapCenter = new google.maps.LatLng(json.latitude, json.longitude, zoom);
                 flat: true
         });
         marker.content.className = 'marker-loaded';
-}
+        }
 
 
 
@@ -499,9 +500,9 @@ var _latitude = json.data[a].latitude;
         var _longitude = json.data[a].longitude;
         var mapCenter = new google.maps.LatLng(_latitude, _longitude);
         map.setCenter(mapCenter);
-}
-});
         }
+});
+}
 
 // Create modal if more items are on the same location (example: one building with floors) -----------------------------
 
@@ -515,7 +516,7 @@ var multipleItems = [];
         $("#pantalla_mis_rincones").show();
         load_url("multichoice", "https://www.mycorner360.com/app/_modal_multichoice.php?latitud=" + sameLatitude + "&longitud=" + sameLongitude);
         //}
-        }
+}
 
 // Animate OSM marker --------------------------------------------------------------------------------------------------
 
@@ -543,7 +544,7 @@ var bounds = map.getBounds();
 
         $('.items-list .results').html(visibleItemsArray);
         rating('.results .item');
-        }
+}
 
 // Redraw map after item list is closed --------------------------------------------------------------------------------
 
@@ -553,10 +554,10 @@ $('.map-canvas').toggleClass('results-collapsed');
         $('.map-canvas .map').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 if (mapProvider == 'osm'){
 map.invalidateSize();
-}
+        }
 else if (mapProvider == 'google'){
 google.maps.event.trigger(map, 'resize');
-}
-});
-});
         }
+});
+        });
+}

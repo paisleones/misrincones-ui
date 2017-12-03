@@ -3249,7 +3249,8 @@ body.map-fullscreen #map {
 }
 .btn.btn-large, select.btn-large {
     font-size: 14px;
-    padding: 15px 20px;
+    padding: 15px 40px;
+    border-radius: 50px;
 }
 .btn.icon i, select.icon i {
     color: #fff;

@@ -734,3 +734,11 @@ input
     top: 28px;
 }
 
+.input_login {
+    width: 250px !important;
+    padding: 10px !important;
+    background: rgba(0,0,0,0.2) !important;
+    border-bottom: 2px solid #0dcdbd !important;
+    font-size: 15px !important;
+    color: #f0f0f0 !important;
+}
