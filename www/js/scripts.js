@@ -305,6 +305,19 @@ function cerrar_sesion()
 
 }
 
+// Loading popup
+function showPopup(text) {
+    $.mobile.loading('show', {
+        text: text,
+        textVisible: true,
+        textonly: true,
+        theme: 'e',
+    });
+    window.setTimeout(function () {
+        $.mobile.loading('hide');
+    }, 2000);
+}
+
 // Funcion para iniciar sesion
 
 function iniciar_sesion()
@@ -312,6 +325,7 @@ function iniciar_sesion()
 
     $("#validar_login").hide();
     $("#comprobando_login").show();
+    showPopup('Un momento por favor');
     var email_sesion = $('#email_sesion').val();
     var clave_sesion = $('#clave_sesion').val();
 
