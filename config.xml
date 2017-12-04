@@ -24,7 +24,7 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="disable-cursor" value="false" />
 
-    <plugin name="cordova-plugin-google-analytics" source="npm" />
+    <gap:plugin name="cordova-plugin-google-analytics" spec="^1.8.3" source="npm" />
     <gap:plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />
     <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
