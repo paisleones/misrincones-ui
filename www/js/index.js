@@ -2,7 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
     //console.log("navigator.geolocation works well");
-    window.ga.startTrackerWithId('UA-92835463-1', 30);
+    //window.ga.startTrackerWithId('UA-92835463-1', 30);
 
 }
 
