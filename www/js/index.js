@@ -2,7 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
     //console.log("navigator.geolocation works well");
-    window.ga.startTrackerWithId('UA-92835463-1');
+    window.ga.startTrackerWithId('UA-92835463-1', 30);
 }
 
 // Avisar de que se perdió la conexión.
