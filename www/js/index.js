@@ -9,6 +9,28 @@ document.addEventListener("offline", function () {
     navigator.notification.alert("No tienes conexión a internet. Ten en cuenta que las secciones pueden verse afectadas", null, "Sin conexión", "Aceptar");
 });
 
+// Notificaciones push
+document.addEventListener('deviceready', function () {
+    // Enable to debug issues.
+    // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+    var notificationOpenedCallback = function (jsonData) {
+        var types = JSON.stringify(jsonData)
+        var titulo = jsonData.notification.payload.title;
+        var mensaje = jsonData.notification.payload.body;
+        navigator.notification.alert(mensaje, null, titulo, 'Aceptar');
+    };
+
+    window.plugins.OneSignal
+            .startInit("da6e47c1-cc58-4739-93be-c0194ba258b3")
+            .handleNotificationOpened(notificationOpenedCallback)
+            .endInit();
+
+    // Call syncHashedEmail anywhere in your app if you have the user's email.
+    // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
+    // window.plugins.OneSignal.syncHashedEmail(userEmail);
+}, false);
+// Fin notificaciones push
 
 var app = {
     // Application Constructor

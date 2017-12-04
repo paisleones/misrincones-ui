@@ -1,25 +1,3 @@
-/* Envio de notificaciones push - comentar para probar en local */
-
-var notificationOpenedCallback = function (jsonData) {
-    var types = JSON.stringify(jsonData)
-    var titulo = jsonData.notification.payload.title;
-    var mensaje = jsonData.notification.payload.body;
-
-    navigator.notification.alert(mensaje, null, titulo, 'Aceptar');
-
-};
-
-window.plugins.OneSignal
-        .startInit("da6e47c1-cc58-4739-93be-c0194ba258b3")
-        .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
-
-/* Envio de notificaciones push - comentar para probar en local */
-
-
-
-
-
 // Funcion codificar / decodificar en base64
 
 var Base64 = {_keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", encode: function (e) {

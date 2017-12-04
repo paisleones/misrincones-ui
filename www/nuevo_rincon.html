@@ -469,8 +469,7 @@
 
 <script>
     var como_crear_nuevo_rincon = localStorage.getItem('como_crear_nuevo_rincon');
-    alert(como_crear_nuevo_rincon);
-    if (como_crear_nuevo_rincon == "")
+    if (como_crear_nuevo_rincon == "null" || como_crear_nuevo_rincon == "null" || como_crear_nuevo_rincon == "undefined")
     {
         $("#como_usar").show();
         $("#paso1").show();
