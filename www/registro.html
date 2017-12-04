@@ -64,78 +64,81 @@
         background-image: url(img/check.png);
     }
 
-
 </style>
+
+
+
 
 <div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto; text-align: left;">
 
-                <form id="main" class="form-horizontal" action="">
-                    <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
 
-                        <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">CREAR UNA CUENTA DE USUARIO</h2>
-                        <h3></h3>
-                        <hr>
+    <form id="main" class="form-horizontal" action="">
+        <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
 
-
-                        Rellena la siguiente informacion para crear una cuenta de usuario. Recuerda que debes utilizar un email valido ya que te enviaremos un correo electrónico para que confirmes la cuenta.
-                        <br><br>
+            <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">CREAR UNA CUENTA DE USUARIO</h2>
+            <h3></h3>
+            <hr>
 
 
-                        <div style="padding: 20px;">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="email_registro" name="email_registro" placeholder="Email" value="">
-                                    </div>
+            Rellena la siguiente informacion para crear una cuenta de usuario. Recuerda que debes utilizar un email valido ya que te enviaremos un correo electrónico para que confirmes la cuenta.
+            <br><br>
 
-                                </div>
+
+            <div style="padding: 20px;">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email_registro" name="email_registro" placeholder="Email" value="">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="usuario_registro" name="usuario_registro" placeholder="Nombre de usuario" value="">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="clave_registro" name="clave_registro" placeholder="Contraseña" value="">
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <h3></h3>
+
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+
+                            <div class="checkbox custom" style="float: left; width: 40px;">
+                                <input id="aceptar_condiciones" class="css-checkbox" type="checkbox" name="aceptar_condiciones" value="OK" style="float: left; vertical-align: middle;"/>
+                                <label for="aceptar_condiciones" class="css-label-blue"></label>
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="usuario_registro" name="usuario_registro" placeholder="Nombre de usuario" value="">
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="clave_registro" name="clave_registro" placeholder="Contraseña" value="">
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <h3></h3>
-
-
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group">
-
-                                        <div class="checkbox custom" style="float: left; width: 40px;">
-                                            <input id="aceptar_condiciones" class="css-checkbox" type="checkbox" name="aceptar_condiciones" value="OK" style="float: left; vertical-align: middle;"/>
-                                            <label for="aceptar_condiciones" class="css-label-blue"></label>
-                                        </div>
-                                        Acepto los terminos y condiciones de uso. Si quieres leerlas, <a href="http://mycorner360.com/app/Terminos y Condiciones de uso de MyCorner360.pdf" target="_blank"><strong>pincha aqui</strong></a>
+                            Acepto los terminos y condiciones de uso. Si quieres leerlas, <a href="http://mycorner360.com/app/Terminos y Condiciones de uso de MyCorner360.pdf" target="_blank"><strong>pincha aqui</strong></a>
 
 
 
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-                            <div id="comprobando_registro" style="width: 100%; height: 50px; text-align: center; display: none;"><img src="img/loading.svg" style="width: 34px;"></div>
+                <div id="comprobando_registro" style="width: 100%; height: 50px; text-align: center; display: none;"><img src="img/loading.svg" style="width: 34px;"></div>
 
 
-                            <button id="boton_registro" type="button" onclick="validar_registro();" class="btn btn-large btn-default" style="width: 100%;">REGISTRAR</button>
+                <button id="boton_registro" type="button" onclick="validar_registro();" class="btn btn-large btn-default" style="width: 100%;">REGISTRAR</button>
 
 
-                    </section>
-                </form>
-            </div>
+        </section>
+    </form>
+</div>
