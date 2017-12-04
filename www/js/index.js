@@ -1,6 +1,8 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    console.log("navigator.geolocation works well");
+
+    //console.log("navigator.geolocation works well");
+    window.ga.startTrackerWithId('UA-92835463-1');
 }
 
 // Avisar de que se perdió la conexión.
@@ -11,7 +13,7 @@ document.addEventListener("offline", function () {
 
 // Notificaciones push
 document.addEventListener('deviceready', function () {
-    window.ga.startTrackerWithId('UA-92835463-1');
+
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
