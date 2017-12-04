@@ -249,11 +249,9 @@ box-shadow: -3px 0px 0px 0px rgba(50, 50, 50, 0.2);
     .c-menu--slide-left
     {
         width: 60px;
+        color: #fff;
     }
 }
-
-
-
 
 
 /**
@@ -477,7 +475,7 @@ box-shadow: -3px 0px 0px 0px rgba(50, 50, 50, 0.2);
     background-color:#50b5bb;
 }
 .main-nav ul li:nth-child(4){
-    background-color:#ff5757;
+    background-color:#49a9af;
 }
 .main-nav ul li:nth-child(5){
     background-color:#3da1a7;
