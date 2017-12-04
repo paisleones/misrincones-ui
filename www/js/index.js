@@ -11,7 +11,7 @@ document.addEventListener("offline", function () {
 
 // Notificaciones push
 document.addEventListener('deviceready', function () {
-    window.ga.setUserId('UA-92835463-1');
+    window.ga.startTrackerWithId('UA-92835463-1');
     // Enable to debug issues.
     // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
