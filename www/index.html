@@ -771,8 +771,13 @@
                                     .success(function (data) {
                                         $('#contenido_nuevo').html(data);
                                         //$('#volver_atras').show();
-                                        $('#contenido_nuevo').show();
-                                        $('#loading').hide();
+                                        setTimeout(function () {
+                                            $('#contenido_nuevo').fadeIn();
+                                        }, 0);
+                                        setTimeout(function () {
+                                            $('#loading').hide();
+                                            ;
+                                        }, 500);
                                     });
                         }
 
