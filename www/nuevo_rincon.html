@@ -84,27 +84,29 @@
 
     function siguiente_paso()
     {
-        document.getElementById("paso1").style.display = "none";
-        document.getElementById("paso2").style.display = "block";
+        $("#paso1").fadeOut();
+        $("#paso2").fadeIn();
     }
 
     function entendido()
     {
-        document.getElementById("paso2").style.display = "none";
+        $(".como_usar").hide();
+        $("#paso2").fadeOut();
         localStorage.setItem("como_crear_nuevo_rincon", "entendido");
     }
 
 </script>
 
 
-
 <div style="background: #ffffff; width: 100%; padding: 0px; padding-bottom: 0px; overflow-y: auto; height: 100%; position: fixed; top: 0px; left: 0px;">
+
 
     <div style="position: relative; top: 60px; width: 100%; min-height: 50px; background: #00cebe; padding: 10px; color: #ffffff; font-size: 15px;" class="sombra">
         <img src="img/iconos1/nuevo_rincon.png" style="float: left; width: 32px; margin-right: 10px; vertical-align: middle;">
 
         <div id="direccion_rincon" style="width: 100%; min-height: 20px; color: #ffffff; font-size: 13px;">Obteniendo localización ...</div>
     </div>
+
 
     <div id="map_canvas" class="mapa_nuevo_rincon" style="margin-top: 60px; z-index: 1; height: 55%; max-height: 350px;     background-color: #f0f0f0;
          background: url(img/loading.svg);
@@ -117,7 +119,12 @@
     </div>
 
 
+    <section style="margin-top: 0px; background: #fff; padding: 20px; padding-top: 10px;">
 
+        <h2 style="padding: 0px; margin: 0px; margin-bottom: 10px; margin-top: 20px;">AÑADIR UN NUEVO RINCÓN</h2>
+        Animo!! sólo tienes que rellenar este sencillo formulario con los datos de este lugar.
+        <hr>
+    </section>
 
     <section class="container" style="margin-top: -30px; background: #ffffff; z-index: 10; padding-top: 40px;">
         <div class="row">
@@ -433,39 +440,38 @@
 
 
 
-<div style="display: none;" id="como_usar" class="como_usar">
 
-    <div id="paso1" style="display: none;">
-        <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
-        <div class="centrado-porcentual" style="z-index: 99; padding: 40px; padding-top: 0px; color: #fff; line-height: 120%; text-align: center;">
-            <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
-                <img src="img/uso/drag.png" style="width: 50px; margin-top: 15px; margin-left: 10px;">
-            </div>
-            <br><br>
-            Puedes arrastrar el marcador y situarlo sobre el mapa donde tu quieras para posicionarlo mejor.
-            <p><br><br>
-                <button id="boton_registro" type="button" onclick="siguiente_paso();" class="btn btn-large btn-default" style="width: 150px; z-index: 999!important; opacity: 1; color: #fff">SIGUIENTE</button>
-
-
+<div id="paso1" style="display: none;">
+    <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+    <div class="centrado-porcentual" style="z-index: 20; padding: 40px; padding-top: 0px; color: #fff; line-height: 120%; text-align: center;">
+        <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
+            <img src="img/uso/drag.png" style="width: 50px; margin-top: 15px; margin-left: 10px;">
         </div>
+        <br><br>
+        Puedes arrastrar el marcador y situarlo sobre el mapa donde tu quieras para posicionarlo mejor.
+        <p><br><br>
+            <button id="boton_registro" type="button" onclick="siguiente_paso();" class="btn btn-large btn-default" style="width: 150px; z-index: 999!important; opacity: 0.9; color: #fff">SIGUIENTE</button>
+
+
     </div>
-
-    <div id="paso2" style="display: none;">
-        <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
-        <div class="centrado-porcentual" style="z-index: 50; padding: 40px; padding-top: 0px; color: #fff; line-height: 120%; text-align: center;">
-            <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
-                <img src="img/uso/click.png" style="width: 50px; margin-top: 22px; margin-left: 36px;">
-            </div>
-            <br><br>
-            Añadir un nuevo rincon es muy sencillo. Puedes grabar un video de 30 segundos como máximo por cada rincón
-            <p><br><br>
-                <button id="boton_registro" type="button" onclick="entendido();" class="btn btn-large btn-default" style="width: 200px; z-index: 99; opacity: 1; color: #fff;">ENTENDIDO !!</button>
-
-
-        </div>
-    </div>
-
 </div>
+
+<div id="paso2" style="display: none;">
+    <div class="pattern" style="background: rgba(0,0,0,0.8)"></div>
+    <div class="centrado-porcentual" style="z-index: 50; padding: 40px; padding-top: 0px; color: #fff; line-height: 120%; text-align: center;">
+        <div style="background: url(img/uso/animation.svg); background-size: 60px; background-repeat: no-repeat; background-position: top center">
+            <img src="img/uso/click.png" style="width: 50px; margin-top: 22px; margin-left: 36px;">
+        </div>
+        <br><br>
+        Añadir un nuevo rincon es muy sencillo. Puedes grabar un video de 30 segundos como máximo por cada rincón
+        <p><br><br>
+            <button id="boton_registro" type="button" onclick="entendido();" class="btn btn-large btn-default" style="width: 200px; z-index: 99; opacity: 1; color: #fff;">ENTENDIDO !!</button>
+
+
+    </div>
+</div>
+
+
 
 <script>
     var como_crear_nuevo_rincon = localStorage.getItem('como_crear_nuevo_rincon');

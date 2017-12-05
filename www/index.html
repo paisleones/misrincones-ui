@@ -715,6 +715,7 @@
                                         contentType: "html",
                                         async: true,
                                         crossDomain: true,
+                                        timeout: time_out,
                                     })
                                     .fail(function (data) {
                                         $('#contenido_nuevo').hide();
@@ -755,6 +756,7 @@
                                         contentType: "html",
                                         async: true,
                                         crossDomain: true,
+                                        timeout: time_out,
                                     })
                                     .fail(function (data) {
                                         eliminar_modal();

@@ -110,10 +110,15 @@ function load_url(div, url)
         contentType: "html",
         async: true,
         crossDomain: true,
+        timeout: time_out,
         success: function (data) {
             $('#' + div).html(data);
             $("#" + div).show();
+        },
+        error: function (data) {
+            navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
         }
+
     });
 }
 
@@ -129,6 +134,7 @@ function load_url_ajax(div, url)
                 contentType: "html",
                 async: true,
                 crossDomain: true,
+                timeout: time_out,
             })
             .fail(function (data) {
                 navigator.notification.alert("Lo sentimos, pero se ha producido un error en la carga de datos.", null, "Aviso de Mycorner360", "Aceptar");
