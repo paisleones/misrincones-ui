@@ -343,7 +343,6 @@ function iniciar_sesion()
 
     if (validar5 == 1 && validar6 == 1)
     {
-        alert("hola");
         setTimeout(function () {
             post_ajax('polivalente', 'formulario_iniciar_sesion', 'https://www.mycorner360.com/app/validar_login.php');
         }, 500);
