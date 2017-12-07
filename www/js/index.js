@@ -419,6 +419,7 @@ function post_ajax(div_id, id, url)
         async: true,
         data: $('#' + id).serialize(),
         success: function (response) {
+            alert("hola");
             $('#' + div_id).hide();
             $('#' + div_id).html(response);
             $('#' + div_id).fadeIn();
