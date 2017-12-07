@@ -418,6 +418,7 @@ function post_ajax(div_id, id, url)
         cache: false,
         async: true,
         data: $('#' + id).serialize(),
+        timeout: time_out,
         success: function (response) {
             $('#' + div_id).hide();
             $('#' + div_id).html(response);

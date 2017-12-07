@@ -88,7 +88,7 @@
 
                 <button onclick="crear_mapa_json('todos_los_rincones');
                         mostrar_pantalla('page-canvas');
-                        $('#cabecera').show();" class="btn btn-large btn-default" style="width: 140px;">
+                        $('#cabecera').show();" class="btn btn-large btn-default sombra" style="width: 140px;">
                     ENTRAR
                 </button>
 
@@ -190,12 +190,12 @@
                                             <script>
                                                 var contenido_ul = "";
                                                 var x = 0;
-                                                var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos olvidados'];
+                                                var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias románicas'];
                                                 for (x = 0; x < arr.length; x++)
                                                 {
                                                     var nombre_tipo = arr[x];
                                                     var id_tipo = x;
-                                                    var contenido = "<li style='height: 35px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
+                                                    var contenido = "<li style='height: 40px;' rel='" + id_tipo + "' onclick='activar_tipo_mapa(" + id_tipo + ");'><a tabindex='0' class='' style=''><input type='radio' value='" + nombre_tipo + "' name='tipo_mapa' id='tipo_mapa" + id_tipo + "'><span>" + nombre_tipo + "</span></a></li>";
                                                     var contenido_ul = contenido_ul + contenido;
                                                 }
                                                 document.getElementById("contenedor_ul_mapa").innerHTML = contenido_ul;
@@ -207,7 +207,7 @@
                                     <script>
                                         function activar_tipo_mapa(id_tipo)
                                         {
-                                            var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos olvidados'];
+                                            var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias románicas'];
                                             var nombre_tipo = arr[id_tipo];
                                             var nombre_tipo = nombre_tipo.toLowerCase();
                                             var nombre_tipo = nombre_tipo.replace(" ", "_");
