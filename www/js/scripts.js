@@ -315,7 +315,6 @@ function cerrar_sesion()
 
 function iniciar_sesion()
 {
-
     $("#validar_login").hide();
     $("#comprobando_login").show();
     var email_sesion = $('#email_sesion').val();
@@ -340,6 +339,7 @@ function iniciar_sesion()
         $("#clave_sesion").removeClass("input_login_error");
         var validar6 = 1;
     }
+
 
     if (validar5 == 1 && validar6 == 1)
     {
