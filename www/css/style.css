@@ -884,3 +884,17 @@ fade_in
     border: 1px solid #f0f0f0;
     border-bottom: 1px solid #c0c0c0;
 }
+
+.cerrar_derecha
+{
+    background: rgba(13,205,189,1);
+    width: 100%;
+    cursor: pointer;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    padding: 10px;
+    margin: 0px;
+    display: block;
+}

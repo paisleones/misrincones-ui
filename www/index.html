@@ -79,11 +79,11 @@
 
         <div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 60; display: none;" id="portada">
 
-            <div class="pattern" style="background: rgba(0,0,0,0.6)"></div>
+            <div class="pattern" style="background: rgba(0,0,0,0.7)"></div>
 
             <div class="centrado-porcentual">
 
-                <img src="img/logo_portada.png" style="width: 280px;">
+                <img src="img/logo_portada.png" style="width: 250px;">
                 <br><br><br>
 
                 <button onclick="crear_mapa_json('todos_los_rincones');
@@ -190,7 +190,7 @@
                                             <script>
                                                 var contenido_ul = "";
                                                 var x = 0;
-                                                var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias románicas'];
+                                                var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias romanicas'];
                                                 for (x = 0; x < arr.length; x++)
                                                 {
                                                     var nombre_tipo = arr[x];
@@ -207,7 +207,7 @@
                                     <script>
                                         function activar_tipo_mapa(id_tipo)
                                         {
-                                            var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias románicas'];
+                                            var arr = ['Todos los rincones', 'Museo', 'Plaza', 'Hotel', 'Restaurante', 'Monumento', 'Calle', 'Maravilla natural', 'Edificio', 'Cafeteria', 'Edificio religioso', 'Tienda', 'Estatua', 'Evento local', 'Pueblos con encanto', 'Iglesias romanicas'];
                                             var nombre_tipo = arr[id_tipo];
                                             var nombre_tipo = nombre_tipo.toLowerCase();
                                             var nombre_tipo = nombre_tipo.replace(" ", "_");
@@ -382,7 +382,7 @@
             <nav class="main-nav">
                 <ul>
                     <li class="icono_menu_izquierda"><a class="c-menu__close" id="cerrar_izquierda"><img src="img/iconos1/cerrar.png" alt="" title="" style="width: 60px;"></a></li>
-                    <li class="icono_menu_izquierda" id="foto_perfil_usuario" style="background-image: url(img/avatar.png);"></li>
+                    <li class="icono_menu_izquierda" id="foto_perfil_usuario" style="background-image: url(img/avatar.png);" onclick="mi_perfil();"></li>
                     <li class="icono_menu_izquierda" onclick="mostrar_pantalla('page-canvas');"><img src="img/iconos1/mapa.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="nuevo_rincon();"><img src="img/iconos1/nuevo_rincon.png" alt="" title=""></li>
                     <li class="icono_menu_izquierda" onclick="mis_rincones();"><img src="img/iconos1/perfil.png" alt="" title=""></li>
