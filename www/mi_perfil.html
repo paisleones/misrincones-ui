@@ -20,30 +20,6 @@
 <script>
     //window.cache.clear();
 
-    function mostrar_comprobando_perfil()
-    {
-        $("#comprobando_guardar_perfil").show();
-        $("#boton_guardar_perfil").hide();
-    }
-
-    function ocultar_comprobando_perfil()
-    {
-        $("#comprobando_guardar_perfil").hide();
-        $("#boton_guardar_perfil").show();
-    }
-
-    function mostrar_comprobando_clave()
-    {
-        $("#comprobando_cambiar_clave").show();
-        $("#boton_cambiar_clave").hide();
-    }
-
-    function ocultar_comprobando_clave()
-    {
-        $("#comprobando_cambiar_clave").hide();
-        $("#boton_cambiar_clave").show();
-    }
-
     function fotoDialog() {
         navigator.notification.confirm(
                 (""), // message
@@ -345,13 +321,10 @@
                                     <div id="error_perfil" style="width: 100%; max-width: 300px; text-align: center; position: relative; background: #e24b61; line-height: 140%;"></div>
 
 
-                                    <div id="comprobando_guardar_perfil" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: 0px; "><img src="img/loading.svg" style="width: 34px;"></div>
-                                </div>
-
-                                <div class = "form-group">
-                                    <a id="boton_guardar_perfil" class="btn btn-large btn-default" style="width: 200px;" href="javascript: mostrar_comprobando_perfil(); post_ajax('error_perfil', 'form-perfil', 'https://www.mycorner360.com/app/validar_perfil.php'); ocultar_comprobando_perfil();">GUARDAR PERFIL</a>
-                                </div>
-                                <!--/.form-group -->
+                                    <div class = "form-group">
+                                        <a class="btn btn-large btn-default" style="width: 200px;" href="javascript: post_ajax('error_perfil', 'form-perfil', 'https://www.mycorner360.com/app/validar_perfil.php');">GUARDAR PERFIL</a>
+                                    </div>
+                                    <!--/.form-group -->
 
                             </form>
                         </section>
@@ -378,31 +351,28 @@
 
                             <div class="form-group" style="padding-top: 1px;">
                                 <div id="error_clave" style="width: 100%; max-width: 300px; text-align: center; position: relative; background: #e24b61; line-height: 140%;"></div>
-
-                                <div id="comprobando_cambiar_clave" style="width: 100%; height: 34px; text-align: center; display: none; margin-top: 0px; "><img src="img/loading.svg" style="width: 34px;"></div>
                             </div>
+
+                            <div class="form-group">
+                                <a class="btn btn-large btn-default" style="width: 100%" href="javascript: post_ajax('error_clave', 'form-clave', 'https://www.mycorner360.com/app/validar_clave.php');">CAMBIAR CONTRASEÑA</a>
+                            </div>
+                            <!--/.form-group -->
+
+                        </form>
                     </div>
 
-                    <div class="form-group">
-                        <a id="boton_cambiar_clave" class="btn btn-large btn-default" style="width: 100%" href="javascript: mostrar_comprobando_clave(); post_ajax('error_clave', 'form-clave', 'https://www.mycorner360.com/app/validar_clave.php'); ocultar_comprobando_clave();">CAMBIAR CONTRASEÑA</a>
-                    </div>
-                    <!--/.form-group -->
-
-                    </form>
                 </div>
-
             </div>
+
+            <div id="datos_perfil" style="display: none;"></div>
+
+
+
+
+
         </div>
 
-        <div id="datos_perfil" style="display: none;"></div>
-
-
-
-
-
-</div>
-
-</section>
-<br><br><br><br>
+    </section>
+    <br><br><br><br>
 
 </div>
