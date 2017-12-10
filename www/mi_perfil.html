@@ -43,6 +43,17 @@
 
     }
 
+    function ver_foto_perfil()
+    {
+        var perfil_src = $("#foto_perfil").attr("src");
+        $("#perfil_visible").html("<div class='foto_de_perfil sombra' style='background: url(" + perfil_src + ");background-size: cover; background-position: center center;'></div>");
+        $("#perfil_visible").fadeIn();
+        if (perfil_src != "img/avatar.png")
+        {
+            $("#icono_eliminar_foto").fadeIn();
+        }
+    }
+
     function libreria_fotos(source) {
         // Retrieve image file location from specified source
         navigator.camera.getPicture(onPhotoURISuccess, onFail, {quality: 50,
@@ -55,9 +66,7 @@
         largeImage.style.display = 'block';
         largeImage.src = imageURI;
         document.getElementById("uri_foto").innerHTML = largeImage.src;
-        $("#foto_perfil").hide();
-        $("#div_foto").show();
-        $("#icono_eliminar_foto").show();
+        ver_foto_perfil();
     }
 
 
@@ -86,9 +95,7 @@
         var image = document.getElementById('fotoLocal');
         image.src = imageURI;
         document.getElementById("uri_foto").innerHTML = image.src;
-        $("#foto_perfil").hide();
-        $("#div_foto").show();
-        $("#icono_eliminar_foto").show();
+        ver_foto_perfil();
         subirImagen(id_usuario);
     }
 
@@ -212,14 +219,7 @@
                                         var perfil_usuario = document.getElementById('foto_perfil');
 
                                         perfil_usuario.onload = function () {
-                                            //$("#foto_perfil").fadeIn();
-                                            var perfil_src = $("#foto_perfil").attr("src");
-                                            $("#perfil_visible").html("<div class='foto_de_perfil sombra' style='background: url(" + perfil_src + ");background-size: cover; background-position: center center;'></div>");
-                                            $("#perfil_visible").fadeIn();
-                                            if (perfil_src != "img/avatar.png")
-                                            {
-                                                $("#icono_eliminar_foto").fadeIn();
-                                            }
+                                            ver_foto_perfil(perfil_usuario);
                                         };
 
                                     </script>
