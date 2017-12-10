@@ -1,3 +1,22 @@
+<style>
+    .foto_de_perfil {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        margin-top: 0px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        opacity: 1;
+        border: 4px solid #c0c0c0;
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+
 <script>
     //window.cache.clear();
 
@@ -146,7 +165,7 @@
     $("#nombre").val(nombre);
     $("#apellidos").val(apellidos);
     $("#email").val(email);
-    $("#foto_perfil").attr("src", "https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?j=" + new Date());
+    $("#foto_perfil").attr("src", "https://www.mycorner360.com/profiles/" + id_usuario + ".jpg?j=" + Math.round(+new Date() / 1000));
 </script>
 
 <div class="modal-window fade_in" style="width: 100%; height: 100%; margin: 0px; background: #fff; display: block; overflow-y: auto; text-align: left;">
@@ -175,27 +194,38 @@
                                 <div id="uri_foto" style="display: none;"></div>
 
 
-                                <div id="div_foto" style="background: url(img/loading.svg); background-repeat: no-repeat; background-position: center center; background-size: 34px; width: 100%; min-height: 140px; display: block; margin-bottom: 0px;">
+                                <div id="div_foto" style="background: url(img/loading.svg); background-repeat: no-repeat; background-position: center center; background-size: 34px; width: 100%; min-height: 100px; display: block; margin-bottom: 0px;">
                                     <img id="fotoLocal" src="" style="border: none; width: 100%; max-width: 180px; margin-bottom: 20px; display: none;">
+
+
 
                                     <div id="icono_eliminar_foto" style="width: 32px; height: 32px; background: #00cebe; padding-left: 0px; padding-top: 2px; color: #fff; position: absolute; top: 4px; right: 4px; z-index: 9999; font-size: 24px; display: none;" onclick="preguntar_eliminar_foto_perfil(id_usuario)">
                                         <i class="fa fa-trash"></i>
                                     </div>
 
-                                    <img id="foto_perfil" style="display: none; width: 100%; max-width: 180px; margin-bottom: 20px;" onerror="this.src='img/addphotomobile.jpg';">
+                                    <img id="foto_perfil" style="display: none; width: 100%; max-width: 180px; margin-bottom: 20px;" onerror="this.src='img/avatar.png';">
+
+                                    <div id="perfil_visible" style="display: none;"></div>
 
 
                                     <script>
                                         var perfil_usuario = document.getElementById('foto_perfil');
 
                                         perfil_usuario.onload = function () {
-                                            $("#foto_perfil").fadeIn();
+                                            //$("#foto_perfil").fadeIn();
+                                            var perfil_src = $("#foto_perfil").attr("src");
+                                            $("#perfil_visible").html("<div class='foto_de_perfil sombra' style='background: url(" + perfil_src + ");background-size: cover; background-position: center center;'></div>");
+                                            $("#perfil_visible").fadeIn();
+                                            if (perfil_src != "img/avatar.png")
+                                            {
+                                                $("#icono_eliminar_foto").fadeIn();
+                                            }
                                         };
 
                                     </script>
 
                                 </div>
-
+                                <br>
                                 <button type="button" style="width: 180px; text-align: center;" onclick="fotoDialog();" class="btn btn-large btn-default" id="submit">ACTUALIZAR FOTO</button>
 
                             </div>

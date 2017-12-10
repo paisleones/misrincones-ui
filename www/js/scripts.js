@@ -340,7 +340,6 @@ function iniciar_sesion()
         var validar6 = 1;
     }
 
-
     if (validar5 == 1 && validar6 == 1)
     {
         setTimeout(function () {
