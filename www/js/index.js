@@ -163,9 +163,8 @@ function uploadFail(error) {
 
 // Funcion para guardar un nuevo rincon
 
-function guardar_rincon(e)
+function guardar_rincon()
 {
-    e.preventDefault();
     //subirImagen(id);
     subirVideo(id);
     var id_usuario = localStorage.getItem('id_usuario');
@@ -411,7 +410,6 @@ function alertvideo(button) {
 
 function post_ajax(div_id, id, url)
 {
-    id.preventDefault();
     $.ajax({
         type: "POST",
         //url: form.attr("action"),
